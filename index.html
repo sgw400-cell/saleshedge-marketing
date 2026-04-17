@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalesHedge.ai — See the risk. Get the action. Close the deal.</title>
+<meta name="description" content="SalesHedge.ai is the first AI co-pilot built for resellers managing dozens of products, individual sellers, or leaders that manage both.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0b1120;--blue:#3b6cf5;--blue-dim:#2952c8;--red:#e04848;--amber:#d9952e;--green:#2da672;--text:#111827;--muted:#6b7280;--dim:#9ca3af;--bg:#ffffff;--bg2:#f5f6f8;--border:#e5e7eb;--font:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,17,32,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{display:flex;align-items:center;justify-content:center;width:40px;height:40px;transform:rotate(45deg);border:1.5px solid var(--blue);border-radius:6px;background:rgba(59,108,245,.08)}
+.logo-chevrons{transform:rotate(-45deg);display:flex;gap:1px}
+.logo-chevrons svg{width:10px;height:16px}
+.logo-text{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.logo-text span{color:var(--dim)}
+nav .cta-btn{padding:10px 22px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background .2s}
+nav .cta-btn:hover{background:var(--blue-dim)}
+.hero{background:var(--navy);padding:160px 0 100px;position:relative;overflow:hidden}
+.hero .container{position:relative;z-index:1;text-align:center}
+.hero h1{font-size:clamp(36px,5vw,64px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:24px}
+.hero h1 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px;vertical-align:middle}
+.hero h1 .dot-red{background:var(--red)}.hero h1 .dot-amber{background:var(--amber)}.hero h1 .dot-green{background:var(--green)}
+.hero p{font-size:18px;color:rgba(255,255,255,.6);max-width:640px;margin:0 auto 40px;line-height:1.7}
+.hero-cta{display:inline-block;padding:16px 40px;background:var(--blue);color:#fff;border-radius:10px;font-size:17px;font-weight:700;font-family:var(--font);transition:transform .2s,background .2s;cursor:pointer;border:none}
+.hero-cta:hover{background:var(--blue-dim);transform:translateY(-1px)}
+.hero-sub{color:rgba(255,255,255,.35);font-size:13px;margin-top:14px}
+.hero-bars{display:flex;align-items:flex-end;gap:6px;justify-content:center;margin-bottom:40px;opacity:.4}
+.hero-bars div{width:12px;border-radius:3px}
+.positioning{padding:80px 0;text-align:center;background:var(--bg)}
+.positioning p{font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--text);max-width:800px;margin:0 auto;line-height:1.5;letter-spacing:-.3px}
+.problem{padding:80px 0;background:var(--bg2)}
+.problem h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.5px}
+.problem .subtitle{text-align:center;font-size:16px;color:var(--muted);margin-bottom:48px}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.problem-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:32px 28px}
+.problem-card .num{font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:12px}
+.problem-card h3{font-size:17px;font-weight:800;color:var(--text);margin-bottom:10px;line-height:1.4}
+.problem-card p{font-size:14px;color:var(--muted);line-height:1.7}
+.how{padding:80px 0;background:var(--bg)}.how h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:48px;letter-spacing:-.5px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{text-align:center;padding:32px 24px}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;font-size:18px;font-weight:800;margin-bottom:20px}
+.step h3{font-size:18px;font-weight:800;color:var(--text);margin-bottom:10px}
+.step p{font-size:14px;color:var(--muted);line-height:1.7}
+.how .cta-center{text-align:center;margin-top:40px}
+.features{padding:80px 0;background:var(--bg2)}.features h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:48px;letter-spacing:-.5px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:transform .2s,box-shadow .2s}
+.feature-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.06)}
+.feature-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+.feature-card h3{font-size:16px;font-weight:800;color:var(--text);margin-bottom:8px}
+.feature-card p{font-size:13px;color:var(--muted);line-height:1.7}
+.who{padding:80px 0;background:var(--bg)}.who h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:48px;letter-spacing:-.5px}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.who-card{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:32px 28px;text-align:center;transition:border-color .2s}
+.who-card:hover{border-color:var(--blue)}
+.who-card h3{font-size:18px;font-weight:800;color:var(--text);margin-bottom:10px}
+.who-card p{font-size:14px;color:var(--muted);line-height:1.7}
+.integrations{padding:80px 0;background:var(--bg2)}.integrations .container{text-align:center}
+.integrations h2{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.5px}
+.integrations .subtitle{font-size:16px;color:var(--muted);max-width:600px;margin:0 auto 40px;line-height:1.7}
+.integration-logos{display:flex;justify-content:center;gap:48px;align-items:center;flex-wrap:wrap}
+.integration-logos span{font-size:18px;font-weight:700;color:var(--dim);letter-spacing:-.3px}
+.bottom-cta{padding:100px 0;background:var(--navy);text-align:center}
+.bottom-cta h2{font-size:clamp(28px,4vw,48px);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-1px}
+.bottom-cta p{color:rgba(255,255,255,.5);font-size:16px;margin-bottom:36px}
+footer{background:#080d18;padding:40px 0;border-top:1px solid rgba(255,255,255,.05)}
+footer .container{text-align:center}
+.footer-brand{font-size:16px;font-weight:800;color:rgba(255,255,255,.6);margin-bottom:8px}
+.footer-brand span{color:var(--dim)}
+.footer-position{font-style:italic;font-size:13px;color:rgba(255,255,255,.25);max-width:600px;margin:0 auto 20px;line-height:1.6}
+.footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.35);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.7)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.2);margin-top:20px}
+@media(max-width:768px){.problem-grid,.steps,.features-grid,.who-grid{grid-template-columns:1fr}.hero{padding:120px 0 60px}.integration-logos{gap:24px}nav .cta-btn{display:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1,.hero p,.hero-cta,.hero-sub{animation:fadeUp .6s ease both}.hero p{animation-delay:.1s}.hero-cta{animation-delay:.2s}.hero-sub{animation-delay:.3s}
+</style>
+</head>
+<body>
+<nav><div class="container"><a href="/" class="logo"><div class="logo-icon"><div class="logo-chevrons"><svg viewBox="0 0 10 16" fill="none"><path d="M2 2L8 8L2 14" stroke="#3b6cf5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 10 16" fill="none"><path d="M2 2L8 8L2 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="logo-text">SalesHedge<span>.ai</span></div></a><a href="https://app.saleshedge.ai" class="cta-btn">Try it for free</a></div></nav>
+<section class="hero"><div class="container"><div class="hero-bars"><div style="height:24px;background:var(--red)"></div><div style="height:36px;background:var(--amber)"></div><div style="height:52px;background:var(--green)"></div></div><h1>See the risk<span class="dot dot-red"></span><br>Get the action<span class="dot dot-amber"></span><br>Close the deal<span class="dot dot-green"></span></h1><p>SalesHedge.ai analyzes your pipeline daily, flags hidden risks, and delivers specific coaching so you know exactly what to work on today.</p><a href="https://app.saleshedge.ai" class="hero-cta">Try it for free</a><div class="hero-sub">No credit card required</div></div></section>
+<section class="positioning"><div class="container"><p>SalesHedge.ai is the first AI co-pilot built for resellers managing dozens of products, individual sellers, or leaders that manage both.</p></div></section>
+<section class="problem"><div class="container"><h2>Your CRM tracks what happened.</h2><div class="subtitle">SalesHedge tells you what to do next.</div><div class="problem-grid"><div class="problem-card"><div class="num">[01]</div><h3>CRMs store data but don't coach.</h3><p>Your CRM knows the deal exists but has no opinion about whether it will close. It tracks activity without understanding what that activity means.</p></div><div class="problem-card"><div class="num">[02]</div><h3>Pipeline reviews waste time on stale information.</h3><p>Weekly reviews rehash what everyone already knows instead of surfacing what no one sees coming. The real risks hide between the updates.</p></div><div class="problem-card"><div class="num">[03]</div><h3>Deals die silently because no one catches the warning signs.</h3><p>By the time a deal goes dark, the window to save it has already closed. Instinct alone can't cover a pipeline of 20+ deals.</p></div></div></div></section>
+<section class="how" id="how"><div class="container"><h2>From risk to action in 60 seconds.</h2><div class="steps"><div class="step"><div class="step-num">1</div><h3>Add your deals</h3><p>Paste from your CRM, upload a screenshot, or describe them in a natural conversation. SalesHedge parses whatever you throw at it.</p></div><div class="step"><div class="step-num">2</div><h3>Get your focus list</h3><p>AI scores every deal against 20 proprietary risk patterns and surfaces what needs attention today. Red means act now. Yellow means watch. Green means on track.</p></div><div class="step"><div class="step-num">3</div><h3>Close with confidence</h3><p>Specific coaching with exact language to use, draft emails that re-engage with value, and talk tracks that move the deal forward.</p></div></div><div class="cta-center"><a href="https://app.saleshedge.ai" class="hero-cta">Try it for free</a></div></div></section>
+<section class="features"><div class="container"><h2>Built different.</h2><div class="features-grid"><div class="feature-card"><div class="feature-icon" style="background:#fef2f2;color:var(--red)">&#9888;</div><h3>20 Red Flag Patterns</h3><p>Proprietary detection of deal-killing behaviors invisible to CRMs and generic AI. From champion-without-budget to procurement-running-ahead.</p></div><div class="feature-card"><div class="feature-icon" style="background:#eff6ff;color:var(--blue)">&#9733;</div><h3>AI Coaching</h3><p>Specific next actions with exact language. Not generic advice. Coaching that sounds like a 25-year sales veteran sitting next to you.</p></div><div class="feature-card"><div class="feature-icon" style="background:#f0fdf4;color:var(--green)">&#128172;</div><h3>Ask the Hedge</h3><p>Ask questions about your pipeline in plain English. Which deals need me today? What is the biggest risk? Instant, specific answers.</p></div><div class="feature-card"><div class="feature-icon" style="background:#fffbeb;color:var(--amber)">&#9993;</div><h3>Draft Emails &amp; Talk Tracks</h3><p>One-click re-engagement content that brings new value. Because strong sellers never check in.</p></div><div class="feature-card"><div class="feature-icon" style="background:#faf5ff;color:#7c3aed">&#9776;</div><h3>Multi-Vendor Pipeline</h3><p>All deals across all vendor relationships prioritized in one view. No more logging into a dozen portals.</p></div><div class="feature-card"><div class="feature-icon" style="background:#fef2f2;color:var(--red)">&#128200;</div><h3>Executive Dashboard</h3><p>Gap reporting, rep performance, and pipeline health for sales managers. See which deals are dying and which reps need coaching.</p></div></div></div></section>
+<section class="who"><div class="container"><h2>Built for how you sell.</h2><div class="who-grid"><div class="who-card"><h3>Individual Reps</h3><p>Direct sales AEs and SDRs who want to close more deals faster by knowing exactly what to work on every day.</p></div><div class="who-card"><h3>Channel Partners</h3><p>Resellers, VARs, and SIs managing pipeline across multiple vendor relationships and dozens of product lines.</p></div><div class="who-card"><h3>Sales Leaders</h3><p>VPs and managers who need team visibility with executive dashboards, gap reporting, and CRM integrations with Salesforce, HubSpot, and Monday.com.</p></div></div></div></section>
+<section class="integrations"><div class="container"><h2>SalesHedge enhances your CRM.<br>It doesn't replace it.</h2><div class="subtitle">Two-way integration planned with the platforms your team already uses. Pull deals in for AI analysis. Push coaching and risk scores back where reps work.</div><div class="integration-logos"><span>Salesforce</span><span>HubSpot</span><span>Monday.com</span></div></div></section>
+<section class="bottom-cta"><div class="container"><h2>Stop guessing.<br>Start closing.</h2><p>Your pipeline has hidden risks. SalesHedge finds them before they kill your deals.</p><a href="https://app.saleshedge.ai" class="hero-cta">Try it for free</a><div class="hero-sub">No credit card required &middot; Set up in 60 seconds</div></div></section>
+<footer><div class="container"><div class="footer-brand">SalesHedge<span>.ai</span></div><div class="footer-position">The first AI co-pilot built for resellers managing dozens of products, individual sellers, or leaders that manage both.</div><div class="footer-links"><a href="/terms">Terms of Service</a><a href="/privacy">Privacy Policy</a><a href="mailto:support@saleshedge.ai">Support</a><a href="https://app.saleshedge.ai">Login</a></div><div class="footer-copy">&copy; 2026 SalesHedge.ai. All rights reserved.</div></div></footer>
+</body></html>
