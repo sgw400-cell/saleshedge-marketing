@@ -6,7 +6,7 @@
 <title>SalesHedge.ai — Find the gap. Get the play. Close the deal.</title>
 <meta name="description" content="SalesHedge.ai delivers AI-powered pipeline coaching, gap analysis, and forecasting for direct sellers, resellers, and the leaders who manage them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0b1120;--blue:#3b6cf5;--blue-dim:#2952c8;--red:#e04848;--amber:#d9952e;--green:#2da672;--text:#111827;--muted:#6b7280;--dim:#9ca3af;--bg:#ffffff;--bg2:#f5f6f8;--border:#e5e7eb;--font:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace}
@@ -17,11 +17,9 @@ a{color:var(--blue);text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,17,32,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 0}
 nav .container{display:flex;justify-content:space-between;align-items:center}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-icon{display:flex;align-items:center;justify-content:center;width:50px;height:50px;transform:rotate(45deg);border:1.5px solid var(--blue);border-radius:6px;background:rgba(59,108,245,.08)}
-.logo-chevrons{transform:rotate(-45deg);display:flex;gap:1px}
-.logo-chevrons svg{width:12px;height:20px}
+.logo-icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex-shrink:0}
 .logo-text{font-size:25px;font-weight:800;color:#fff;letter-spacing:-.3px}
-.logo-text span{color:var(--dim)}.logo-sub{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1.5px;margin-top:1px}
+.logo-text span{color:var(--dim)}.logo-sub{font-family:'Sora',sans-serif;font-size:9px;font-weight:400;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-top:2px}
 nav .cta-btn{padding:10px 22px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background .2s}
 nav .cta-btn:hover{background:var(--blue-dim)}
 .hero{background:var(--navy);padding:160px 0 100px;position:relative;overflow:hidden}
@@ -88,7 +86,7 @@ footer .container{text-align:center}
 </style>
 </head>
 <body>
-<nav><div class="container"><a href="/" class="logo"><div class="logo-icon"><div class="logo-chevrons"><svg viewBox="0 0 10 16" fill="none"><path d="M2 2L8 8L2 14" stroke="#3b6cf5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 10 16" fill="none"><path d="M2 2L8 8L2 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div><div class="logo-text">SalesHedge<span>.ai</span></div><div class="logo-sub">Pipeline Co-Pilot</div></div></a><div style="display:flex;gap:12px;align-items:center"><a href="https://saleshedge-app.vercel.app/login" style="font-size:14px;font-weight:600;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Login</a><a href="https://saleshedge-app.vercel.app/login" class="cta-btn">Try it for free</a></div></div></nav>
+<nav><div class="container"><a href="/" class="logo"><div class="logo-icon"><svg width="48" height="48" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><div><div class="logo-text">SalesHedge<span>.ai</span></div><div class="logo-sub">Pipeline Co-Pilot</div></div></a><div style="display:flex;gap:12px;align-items:center"><a href="https://saleshedge-app.vercel.app/login" style="font-size:14px;font-weight:600;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Login</a><a href="https://saleshedge-app.vercel.app/login" class="cta-btn">Try it for free</a></div></div></nav>
 <section class="hero"><div class="container"><div class="hero-bars"><div style="height:24px;background:var(--red)"></div><div style="height:36px;background:var(--amber)"></div><div style="height:52px;background:var(--green)"></div></div><h1>Find the gap<span class="dot dot-red"></span><br>Get the play<span class="dot dot-amber"></span><br>Close the deal<span class="dot dot-green"></span></h1><p>SalesHedge.ai delivers AI-powered pipeline coaching, gap analysis, and forecasting for direct sellers, resellers, and the leaders who manage them.</p><a href="https://saleshedge-app.vercel.app/login" class="hero-cta">Try it for free</a><div class="hero-sub">No credit card required</div></div></section>
 <section class="positioning"><div class="container"><p>SalesHedge.ai analyzes every deal on demand, flags hidden risks, and delivers specific coaching so you know exactly what to work on today.</p></div></section>
 
