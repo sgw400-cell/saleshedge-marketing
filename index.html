@@ -5,95 +5,247 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SalesHedge.ai — Find the gap. Get the play. Close the deal.</title>
 <meta name="description" content="SalesHedge.ai delivers AI-powered pipeline coaching, gap analysis, and forecasting for direct sellers, resellers, and the leaders who manage them.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--navy:#0b1120;--blue:#3b6cf5;--blue-dim:#2952c8;--red:#e04848;--amber:#d9952e;--green:#2da672;--text:#111827;--muted:#6b7280;--dim:#9ca3af;--bg:#ffffff;--bg2:#f5f6f8;--border:#e5e7eb;--font:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
-a{color:var(--blue);text-decoration:none}
+body{font-family:'Inter',system-ui,sans-serif;color:#111827;background:#fff;-webkit-font-smoothing:antialiased}
 .container{max-width:1120px;margin:0 auto;padding:0 24px}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,17,32,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 0}
-nav .container{display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex-shrink:0}
-.logo-text{font-size:25px;font-weight:800;color:#fff;letter-spacing:-.3px}
-.logo-text span{color:#93c5fd}.logo-sub{font-family:'Sora',sans-serif;font-size:9px;font-weight:500;color:#d1d5db;text-transform:uppercase;letter-spacing:2px;margin-top:2px}
-nav .cta-btn{padding:10px 22px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background .2s}
-nav .cta-btn:hover{background:var(--blue-dim)}
-.hero{background:var(--navy);padding:160px 0 100px;position:relative;overflow:hidden}
-.hero .container{position:relative;z-index:1;text-align:center}
-.hero h1{font-size:clamp(36px,5vw,64px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:24px}
-.hero h1 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px;vertical-align:middle}
-.hero h1 .dot-red{background:var(--red)}.hero h1 .dot-amber{background:var(--amber)}.hero h1 .dot-green{background:var(--green)}
-.hero p{font-size:18px;color:rgba(255,255,255,.6);max-width:640px;margin:0 auto 40px;line-height:1.7}
-.hero-cta{display:inline-block;padding:16px 40px;background:var(--blue);color:#fff;border-radius:10px;font-size:17px;font-weight:700;font-family:var(--font);transition:transform .2s,background .2s;cursor:pointer;border:none}
-.hero-cta:hover{background:var(--blue-dim);transform:translateY(-1px)}
-.hero-sub{color:rgba(255,255,255,.35);font-size:13px;margin-top:14px}
-.hero-bars{display:flex;align-items:flex-end;gap:6px;justify-content:center;margin-bottom:40px;opacity:.4}
-.hero-bars div{width:12px;border-radius:3px}
-.positioning{padding:80px 0;text-align:center;background:var(--bg2)}
-.positioning p{font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--text);max-width:800px;margin:0 auto;line-height:1.5;letter-spacing:-.3px}
-.problem{padding:80px 0;background:var(--bg2)}
-.problem h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.5px}
-.problem .subtitle{text-align:center;font-size:16px;color:var(--muted);margin-bottom:48px}
-.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.problem-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:32px 28px}
-.problem-card .num{font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:12px}
-.problem-card h3{font-size:17px;font-weight:800;color:var(--text);margin-bottom:10px;line-height:1.4}
-.problem-card p{font-size:14px;color:var(--muted);line-height:1.7}
-.how{padding:80px 0;background:var(--bg)}.how h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:48px;letter-spacing:-.5px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.step{text-align:center;padding:32px 24px}
-.step-num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;font-size:18px;font-weight:800;margin-bottom:20px}
-.step h3{font-size:18px;font-weight:800;color:var(--text);margin-bottom:10px}
-.step p{font-size:14px;color:var(--muted);line-height:1.7}
-.how .cta-center{text-align:center;margin-top:40px}
-.features{padding:80px 0;background:var(--bg2)}.features h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:48px;letter-spacing:-.5px}
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.feature-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:transform .2s,box-shadow .2s}
-.feature-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.06)}
-.feature-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
-.feature-card h3{font-size:16px;font-weight:800;color:var(--text);margin-bottom:8px}
-.feature-card p{font-size:13px;color:var(--muted);line-height:1.7}
-.who{padding:80px 0;background:var(--bg)}.who h2{text-align:center;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:48px;letter-spacing:-.5px}
-.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.who-card{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:32px 28px;text-align:center;transition:border-color .2s}
-.who-card:hover{border-color:var(--blue)}
-.who-card h3{font-size:18px;font-weight:800;color:var(--text);margin-bottom:10px}
-.who-card p{font-size:14px;color:var(--muted);line-height:1.7}
-.integrations{padding:80px 0;background:var(--bg2)}.integrations .container{text-align:center}
-.integrations h2{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.5px}
-.integrations .subtitle{font-size:16px;color:var(--muted);max-width:600px;margin:0 auto 40px;line-height:1.7}
-.integration-logos{display:flex;justify-content:center;gap:48px;align-items:center;flex-wrap:wrap}
-.integration-logos span{font-size:18px;font-weight:700;color:var(--dim);letter-spacing:-.3px}
-.bottom-cta{padding:100px 0;background:var(--navy);text-align:center}
-.bottom-cta h2{font-size:clamp(28px,4vw,48px);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-1px}
-.bottom-cta p{color:rgba(255,255,255,.5);font-size:16px;margin-bottom:36px}
-footer{background:#080d18;padding:40px 0;border-top:1px solid rgba(255,255,255,.05)}
-footer .container{text-align:center}
-.footer-brand{font-size:16px;font-weight:800;color:rgba(255,255,255,.6);margin-bottom:8px}
-.footer-brand span{color:var(--dim)}
-.footer-position{font-style:italic;font-size:13px;color:rgba(255,255,255,.25);max-width:600px;margin:0 auto 20px;line-height:1.6}
-.footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.35);transition:color .2s}
-.footer-links a:hover{color:rgba(255,255,255,.7)}
-.footer-copy{font-size:12px;color:rgba(255,255,255,.2);margin-top:20px}
-@media(max-width:768px){.problem-grid,.steps,.features-grid,.who-grid{grid-template-columns:1fr}.hero{padding:120px 0 60px}.integration-logos{gap:24px}nav .cta-btn{display:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero h1,.hero p,.hero-cta,.hero-sub{animation:fadeUp .6s ease both}.hero p{animation-delay:.1s}.hero-cta{animation-delay:.2s}.hero-sub{animation-delay:.3s}
+
+nav{background:#0b1120;padding:14px 0;position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo .name{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.nav-logo .name span{color:#93c5fd}
+.nav-logo .sub{font-family:'Sora',sans-serif;font-size:8px;font-weight:500;color:#d1d5db;text-transform:uppercase;letter-spacing:2px;margin-top:2px}
+.nav-right{display:flex;gap:12px;align-items:center}
+.nav-right>a{color:#9ca3af;text-decoration:none;font-size:14px;font-weight:500}
+.btn{display:inline-flex;align-items:center;padding:10px 22px;background:#3b6cf5;color:#fff;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s}
+.btn:hover{background:#2952c8}
+.btn-lg{font-size:16px;padding:14px 28px}
+
+.hero{background:#0b1120;padding:80px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero h1{font-size:48px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1.08;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:#3b6cf5}
+.hero-sub{font-size:17px;color:#d1d5db;line-height:1.6;margin-bottom:32px}
+.hero-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.cta-note{font-size:13px;color:#6b7280}
+
+.hero-mockup{background:#1a2234;border:1px solid #2d3748;border-radius:16px;padding:24px;box-shadow:0 24px 48px rgba(0,0,0,.3)}
+.mockup-hdr{display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #2d3748}
+.mockup-hdr span{font-size:13px;font-weight:700;color:#93c5fd}
+.mock-insight{margin-bottom:14px;padding:12px 14px;background:rgba(59,108,245,.06);border-radius:0 8px 8px 0}
+.mock-insight .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.lbl-red{color:#ef4444;border-left:3px solid #ef4444;margin-left:-14px;padding-left:11px}
+.lbl-amber{color:#f59e0b;border-left:3px solid #f59e0b;margin-left:-14px;padding-left:11px}
+.lbl-green{color:#10b981;border-left:3px solid #10b981;margin-left:-14px;padding-left:11px}
+.mock-insight p{font-size:12px;color:#d1d5db;line-height:1.5}
+.mock-insight .coaching{font-size:11px;color:#3b6cf5;margin-top:6px;font-weight:500}
+.mock-score{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #2d3748}
+.score-dot{width:10px;height:10px;border-radius:50%}
+.score-num{font-size:20px;font-weight:800;color:#fff}
+.score-lbl{font-size:11px;color:#6b7280}
+
+.stats{background:#f5f6f8;padding:48px 0;border-bottom:1px solid #e5e7eb}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.stat{text-align:center}
+.stat .num{font-size:32px;font-weight:900;color:#3b6cf5;letter-spacing:-1px}
+.stat .desc{font-size:13px;color:#6b7280;margin-top:4px;font-weight:500}
+
+.sec{padding:80px 0}
+.sec-alt{background:#f5f6f8}
+.sec-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#3b6cf5;margin-bottom:12px}
+.sec-title{font-size:36px;font-weight:900;letter-spacing:-1px;line-height:1.15;margin-bottom:16px}
+.sec-sub{font-size:16px;color:#6b7280;line-height:1.6;max-width:720px;margin-bottom:48px}
+
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.step{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px}
+.step-num{width:32px;height:32px;border-radius:8px;background:#3b6cf5;color:#fff;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.step p{font-size:14px;color:#6b7280;line-height:1.6}
+.step-mock{margin-top:16px;background:#1a2234;border-radius:10px;padding:14px;border:1px solid #2d3748}
+.sm-label{font-size:10px;color:#93c5fd;font-weight:600;margin-bottom:8px}
+.mini-row{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.mini-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.mini-label{font-size:10px;color:#d1d5db;flex:1}
+.mini-score{font-size:10px;font-weight:700}
+
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{padding:28px;border-radius:14px;border:1px solid #e5e7eb;background:#fff;transition:border-color .2s}
+.feat:hover{border-color:#3b6cf5}
+.feat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.feat h3{font-size:16px;font-weight:800;margin-bottom:6px}
+.feat p{font-size:13px;color:#6b7280;line-height:1.6}
+
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.aud-card{border-radius:16px;padding:32px 28px;border:1px solid #e5e7eb;background:#fff;display:flex;flex-direction:column}
+.aud-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.aud-card h3{font-size:20px;font-weight:800;margin-bottom:8px}
+.aud-role{font-size:12px;font-weight:600;color:#3b6cf5;margin-bottom:12px}
+.aud-card>p{font-size:14px;color:#6b7280;line-height:1.6;margin-bottom:12px}
+.aud-card ul{list-style:none;padding:0;margin:0}
+.aud-card ul li{font-size:13px;color:#374151;padding:5px 0 5px 20px;position:relative}
+.aud-card ul li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;border-radius:2px}
+.aud-blue li::before{background:#3b6cf5}
+.aud-green li::before{background:#10b981}
+.aud-amber li::before{background:#f59e0b}
+.aud-chart{margin-top:auto;padding-top:20px}
+.chart-box{background:#1a2234;border-radius:10px;padding:16px;border:1px solid #2d3748}
+.chart-hdr{display:flex;align-items:center;gap:6px;margin-bottom:14px}
+.chart-hdr span{font-size:11px;font-weight:700;color:#93c5fd}
+.chart-body{display:flex;align-items:center;gap:20px}
+.chart-legend{display:flex;flex-direction:column;gap:6px;flex:1}
+.legend-row{display:flex;align-items:center;gap:6px}
+.legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.legend-name{font-size:10px;color:#d1d5db;flex:1}
+.legend-val{font-size:10px;font-weight:700;color:#fff}
+
+.crm{background:#111827;padding:64px 0;text-align:center}
+.crm h2{font-size:28px;font-weight:900;color:#fff;margin-bottom:12px}
+.crm p{font-size:15px;color:#9ca3af;max-width:560px;margin:0 auto 24px;line-height:1.6}
+.crm-logos{display:flex;gap:32px;justify-content:center}
+.crm-logos span{font-size:15px;font-weight:700;color:#6b7280}
+
+.final-cta{background:#0b1120;padding:80px 0;text-align:center}
+.final-cta h2{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:12px}
+.final-cta p{font-size:16px;color:#9ca3af;margin-bottom:32px}
+
+footer{background:#080d18;padding:40px 0;text-align:center}
+footer .pos{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:16px;max-width:500px;margin-left:auto;margin-right:auto}
+footer .links{display:flex;gap:20px;justify-content:center;margin-bottom:16px}
+footer .links a{color:rgba(255,255,255,.35);text-decoration:none;font-size:13px}
+footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
+
+@media(max-width:768px){
+.hero-grid{grid-template-columns:1fr;gap:40px}
+.hero h1{font-size:32px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.steps-grid,.feat-grid,.aud-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<nav><div class="container"><a href="/" class="logo"><div class="logo-icon"><svg width="48" height="48" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><div><div class="logo-text">SalesHedge<span>.ai</span></div><div class="logo-sub">Pipeline Co-Pilot</div></div></a><div style="display:flex;gap:12px;align-items:center"><a href="https://saleshedge-app.vercel.app/login" style="font-size:14px;font-weight:600;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Login</a><a href="https://saleshedge-app.vercel.app/login" class="cta-btn">Try it for free</a></div></div></nav>
-<section class="hero"><div class="container"><div class="hero-bars"><div style="height:24px;background:var(--red)"></div><div style="height:36px;background:var(--amber)"></div><div style="height:52px;background:var(--green)"></div></div><h1>Find the gap<span class="dot dot-red"></span><br>Get the play<span class="dot dot-amber"></span><br>Close the deal<span class="dot dot-green"></span></h1><p>SalesHedge.ai delivers AI-powered pipeline coaching, gap analysis, and forecasting for direct sellers, resellers, and the leaders who manage them.</p><a href="https://saleshedge-app.vercel.app/login" class="hero-cta">Try it for free</a><div class="hero-sub">No credit card required</div></div></section>
-<section class="positioning"><div class="container"><p>Your pipeline has hidden risks. SalesHedge.ai finds them before they kill your deals. On demand, we flag hidden risks and deliver specific deal coaching so you know exactly what to work on each day to advance deals.</p></div></section>
 
-<section class="how" id="how"><div class="container"><h2>From risk to action in 60 seconds.</h2><div class="steps"><div class="step"><div class="step-num">1</div><h3>Add your deals</h3><p>Paste from your CRM, upload a screenshot, or describe them in a natural conversation. SalesHedge parses whatever you throw at it.</p></div><div class="step"><div class="step-num">2</div><h3>Get your focus list</h3><p>AI scores every deal against 20 proprietary risk patterns and surfaces what needs attention today. Red means act now. Yellow means watch. Green means on track.</p></div><div class="step"><div class="step-num">3</div><h3>Close with confidence</h3><p>Specific coaching with exact language to use, draft emails that re-engage with value, and talk tracks that move the deal forward.</p></div></div><div class="cta-center"><a href="https://saleshedge-app.vercel.app/login" class="hero-cta">Try it for free</a></div></div></section>
-<section class="features"><div class="container"><h2>Built different.</h2><div class="features-grid"><div class="feature-card"><div class="feature-icon" style="background:#fef2f2;color:var(--red)">&#9888;</div><h3>20 Red Flag Patterns</h3><p>Proprietary detection of deal-killing behaviors invisible to CRMs and generic AI. From champion-without-budget to procurement-running-ahead.</p></div><div class="feature-card"><div class="feature-icon" style="background:#eff6ff;color:var(--blue)">&#9733;</div><h3>AI Coaching</h3><p>Specific next actions with exact language. Not generic advice. Coaching that sounds like a 25-year sales veteran sitting next to you.</p></div><div class="feature-card"><div class="feature-icon" style="background:#f0fdf4;color:var(--green)">&#128172;</div><h3>Ask the Hedge</h3><p>Ask questions about your pipeline in plain English. Which deals need me today? What is the biggest risk? Instant, specific answers.</p></div><div class="feature-card"><div class="feature-icon" style="background:#fffbeb;color:var(--amber)">&#9993;</div><h3>Draft Emails &amp; Talk Tracks</h3><p>One-click re-engagement content that brings new value. Because strong sellers never check in.</p></div><div class="feature-card"><div class="feature-icon" style="background:#faf5ff;color:#7c3aed">&#9776;</div><h3>Multi-Vendor Pipeline</h3><p>All deals across all vendor relationships prioritized in one view. No more logging into a dozen portals.</p></div><div class="feature-card"><div class="feature-icon" style="background:#fef2f2;color:var(--red)">&#128200;</div><h3>Executive Dashboard</h3><p>Gap reporting, rep performance, and pipeline health for sales managers. See which deals are dying and which reps need coaching.</p></div></div></div></section>
-<section class="who"><div class="container"><h2>Built for how you sell.</h2><div class="who-grid"><div class="who-card"><h3>Individual Reps</h3><p>Direct sales AEs and SDRs who want to close more deals faster by knowing exactly what to work on every day.</p></div><div class="who-card"><h3>Channel Partners</h3><p>Resellers, VARs, and SIs managing pipeline across multiple vendor relationships and dozens of product lines.</p></div><div class="who-card"><h3>Sales Leaders</h3><p>VPs and managers who need team visibility with executive dashboards, gap reporting, and CRM integrations with Salesforce, HubSpot, and Monday.com.</p></div></div></div></section>
-<section class="integrations"><div class="container"><h2>Enterprise teams connect their CRM.</h2><div class="subtitle">Enterprise customers integrate with Salesforce, HubSpot, and Monday.com. Pull deals in for AI analysis. Push coaching and risk scores back where reps work.</div><div class="integration-logos"><span>Salesforce</span><span>HubSpot</span><span>Monday.com</span></div></div></section>
-<section class="bottom-cta"><div class="container"><h2>Stop guessing.<br>Start closing.</h2><p>Your pipeline has hidden risks. SalesHedge finds them before they kill your deals.</p><a href="https://saleshedge-app.vercel.app/login" class="hero-cta">Try it for free</a><div class="hero-sub">No credit card required &middot; Free for up to 5 deals</div></div></section>
-<footer><div class="container"><div class="footer-brand">SalesHedge<span>.ai</span></div><div class="footer-position">AI-powered pipeline coaching, gap analysis, and forecasting for direct sellers, resellers, and the leaders who manage them.</div><div class="footer-links"><a href="/terms.html">Terms of Service</a><a href="/privacy.html">Privacy Policy</a><a href="mailto:support@saleshedge.ai">Support</a><a href="https://saleshedge-app.vercel.app/login">Login</a></div><div class="footer-copy">&copy; 2026 SalesHedge.ai. All rights reserved.</div></div></footer>
-</body></html>
+<nav><div class="container nav-inner">
+<a href="/" class="nav-logo">
+<svg width="36" height="36" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+<div><div class="name">SalesHedge<span>.ai</span></div><div class="sub">Pipeline Co-Pilot</div></div>
+</a>
+<div class="nav-right"><a href="https://saleshedge-app.vercel.app/login">Login</a><a href="https://saleshedge-app.vercel.app/login?signup=true" class="btn">Try it for free</a></div>
+</div></nav>
+
+<section class="hero"><div class="container hero-grid">
+<div>
+<h1>Find the gap.<br>Get the play.<br><em>Close the deal.</em></h1>
+<p class="hero-sub">Your pipeline has hidden risks. SalesHedge.ai finds them before they kill your deals — with specific coaching, exact language to use, and step-by-step plays to advance every deal.</p>
+<div class="hero-cta"><a href="https://saleshedge-app.vercel.app/login?signup=true" class="btn btn-lg">Try it for free</a><span class="cta-note">No credit card required &middot; Free for up to 5 deals</span></div>
+</div>
+<div class="hero-mockup">
+<div class="mockup-hdr"><svg width="20" height="20" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1.5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span>SalesHedge AI Insights</span></div>
+<div class="mock-insight"><div class="lbl lbl-red">Champion without economic buyer access</div><p>Your champion at Meridian has been driving this deal for 3 weeks but has no direct line to the budget holder. This deal will stall without executive engagement.</p><div class="coaching">&rarr; Ask your champion to arrange a 15-minute alignment call with the VP of Ops this week. Offer to co-present the business case.</div></div>
+<div class="mock-insight"><div class="lbl lbl-red">Forecast says "commit" &mdash; the deal says otherwise</div><p>You marked NovaTech as a Commit for Q2, but close date has slipped twice, no business case has been presented, and your last activity was 12 days ago. This deal belongs in Upside at best.</p><div class="coaching">&rarr; Downgrade to Upside. Before your next forecast call, schedule a candid conversation with your contact to pressure-test their timeline and budget status.</div></div>
+<div class="mock-insight"><div class="lbl lbl-amber">Demo completed &mdash; no next step compression</div><p>Great demo completed 8 days ago. Positive feedback but next meeting isn't scheduled and no commercial discussion has started.</p><div class="coaching">&rarr; Send a same-day note proposing scope and pricing alignment. Attach the ROI framework from the demo.</div></div>
+<div class="mock-insight"><div class="lbl lbl-green">Strong momentum &mdash; on track</div><p>Acme Corp deal progressing through Business Case on pace. Executive sponsor engaged, budget confirmed, mutual action plan is buyer-owned.</p></div>
+<div class="mock-score"><div class="score-dot" style="background:#f59e0b"></div><div class="score-num">62</div><div class="score-lbl">Risk Score &middot; Watch this week</div></div>
+</div>
+</div></section>
+
+<div class="stats"><div class="container stats-grid">
+<div class="stat"><div class="num">100+</div><div class="desc">AI risk patterns detected</div></div>
+<div class="stat"><div class="num">60s</div><div class="desc">Deal analysis on demand</div></div>
+<div class="stat"><div class="num">0</div><div class="desc">CRM required to start</div></div>
+<div class="stat"><div class="num">&infin;</div><div class="desc">Vendors in one view</div></div>
+<div class="stat"><div class="num">Teams</div><div class="desc">Multi-rep enterprise support</div></div>
+</div></div>
+
+<section class="sec sec-alt"><div class="container">
+<div class="sec-label">How it works</div>
+<h2 class="sec-title">From pipeline to playbook in three steps.</h2>
+<p class="sec-sub">Enter your deals however you want. Get back specific plays to run today &mdash; not generic advice.</p>
+<div class="steps-grid">
+<div class="step"><div class="step-num">1</div><h3>Add your deals</h3><p>Paste from your CRM, upload a screenshot, or describe them in a natural conversation. SalesHedge parses whatever you throw at it. Multi-product deals supported &mdash; add every line item.</p><div class="step-mock"><div class="sm-label">Deal entry</div><div class="mini-row"><span class="mini-label">Acme Corp &mdash; Palo Alto FW</span></div><div class="mini-row"><span class="mini-label">Acme Corp &mdash; CrowdStrike EDR</span></div><div class="mini-row"><span class="mini-label" style="color:#3b6cf5">+ Add Product</span></div><div style="height:4px;border-radius:2px;background:#2d3748;margin-top:8px"><div style="height:4px;border-radius:2px;background:#10b981;width:75%"></div></div><div style="font-size:9px;color:#6b7280;margin-top:4px">75% complete &mdash; add compelling event for deeper coaching</div></div></div>
+<div class="step"><div class="step-num">2</div><h3>Get your plays</h3><p>AI scores every deal against over 100 risk patterns and tells you exactly what to do &mdash; not just what's wrong. Specific language to use, emails to send, and calls to make. Red means act now.</p><div class="step-mock"><div class="sm-label">Today's top 3 priorities</div><div class="mini-row"><div class="mini-dot" style="background:#ef4444"></div><span class="mini-label">Re-engage Meridian VP</span><span class="mini-score" style="color:#ef4444">38</span></div><div class="mini-row"><div class="mini-dot" style="background:#f59e0b"></div><span class="mini-label">Send Apex pricing proposal</span><span class="mini-score" style="color:#f59e0b">55</span></div><div class="mini-row"><div class="mini-dot" style="background:#10b981"></div><span class="mini-label">Prep Acme exec meeting</span><span class="mini-score" style="color:#10b981">82</span></div></div></div>
+<div class="step"><div class="step-num">3</div><h3>Close with confidence</h3><p>Draft emails that re-engage with value, talk tracks for your next call, and coaching that compounds over time. SalesHedge remembers every deal and gets smarter about yours.</p><div class="step-mock"><div class="sm-label">AI-generated email</div><div style="font-size:10px;color:#d1d5db;line-height:1.5;margin-bottom:8px">Hi Sarah &mdash; following up on our Palo Alto discussion. I pulled together a quick TCO comparison showing the 3-year savings vs. your current Fortinet stack...</div><div style="display:flex;gap:6px"><div style="font-size:9px;padding:4px 10px;border-radius:4px;background:#3b6cf5;color:#fff;font-weight:600">I Sent This</div><div style="font-size:9px;padding:4px 10px;border-radius:4px;border:1px solid #2d3748;color:#9ca3af">Edit</div></div></div></div>
+</div>
+</div></section>
+
+<section class="sec"><div class="container">
+<div class="sec-label">Capabilities</div>
+<h2 class="sec-title">The intelligence layer your CRM doesn't have.</h2>
+<p class="sec-sub">Every feature is powered by proprietary IP from decades of software sales experience.</p>
+<div class="feat-grid">
+<div class="feat"><div class="feat-icon" style="background:rgba(239,68,68,.1)"><svg width="20" height="20" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1.5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><h3>100+ Risk Patterns</h3><p>Proprietary detection of deal-killing behaviors invisible to CRMs and generic AI. From champion-without-budget to procurement-running-ahead-of-the-decision.</p></div>
+<div class="feat"><div class="feat-icon" style="background:rgba(59,108,245,.1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17V7l7-4 7 4v10" stroke="#3b6cf5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 17v-5h6v5" stroke="#3b6cf5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Today's Top 3</h3><p>Log in and your three most critical actions are waiting &mdash; with exact next steps, who to contact, and what to say. No clicking required.</p></div>
+<div class="feat"><div class="feat-icon" style="background:rgba(16,185,129,.1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#10b981" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Ask the Hedge</h3><p>Ask questions in plain English. "Which deals need me today?" "What's my biggest risk this week?" Instant, specific answers across your full pipeline.</p></div>
+<div class="feat"><div class="feat-icon" style="background:rgba(245,158,11,.1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="10" rx="2" stroke="#f59e0b" stroke-width="1.5"/><path d="M3 8l7 4 7-4" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Draft Emails &amp; Talk Tracks</h3><p>One-click re-engagement content that brings new value &mdash; emails, call scripts, and follow-up strategies. Because strong sellers never "check in."</p></div>
+<div class="feat"><div class="feat-icon" style="background:rgba(139,92,246,.1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1.5" stroke="#8b5cf6" stroke-width="1.5"/><rect x="11" y="3" width="6" height="6" rx="1.5" stroke="#8b5cf6" stroke-width="1.5"/><rect x="3" y="11" width="6" height="6" rx="1.5" stroke="#8b5cf6" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1.5" stroke="#8b5cf6" stroke-width="1.5"/></svg></div><h3>Multi-Product Support</h3><p>Deals with multiple product lines? Add every line item. SalesHedge coaches each product in context and prioritizes across your full stack.</p></div>
+<div class="feat"><div class="feat-icon" style="background:rgba(59,108,245,.1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 7-7" stroke="#3b6cf5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Coaching That Compounds</h3><p>SalesHedge tracks deal progression, detects slipping close dates, shrinking deal sizes, and activity gaps. Your coaching gets smarter every week.</p></div>
+</div>
+</div></section>
+
+<section class="sec sec-alt"><div class="container">
+<div class="sec-label">Built for how you sell</div>
+<h2 class="sec-title">Whether you sell one product or fifty.</h2>
+<p class="sec-sub">Direct reps, resellers, and the leaders who manage them &mdash; SalesHedge adapts to your motion.</p>
+<div class="aud-grid">
+
+<div class="aud-card">
+<div class="aud-icon" style="background:rgba(59,108,245,.1)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#3b6cf5" stroke-width="1.5"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="#3b6cf5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+<h3>Individual Reps</h3>
+<div class="aud-role">Direct sales AEs, SDRs, SEs</div>
+<p>Know exactly what to work on every day. SalesHedge picks your top priorities, coaches you through each one, and drafts the emails and talk tracks to execute.</p>
+<ul class="aud-blue"><li>Today's Top 3 priorities on login</li><li>AI coaching with exact language to use</li><li>One-click draft emails and call scripts</li><li>Risk scoring that catches what you miss</li></ul>
+<div class="aud-chart"><div class="chart-box"><div class="chart-hdr"><svg width="14" height="14" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="2"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span>Forecast View</span></div>
+<div class="chart-body"><svg width="110" height="110" viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" fill="none" stroke="#3b6cf5" stroke-width="22" stroke-dasharray="120.6 181.4" stroke-dashoffset="0" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#f59e0b" stroke-width="22" stroke-dasharray="90.5 211.5" stroke-dashoffset="-120.6" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#10b981" stroke-width="22" stroke-dasharray="90.9 211.1" stroke-dashoffset="-211.1" transform="rotate(-90 60 60)"/><text x="60" y="56" text-anchor="middle" fill="#fff" font-size="16" font-weight="800" font-family="Inter">$1.2M</text><text x="60" y="70" text-anchor="middle" fill="#6b7280" font-size="8" font-family="Inter">My Pipeline</text></svg>
+<div class="chart-legend"><div class="legend-row"><div class="legend-dot" style="background:#3b6cf5"></div><span class="legend-name">Pipeline</span><span class="legend-val">$480K</span></div><div class="legend-row"><div class="legend-dot" style="background:#f59e0b"></div><span class="legend-name">Upside</span><span class="legend-val">$360K</span></div><div class="legend-row"><div class="legend-dot" style="background:#10b981"></div><span class="legend-name">Commit</span><span class="legend-val">$360K</span></div></div>
+</div></div></div>
+</div>
+
+<div class="aud-card">
+<div class="aud-icon" style="background:rgba(16,185,129,.1)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="#10b981" stroke-width="1.5"/><circle cx="16" cy="8" r="3" stroke="#10b981" stroke-width="1.5"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M10 20c0-3 3-5 6-5s6 2 6 5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+<h3>Channel Partners</h3>
+<div class="aud-role" style="color:#10b981">Resellers, VARs, SIs, agents</div>
+<p>All your vendor relationships in one view. SalesHedge understands that a Palo Alto deal moves differently than a RingCentral deal and coaches each one accordingly.</p>
+<ul class="aud-green"><li>Cross-vendor pipeline prioritization</li><li>Vendor-aware coaching per product line</li><li>Multi-product deals with separate coaching</li><li>Conflict detection across vendor lines</li></ul>
+<div class="aud-chart"><div class="chart-box"><div class="chart-hdr"><svg width="14" height="14" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="2"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span>Pipeline by Product</span></div>
+<div class="chart-body"><svg width="110" height="110" viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" fill="none" stroke="#3b6cf5" stroke-width="22" stroke-dasharray="105.6 196.4" stroke-dashoffset="0" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#10b981" stroke-width="22" stroke-dasharray="75.4 226.6" stroke-dashoffset="-105.6" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#f59e0b" stroke-width="22" stroke-dasharray="60.3 241.7" stroke-dashoffset="-181" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#8b5cf6" stroke-width="22" stroke-dasharray="36.2 265.8" stroke-dashoffset="-241.3" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#64748b" stroke-width="22" stroke-dasharray="24.1 277.9" stroke-dashoffset="-277.5" transform="rotate(-90 60 60)"/><text x="60" y="56" text-anchor="middle" fill="#fff" font-size="16" font-weight="800" font-family="Inter">$2.4M</text><text x="60" y="70" text-anchor="middle" fill="#6b7280" font-size="8" font-family="Inter">Total Pipeline</text></svg>
+<div class="chart-legend"><div class="legend-row"><div class="legend-dot" style="background:#3b6cf5"></div><span class="legend-name">Palo Alto</span><span class="legend-val">$840K</span></div><div class="legend-row"><div class="legend-dot" style="background:#10b981"></div><span class="legend-name">CrowdStrike</span><span class="legend-val">$600K</span></div><div class="legend-row"><div class="legend-dot" style="background:#f59e0b"></div><span class="legend-name">RingCentral</span><span class="legend-val">$480K</span></div><div class="legend-row"><div class="legend-dot" style="background:#8b5cf6"></div><span class="legend-name">Zscaler</span><span class="legend-val">$288K</span></div><div class="legend-row"><div class="legend-dot" style="background:#64748b"></div><span class="legend-name">Other</span><span class="legend-val">$192K</span></div></div>
+</div></div></div>
+</div>
+
+<div class="aud-card">
+<div class="aud-icon" style="background:rgba(245,158,11,.1)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#f59e0b" stroke-width="1.5"/><path d="M4 9h16M9 4v16" stroke="#f59e0b" stroke-width="1.5"/></svg></div>
+<h3>Sales Leaders</h3>
+<div class="aud-role" style="color:#f59e0b">VPs, Directors, Managing Partners</div>
+<p>Full forecast visibility with Pipeline, Upside, Commit, and Won views. Drill into any rep's deals and get AI coaching on every deal in their pipeline &mdash; not just the ones they flag.</p>
+<ul class="aud-amber"><li>Quarterly forecast with drill-down views</li><li>Deal-by-deal AI coaching per rep</li><li>Gap analysis: what's threatening the number</li><li>Rep performance patterns and engagement</li></ul>
+<div class="aud-chart"><div class="chart-box"><div class="chart-hdr"><svg width="14" height="14" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="2"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span>Revenue Closed by Rep</span></div>
+<div class="chart-body"><svg width="110" height="110" viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" fill="none" stroke="#3b6cf5" stroke-width="22" stroke-dasharray="96.5 205.5" stroke-dashoffset="0" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#10b981" stroke-width="22" stroke-dasharray="72.4 229.6" stroke-dashoffset="-96.5" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#f59e0b" stroke-width="22" stroke-dasharray="54.3 247.7" stroke-dashoffset="-168.9" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#8b5cf6" stroke-width="22" stroke-dasharray="42.2 259.8" stroke-dashoffset="-223.2" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="48" fill="none" stroke="#ec4899" stroke-width="22" stroke-dasharray="36.2 265.8" stroke-dashoffset="-265.4" transform="rotate(-90 60 60)"/><text x="60" y="56" text-anchor="middle" fill="#fff" font-size="16" font-weight="800" font-family="Inter">$3.1M</text><text x="60" y="70" text-anchor="middle" fill="#6b7280" font-size="8" font-family="Inter">Team Closed</text></svg>
+<div class="chart-legend"><div class="legend-row"><div class="legend-dot" style="background:#3b6cf5"></div><span class="legend-name">M. Torres</span><span class="legend-val">$980K</span></div><div class="legend-row"><div class="legend-dot" style="background:#10b981"></div><span class="legend-name">J. Chen</span><span class="legend-val">$735K</span></div><div class="legend-row"><div class="legend-dot" style="background:#f59e0b"></div><span class="legend-name">S. Patel</span><span class="legend-val">$550K</span></div><div class="legend-row"><div class="legend-dot" style="background:#8b5cf6"></div><span class="legend-name">R. Kim</span><span class="legend-val">$465K</span></div><div class="legend-row"><div class="legend-dot" style="background:#ec4899"></div><span class="legend-name">A. Davis</span><span class="legend-val">$370K</span></div></div>
+</div></div></div>
+</div>
+
+</div>
+</div></section>
+
+<div class="crm"><div class="container">
+<h2>Enterprise teams connect their CRM.</h2>
+<p>Enterprise customers integrate with Salesforce, HubSpot, and Monday.com. Pull deals in for AI analysis. Push coaching and risk scores back where reps work.</p>
+<div class="crm-logos"><span>Salesforce</span><span>HubSpot</span><span>Monday.com</span></div>
+</div></div>
+
+<section class="final-cta"><div class="container">
+<h2>Stop guessing.<br>Start closing.</h2>
+<p>Your pipeline has hidden risks. SalesHedge finds them before they kill your deals.</p>
+<a href="https://saleshedge-app.vercel.app/login?signup=true" class="btn btn-lg">Try it for free</a>
+<div class="cta-note" style="margin-top:16px">No credit card required &middot; Free for up to 5 deals</div>
+</div></section>
+
+<footer>
+<div class="pos">AI-powered pipeline coaching, gap analysis, and forecasting for direct sellers, resellers, and the leaders who manage them.</div>
+<div class="links"><a href="/terms.html">Terms of Service</a><a href="/privacy.html">Privacy Policy</a><a href="mailto:support@saleshedge.ai">Support</a><a href="https://saleshedge-app.vercel.app/login">Login</a></div>
+<div class="copy">&copy; 2026 SalesHedge.ai. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
