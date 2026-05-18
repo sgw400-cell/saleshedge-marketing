@@ -41,18 +41,18 @@ nav{background:#0b1120;padding:14px 0;position:sticky;top:0;z-index:100;border-b
 .hero-sub{font-size:17px;color:#d1d5db;line-height:1.65;margin-bottom:32px}
 
 /* ---- PARTNER HERO ---- */
-.ptr-hero{background:linear-gradient(180deg,#0b1120 0%,#0f1729 100%);padding:80px 0;border-top:1px solid rgba(255,255,255,.06)}
-.ptr-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
-.ptr-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#10b981;margin-bottom:12px}
-.ptr-hero h2{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.2px;line-height:1.1;margin-bottom:16px}
+.ptr-hero{background:linear-gradient(180deg,#0b1120 0%,#101d2e 50%,#0b1120 100%);padding:80px 0;border-top:1px solid rgba(16,185,129,.15)}
+.ptr-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.ptr-label{display:inline-block;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#10b981;margin-bottom:16px;padding:6px 16px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:6px}
+.ptr-hero h2{font-size:42px;font-weight:900;color:#fff;letter-spacing:-1.2px;line-height:1.1;margin-bottom:16px}
 .ptr-hero h2 em{font-style:normal;color:#10b981}
 .ptr-sub{font-size:17px;color:#d1d5db;line-height:1.65;margin-bottom:32px}
 
 /* ---- MANAGER HERO ---- */
-.mgr-hero{background:linear-gradient(180deg,#0f1729 0%,#0b1120 100%);padding:80px 0;border-top:1px solid rgba(255,255,255,.06)}
-.mgr-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
-.mgr-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#f59e0b;margin-bottom:12px}
-.mgr-hero h2{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.2px;line-height:1.1;margin-bottom:16px}
+.mgr-hero{background:linear-gradient(180deg,#0b1120 0%,#15172a 50%,#0b1120 100%);padding:80px 0;border-top:1px solid rgba(245,158,11,.15)}
+.mgr-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.mgr-label{display:inline-block;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#f59e0b;margin-bottom:16px;padding:6px 16px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px}
+.mgr-hero h2{font-size:42px;font-weight:900;color:#fff;letter-spacing:-1.2px;line-height:1.1;margin-bottom:16px}
 .mgr-hero h2 em{font-style:normal;color:#f59e0b}
 .mgr-sub{font-size:17px;color:#d1d5db;line-height:1.65;margin-bottom:32px}
 
@@ -191,9 +191,8 @@ footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
 .rep-cards{grid-template-columns:repeat(2,1fr)}
 .vendor-strip{grid-template-columns:repeat(3,1fr)}
 .ptr-insight-grid,.mgr-insight-grid{grid-template-columns:1fr}
-.mgr-grid{direction:ltr}
-.mgr-grid>div:first-child{order:2}
-.mgr-grid>div:last-child{order:1}
+.ptr-grid>div:first-child{order:2}
+.ptr-grid>div:last-child{order:1}
 }
 @media(max-width:480px){
 .rep-cards,.vendor-strip{grid-template-columns:1fr 1fr}
@@ -250,12 +249,6 @@ footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
 
 <!-- ============ PARTNER HERO ============ -->
 <section class="ptr-hero"><div class="container ptr-grid">
-<div>
-<div class="ptr-label">For Channel Partners</div>
-<h2>Every vendor.<br>Every deal.<br><em>One co-pilot.</em></h2>
-<p class="ptr-sub">You sell Palo Alto on Monday and RingCentral on Tuesday. SalesHedge knows that those deals move differently and coaches each one accordingly. All your vendors, all your deals, one intelligent view.</p>
-<div class="hero-cta"><a href="https://app.saleshedge.ai/login?signup=true" class="btn btn-lg" style="background:#10b981;color:#fff">Try it for free</a><span class="cta-note">Built for VARs, SIs, agents, and resellers.</span></div>
-</div>
 <div class="browser-frame">
 <div class="browser-bar"><div class="browser-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><div class="browser-url">app.saleshedge.ai/dashboard</div></div>
 <div class="ptr-dash-grid">
@@ -285,10 +278,22 @@ footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
 </div>
 </div>
 </div>
+<div>
+<div class="ptr-label">For Channel Partners</div>
+<h2>Every vendor.<br>Every deal.<br><em>One co-pilot.</em></h2>
+<p class="ptr-sub">You sell Palo Alto on Monday and RingCentral on Tuesday. SalesHedge knows that those deals move differently and coaches each one accordingly. All your vendors, all your deals, one intelligent view.</p>
+<div class="hero-cta"><a href="https://app.saleshedge.ai/login?signup=true" class="btn btn-lg" style="background:#10b981;color:#fff">Try it for free</a><span class="cta-note">Built for VARs, SIs, agents, and resellers.</span></div>
+</div>
 </div></section>
 
 <!-- ============ MANAGER HERO ============ -->
 <section class="mgr-hero"><div class="container mgr-grid">
+<div>
+<div class="mgr-label">For Sales Leaders</div>
+<h2>See what your team<br>won't tell you.<br><em>Before the forecast call.</em></h2>
+<p class="mgr-sub">SalesHedge gives you AI-powered coaching across every deal on every rep's pipeline. Not dashboards. Not reports. Actual intelligence about which deals are real, which reps need help, and where your forecast is at risk.</p>
+<div class="hero-cta"><a href="/manager.html" class="btn btn-lg" style="background:#f59e0b;color:#111827">See the Manager View</a><span class="cta-note">Included in Team and Enterprise plans.</span></div>
+</div>
 <div class="browser-frame">
 <div class="browser-bar"><div class="browser-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><div class="browser-url">app.saleshedge.ai/manager</div></div>
 <div class="mgr-dash-grid">
@@ -308,12 +313,6 @@ footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
 </div>
 </div>
 </div>
-</div>
-<div>
-<div class="mgr-label">For Sales Leaders</div>
-<h2>See what your team<br>won't tell you.<br><em>Before the forecast call.</em></h2>
-<p class="mgr-sub">SalesHedge gives you AI-powered coaching across every deal on every rep's pipeline. Not dashboards. Not reports. Actual intelligence about which deals are real, which reps need help, and where your forecast is at risk.</p>
-<div class="hero-cta"><a href="/manager.html" class="btn btn-lg" style="background:#f59e0b;color:#111827">See the Manager View</a><span class="cta-note">Included in Team and Enterprise plans.</span></div>
 </div>
 </div></section>
 
