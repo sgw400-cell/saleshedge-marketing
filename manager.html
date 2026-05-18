@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalesHedge.ai for Sales Leaders - See What Your Team Won't Tell You</title>
+<meta name="description" content="AI-powered pipeline intelligence for sales managers. See which deals are real, which reps need help, and where your forecast is at risk. Before the forecast call.">
+<meta property="og:title" content="SalesHedge.ai for Sales Leaders">
+<meta property="og:description" content="See what your team won't tell you. Before the forecast call.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saleshedge.ai/manager.html">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sora:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#111827;background:#0b1120;-webkit-font-smoothing:antialiased}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{padding:14px 0;position:sticky;top:0;z-index:100;background:#0b1120;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo .name{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.nav-logo .name span{color:#93c5fd}
+.nav-logo .sub{font-family:'Sora',sans-serif;font-size:8px;font-weight:500;color:#9ca3af;text-transform:uppercase;letter-spacing:2px;margin-top:2px}
+.nav-right{display:flex;gap:12px;align-items:center}
+.nav-right>a{color:#9ca3af;text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-right>a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;padding:10px 22px;background:#f59e0b;color:#111827;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s}
+.btn:hover{background:#d97706}
+.btn-blue{background:#3b6cf5;color:#fff}
+.btn-blue:hover{background:#2952c8}
+.btn-lg{font-size:16px;padding:14px 28px;border-radius:10px}
+.btn-outline{background:transparent;border:2px solid rgba(245,158,11,.4);color:#f59e0b}
+.btn-outline:hover{background:rgba(245,158,11,.1);border-color:#f59e0b}
+
+/* HERO */
+.hero{padding:80px 0 72px;text-align:center}
+.hero-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#f59e0b;margin-bottom:16px}
+.hero h1{font-size:52px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1.08;margin-bottom:20px;max-width:700px;margin-left:auto;margin-right:auto}
+.hero h1 em{font-style:normal;color:#f59e0b}
+.hero-sub{font-size:18px;color:#d1d5db;line-height:1.65;margin-bottom:36px;max-width:620px;margin-left:auto;margin-right:auto}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-note{font-size:13px;color:#6b7280;margin-top:12px}
+
+/* PAIN POINTS */
+.pain{padding:72px 0;border-top:1px solid rgba(255,255,255,.06)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pain-card{background:#111827;border:1px solid #1f2937;border-radius:14px;padding:28px}
+.pain-icon{font-size:28px;margin-bottom:16px}
+.pain-card h3{font-size:17px;font-weight:800;color:#fff;margin-bottom:8px}
+.pain-card p{font-size:14px;color:#9ca3af;line-height:1.6}
+
+/* SOLUTION SECTION */
+.solution{padding:80px 0;border-top:1px solid rgba(255,255,255,.06)}
+.sol-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#f59e0b;margin-bottom:12px}
+.sol-title{font-size:36px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:16px}
+.sol-sub{font-size:16px;color:#9ca3af;line-height:1.6;max-width:680px;margin-bottom:48px}
+
+/* FEATURE ROWS */
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:64px}
+.feat-row.reverse{direction:rtl}
+.feat-row.reverse>*{direction:ltr}
+.feat-text h3{font-size:24px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.3px}
+.feat-text p{font-size:15px;color:#9ca3af;line-height:1.7;margin-bottom:16px}
+.feat-text .highlight{font-size:13px;color:#f59e0b;font-weight:600}
+
+/* BROWSER FRAME */
+.browser-frame{background:#111827;border:1px solid #2d3748;border-radius:12px;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.3)}
+.browser-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#0d1321;border-bottom:1px solid #2d3748}
+.browser-dots{display:flex;gap:5px}
+.browser-dots span{width:8px;height:8px;border-radius:50%}
+.browser-url{flex:1;margin-left:8px;background:#1a2234;border-radius:4px;padding:4px 10px;font-size:10px;color:#6b7280;font-family:'Inter',monospace}
+
+/* PANELS & INSIGHTS */
+.panel{background:#1a2234;border:1px solid #2d3748;border-radius:10px;padding:16px}
+.panel-hdr{display:flex;align-items:center;gap:6px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #2d3748}
+.panel-hdr span{font-size:11px;font-weight:700;color:#93c5fd}
+.mock-insight{margin-bottom:10px;padding:8px 10px;background:rgba(59,108,245,.04);border-radius:0 6px 6px 0}
+.mock-insight:last-child{margin-bottom:0}
+.mock-insight .lbl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:2px}
+.lbl-red{color:#ef4444;border-left:2px solid #ef4444;margin-left:-10px;padding-left:8px}
+.lbl-amber{color:#f59e0b;border-left:2px solid #f59e0b;margin-left:-10px;padding-left:8px}
+.lbl-green{color:#10b981;border-left:2px solid #10b981;margin-left:-10px;padding-left:8px}
+.lbl-blue{color:#3b6cf5;border-left:2px solid #3b6cf5;margin-left:-10px;padding-left:8px}
+.mock-insight p{font-family:'Inter',sans-serif;font-size:10px;color:#d1d5db;line-height:1.45}
+.mock-insight .coaching{font-family:'Inter',sans-serif;font-size:9px;color:#3b6cf5;margin-top:3px;font-weight:500}
+
+/* REP CARDS */
+.rep-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:16px}
+.rep-card{background:#1a2234;border:1px solid #2d3748;border-radius:8px;padding:12px}
+.rep-card .rep-name{font-size:11px;font-weight:700;color:#fff;margin-bottom:2px}
+.rep-card .rep-role{font-size:8px;color:#6b7280;margin-bottom:8px}
+.rep-stat{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.rep-stat .stat-label{font-size:8px;color:#9ca3af}
+.rep-stat .stat-val{font-size:9px;font-weight:700}
+.rep-risk-bar{height:4px;border-radius:2px;background:#2d3748;margin-top:6px;overflow:hidden}
+.rep-risk-fill{height:4px;border-radius:2px}
+
+/* WHAT YOU GET */
+.what-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.what-card{background:#111827;border:1px solid #1f2937;border-radius:12px;padding:24px}
+.what-card h4{font-size:15px;font-weight:800;color:#fff;margin-bottom:6px}
+.what-card p{font-size:13px;color:#9ca3af;line-height:1.6}
+.what-icon{font-size:20px;margin-bottom:12px}
+
+/* QUOTE / PROOF SECTION */
+.proof{padding:64px 0;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+.proof-quote{font-size:22px;font-weight:600;color:#fff;line-height:1.5;max-width:680px;margin:0 auto 16px;font-style:italic}
+.proof-attr{font-size:14px;color:#6b7280}
+
+/* PRICING PREVIEW */
+.pricing{padding:72px 0;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+.pricing h2{font-size:32px;font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:12px}
+.pricing>p{font-size:16px;color:#9ca3af;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
+.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:700px;margin:0 auto}
+.price-card{background:#111827;border:1px solid #1f2937;border-radius:16px;padding:32px;text-align:left}
+.price-card.featured{border-color:#f59e0b;box-shadow:0 0 0 1px rgba(245,158,11,.2)}
+.price-tier{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#f59e0b;margin-bottom:8px}
+.price-amt{font-size:36px;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:4px}
+.price-period{font-size:13px;color:#6b7280;margin-bottom:16px}
+.price-desc{font-size:14px;color:#9ca3af;line-height:1.6;margin-bottom:20px}
+.price-list{list-style:none;padding:0;margin:0 0 24px}
+.price-list li{font-size:13px;color:#d1d5db;padding:6px 0 6px 20px;position:relative}
+.price-list li::before{content:'';position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:2px;background:#f59e0b}
+
+/* FINAL CTA */
+.final-cta{padding:80px 0;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+.final-cta h2{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:12px}
+.final-cta p{font-size:16px;color:#9ca3af;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6}
+.final-cta .hero-cta{justify-content:center}
+
+/* FOOTER */
+footer{background:#080d18;padding:40px 0;text-align:center}
+footer .pos{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:16px;max-width:500px;margin-left:auto;margin-right:auto}
+footer .links{display:flex;gap:20px;justify-content:center;margin-bottom:16px}
+footer .links a{color:rgba(255,255,255,.35);text-decoration:none;font-size:13px;transition:color .2s}
+footer .links a:hover{color:rgba(255,255,255,.6)}
+footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero h1{font-size:36px}
+.pain-grid{grid-template-columns:1fr}
+.feat-row,.feat-row.reverse{grid-template-columns:1fr;direction:ltr}
+.what-grid{grid-template-columns:1fr}
+.price-cards{grid-template-columns:1fr}
+.rep-cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav><div class="container nav-inner">
+<a href="/" class="nav-logo">
+<svg width="36" height="36" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+<div><div class="name">SalesHedge<span>.ai</span></div><div class="sub">Pipeline Co-Pilot</div></div>
+</a>
+<div class="nav-right"><a href="/">Home</a><a href="https://app.saleshedge.ai/login">Login</a><a href="https://app.saleshedge.ai/login?signup=true" class="btn btn-blue">Try it for free</a></div>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero"><div class="container">
+<div class="hero-label">For Sales Leaders</div>
+<h1>See what your team<br>won't tell you.<br><em>Before the forecast call.</em></h1>
+<p class="hero-sub">SalesHedge gives you AI-powered coaching across every deal on every rep's pipeline. Not dashboards. Not reports. Actual intelligence about which deals are real, which reps need help, and where your forecast is at risk.</p>
+<div class="hero-cta">
+<a href="https://app.saleshedge.ai/login?signup=true" class="btn btn-lg">Start your free trial</a>
+<a href="mailto:scott@saleshedge.ai?subject=SalesHedge%20Demo%20Request" class="btn btn-lg btn-outline">Request a demo</a>
+</div>
+<div class="cta-note">Free for up to 5 deals. Team and Enterprise plans available.</div>
+</div></section>
+
+<!-- PAIN POINTS -->
+<section class="pain"><div class="container">
+<div class="pain-grid">
+<div class="pain-card">
+<div class="pain-icon">&#128200;</div>
+<h3>Your forecast is a guess.</h3>
+<p>Reps mark deals as Commit because they're optimistic, not because the signals support it. You don't have time to inspect every deal yourself. You need an AI that does.</p>
+</div>
+<div class="pain-card">
+<div class="pain-icon">&#128683;</div>
+<h3>Deals die in silence.</h3>
+<p>By the time a rep tells you a deal is at risk, it's usually too late. The warning signs were there weeks ago. Activity went dark, close dates slipped, next steps got vague. Nobody flagged it.</p>
+</div>
+<div class="pain-card">
+<div class="pain-icon">&#9201;</div>
+<h3>Coaching doesn't scale.</h3>
+<p>You can run a great pipeline review with one rep. But across 10 reps with 15 deals each, you can't catch everything. The patterns are there, buried in the data. You just can't see them all.</p>
+</div>
+</div>
+</div></section>
+
+<!-- SOLUTION: ANALYZE MY TEAM -->
+<section class="solution"><div class="container">
+<div class="sol-label">The Solution</div>
+<h2 class="sol-title">AI that inspects every deal on every rep's pipeline. Automatically.</h2>
+<p class="sol-sub">SalesHedge runs AI analysis across your entire team's book of business and surfaces the insights that matter. Here's what you see when you log in.</p>
+
+<div class="feat-row">
+<div class="feat-text">
+<h3>Team Overview at a Glance</h3>
+<p>Every rep on your team with their deal count, pipeline value, and average risk score. Green, amber, and red tell you instantly who's healthy and who needs attention. Click any rep to drill into their full pipeline.</p>
+<p class="highlight">No more asking "how's your pipeline?" and hoping for an honest answer.</p>
+</div>
+<div class="browser-frame">
+<div class="browser-bar"><div class="browser-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><div class="browser-url">app.saleshedge.ai/manager</div></div>
+<div class="rep-cards">
+<div class="rep-card"><div class="rep-name">M. Torres</div><div class="rep-role">Senior AE</div><div class="rep-stat"><span class="stat-label">Deals</span><span class="stat-val" style="color:#fff">12</span></div><div class="rep-stat"><span class="stat-label">Pipeline</span><span class="stat-val" style="color:#fff">$980K</span></div><div class="rep-stat"><span class="stat-label">Avg Risk</span><span class="stat-val" style="color:#10b981">74</span></div><div class="rep-risk-bar"><div class="rep-risk-fill" style="width:74%;background:#10b981"></div></div></div>
+<div class="rep-card"><div class="rep-name">J. Chen</div><div class="rep-role">AE</div><div class="rep-stat"><span class="stat-label">Deals</span><span class="stat-val" style="color:#fff">9</span></div><div class="rep-stat"><span class="stat-label">Pipeline</span><span class="stat-val" style="color:#fff">$735K</span></div><div class="rep-stat"><span class="stat-label">Avg Risk</span><span class="stat-val" style="color:#f59e0b">58</span></div><div class="rep-risk-bar"><div class="rep-risk-fill" style="width:58%;background:#f59e0b"></div></div></div>
+<div class="rep-card"><div class="rep-name">S. Patel</div><div class="rep-role">AE</div><div class="rep-stat"><span class="stat-label">Deals</span><span class="stat-val" style="color:#fff">8</span></div><div class="rep-stat"><span class="stat-label">Pipeline</span><span class="stat-val" style="color:#fff">$550K</span></div><div class="rep-stat"><span class="stat-label">Avg Risk</span><span class="stat-val" style="color:#ef4444">41</span></div><div class="rep-risk-bar"><div class="rep-risk-fill" style="width:41%;background:#ef4444"></div></div></div>
+<div class="rep-card"><div class="rep-name">R. Kim</div><div class="rep-role">AE</div><div class="rep-stat"><span class="stat-label">Deals</span><span class="stat-val" style="color:#fff">7</span></div><div class="rep-stat"><span class="stat-label">Pipeline</span><span class="stat-val" style="color:#fff">$465K</span></div><div class="rep-stat"><span class="stat-label">Avg Risk</span><span class="stat-val" style="color:#f59e0b">63</span></div><div class="rep-risk-bar"><div class="rep-risk-fill" style="width:63%;background:#f59e0b"></div></div></div>
+</div>
+</div>
+</div>
+
+<div class="feat-row reverse">
+<div class="feat-text">
+<h3>AI Team Analysis. One Click.</h3>
+<p>"Analyze My Team" scans every deal across every rep and returns the intelligence you need for your next forecast call, 1:1, or QBR. Pipeline concentration risks. Stalled deals. Forecast accuracy gaps. Which reps are executing and which ones need coaching.</p>
+<p class="highlight">This is the pipeline review you'd do yourself if you had unlimited time.</p>
+</div>
+<div class="browser-frame">
+<div class="browser-bar"><div class="browser-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><div class="browser-url">app.saleshedge.ai/manager</div></div>
+<div style="padding:16px">
+<div class="panel">
+<div class="panel-hdr"><svg width="14" height="14" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1.5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span>Analyze My Team</span></div>
+<div class="mock-insight"><div class="lbl lbl-red">Pipeline concentration risk</div><p>68% of S. Patel's pipeline is in two deals. If either slips, she's significantly below target for the quarter.</p><div class="coaching">&#8594; Coach Patel on pipeline generation this week. She needs 3 new qualified opportunities to de-risk her number.</div></div>
+<div class="mock-insight"><div class="lbl lbl-amber">Stalled deals across team</div><p>4 deals across Chen and Kim have been in the same stage for 3+ weeks with no buyer-initiated activity.</p><div class="coaching">&#8594; In your next 1:1s, run a viability check on each. These may need to move to nurture.</div></div>
+<div class="mock-insight"><div class="lbl lbl-green">Torres is executing well</div><p>Torres has 3 deals in late stages with buyer-owned action plans and confirmed budgets. High probability of close this quarter.</p></div>
+<div class="mock-insight"><div class="lbl lbl-blue">Forecast accuracy flag</div><p>Your team has $1.1M in Commit but AI scoring suggests $740K is realistic based on deal health signals.</p><div class="coaching">&#8594; Before your forecast call, review the 4 deals where AI scoring disagrees with rep confidence.</div></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="feat-row">
+<div class="feat-text">
+<h3>Drill Into Any Deal. Get the Full Picture.</h3>
+<p>Click any deal on any rep's pipeline and SalesHedge delivers the same AI coaching it gives your reps, plus the strengths the rep may not have told you about. Risk score, red flags, recommended actions, and a full activity timeline.</p>
+<p class="highlight">You see what the rep sees, plus what the rep doesn't want you to see.</p>
+</div>
+<div class="browser-frame">
+<div class="browser-bar"><div class="browser-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#10b981"></span></div><div class="browser-url">app.saleshedge.ai/manager/deal?id=meridian</div></div>
+<div style="padding:16px">
+<div class="panel">
+<div class="panel-hdr"><svg width="14" height="14" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#3b6cf5" stroke="#2952c8" stroke-width="1.5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span>Deal Analysis: Meridian Health (S. Patel)</span></div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #2d3748"><div style="width:10px;height:10px;border-radius:50%;background:#ef4444"></div><span style="font-size:18px;font-weight:800;color:#fff">38</span><span style="font-size:10px;color:#6b7280">Risk Score &middot; Act Now</span><span style="font-size:9px;color:#ef4444;margin-left:auto;font-weight:600">&#9660; 14 pts from last week</span></div>
+<div class="mock-insight"><div class="lbl lbl-green">What the rep is doing well</div><p>Patel has strong technical validation completed. The SE relationship is solid and the POC delivered measurable results that align with the buyer's stated goals.</p></div>
+<div class="mock-insight"><div class="lbl lbl-red">Champion without economic buyer access</div><p>Patel's contact is a Director of IT. The budget holder is the VP of Infrastructure, and they have not been engaged in any conversation to date.</p><div class="coaching">&#8594; In your 1:1 with Patel, coach her to ask her champion for an introduction to the VP. Offer to join the call as exec-to-exec alignment.</div></div>
+<div class="mock-insight"><div class="lbl lbl-red">Close date slipped twice</div><p>Originally targeted for April 15, then May 1, now May 30. Each slip happened without a documented reason from the buyer. This is a pattern of false timelines.</p><div class="coaching">&#8594; Have Patel pressure-test the May 30 date directly. "What specifically needs to happen between now and May 30 for this to close?"</div></div>
+</div>
+</div>
+</div>
+</div>
+
+</div></section>
+
+<!-- WHAT YOU GET -->
+<section class="solution" style="padding-top:0"><div class="container">
+<div class="sol-label">What's Included</div>
+<h2 class="sol-title">Everything a sales leader needs. Nothing you don't.</h2>
+<div class="what-grid">
+<div class="what-card"><div class="what-icon">&#128202;</div><h4>Full Team Pipeline View</h4><p>Every rep, every deal, every risk score. Drill down from team to rep to individual deal in seconds.</p></div>
+<div class="what-card"><div class="what-icon">&#129302;</div><h4>AI Team Analysis</h4><p>One-click "Analyze My Team" delivers pipeline concentration risks, stalled deals, forecast gaps, and rep coaching priorities.</p></div>
+<div class="what-card"><div class="what-icon">&#128200;</div><h4>Forecast Intelligence</h4><p>Pipeline, Upside, Commit, and Won views. AI compares rep confidence against actual deal health signals.</p></div>
+<div class="what-card"><div class="what-icon">&#128269;</div><h4>Deal-by-Deal Coaching</h4><p>Click any deal on any rep's pipeline. Full AI analysis with risk flags, strengths, and recommended next steps.</p></div>
+<div class="what-card"><div class="what-icon">&#128200;</div><h4>9 Pre-Built Reports</h4><p>Pipeline by Vendor, Pipeline by Product, Deal Stage Funnel, Rep Performance, Risk Distribution, Won Revenue, Deal Velocity, Executive Scorecard, Loss Analysis.</p></div>
+<div class="what-card"><div class="what-icon">&#128276;</div><h4>Risk Score Tracking</h4><p>See how deal health changes over time. Previous vs. current scores with significant movement detection so you catch problems early.</p></div>
+</div>
+</div></section>
+
+<!-- PRICING PREVIEW -->
+<section class="pricing"><div class="container">
+<h2>Plans for teams of every size.</h2>
+<p>Every rep on your plan gets full SalesHedge access. AI coaching, Today's Top 3, Ask the Hedge, draft emails and talk tracks. You get the manager dashboard on top.</p>
+<div class="price-cards">
+<div class="price-card">
+<div class="price-tier">Team</div>
+<div class="price-amt">$999<span style="font-size:16px;font-weight:500;color:#6b7280">/mo</span></div>
+<div class="price-period">Up to 10 reps. Billed monthly.</div>
+<div class="price-desc">For growing sales teams that need pipeline visibility and AI coaching across every rep.</div>
+<ul class="price-list">
+<li>Full AI coaching for every rep</li>
+<li>Manager dashboard with team analytics</li>
+<li>Analyze My Team (one-click AI)</li>
+<li>Forecast views with drill-down</li>
+<li>9 pre-built reports</li>
+<li>Deal-by-deal AI analysis per rep</li>
+</ul>
+<a href="https://app.saleshedge.ai/login?signup=true" class="btn btn-lg" style="width:100%;justify-content:center">Start free trial</a>
+</div>
+<div class="price-card featured">
+<div class="price-tier">Enterprise</div>
+<div class="price-amt">Custom</div>
+<div class="price-period">10+ reps. Annual commitment.</div>
+<div class="price-desc">For organizations that need CRM integration, custom scoring, and dedicated support.</div>
+<ul class="price-list">
+<li>Everything in Team</li>
+<li>Salesforce, HubSpot, Monday.com integration</li>
+<li>Customizable risk scoring weights</li>
+<li>Multiple manager seats</li>
+<li>Dedicated onboarding</li>
+<li>Priority support</li>
+</ul>
+<a href="mailto:scott@saleshedge.ai?subject=SalesHedge%20Enterprise%20Inquiry" class="btn btn-lg" style="width:100%;justify-content:center">Contact us</a>
+</div>
+</div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="final-cta"><div class="container">
+<h2>Your team's pipeline<br>has hidden risks.</h2>
+<p>SalesHedge finds them before they kill the quarter. Start with 5 free deals and see the intelligence for yourself.</p>
+<div class="hero-cta">
+<a href="https://app.saleshedge.ai/login?signup=true" class="btn btn-lg">Start your free trial</a>
+<a href="mailto:scott@saleshedge.ai?subject=SalesHedge%20Demo%20Request" class="btn btn-lg btn-outline">Request a demo</a>
+</div>
+<div class="cta-note" style="margin-top:16px">No credit card required. Free for up to 5 deals.</div>
+</div></section>
+
+<!-- FOOTER -->
+<footer>
+<div class="pos">AI-powered pipeline coaching, gap analysis, and forecasting for direct sellers, resellers, and the leaders who manage them.</div>
+<div class="links"><a href="/">Home</a><a href="/terms.html">Terms of Service</a><a href="/privacy.html">Privacy Policy</a><a href="mailto:support@saleshedge.ai">Support</a><a href="https://app.saleshedge.ai/login">Login</a></div>
+<div class="copy">&copy; 2026 SalesHedge.ai. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
