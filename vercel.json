@@ -1,9 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/signup", "destination": "https://app.saleshedge.ai/login?signup=true" },
-    { "source": "/login", "destination": "https://app.saleshedge.ai/login" },
-    { "source": "/dashboard", "destination": "https://app.saleshedge.ai/dashboard" },
-    { "source": "/app", "destination": "https://app.saleshedge.ai/" },
-    { "source": "/app/:path*", "destination": "https://app.saleshedge.ai/:path*" }
+  "redirects": [
+    { "source": "/signup", "destination": "https://app.saleshedge.ai/login?signup=true", "permanent": false },
+    { "source": "/login", "destination": "https://app.saleshedge.ai/login", "permanent": false },
+    { "source": "/dashboard", "destination": "https://app.saleshedge.ai/dashboard", "permanent": false }
   ]
 }
