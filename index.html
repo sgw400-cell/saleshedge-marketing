@@ -150,6 +150,35 @@ body{background:#fff;color:#111827}
 .dmail{padding:14px 18px;background:#fafbfc}
 .dmtext{font-size:12px;color:#4b5563;line-height:1.5;background:#fff;border:1px solid #eef0f3;border-radius:8px;padding:10px 12px}
 .dsent{margin-top:9px;font-size:11px;font-weight:700;color:#fff;background:#4f46e5;display:inline-block;padding:6px 12px;border-radius:6px}
+
+.fcwrap{max-width:1040px;margin:34px auto 0}
+.qa,.drx{background:#fff;border:1px solid #e6e8ec;border-radius:16px;box-shadow:0 18px 50px rgba(17,24,39,.10);overflow:hidden}
+.qahd{display:flex;align-items:center;justify-content:space-between;padding:15px 22px;border-bottom:1px solid #eef0f3}
+.qahd .l{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:800}
+.qahd .r{display:flex;align-items:center;gap:14px}.qahd .note{font-size:11px;color:#9ca3af}
+.qabtn{font-size:12px;font-weight:700;border:1px solid #e6e8ec;border-radius:7px;padding:7px 12px;color:#6b7280}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr)}
+.tile{padding:18px 20px;border-right:1px solid #eef0f3}.tile:last-child{border-right:none}
+.tile.gap{background:#ecfdf5}
+.tile .k{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:8px}
+.tile .v{font-size:26px;font-weight:900;letter-spacing:-1px;color:#111827}.tile.gap .v{color:#059669}
+.tile .s{font-size:11px;color:#9ca3af;margin-top:5px}
+.tbar{height:7px;border-radius:4px;background:#eef0f3;overflow:hidden;margin:11px 0 7px}.tbar i{display:block;height:100%;width:100%;background:#4f46e5}
+.tleg{font-size:10px;color:#6b7280}.tleg b{color:#4f46e5}
+.qaf{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 22px;border-top:1px solid #eef0f3;background:#fafbfc}
+.qapill{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#4f46e5;background:#eef2ff;border:1px solid #c7d2fe;border-radius:999px;padding:5px 10px;margin-bottom:9px}
+.qaf .txt{font-size:14px;color:#374151;line-height:1.5}.qaf .txt b{color:#111827}
+.qaedit{font-size:13px;font-weight:700;background:#4f46e5;color:#fff;border-radius:8px;padding:10px 16px;white-space:nowrap}
+.drx{margin-top:18px}
+.drxhd{display:flex;align-items:center;justify-content:space-between;padding:15px 22px;border-bottom:1px solid #eef0f3}
+.drxhd .l{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:800}.drxhd .l .s{font-weight:500;color:#9ca3af;font-size:12px}
+.drtot{font-size:13px;font-weight:700;color:#9ca3af}.drtot b{color:#dc2626;font-size:15px;font-weight:900}
+.drrow{padding:16px 22px;border-bottom:1px solid #f4f5f7}.drrow:last-child{border-bottom:none}
+.drtop{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.drac{font-size:14.5px;font-weight:800;color:#111827}.dram{font-size:13px;color:#6b7280}.drsp{flex:1}
+.drwhy{font-size:13px;color:#374151;line-height:1.5;margin-bottom:7px}
+.drwhy .t{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#9ca3af;margin-right:7px}
+.drdo{font-size:13px;color:#4f46e5;font-weight:700;line-height:1.45}
 </style></head><body>
 <div class="nav"><a href="/" style="text-decoration:none"><div class="brand"><svg width="30" height="30" viewBox="0 0 48 48"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="url(#hg)"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="nm">SalesHedge<i>.ai</i></div><div class="bsub">Deal &amp; Forecast Intelligence</div></div></div></a><div class="navr"><a href="/login">Login</a><a class="try" href="/signup">Try it for free</a></div></div>
 
@@ -218,16 +247,30 @@ body{background:#fff;color:#111827}
 </div>
 </div><div class="ctainline"><a href="/signup">Try it for free</a><span>No credit card. 10 deals free.</span></div></div>
 
-<!-- Forecast (lt): card left -->
-<div class="sec lt"><div class="secin">
-<div class="fcast">
-<div class="fh"><div class="l"><svg width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Forecast</div><span class="fpill">THIS QUARTER</span></div>
-<div class="fbig tnum">$840K <span>of $1.0M quota</span></div>
-<div class="fbar"><i></i></div><div class="fcap">84% to quota</div>
-<div class="fstats"><div class="fstat"><div class="k">Gap</div><div class="v tnum" style="color:#b45309">$160K</div></div><div class="fstat"><div class="k">Pipeline need</div><div class="v tnum">$267K</div></div><div class="fstat"><div class="k">Status</div><div class="v" style="color:#b45309">At risk</div></div></div>
-<div class="fnote">Weighed by risk, velocity, and timing.</div></div>
-<div class="txt"><div class="lab">Know where to focus</div><h2>A forecast you can trust.</h2><p>SalesHedge weighs every deal by real risk, then shows where you'll land and the pipeline you need to close the gap.</p></div>
-</div></div>
+<!-- Forecast intelligence (lt): full-width -->
+<div class="sec lt">
+<div class="lab" style="text-align:center">Forecast intelligence</div>
+<div class="h2c">Know exactly where you'll land.</div>
+<div class="subc">Hedge AI re-weights every deal by real risk and timing, then shows your forecast against quota, and the dollars at risk behind it. The number you can take to the board, not the optimistic rep roll-up.</div>
+<div class="fcwrap">
+<div class="qa">
+<div class="qahd"><div class="l"><svg width="20" height="20" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Quota Attainment</div><div class="r"><span class="note">AI-adjusted from live pipeline</span><span class="qabtn">&#8635; Regenerate</span></div></div>
+<div class="tiles">
+<div class="tile"><div class="k">Q2 2026 target</div><div class="v tnum">$450K</div><div class="tbar"><i></i></div><div class="tleg"><b>120%</b> Hedge AI forecast &middot; 120% self-reported</div><div class="s">$1.8M annual &divide; 4</div></div>
+<div class="tile"><div class="k">Closed won</div><div class="v tnum">$1.1M</div><div class="s">234% of target</div></div>
+<div class="tile"><div class="k">Committed</div><div class="v tnum">$650K</div><div class="s">Rep forecast category</div></div>
+<div class="tile gap"><div class="k">Quota gap &middot; Hedge AI</div><div class="v tnum">+$1.0M</div><div class="s">Ahead &middot; AI-adjusted</div></div>
+</div>
+<div class="qaf"><div><div class="qapill"><svg width="13" height="13" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg> Hedge AI forecast</div><div class="txt">Hedge AI forecasts you'll close <b>$1.5M</b> against your <b>$450K</b> Q2 2026 target, <b>$1.0M ahead</b>. But your Q3 and Q4 pipeline is low and you won't have enough to close at plan, so <b>build pipeline now</b>.</div></div><span class="qaedit">Quick-edit forecast</span></div>
+</div>
+<div class="drx">
+<div class="drxhd"><div class="l"><svg width="20" height="20" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div>Deals at risk <span class="s">&middot; Hedge AI</span></div></div><div class="drtot"><b>$315K</b> at risk &middot; 3 deals</div></div>
+<div class="drrow"><div class="drtop"><span class="drac">Harborview Systems</span><span class="dram">$140K &middot; Proposal</span><span class="drsp"></span><span class="rk red">RISK 36</span></div><div class="drwhy"><span class="t">Why</span>Only one contact, the VP of IT, who is also your champion. No economic buyer, finance, or procurement on the deal. A single thread this far in is fragile.</div><div class="drdo">&rarr; Multi-thread now: ask your champion to introduce finance, and build a mutual close plan this week.</div></div>
+<div class="drrow"><div class="drtop"><span class="drac">Tristate Manufacturing</span><span class="dram">$95K &middot; Demo / Validation</span><span class="drsp"></span><span class="rk red">RISK 42</span></div><div class="drwhy"><span class="t">Why</span>Strong demo 9 days ago, then silence. No next step booked and no commercial conversation started. Momentum is leaking.</div><div class="drdo">&rarr; Send a same-day note proposing scope and pricing, and lock the next meeting before it cools.</div></div>
+<div class="drrow"><div class="drtop"><span class="drac">Lumina Retail</span><span class="dram">$80K &middot; Business Case</span><span class="drsp"></span><span class="rk amb">RISK 54</span></div><div class="drwhy"><span class="t">Why</span>Close date has slipped twice and the business case still is not with the buyer. The timeline is optimistic.</div><div class="drdo">&rarr; Pressure-test the date directly and get the business case in front of the economic buyer this week.</div></div>
+</div>
+</div>
+</div>
 
 <!-- Sales leaders (white): text left, manager card right -->
 <div class="sec"><div class="secin">
