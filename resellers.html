@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SalesHedge for Channel Partners | Every vendor. One pipeline.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ind:#4f46e5; --ind-d:#4338ca; --ind-l:#a5b4fc;
+ --navy:#0b1120; --navy2:#0e1426; --navy3:#131a2e; --foot:#080d18;
+ --grn:#10b981; --grn-d:#059669; --amb:#f59e0b; --red:#ef4444;
+ --ink:#111827; --mut:#6b7280; --mut2:#9ca3af;
+ --panel:#f6f7f9; --line:#e6e8ec; --line2:#eef0f3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+a{text-decoration:none}
+.ey{font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--ind)}
+.center{text-align:center}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;border-radius:9px;padding:12px 20px}
+.btn.p{background:var(--ind);color:#fff}
+.btn.p:hover{background:var(--ind-d)}
+.btn.g{background:#fff;color:var(--ind);border:1px solid #c7d2fe}
+.btn.lg{font-size:15px;padding:14px 26px}
+.subcta{font-size:12px;color:var(--mut2);margin-top:10px}
+
+/* diamond */
+.dia{flex-shrink:0}
+
+/* NAV */
+nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.06)}
+.navin{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .nm{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.brand .nm span{color:var(--ind-l)}
+.brand .sub{font-size:8px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:#8b93a7;margin-top:2px}
+.navr{display:flex;align-items:center;gap:20px}
+.navr a.lk{font-size:14px;font-weight:600;color:#c2c8d6}
+.navr a.lk:hover{color:#fff}
+
+/* HERO */
+.hero{background:var(--navy);color:#fff;padding:60px 0 66px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 78% 8%,rgba(99,102,241,.18),transparent 60%);pointer-events:none}
+.hgrid{display:flex;align-items:center;position:relative;z-index:1}
+.hl{flex:1.05;padding-right:44px}
+.hr{flex:1}
+.hl h1{font-size:46px;line-height:1.06;font-weight:900;letter-spacing:-1.6px}
+.hl h1 .gr{color:var(--ind-l)}
+.hl p.lead{font-size:16.5px;line-height:1.6;color:#c2c8d6;margin:18px 0 26px;max-width:460px}
+.hcta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hcta .hint{font-size:13px;color:#8b93a7}
+.htix{display:flex;flex-wrap:wrap;gap:14px 22px;margin-top:26px}
+.htix .t{display:flex;align-items:center;gap:7px;font-size:12.5px;color:#aeb5c6;font-weight:500}
+.htix .t svg{flex-shrink:0}
+
+/* focal card (dark) */
+.card-d{background:#fff;border-radius:14px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 60px rgba(0,0,0,.42);overflow:hidden}
+.cd-hd{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line2)}
+.cd-hd .l{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800;color:var(--ink)}
+.cd-hd .l .s{color:var(--mut2);font-weight:600}
+.rk{display:inline-flex;align-items:center;gap:7px;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:800}
+.rk b{font-size:14px}
+.cd-bd{padding:16px 18px}
+.deal{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.deal .ac{font-size:16px;font-weight:800;color:var(--ink)}
+.deal .mt{font-size:12.5px;color:var(--mut)}
+.rflab{font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--mut2);margin-bottom:9px}
+.rf{display:flex;gap:10px;align-items:flex-start;margin-bottom:11px}
+.rf .dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.rf .ti{font-size:13px;font-weight:700;color:var(--ink);line-height:1.3}
+.rf .su{font-size:11.5px;color:var(--mut);line-height:1.35}
+.next{background:#eef2ff;border:1px solid #dfe3ff;border-radius:10px;padding:13px 14px;margin-top:6px}
+.next .nl{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--ind);margin-bottom:7px}
+.next p{font-size:13px;color:#1f2440;line-height:1.5;margin-bottom:12px}
+.next .btn{width:100%}
+
+/* light section base */
+.sec{padding:74px 0}
+.sec.lt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec h2{font-size:32px;font-weight:900;letter-spacing:-1px;text-align:center}
+.sec .sub{font-size:16px;color:var(--mut);text-align:center;margin:12px auto 0;max-width:620px}
+
+/* slim how-it-works */
+.steps{display:flex;margin-top:40px}
+.steps>.step{flex:1}
+.steps>.step+.step{margin-left:22px}
+.step .n{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.step .n b{width:26px;height:26px;border-radius:7px;background:var(--ind);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.step .n .h{font-size:15px;font-weight:800}
+.step p{font-size:13.5px;color:var(--mut);line-height:1.55;padding-left:36px}
+
+/* feature row: claim + artifact */
+.feat{display:flex;margin-top:44px;align-items:stretch}
+.feat>.col{flex:1;display:flex;flex-direction:column}
+.feat>.col+.col{margin-left:22px}
+.col .ic{width:38px;height:38px;border-radius:10px;background:#eef2ff;display:flex;align-items:center;justify-content:center;margin-bottom:13px}
+.col h3{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.col .cl{font-size:13.5px;color:var(--mut);line-height:1.5;margin:6px 0 16px;min-height:40px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;margin-top:auto}
+.mlab{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--mut2);margin-bottom:11px}
+.mrow{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px}
+.mrow .dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.mrow .mt{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.3}
+.mrow .ms{font-size:11px;color:var(--mut)}
+.atrow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line2)}
+.atrow .an{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.atrow .av{font-size:12.5px;font-weight:800;color:var(--grn-d)}
+.attot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;margin-top:4px}
+.attot .k{font-size:12px;font-weight:700;color:var(--mut)}
+.attot .v{font-size:17px;font-weight:900;color:var(--grn-d)}
+.miniact{display:flex;gap:8px;margin-top:4px}
+.miniact .b1{flex:1;background:var(--ind);color:#fff;border-radius:8px;padding:9px;font-size:12px;font-weight:700;text-align:center}
+.miniact .b2{background:#fff;color:var(--ind);border:1px solid #c7d2fe;border-radius:8px;padding:9px 12px;font-size:12px;font-weight:700;text-align:center}
+.sw{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* audience cards */
+.aud{display:flex;margin-top:44px;align-items:stretch}
+.aud>.ac{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column}
+.aud>.ac+.ac{margin-left:22px}
+.ac .ai{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.ac .role{font-size:12px;font-weight:700;margin-bottom:6px}
+.ac h3{font-size:19px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px}
+.ac>p{font-size:13.5px;color:var(--mut);line-height:1.55;margin-bottom:14px}
+.ac ul{list-style:none;margin:0 0 18px}
+.ac li{font-size:13px;color:#374151;padding:5px 0 5px 22px;position:relative}
+.ac li:before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;border-radius:2px}
+.ac .more{margin-top:auto;font-size:13.5px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+
+/* final */
+.final{background:var(--navy);color:#fff;text-align:center;padding:78px 0}
+.final h2{font-size:36px;font-weight:900;letter-spacing:-1px}
+.final p{font-size:16px;color:#c2c8d6;margin:12px 0 26px}
+
+/* footer */
+footer{background:var(--foot);padding:36px 0;text-align:center}
+footer .pos{font-size:12.5px;color:rgba(255,255,255,.4);max-width:560px;margin:0 auto 14px;line-height:1.6}
+footer .fl{display:flex;gap:20px;justify-content:center;margin-bottom:12px}
+footer .fl a{font-size:13px;color:rgba(255,255,255,.4)}
+footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
+
+@media(max-width:880px){
+ .hgrid,.steps,.feat,.aud{flex-direction:column}
+ .hl{padding-right:0;margin-bottom:34px}
+ .steps>.step+.step,.feat>.col+.col,.aud>.ac+.ac{margin-left:0;margin-top:22px}
+ .hl h1{font-size:36px}
+}
+@media(max-width:560px){.navr a.lk{display:none}.navr{gap:0}.brand .sub{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap navin">
+ <a class="brand" href="/">
+  <svg class="dia" width="30" height="30" viewBox="0 0 48 48"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#hg)"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+  <div><div class="nm">SalesHedge<span>.ai</span></div><div class="sub">Deal &amp; Forecast Intelligence</div></div>
+ </a>
+ <div class="navr">
+  <a class="lk" href="/sellers.html">For Sellers</a>
+  <a class="lk" href="/resellers.html">For Resellers</a>
+  <a class="lk" href="/manager.html">Sales Leaders</a>
+  <a class="lk" href="/login">Login</a>
+  <a class="btn p" href="/signup">Try it for free</a>
+ </div>
+</div></nav>
+<!-- HERO -->
+<section class="hero"><div class="wrap hgrid">
+ <div class="hl">
+  <h1>Every vendor.<br>One pipeline.<br><span class="gr">One brain.</span></h1>
+  <p class="lead">You sell across a dozen vendors, each with its own motion. Hedge AI coaches every line in context, finds the gap, and shows you what to attach to grow the deal. Built from decades of software sales experience.</p>
+  <div class="hcta">
+   <a class="btn p lg" href="/signup">Analyze 10 deals for free</a>
+   <span class="hint">No credit card. CRM optional.</span>
+  </div>
+  <div class="htix">
+   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendor-aware coaching per line</span>
+   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>One view across every vendor</span>
+   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Attach engine grows the deal</span>
+   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free for up to 10 deals</span>
+  </div>
+ </div>
+ <div class="hr">
+  <div class="card-d">
+   <div class="cd-hd">
+    <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI <span class="s">&middot; Attach opportunities</span></div>
+    <span class="rk" style="background:#ecfdf5;border-color:#a7f3d0;color:#059669">+$135K</span>
+   </div>
+   <div class="cd-bd">
+    <div class="deal"><span class="ac">Brightwell Logistics</span><span class="mt">CrowdStrike Falcon &middot; $75K</span></div>
+    <div class="rflab">What to attach</div>
+    <div class="atrow"><span class="an"><span class="sw" style="background:#4f46e5"></span>Identity Protection</span><span class="av">+$70K</span></div>
+    <div class="atrow"><span class="an"><span class="sw" style="background:#10b981"></span>Email Security</span><span class="av">+$45K</span></div>
+    <div class="atrow" style="border:none"><span class="an"><span class="sw" style="background:#f59e0b"></span>Security Awareness</span><span class="av">+$20K</span></div>
+    <div class="attot" style="border-top:1px solid var(--line2)"><span class="k">New potential deal size</span><span class="v">$210K</span></div>
+    <div class="next" style="margin-top:14px">
+     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>How to lead</div>
+     <p>Lead with Identity Protection. It is the natural next layer for a Falcon buyer and the fastest yes.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</div></section>
+
+<!-- HOW -->
+<section class="sec"><div class="wrap">
+ <div class="center"><div class="ey">How it works</div></div>
+ <h2 style="margin-top:12px">Add any vendor. We coach it in context.</h2>
+ <div class="steps">
+  <div class="step"><div class="n"><b>1</b><span class="h">Add a deal from any vendor</span></div><p>Palo Alto, CrowdStrike, RingCentral, all in one pipeline.</p></div>
+  <div class="step"><div class="n"><b>2</b><span class="h">We coach it in context</span></div><p>Hedge AI knows each vendor sells differently and scores it accordingly.</p></div>
+  <div class="step"><div class="n"><b>3</b><span class="h">Get the play and the attach</span></div><p>The next move to win it, plus the products that grow it.</p></div>
+ </div>
+</div></section>
+
+<!-- FEATURES -->
+<section class="sec lt"><div class="wrap">
+ <div class="center"><div class="ey">Built for the channel</div></div>
+ <h2 style="margin-top:12px">Coaching that knows your whole book.</h2>
+ <p class="sub">Every claim, backed by the actual output.</p>
+ <div class="feat">
+
+  <div class="col">
+   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="7" height="7" rx="1.5" stroke="#4f46e5" stroke-width="1.6"/><rect x="14" y="4" width="7" height="7" rx="1.5" stroke="#10b981" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#f59e0b" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#8b5cf6" stroke-width="1.6"/></svg></div>
+   <h3>One view, every vendor</h3>
+   <div class="cl">Your whole book ranked by risk, so you work the right deal first.</div>
+   <div class="mini">
+    <div class="mlab">Highest risk across your lines</div>
+    <div class="mrow"><span class="dot" style="background:#ef4444"></span><div><div class="mt">Brightwell &middot; CrowdStrike</div><div class="ms">Risk 38, single-threaded</div></div></div>
+    <div class="mrow"><span class="dot" style="background:#f59e0b"></span><div><div class="mt">Apex &middot; RingCentral</div><div class="ms">Risk 55, no next step</div></div></div>
+    <div class="mrow" style="margin-bottom:0"><span class="dot" style="background:#10b981"></span><div><div class="mt">Nova &middot; Palo Alto</div><div class="ms">Risk 81, on track</div></div></div>
+   </div>
+  </div>
+
+  <div class="col">
+   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="#4f46e5" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <h3>Vendor-aware coaching</h3>
+   <div class="cl">A Palo Alto deal moves differently than a RingCentral deal. Hedge AI knows.</div>
+   <div class="mini">
+    <div class="mlab">Coaching, tuned per line</div>
+    <p style="font-size:12.5px;color:#374151;line-height:1.5;margin-bottom:0">This RingCentral deal is past its typical cycle for its size. Compress the next step and confirm the compelling event before it stalls.</p>
+   </div>
+  </div>
+
+  <div class="col">
+   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 14l4-4 3 3 5-5" stroke="#4f46e5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8h4v4" stroke="#4f46e5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <h3>Grow every deal</h3>
+   <div class="cl">The attach engine surfaces the products that belong with this sale.</div>
+   <div class="mini">
+    <div class="mlab">Attach opportunities</div>
+    <div class="atrow"><span class="an"><span class="sw" style="background:#4f46e5"></span>Identity Protection</span><span class="av">+$70K</span></div>
+    <div class="atrow"><span class="an"><span class="sw" style="background:#10b981"></span>Email Security</span><span class="av">+$45K</span></div>
+    <div class="attot"><span class="k">New potential deal size</span><span class="v">$210K</span></div>
+   </div>
+  </div>
+
+ </div>
+</div></section>
+
+<!-- FINAL -->
+<section class="final"><div class="wrap">
+ <h2>Every vendor. Every deal. One brain.</h2>
+ <p>Analyze your first 10 deals free and see what your book is really worth.</p>
+ <a class="btn p lg" href="/signup">Analyze 10 deals for free</a>
+ <div class="subcta" style="color:#8b93a7">No credit card required. Start in 60 seconds.</div>
+</div></section>
+<footer><div class="wrap">
+ <div class="pos">AI-powered deal and forecast intelligence for direct sellers, resellers, and the leaders who manage them.</div>
+ <div class="fl"><a href="/sellers.html">For Sellers</a><a href="/resellers.html">For Resellers</a><a href="/manager.html">Sales Leaders</a><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/login">Login</a></div>
+ <div class="cp">&copy; 2026 SalesHedge.ai</div>
+</div></footer>
+<style>.ac li:before{background:var(--c,#4f46e5)}</style>
+<script>(function(){try{var ref=(new URLSearchParams(location.search).get('ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40);if(!ref)return;document.querySelectorAll('a[href^="/signup"],a[href^="/login"]').forEach(function(a){var u=a.getAttribute('href');a.setAttribute('href',u+(u.indexOf('?')>-1?'&':'?')+'ref='+encodeURIComponent(ref));});}catch(e){}})();</script>
+</body>
+</html>
