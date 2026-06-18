@@ -15,7 +15,7 @@
 body{background:#fff;color:#111827}
 .dia{flex-shrink:0}
 .tnum{font-variant-numeric:tabular-nums}
-.nav{background:#0b1120;display:flex;align-items:center;justify-content:space-between;padding:16px 40px}
+.nav{background:#0b1120;padding:14px 0}
 .brand{display:flex;align-items:center;gap:11px}.brand .nm{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.3px}.brand .nm i{color:#a5b4fc;font-style:normal}.brand .bsub{font-size:8px;font-weight:600;color:#9aa6bd;text-transform:uppercase;letter-spacing:2px;margin-top:2px}
 .navr{display:flex;align-items:center;gap:18px}.navr a{color:#cbd5e1;text-decoration:none;font-size:14px;font-weight:600}
 .try{background:#4f46e5;color:#fff!important;padding:9px 18px;border-radius:8px;font-size:13.5px}
@@ -181,8 +181,8 @@ body{background:#fff;color:#111827}
 .drwhy{font-size:13px;color:#374151;line-height:1.5;margin-bottom:7px}
 .drwhy .t{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#9ca3af;margin-right:7px}
 .drdo{font-size:13px;color:#4f46e5;font-weight:700;line-height:1.45}
-.win-qa{max-width:1000px;margin:36px auto 0;text-align:left}
-.trk{max-width:1000px;margin:16px auto 0;background:#fff;border:1px solid #e6e8ec;border-radius:14px;box-shadow:0 22px 60px rgba(79,70,229,.16);overflow:hidden;text-align:left}
+.win-qa{max-width:1040px;margin:36px auto 0;text-align:left}
+.trk{max-width:1040px;margin:16px auto 0;background:#fff;border:1px solid #e6e8ec;border-radius:14px;box-shadow:0 22px 60px rgba(79,70,229,.16);overflow:hidden;text-align:left}
 .trkhd{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid #eef0f3}
 .trkhd .l{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:800}
 .trkhd .l .s{font-weight:500;color:#9ca3af;font-size:11px}
@@ -201,12 +201,23 @@ body{background:#fff;color:#111827}
 .sec.dk .lab{color:#a5b4fc}
 .sec.dk .txt h2{color:#fff}
 .sec.dk .txt p{color:#9aa6bd}
+
+/* v18 layout cleanup */
+.navin{max-width:1040px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.sec.lt{background:#f6f7f9;border-top:1px solid #ececf0;border-bottom:1px solid #ececf0}
+.attach,.danal,.mb{justify-self:end;width:100%;max-width:480px}
+.capflow{justify-self:start;width:100%;max-width:430px;margin:0}
+.ticks{list-style:none;margin:22px 0 0;padding:0}
+.ticks li{position:relative;padding:7px 0 7px 28px;font-size:14.5px;color:#374151;line-height:1.45}
+.ticks li::before{content:"\2713";position:absolute;left:0;top:6px;width:18px;height:18px;font-size:11px;font-weight:800;color:#4f46e5;background:#eef2ff;border-radius:5px;display:flex;align-items:center;justify-content:center}
+.sec.dk .ticks li{color:#cbd5e1}
+.sec.dk .ticks li::before{color:#a5b4fc;background:#1e2740;border:1px solid #2d3a55}
 </style></head><body>
-<div class="nav"><a href="/" style="text-decoration:none"><div class="brand"><svg width="30" height="30" viewBox="0 0 48 48"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="url(#hg)"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="nm">SalesHedge<i>.ai</i></div><div class="bsub">Deal &amp; Forecast Intelligence</div></div></div></a><div class="navr"><a href="/manager.html">Sales Leaders</a><a href="/login">Login</a><a class="try" href="/signup">Try it for free</a></div></div>
+<div class="nav"><div class="navin"><a href="/" style="text-decoration:none"><div class="brand"><svg width="30" height="30" viewBox="0 0 48 48"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="url(#hg)"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="nm">SalesHedge<i>.ai</i></div><div class="bsub">Deal &amp; Forecast Intelligence</div></div></div></a><div class="navr"><a href="/manager.html">Sales Leaders</a><a href="/login">Login</a><a class="try" href="/signup">Try it for free</a></div></div></div>
 
 <div class="hero"><h1>Own your deals,<br><span class="g">stop the slips.</span></h1>
 <p>SalesHedge was built by enterprise sales leaders who hate to lose. We've trained the AI to help you de-risk every deal, attach adjacent services to increase deal size, and of course, nail your quota.</p>
-<div class="cta"><a href="/signup">Try it for free</a><span>No credit card. 10 deals free.</span></div>
+<div class="cta"><a href="/signup">Analyze 10 deals for free</a><span>No credit card required.</span></div>
 <div class="win-qa"><div class="qa">
 <div class="qatools"><div class="seg"><span class="on">This quarter</span><span>Next quarter</span><span>This year</span></div><div class="qsearch"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#9ca3af" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/></svg> Search deals, accounts, vendors</div><div class="qadd">+ Add deal</div></div>
 <div class="qahd"><div class="l"><svg width="20" height="20" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Quota Attainment</div></div>
@@ -228,8 +239,8 @@ body{background:#fff;color:#111827}
 </div>
 </div>
 
-<!-- Transformation (lt) -->
-<div class="sec lt"><div class="lab" style="text-align:center">The transformation</div><div class="h2c">From hidden risks to clear next moves.</div><div class="subc">Most reps sense a deal is off but can't pinpoint why. SalesHedge diagnoses every deal, tells you exactly what to do, and drafts the talk track and email for that specific situation.</div>
+<!-- Transformation (white) -->
+<div class="sec"><div class="lab" style="text-align:center">The transformation</div><div class="h2c">From hidden risks to clear next moves.</div><div class="subc">Most reps sense a deal is off but can't pinpoint why. SalesHedge diagnoses every deal, tells you exactly what to do, and drafts the talk track and email for that specific situation.</div>
 <div class="cards">
 <div class="cardW"><div class="ch red">Without SalesHedge</div>
 <div class="crow"><span class="acct">Meridian</span><span class="pill commit">Commit</span><span class="desc">No access to economic buyer</span></div>
@@ -243,9 +254,9 @@ body{background:#fff;color:#111827}
 <div class="cfoot"><div class="ttl ind">Every deal includes</div><div class="chips"><span class="chip ind">AI-drafted email</span><span class="chip ind">Talk track for your next call</span><span class="chip ind">Exact language to use</span><span class="chip ind">100+ tactics considered</span></div></div></div>
 </div><div class="ctainline"><a href="/signup">Try it for free</a><span>No credit card. 10 deals free.</span></div></div>
 
-<!-- Attach (white): text left, card right -->
-<div class="sec"><div class="secin">
-<div class="txt"><div class="lab">Attach intelligence</div><h2>Every deal is bigger than it looks.</h2><p>Hedge AI spots the products that naturally attach to what you're selling, so you grow each deal instead of leaving budget on the table. Built for resellers carrying multiple vendors.</p></div>
+<!-- Attach (lt): text left, card right -->
+<div class="sec lt"><div class="secin">
+<div class="txt"><div class="lab">Attach intelligence</div><h2>Every deal is bigger than it looks.</h2><p>Hedge AI spots the products that naturally attach to what you're selling, so you grow each deal instead of leaving budget on the table. Built for resellers carrying multiple vendors.</p><ul class="ticks"><li>Finds the products that naturally attach to this sale</li><li>Hands you the exact expansion line to use</li><li>Tracks attach across every vendor you carry</li></ul></div>
 <div class="attach">
 <div class="ahdr"><div class="ahl"><svg width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="t">Hedge AI</div><div class="s">Attach opportunity</div></div></div><span class="apill">+$135K potential</span></div>
 <div class="actx"><b>Cedar Valley Health</b> · CrowdStrike Falcon, endpoint · $120K</div>
@@ -258,20 +269,20 @@ body{background:#fff;color:#111827}
 <div class="afoot">Deal size $120K&nbsp;<span class="ar">&rarr;&nbsp;$235K</span>&nbsp;with the full stack</div></div>
 </div></div>
 
-<!-- Capture (lt): img left -->
-<div class="sec lt"><div class="secin">
+<!-- Capture (white): img left -->
+<div class="sec"><div class="secin">
 <div class="capflow">
 <div class="caphd"><svg width="16" height="16" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Ask the Hedge</div>
 <div class="capchat"><div class="cb ai">Who's the customer, and what are you selling them?</div><div class="cb me">Meridian Health, CrowdStrike Falcon, about $90K</div><div class="cb ai">Where are you in the cycle, and when do you hope to close?</div><div class="cb me">Demo last week, closing end of quarter</div></div>
 <div class="capto">&darr; builds your deal, <b>prefilled</b></div>
 <div class="capf"><div class="capfld"><div class="k">Account</div><div class="v"><span class="c">&check;</span>Meridian Health</div></div><div class="capfld"><div class="k">Amount</div><div class="v"><span class="c">&check;</span>$90,000</div></div><div class="capfld"><div class="k">Product</div><div class="v"><span class="c">&check;</span>CrowdStrike Falcon</div></div><div class="capfld"><div class="k">Stage</div><div class="v"><span class="c">&check;</span>Demo / Validation</div></div><div class="capfld full"><div class="k">Expected close</div><div class="v"><span class="c">&check;</span>Jun 30, 2026</div></div></div>
 </div>
-<div class="txt"><div class="lab">Zero data entry</div><h2>Just talk. It builds the deal.</h2><p>Add your deals easily, even with your voice, and SalesHedge builds a forecast, tells you your deal weaknesses, and provides the tools to push deals forward.</p></div>
+<div class="txt"><div class="lab">Zero data entry</div><h2>Just talk. It builds the deal.</h2><p>Add your deals easily, even with your voice, and SalesHedge builds a forecast, tells you your deal weaknesses, and provides the tools to push deals forward.</p><ul class="ticks"><li>Add deals by typing or speaking, no forms</li><li>Pulls account, amount, stage, and close date for you</li><li>Starts scoring the moment the deal exists</li></ul></div>
 </div></div>
 
 <!-- Deep-dive (dark): text left -->
 <div class="sec dk"><div class="secin">
-<div class="txt"><div class="lab">Know what's at risk</div><h2>Know the one move that matters today.</h2><p>For every deal you get a risk score, the real weakness, and the exact play, down to an email you can send right now.</p></div>
+<div class="txt"><div class="lab">Know what's at risk</div><h2>Know the one move that matters today.</h2><p>For every deal you get a risk score, the real weakness, and the exact play, down to an email you can send right now.</p><ul class="ticks"><li>A risk score and the real weakness on every deal</li><li>The single highest-impact next move</li><li>A ready-to-send email for that exact situation</li></ul></div>
 <div class="danal">
 <div class="ahdr"><div class="ahl"><svg width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="t">Hedge AI</div><div class="s">Deal analysis</div></div></div><span class="rk red">41</span></div>
 <div class="dsub"><b>Meridian Health</b> &middot; CrowdStrike Falcon &middot; $90K &middot; Demo / Validation</div>
@@ -279,11 +290,11 @@ body{background:#fff;color:#111827}
 <div class="dmove"><div class="drl">The move</div><div class="dmt">Ask your champion to set a 15-minute VP alignment call this week, and offer to co-present the business case.</div></div>
 <div class="dmail"><div class="drl"><svg width="16" height="16" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Draft email, ready to send</div><div class="dmtext">Hi Sarah, before we take the next step I'd love to get your VP of Ops in the room for 15 minutes to align on the business case and timeline...</div><span class="dsent">&check; I sent this</span></div>
 </div>
-</div><div class="ctainline"><a href="/signup">Try it for free</a><span>No credit card. 10 deals free.</span></div></div>
+</div><div class="ctainline"><a href="/signup">Analyze 10 deals for free</a><span>No credit card required.</span></div></div>
 
-<!-- Sales leaders (white): text left, manager card right -->
-<div class="sec"><div class="secin">
-<div class="txt"><div class="lab">For sales leaders</div><h2>See the patterns. Coach the team.</h2><p>Hedge AI surfaces the issues showing up across your pipeline, analyzes what's really winning and losing deals, and shows you where to double down for the biggest impact.</p></div>
+<!-- Sales leaders (lt): text left, manager card right -->
+<div class="sec lt"><div class="secin">
+<div class="txt"><div class="lab">For sales leaders</div><h2>See the patterns. Coach the team.</h2><p>Hedge AI surfaces the issues showing up across your pipeline, analyzes what's really winning and losing deals, and shows you where to double down for the biggest impact.</p><ul class="ticks"><li>Surfaces the issues repeating across the team</li><li>Shows what is actually winning and losing deals</li><li>Points you to the highest-impact place to coach</li></ul></div>
 <div class="mb">
 <div class="mbh"><div class="l"><svg width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="5" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="t">Hedge AI</div><div class="s">Manager briefing</div></div></div><span class="mbpill">THIS QUARTER</span></div>
 <div class="mbblock"><div class="mbl">Recurring issues</div>
@@ -296,7 +307,7 @@ body{background:#fff;color:#111827}
 <div class="wlr">Top loss reason: <b>no compelling event</b>, 42% of losses.</div></div>
 <div class="mbblock"><div class="mbl">Where to double down</div>
 <div class="mbdd">Multi-threaded deals win <b>3.1x</b> more. 9 deals are single-threaded, coach those reps first.</div></div>
-</div><div class="ctainline"><a href="/signup">Try it for free</a><span>No credit card. 10 deals free.</span></div></div></div>
+</div></div><div class="ctainline"><a href="/signup">Try it for free</a><span>No credit card. 10 deals free.</span></div></div>
 
 <!-- Audience (dark) -->
 <div class="secB"><div class="lab" style="text-align:center">Built for how you sell</div><div class="h2c">Reps, resellers, and the leaders who run them.</div>
@@ -307,7 +318,7 @@ body{background:#fff;color:#111827}
 </div></div>
 
 <div class="final"><h2>Stop guessing. Start closing.</h2><p>Selling one more deal more than pays for SalesHedge. I bet you sell at least 10 more...</p>
-<div class="cta"><a href="/signup">Try it for free</a><span>No credit card. 10 deals free.</span></div></div>
+<div class="cta"><a href="/signup">Analyze 10 deals for free</a><span>No credit card required.</span></div></div>
 
 <div class="foot"><div class="pos">Built by sellers for sellers</div><div class="lk"><a href="/manager.html">Sales Leaders</a><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/login">Login</a></div><div class="cp">&copy; 2026 SalesHedge.ai</div></div>
 
