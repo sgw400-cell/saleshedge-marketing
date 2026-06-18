@@ -100,7 +100,7 @@ nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px so
 .col .ic{width:38px;height:38px;border-radius:10px;background:#eef2ff;display:flex;align-items:center;justify-content:center;margin-bottom:13px}
 .col h3{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .col .cl{font-size:13.5px;color:var(--mut);line-height:1.5;margin:6px 0 16px;min-height:40px}
-.mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;margin-top:auto}
+.mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;flex:1;display:flex;flex-direction:column}
 .mlab{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--mut2);margin-bottom:11px}
 .mrow{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px}
 .mrow .dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
@@ -112,7 +112,7 @@ nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px so
 .attot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;margin-top:4px}
 .attot .k{font-size:12px;font-weight:700;color:var(--mut)}
 .attot .v{font-size:17px;font-weight:900;color:var(--grn-d)}
-.miniact{display:flex;gap:8px;margin-top:4px}
+.miniact{display:flex;gap:8px;margin-top:auto}
 .miniact .b1{flex:1;background:var(--ind);color:#fff;border-radius:8px;padding:9px;font-size:12px;font-weight:700;text-align:center}
 .miniact .b2{background:#fff;color:var(--ind);border:1px solid #c7d2fe;border-radius:8px;padding:9px 12px;font-size:12px;font-weight:700;text-align:center}
 .sw{width:8px;height:8px;border-radius:2px;flex-shrink:0}
@@ -191,12 +191,12 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
    <div class="cd-bd">
     <div class="deal"><span class="ac">Brightwell Logistics</span><span class="mt">$75K &middot; Proposal / Commercial</span></div>
     <div class="rflab">Top risk factors</div>
-    <div class="rf"><span class="dot" style="background:#ef4444"></span><div><div class="ti">Single-threaded</div><div class="su">Only the VP of IT is engaged</div></div></div>
-    <div class="rf"><span class="dot" style="background:#ef4444"></span><div><div class="ti">No economic buyer</div><div class="su">Budget owner not in the deal</div></div></div>
-    <div class="rf"><span class="dot" style="background:#f59e0b"></span><div><div class="ti">No confirmed next step</div><div class="su">Last activity 11 days ago</div></div></div>
+    <div class="rf"><span class="dot" style="background:#ef4444"></span><div><div class="ti">Single-threaded</div><div class="su">The VP of IT is your only contact. With the quarter closing, one delay from them and the deal has nowhere to go.</div></div></div>
+    <div class="rf"><span class="dot" style="background:#ef4444"></span><div><div class="ti">No economic buyer</div><div class="su">The budget owner has never been in a conversation. Deals that reach commercial stage without them rarely close on time.</div></div></div>
+    <div class="rf"><span class="dot" style="background:#f59e0b"></span><div><div class="ti">No confirmed next step</div><div class="su">Eleven days silent with nothing booked, and the quarter ends in twelve days. This one is drifting toward a slip.</div></div></div>
     <div class="next">
      <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>AI recommended next move</div>
-     <p>Get your champion to set a 15-minute alignment call with the VP of Operations to validate priority and budget before the quarter closes.</p>
+     <p>Have your champion set a 15-minute alignment call with the VP of Operations to surface what it costs them to wait another quarter. Come prepared with the ROI. Your goal: get the order form into their legal team within 7 days, leaving time to negotiate and close before quarter end.</p>
      <a class="btn p" href="#">View email &amp; talk track</a>
     </div>
    </div>
@@ -209,9 +209,9 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
  <div class="center"><div class="ey">How it works</div></div>
  <h2 style="margin-top:12px">Add a deal. We analyze it. You close it.</h2>
  <div class="steps">
-  <div class="step"><div class="n"><b>1</b><span class="h">Add your deal</span></div><p>Type it, paste notes, or just talk. No CRM entry needed.</p></div>
-  <div class="step"><div class="n"><b>2</b><span class="h">We analyze the risk</span></div><p>Hedge AI reads the deal against your risk patterns to find the gap.</p></div>
-  <div class="step"><div class="n"><b>3</b><span class="h">Get the play</span></div><p>A specific next move, the email or talk track, and what to attach.</p></div>
+  <div class="step"><div class="n"><b>1</b><span class="h">Add your deal</span></div><p>Type a few lines, paste your notes, or just talk it through. No fields, no CRM.</p></div>
+  <div class="step"><div class="n"><b>2</b><span class="h">Hedge AI scores it</span></div><p>It weighs the deal against decades of real sales patterns and shows what is missing.</p></div>
+  <div class="step"><div class="n"><b>3</b><span class="h">Run the play</span></div><p>You get the next move, the words to use, and the email ready to send.</p></div>
  </div>
 </div></section>
 
@@ -240,7 +240,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
    <div class="cl">Instant emails and talk tracks to move the deal forward today.</div>
    <div class="mini">
     <div class="mlab">AI recommended next move</div>
-    <p style="font-size:12.5px;color:#374151;line-height:1.5;margin-bottom:13px">Schedule a 15-min alignment call with the VP of Operations to validate priority and budget.</p>
+    <p style="font-size:12.5px;color:#374151;line-height:1.5;margin-bottom:13px">Get the order form into legal within 7 days, leaving room to negotiate and close before quarter end.</p>
     <div class="miniact"><span class="b1">Copy email</span><span class="b2">Talk track</span></div>
    </div>
   </div>
