@@ -187,34 +187,20 @@ footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
 <div class="contact-inner">
 <h2 class="contact-title">Send us a message.</h2>
 <p class="contact-sub">We typically respond within one business day.</p>
-<form action="mailto:support@saleshedge.ai" method="POST" enctype="text/plain">
-<div class="form-group">
-<label for="name">Your Name</label>
-<input type="text" id="name" name="name" required placeholder="Jane Smith">
-</div>
-<div class="form-group">
-<label for="email">Email Address</label>
-<input type="email" id="email" name="email" required placeholder="jane@company.com">
-</div>
-<div class="form-group">
-<label for="topic">Topic</label>
-<select id="topic" name="topic">
-<option value="general">General Question</option>
-<option value="account">Account &amp; Billing</option>
-<option value="bug">Bug Report</option>
-<option value="feature">Feature Request</option>
-<option value="enterprise">Enterprise Inquiry</option>
-<option value="demo">Request a Demo</option>
-</select>
-</div>
-<div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" name="message" required placeholder="How can we help?"></textarea>
-</div>
-<div class="form-submit">
-<button type="submit" class="btn" style="border:none;cursor:pointer;font-family:'Inter',sans-serif">Send Message</button>
-</div>
+<form id="supportForm" onsubmit="return false">
+<div class="form-group"><label for="s_name">Your name</label><input type="text" id="s_name" required placeholder="Jane Smith"></div>
+<div class="form-group"><label for="s_email">Email address</label><input type="email" id="s_email" required placeholder="jane@company.com"></div>
+<div class="form-group"><label for="s_topic">Topic</label><select id="s_topic"><option value="general">General question</option><option value="account">Account &amp; billing</option><option value="bug">Bug report</option><option value="feature">Feature request</option><option value="enterprise">Enterprise inquiry</option><option value="demo">Request a demo</option></select></div>
+<div class="form-group"><label for="s_msg">How can we help?</label><textarea id="s_msg" required placeholder="Describe your question or concern, with any detail that helps us help you."></textarea></div>
+<div class="form-group"><label for="s_cap">Quick check (helps block spam): what is <span id="cap_q">&hellip;</span>?</label><input type="text" id="s_cap" inputmode="numeric" autocomplete="off" placeholder="Type the number" style="max-width:200px"></div>
+<input type="text" id="s_hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0">
+<div id="supportErr" style="display:none;color:#dc2626;font-size:14px;margin-bottom:12px"></div>
+<div class="form-submit"><button type="button" id="s_btn" class="btn" style="border:none;cursor:pointer;font-family:'Inter',sans-serif" onclick="sendSupport()">Send message</button></div>
 </form>
+<div id="supportOk" style="display:none;text-align:center;padding:8px 0">
+<div style="font-size:20px;font-weight:800;color:#111827;margin-bottom:8px">Thanks, we got it.</div>
+<p class="contact-sub" style="margin:0">Your message is with our support team. We&#39;ll reply to <span data-email style="font-weight:600;color:#374151"></span> within one business day.</p>
+</div>
 </div>
 </div></section>
 
@@ -224,5 +210,30 @@ footer .copy{font-size:11px;color:rgba(255,255,255,.2)}
 <div class="copy">&copy; 2026 SalesHedge.ai. All rights reserved.</div>
 </footer>
 
+<script>
+(function(){
+var SB="https://vyrfktotclcmeqvusgnw.supabase.co/rest/v1/support_requests";
+var KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5cmZrdG90Y2xjbWVxdnVzZ253Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxOTU1ODcsImV4cCI6MjA5MTc3MTU4N30.Q2j2P6z85X8lfvUWHKGIUhtc_6IdeFrhjsVaX-lgnMQ";
+var A=1+Math.floor(Math.random()*8),B=1+Math.floor(Math.random()*8),EXPECT=A+B;
+function setq(){var q=document.getElementById('cap_q');if(q)q.textContent=A+' + '+B;}
+if(document.readyState!=='loading')setq();else document.addEventListener('DOMContentLoaded',setq);
+window.sendSupport=async function(){
+var g=function(id){var e=document.getElementById(id);return e?(e.value||'').trim():'';};
+var name=g('s_name'),email=g('s_email'),msg=g('s_msg'),hp=g('s_hp'),cap=g('s_cap');
+var topic=(document.getElementById('s_topic')||{}).value||'general';
+var err=document.getElementById('supportErr');err.style.display='none';
+if(hp){document.getElementById('supportForm').style.display='none';document.getElementById('supportOk').style.display='block';return;}
+if(!name||!email||!msg){err.textContent='Please add your name, email, and a message.';err.style.display='block';return;}
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){err.textContent='Please enter a valid email address.';err.style.display='block';return;}
+if(parseInt(cap,10)!==EXPECT){err.textContent='That spam-check answer is not right. Please try again.';err.style.display='block';return;}
+var btn=document.getElementById('s_btn');btn.disabled=true;btn.textContent='Sending\u2026';
+try{var r=await fetch(SB,{method:'POST',headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY,'Prefer':'return=minimal'},body:JSON.stringify({name:name,email:email,topic:topic,message:msg,page:'support',user_agent:(navigator.userAgent||'').slice(0,300)})});
+if(!r.ok)throw new Error('http '+r.status);
+var ok=document.getElementById('supportOk'),em=ok.querySelector('[data-email]');if(em)em.textContent=email;
+document.getElementById('supportForm').style.display='none';ok.style.display='block';
+}catch(e){btn.disabled=false;btn.textContent='Send message';err.textContent='Something went wrong sending that. Please email support@saleshedge.ai directly.';err.style.display='block';}
+};
+})();
+</script>
 </body>
 </html>
