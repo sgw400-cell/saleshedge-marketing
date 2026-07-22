@@ -12,23 +12,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SalesHedge.ai | Find the gap. Get the play. Close the deal.</title>
-<meta name="description" content="AI deal and forecast intelligence for sales teams. SalesHedge finds the hidden risks in your pipeline and gives you the exact next move to close. Try it free.">
+<meta name="description" content="Your CRM records what happened. SalesHedge tells you what to do next and what to avoid - deal risk, forecast gaps and the exact play. Free up to 5 deals.">
 <link rel="canonical" href="https://saleshedge.ai/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SalesHedge.ai">
 <meta property="og:title" content="SalesHedge.ai | Find the gap. Get the play. Close the deal.">
-<meta property="og:description" content="AI deal and forecast intelligence for sales teams. SalesHedge finds the hidden risks in your pipeline and gives you the exact next move to close. Try it free.">
+<meta property="og:description" content="Your CRM records what happened. SalesHedge tells you what to do next and what to avoid - deal risk, forecast gaps and the exact play. Free up to 5 deals.">
 <meta property="og:url" content="https://saleshedge.ai/">
 <meta property="og:image" content="https://saleshedge.ai/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SalesHedge deal risk analysis showing top risk factors and the recommended next move">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@saleshedge">
 <meta name="twitter:title" content="SalesHedge.ai | Find the gap. Get the play. Close the deal.">
-<meta name="twitter:description" content="AI deal and forecast intelligence for sales teams. SalesHedge finds the hidden risks in your pipeline and gives you the exact next move to close. Try it free.">
+<meta name="twitter:description" content="Your CRM records what happened. SalesHedge tells you what to do next and what to avoid - deal risk, forecast gaps and the exact play. Free up to 5 deals.">
 <meta name="twitter:image" content="https://saleshedge.ai/img/og.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SalesHedge.ai","url":"https://saleshedge.ai","logo":"https://saleshedge.ai/img/logo.png","sameAs":["https://twitter.com/saleshedge"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SalesHedge.ai","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"AI deal and forecast intelligence engine for sales teams."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SalesHedge.ai","url":"https://saleshedge.ai","logo":"https://saleshedge.ai/img/logo.png","sameAs":["https://twitter.com/saleshedge","https://www.linkedin.com/company/saleshedge-ai/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SalesHedge.ai","applicationCategory":"BusinessApplication","applicationSubCategory":"Sales Intelligence","operatingSystem":"Web","url":"https://saleshedge.ai/","description":"SalesHedge is an AI-based deal and forecast intelligence engine for sales teams.","featureList":["Deal risk scoring","Deal Viability Assessment","Forecast gap intelligence for sales leaders","AI email drafts and talk tracks","Attach and cross-sell recommendations","Works with your CRM or without one"],"offers":[{"@type":"Offer","name":"Starter","price":"0","priceCurrency":"USD","description":"Up to 5 active deals."},{"@type":"Offer","name":"Pro Seller","price":"79","priceCurrency":"USD","description":"Up to 50 deals, email drafts, talk tracks, close plans, forecast management."},{"@type":"Offer","name":"Team","price":"499","priceCurrency":"USD","description":"Up to 10 users, manager dashboard and reports."},{"@type":"Offer","name":"Growth","price":"999","priceCurrency":"USD","description":"Up to 25 users, company dashboard and adaptive scoring."},{"@type":"Offer","name":"Enterprise","price":"1499","priceCurrency":"USD","description":"Up to 100 users, CRM integrations and SSO."}]}</script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -180,10 +182,121 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 <body>
+<style>
+/* --- PROTOTYPE ADDITIONS ONLY --- */
+.rk.a{background:#fffbeb;border-color:#fde68a;color:#b45309}
+.rk.g{background:#ecfdf5;border-color:#a7f3d0;color:#047857}
+
+
+/* card density */
+.dhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.dnm{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.2px}
+.dmt{font-size:11.5px;color:var(--mut);margin-top:3px}
+.damt{font-size:20px;font-weight:900;color:var(--ink);letter-spacing:-.8px;white-space:nowrap}
+
+.meter{position:relative;height:7px;border-radius:99px;background:linear-gradient(90deg,#10b981,#f59e0b 55%,#ef4444);margin-top:2px}
+.meter .fill{display:none}
+.meter .pin{position:absolute;top:50%;transform:translate(-50%,-50%);width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.mlegend{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--mut2);margin-top:7px}
+
+.rows{margin:14px 0 4px;border-top:1px solid var(--line2)}
+.rows .r{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--line2)}
+.rows .r b{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.2}
+.rows .r .e{margin-left:auto;font-size:11px;color:var(--mut2);white-space:nowrap;font-weight:500}
+.rows .r .d{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+.split3{display:flex;gap:8px;margin:14px 0 2px}
+.split3 .s3{flex:1;background:var(--panel);border:1px solid var(--line2);border-radius:9px;padding:10px 11px}
+.split3 .s3v{font-size:17px;font-weight:900;letter-spacing:-.6px;color:var(--ink)}
+.split3 .s3k{font-size:10px;color:var(--mut);margin-top:2px;line-height:1.3}
+
+.lines{margin-top:4px}
+.lines .ln{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--line2)}
+.lines .ln b{font-size:12.5px;font-weight:700;color:var(--ink)}
+.lines .ln .tag{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border-radius:5px;padding:3px 7px}
+.tag.ok{background:#ecfdf5;color:#047857}
+.tag.hold{background:#eef2ff;color:#4338ca}
+.tag.no{background:#f3f4f6;color:#6b7280}
+
+.next p{font-size:12.5px !important;line-height:1.45 !important}
+
+/* hero tabs */
+.htabs{display:flex;gap:6px;margin-bottom:12px}
+.htab{font-size:12.5px;font-weight:700;color:#8b93a7;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s}
+.htab:hover{color:#c2c8d6}
+.htab.on{background:var(--ind);border-color:var(--ind);color:#fff}
+.hpane{display:none}
+.hpane.on{display:block}
+@media(min-width:881px){.hpane{min-height:520px}}
+
+/* problem split */
+.psplit{display:flex;margin-top:40px;align-items:stretch}
+.psplit>.pc{flex:1;border-radius:14px;padding:26px 24px}
+.psplit>.pc+.pc{margin-left:22px}
+.pc.no{background:#fff;border:1px solid var(--line)}
+.pc.yes{background:#0b1120;border:1px solid #1e2540}
+.pc .plab{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
+.pc.no .plab{color:var(--mut2)}
+.pc.yes .plab{color:var(--ind-l)}
+.pc ul{list-style:none}
+.pc li{font-size:14px;line-height:1.5;padding:9px 0 9px 26px;position:relative}
+.pc.no li{color:var(--mut);border-bottom:1px solid var(--line2)}
+.pc.yes li{color:#dfe3f2;border-bottom:1px solid rgba(255,255,255,.07)}
+.pc li:last-child{border-bottom:none}
+.pc li:before{position:absolute;left:0;top:9px;font-size:14px;font-weight:800}
+.pc.no li:before{content:"\00d7";color:#cbd0d8;font-size:17px;top:7px}
+.pc.yes li:before{content:"\2713";color:#34d399}
+.pline{text-align:center;font-size:17px;font-weight:700;color:var(--ink);max-width:660px;margin:38px auto 0;line-height:1.5}
+.pline span{color:var(--ind)}
+.pstats{display:flex;gap:22px;margin-top:34px;justify-content:center;flex-wrap:wrap}
+.pstat{flex:1;min-width:210px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.pstat .v{font-size:30px;font-weight:900;color:var(--ind);letter-spacing:-1px}
+.pstat .k{font-size:13px;color:var(--mut);line-height:1.5;margin-top:6px}
+.pstat .src{font-size:10.5px;color:var(--mut2);margin-top:9px;letter-spacing:.2px}
+
+/* scope / not-this */
+.scope{display:flex;margin-top:40px;align-items:stretch}
+.scope>.sc{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.scope>.sc+.sc{margin-left:22px}
+.sc .sh{font-size:12px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:14px}
+.sc ul{list-style:none}
+.sc li{font-size:13.5px;line-height:1.45;padding:7px 0 7px 24px;position:relative;color:#374151}
+.sc li:before{position:absolute;left:0;top:7px;font-weight:800}
+.sc.do li:before{content:"\2713";color:var(--grn-d)}
+.sc.dont li{color:var(--mut)}
+.sc.dont li:before{content:"\00d7";color:#cbd0d8;font-size:16px;top:5px}
+
+/* trust */
+.trust{display:flex;margin-top:40px}
+.trust>.tc{flex:1}
+.trust>.tc+.tc{margin-left:22px}
+.tc .ti2{width:38px;height:38px;border-radius:10px;background:#eef2ff;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.tc h3{font-size:15px;font-weight:800;margin-bottom:6px}
+.tc p{font-size:13.5px;color:var(--mut);line-height:1.55}
+
+/* pricing teaser */
+.pr{display:flex;margin-top:40px;align-items:stretch}
+.pr>.p1{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px;display:flex;flex-direction:column}
+.pr>.p1+.p1{margin-left:22px}
+.pr>.p1.hi{border-color:var(--ind);box-shadow:0 8px 24px rgba(79,70,229,.10)}
+.p1 .pn{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ind)}
+.p1 .pp{font-size:32px;font-weight:900;letter-spacing:-1.4px;margin:10px 0 2px}
+.p1 .pp small{font-size:14px;font-weight:700;color:var(--mut2);letter-spacing:0}
+.p1 .pd{font-size:13px;color:var(--mut);line-height:1.5;margin-bottom:16px;min-height:38px}
+.p1 .pb{margin-top:auto}
+.prnote{text-align:center;font-size:14px;color:var(--mut);margin-top:26px}
+.prnote b{color:var(--ink)}
+
+@media(max-width:880px){
+ .psplit,.scope,.trust,.pr{flex-direction:column}
+ .psplit>.pc+.pc,.scope>.sc+.sc,.trust>.tc+.tc,.pr>.p1+.p1{margin-left:0;margin-top:22px}
+ .htabs{flex-wrap:wrap}
+}
+</style>
 
 <!-- NAV -->
 <nav><div class="wrap navin">
- <a class="brand" href="#">
+ <a class="brand" href="/">
   <svg class="dia" width="40" height="40" viewBox="0 0 48 48"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#hg)"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
   <div><div class="nm">SalesHedge<span>.ai</span></div><div class="sub">Deal &amp; Forecast Intelligence</div></div>
  </a>
@@ -192,6 +305,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   <a class="lk" href="/sellers.html">For Sellers</a>
   <a class="lk" href="/for-managers.html">Sales Leaders</a>
   <a class="lk" href="/for-cros.html">Revenue Leaders</a>
+  <a class="lk" href="/subscribe">Pricing</a>
   <a class="lk" href="/login">Login</a>
   <a class="btn p" href="/signup">Try it for free</a>
  </div>
@@ -201,52 +315,201 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 <section class="hero"><div class="wrap hgrid">
  <div class="hl">
   <h1>Find the gap.<br>Get the play.<br><span class="gr">Close the deal.</span></h1>
-  <p class="lead">SalesHedge was built by sellers. We've injected decades of software sales experience into our AI engine to find risks in your deals, provide key actions and intelligence, and the tools to execute.</p>
+  <p class="lead">Your CRM records what happened; it doesn't coach you to improve win rates. SalesHedge tells you what to do next and what to avoid. 25+ years of real enterprise sales experience built into the engine.</p>
   <div class="hcta">
    <a class="btn p lg" href="/signup">Try it for free</a>
-   <span class="hint">No credit card. No CRM required.</span>
+   <span class="hint">No credit card. No demo call.</span>
   </div>
   <div class="htix">
-   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Built by enterprise sales leaders</span>
    <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 5 active deals, free forever</span>
-   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Use us as a CRM or connect your own</span>
-   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Deal Viability Gauge</span>
+   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Works with your CRM, or without one</span>
+   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sales leader forecasting gap intelligence</span>
+   <span class="t"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8l3.2 3L13 4.5" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Deal Viability Assessment</span>
   </div>
  </div>
+
  <div class="hr">
+  <div class="htabs">
+   <div class="htab on" data-t="rep">Rep</div>
+   <div class="htab" data-t="mgr">Manager</div>
+   <div class="htab" data-t="res">Reseller</div>
+  </div>
+
+  <!-- REP -->
+  <div class="hpane on" id="p-rep">
   <div class="card-d">
    <div class="cd-hd">
-    <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI <span class="s">&middot; Top risk</span></div>
+    <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI</div>
     <span class="rk">RISK <b>38</b></span>
    </div>
    <div class="cd-bd">
-    <div class="deal"><span class="ac">Brightwell Logistics</span><span class="mt">$75K &middot; Proposal / Commercial</span></div>
-    <div class="rflab">Top risk factors</div>
-    <div class="rf"><span class="dot" style="background:#ef4444"></span><div><div class="ti">Single-threaded</div><div class="su">The VP of IT is your only contact. With the quarter closing, one delay from them and the deal has nowhere to go.</div></div></div>
-    <div class="rf"><span class="dot" style="background:#ef4444"></span><div><div class="ti">No economic buyer</div><div class="su">The budget owner has never been in a conversation. Deals that reach commercial stage without them rarely close on time.</div></div></div>
-    <div class="rf"><span class="dot" style="background:#f59e0b"></span><div><div class="ti">No confirmed next step</div><div class="su">Eleven days silent with nothing booked, and the quarter ends in twelve days. This one is drifting toward a slip.</div></div></div>
+    <div class="dhead">
+     <div><div class="dnm">Brightwell Logistics</div><div class="dmt">Proposal / Commercial &middot; 12 days to quarter end</div></div>
+     <div class="damt">$75K</div>
+    </div>
+    <div class="meter"><span class="fill" style="width:38%"></span><span class="pin" style="left:38%"></span></div>
+    <div class="mlegend"><span>Healthy</span><span>At risk</span></div>
+
+    <div class="rows">
+     <div class="r"><span class="d" style="background:#ef4444"></span><b>Single-threaded</b><span class="e">1 contact, no exec</span></div>
+     <div class="r"><span class="d" style="background:#ef4444"></span><b>No economic buyer</b><span class="e">never on a call</span></div>
+     <div class="r"><span class="d" style="background:#f59e0b"></span><b>Gone quiet</b><span class="e">11 days, nothing booked</span></div>
+    </div>
+
     <div class="next">
-     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>Hedge AI &middot; recommended next move</div>
-     <p>Have your champion set a 15-minute alignment call with the VP of Operations to surface what it costs them to wait another quarter. Come prepared with the ROI. Your goal: get the order form into their legal team within 7 days, leaving time to negotiate and close before quarter end.</p>
-     <a class="btn p" href="#">View email &amp; talk track</a>
+     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>Next move</div>
+     <p>Have your champion book 15 minutes with the VP of Operations. Goal: order form to legal within 7 days.</p>
+     <a class="btn p" href="/signup">Email &amp; talk track</a>
     </div>
    </div>
+  </div>
+  </div>
+
+  <!-- MANAGER -->
+  <div class="hpane" id="p-mgr">
+  <div class="card-d">
+   <div class="cd-hd">
+    <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI</div>
+    <span class="rk">COMMIT AT RISK</span>
+   </div>
+   <div class="cd-bd">
+    <div class="dhead">
+     <div><div class="dnm">Northeast Team</div><div class="dmt">Q3 commit &middot; 12 days left</div></div>
+     <div class="damt">$1.2M</div>
+    </div>
+    <div class="split3">
+     <div class="s3"><div class="s3v" style="color:#ef4444">$340K</div><div class="s3k">not real</div></div>
+     <div class="s3"><div class="s3v">2.1x</div><div class="s3k">coverage vs 3x</div></div>
+     <div class="s3"><div class="s3v">4</div><div class="s3k">deals pushed 2x</div></div>
+    </div>
+
+    <div class="rows">
+     <div class="r"><span class="d" style="background:#ef4444"></span><b>3 commit deals, no budget owner</b><span class="e">$340K</span></div>
+     <div class="r"><span class="d" style="background:#ef4444"></span><b>Marcus is slipping the same deals</b><span class="e">2 quarters running</span></div>
+     <div class="r"><span class="d" style="background:#f59e0b"></span><b>Coverage cannot absorb a slip</b><span class="e">2.1x on a 3x target</span></div>
+    </div>
+
+    <div class="next">
+     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>Run Friday like this</div>
+     <p>Move the three to Best Case until a budget conversation is booked. With Marcus, run a close-date conversation, not a pipeline review.</p>
+     <a class="btn p" href="/signup">See the team briefing</a>
+    </div>
+   </div>
+  </div>
+  </div>
+
+  <!-- RESELLER -->
+  <div class="hpane" id="p-res">
+  <div class="card-d">
+   <div class="cd-hd">
+    <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI</div>
+    <span class="rk a">PROTECT FIRST</span>
+   </div>
+   <div class="cd-bd">
+    <div class="dhead">
+     <div><div class="dnm">Coastal Health System</div><div class="dmt">Base line in procurement &middot; 3 vendors</div></div>
+     <div class="damt">$140K</div>
+    </div>
+
+    <div class="lines">
+     <div class="ln"><span class="sw" style="background:#4f46e5"></span><b>Base line</b><span class="tag hold">Land first</span></div>
+     <div class="ln"><span class="sw" style="background:#10b981"></span><b>Identity Protection</b><span class="tag ok">Attach +$70K</span></div>
+     <div class="ln"><span class="sw" style="background:#f59e0b"></span><b>Email Security</b><span class="tag no">Hold</span></div>
+    </div>
+
+    <div class="rows">
+     <div class="r"><span class="d" style="background:#f59e0b"></span><b>New vendor now = new committee</b><span class="e">procurement is live</span></div>
+     <div class="r"><span class="d" style="background:#10b981"></span><b>Identity rides the same budget</b><span class="e">no new approvers</span></div>
+     <div class="r"><span class="d" style="background:#ef4444"></span><b>Vendor rep has gone dark</b><span class="e">19 days on a joint deal</span></div>
+    </div>
+
+    <div class="next">
+     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>Next move</div>
+     <p>Land the base line. Attach Identity Protection to the same order form once procurement clears. Send the vendor rep the procurement date today.</p>
+     <a class="btn p" href="/signup">See the reseller view</a>
+    </div>
+   </div>
+  </div>
+  </div>
+
+ </div>
+</div></section>
+
+<!-- STUCK DEAL STRIP (moved up) -->
+<section class="sec" style="padding-top:44px;padding-bottom:0"><div class="wrap">
+ <div style="background:linear-gradient(135deg,#0b1120,#1e1b4b);border-radius:14px;padding:34px 38px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+  <div style="max-width:560px">
+   <div style="font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px">Free &middot; No account needed</div>
+   <div style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-.8px;line-height:1.15">Got a deal that's stuck right now?</div>
+   <p style="font-size:15px;color:#c7d2fe;margin:8px 0 0;line-height:1.6">Drop it in and get the gap, why it stalled, and the exact words to say next. 60 seconds, no signup.</p>
+  </div>
+  <a class="btn p lg" href="/stuck-deal" style="white-space:nowrap">Get the play &rarr;</a>
+ </div>
+</div></section>
+
+<!-- PROBLEM -->
+<section class="sec lt" style="margin-top:74px"><div class="wrap">
+ <div class="center"><div class="ey">The problem</div></div>
+ <h2 style="margin-top:12px">Your CRM says the deal is in Commit.<br><span style="color:var(--ind)">Is that emotion or fact?</span></h2>
+
+ <div class="psplit">
+  <div class="pc no">
+   <div class="plab">What your CRM tells you</div>
+   <ul>
+    <li>Stage: Proposal &middot; Forecast: Commit</li>
+    <li>Amount: $75,000</li>
+    <li>Close date: this quarter</li>
+    <li>Probability: 60%</li>
+    <li>Owner: Dana R.</li>
+    <li>Last activity: 11 days ago</li>
+   </ul>
+  </div>
+  <div class="pc yes">
+   <div class="plab">What SalesHedge tells you</div>
+   <ul>
+    <li>The budget owner has never been in a conversation</li>
+    <li>One contact is carrying the entire deal</li>
+    <li>Nothing is booked and the quarter ends in twelve days</li>
+    <li>60% is the rep's emotion, not the evidence</li>
+    <li>Dana has moved this close date twice already</li>
+    <li>Here is the call to make today, and the words to use</li>
+   </ul>
+  </div>
+ </div>
+
+ <div class="pline">Same deal. <span>Only one of these tells you whether it closes.</span></div>
+
+ <div class="pstats">
+  <div class="pstat">
+   <div class="v">40-60%</div>
+   <div class="k">of qualified deals are lost to no decision. Not to a competitor. To a buyer who never moves.</div>
+   <div class="src">Dixon &amp; McKenna, The JOLT Effect &middot; 2.5M sales conversations</div>
+  </div>
+  <div class="pstat">
+   <div class="v">74%</div>
+   <div class="k">of B2B buying teams are in unhealthy internal conflict during the decision. Your rep almost never sees it.</div>
+   <div class="src">Gartner &middot; survey of 632 B2B buyers</div>
+  </div>
+  <div class="pstat">
+   <div class="v">6%</div>
+   <div class="k">win rate once high buyer indecision is present in a deal, against 30% when it is moderate.</div>
+   <div class="src">Challenger &middot; JOLT Effect research</div>
   </div>
  </div>
 </div></section>
 
-<!-- HOW IT WORKS (slim) -->
+<!-- HOW IT WORKS -->
 <section class="sec"><div class="wrap">
  <div class="center"><div class="ey">How it works</div></div>
  <h2 style="margin-top:12px">Add a deal. We analyze it. You close it.</h2>
  <div class="steps">
   <div class="step"><div class="n"><b>1</b><span class="h">Add your deal</span></div><p>Type a few lines, paste your notes, or just talk it through. No fields, no CRM.</p></div>
-  <div class="step"><div class="n"><b>2</b><span class="h">Hedge AI scores it</span></div><p>It weighs the deal against decades of real sales patterns and shows what is missing.</p></div>
+  <div class="step"><div class="n"><b>2</b><span class="h">Hedge AI scores it</span></div><p>It weighs the deal against 25+ years of real sales patterns and shows what is missing.</p></div>
   <div class="step"><div class="n"><b>3</b><span class="h">Run the play</span></div><p>You get the next move, the words to use, and the email ready to send.</p></div>
  </div>
 </div></section>
 
-<!-- FEATURE ROW: claim + artifact -->
+<!-- CAPABILITIES -->
 <section class="sec lt"><div class="wrap">
  <div class="center"><div class="ey">Capabilities</div></div>
  <h2 style="margin-top:12px">Everything you need to win more deals.</h2>
@@ -292,38 +555,55 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
  </div>
 </div></section>
 
-
-<!-- STUCK DEAL STRIP -->
-<section class="sec" style="padding-top:0;padding-bottom:0"><div class="wrap">
- <div style="background:linear-gradient(135deg,#0b1120,#1e1b4b);border-radius:14px;padding:34px 38px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-  <div style="max-width:560px">
-   <div style="font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px">Free &middot; No account needed</div>
-   <div style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-.8px;line-height:1.15">Got a deal that's stuck right now?</div>
-   <p style="font-size:15px;color:#c7d2fe;margin:8px 0 0;line-height:1.6">Drop it in and get the gap, why it stalled, and the exact words to say next. 60 seconds, no signup.</p>
+<!-- SCOPE -->
+<section class="sec"><div class="wrap">
+ <div class="center"><div class="ey">Scope</div></div>
+ <h2 style="margin-top:12px">We work the deal,<br>not the customer lifetime.</h2>
+ <p class="sub">We are not trying to replace fifteen tools. We do one job, and we do it with judgment.</p>
+ <div class="scope">
+  <div class="sc do">
+   <div class="sh" style="color:var(--grn-d)">What SalesHedge does</div>
+   <ul>
+    <li>Scores every deal against 25+ years of real sales patterns</li>
+    <li>Names the specific gap and the next move, in plain language</li>
+    <li>Writes the email and the talk track for that move</li>
+    <li>Surfaces the attach that reinforces the deal, and blocks the one that risks it</li>
+    <li>Tells a manager which commit deals are not real, before the forecast call</li>
+    <li>Holds your deals if you do not want a CRM, or works inside the one you have</li>
+   </ul>
   </div>
-  <a class="btn p lg" href="/stuck-deal" style="white-space:nowrap">Get the play &rarr;</a>
+  <div class="sc dont">
+   <div class="sh" style="color:var(--mut2)">What SalesHedge is not</div>
+   <ul>
+    <li>Not a CRM. We work the deal, not the customer lifetime</li>
+    <li>No quoting or CPQ</li>
+    <li>No support tickets or case management</li>
+    <li>No marketing campaigns or sequences</li>
+    <li>No custom-field builder or workflow designer</li>
+    <li>Nothing post-sale. Renewals, support and adoption belong somewhere else</li>
+   </ul>
+  </div>
  </div>
 </div></section>
 
 <!-- AUDIENCE -->
-<section class="sec" style="padding-top:44px"><div class="wrap">
+<section class="sec lt"><div class="wrap">
  <div class="center"><div class="ey">Built for how you sell</div></div>
  <h2 style="margin-top:12px">One product. Three ways to win.<br><span style="font-size:16px;font-weight:600;color:#6b7280">Channel-first. Built for resellers, loved by direct teams.</span></h2>
  <div class="aud">
 
   <div class="ac">
    <div class="ai" style="background:#fffbeb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#b45309" stroke-width="1.6"/><path d="M8 6V4h8v2" stroke="#b45309" stroke-width="1.6"/></svg></div>
-   <div class="role" style="color:#b45309">Resellers, VARs, SIs</div>
+   <div class="role" style="color:#b45309">Resellers, VARs, MSSPs</div>
    <h3>For Resellers</h3>
-   <p>The only deal &amp; forecast intelligence built for the reseller's seat.</p>
+   <p>The only deal and forecast intelligence built for the reseller's seat.</p>
    <ul>
-    <li>Surface attach opportunities</li>
-    <li>Vendor-aware coaching per line</li>
-    <li>Track co-sell deals with partners</li>
+    <li style="--c:#b45309">Protect-first attach, not greedy attach</li>
+    <li style="--c:#b45309">Vendor-aware coaching per line</li>
+    <li style="--c:#b45309">Track co-sell deals with partners</li>
    </ul>
    <a class="more" style="color:#b45309" href="/resellers.html">See the reseller view &rarr;</a>
   </div>
-
 
   <div class="ac">
    <div class="ai" style="background:#eef2ff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#4f46e5" stroke-width="1.6"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round"/></svg></div>
@@ -332,8 +612,8 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
    <p>Know which deals are at risk and exactly what to do next.</p>
    <ul>
     <li style="--c:#4f46e5">Instant deal analysis</li>
-    <li>Next best action and talk tracks</li>
-    <li>No more guessing</li>
+    <li style="--c:#4f46e5">Next best action and talk tracks</li>
+    <li style="--c:#4f46e5">No more guessing</li>
    </ul>
    <a class="more" style="color:#4f46e5" href="/sellers.html">See the seller view &rarr;</a>
   </div>
@@ -344,15 +624,66 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
    <h3>For Sales Leaders</h3>
    <p>See which deals will slip before the forecast breaks.</p>
    <ul>
-    <li>AI risk rollups and team trends</li>
-    <li>Coach with precision</li>
-    <li>Protect your number</li>
+    <li style="--c:#059669">AI risk rollups and team trends</li>
+    <li style="--c:#059669">Coach with precision</li>
+    <li style="--c:#059669">Protect your number</li>
    </ul>
    <a class="more" style="color:#059669" href="/for-managers.html">See the leader view &rarr;</a>
   </div>
 
-  
  </div>
+</div></section>
+
+<!-- TRUST -->
+<section class="sec"><div class="wrap">
+ <div class="center"><div class="ey">Your data is yours</div></div>
+ <h2 style="margin-top:12px">Your pipeline is not our product.</h2>
+ <p class="sub">Where the industry is heading, this needs saying out loud.</p>
+ <div class="trust">
+  <div class="tc">
+   <div class="ti2"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="#4f46e5" stroke-width="1.6"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#4f46e5" stroke-width="1.6"/></svg></div>
+   <h3>Isolated at the database</h3>
+   <p>Your deals, contacts and accounts are row-level isolated. No other customer can see them, and neither can another org inside your own account without permission.</p>
+  </div>
+  <div class="tc">
+   <div class="ti2"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#4f46e5" stroke-width="1.6"/></svg></div>
+   <h3>Never sold, never resold</h3>
+   <p>We do not sell, share or license your contact and account data to anyone. It is not an enrichment product and it never becomes one.</p>
+  </div>
+  <div class="tc">
+   <div class="ti2"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round" opacity=".35"/><circle cx="12" cy="12" r="4" stroke="#4f46e5" stroke-width="1.6"/></svg></div>
+   <h3>We are precise about what the engine learns</h3>
+   <p>The engine improves from anonymized, aggregated coaching patterns. Never your records, never your contacts, never your pipeline. We would rather say exactly what we do than issue a walk-back later.</p>
+  </div>
+ </div>
+</div></section>
+
+<!-- PRICING TEASER -->
+<section class="sec lt"><div class="wrap">
+ <div class="center"><div class="ey">Pricing</div></div>
+ <h2 style="margin-top:12px">Start free. Stay if it works.</h2>
+ <p class="sub">No demo required to see the product. No sales call to get value out of it.</p>
+ <div class="pr">
+  <div class="p1">
+   <div class="pn">Starter</div>
+   <div class="pp">$0</div>
+   <div class="pd">Up to 5 active deals. The full intelligence layer, not a crippled trial.</div>
+   <div class="pb"><a class="btn g" href="/signup" style="width:100%">Start free</a></div>
+  </div>
+  <div class="p1 hi">
+   <div class="pn">Pro Seller</div>
+   <div class="pp">$79<small> /mo</small></div>
+   <div class="pd">Up to 50 deals. Email drafts, talk tracks, close plans, forecast management.</div>
+   <div class="pb"><a class="btn p" href="/subscribe" style="width:100%">See Pro Seller</a></div>
+  </div>
+  <div class="p1">
+   <div class="pn">Team</div>
+   <div class="pp">$499<small> /mo</small></div>
+   <div class="pd">Up to 10 users. Manager dashboard, team rollups and reports.</div>
+   <div class="pb"><a class="btn g" href="/subscribe" style="width:100%">See Team</a></div>
+  </div>
+ </div>
+ <div class="prnote">Growth and Enterprise plans add adaptive scoring, company dashboards, CRM integrations and SSO. <b><a href="/subscribe" style="color:var(--ind)">See all plans &rarr;</a></b></div>
 </div></section>
 
 <!-- FINAL -->
@@ -370,7 +701,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
     <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="shfoot_g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#shfoot_g)"/><g transform="translate(13,14)" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2L8 10L2 18" opacity=".5"/><path d="M9 2L15 10L9 18" opacity=".75"/><path d="M16 2L22 10L16 18" opacity="1"/></g></svg>
     <span class="shfoot-wm">SalesHedge<span class="dot">.ai</span></span>
    </div>
-   <p class="shfoot-pos">SalesHedge is an AI-based deal and forecast intelligence engine for sales teams - decades of real enterprise and channel sales experience packed into the engine, not a generic model reading the internet.</p>
+   <p class="shfoot-pos">SalesHedge is an AI-based deal and forecast intelligence engine for sales teams - 25+ years of real enterprise and channel sales experience packed into the engine, not a generic model reading the internet.</p>
    <p class="shfoot-pos" style="margin-top:8px">Your deal data is never shared with or exposed to another customer.</p>
    <div class="shfoot-social">
     <span class="shfoot-h">Follow</span>
@@ -404,6 +735,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
  </div>
  <div class="shfoot-cp">&copy; 2026 SalesHedge.ai</div>
 </div></footer>
+
 <style>
 .shfoot{background:#080d18;padding:56px 0 28px;font-family:'Inter',system-ui,sans-serif;text-align:left}
 .shfoot-in{max-width:1040px;margin:0 auto;padding:0 24px}
@@ -428,8 +760,20 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 @media(max-width:720px){.shfoot-grid{gap:32px}.shfoot-cols{gap:40px}}
 </style>
 
-
 <style>.ac li:before{background:var(--c,#4f46e5)}</style>
-<script>(function(){try{var ref=(new URLSearchParams(location.search).get('ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40);if(!ref)return;document.querySelectorAll('a[href^="/signup"],a[href^="/login"],a[href^="/sellers"],a[href^="/resellers"],a[href^="/manager"]').forEach(function(a){var u=a.getAttribute('href');a.setAttribute('href',u+(u.indexOf('?')>-1?'&':'?')+'ref='+encodeURIComponent(ref));});}catch(e){}})();</script>
+<script>
+(function(){
+ var tabs=document.querySelectorAll('.htab');
+ tabs.forEach(function(t){
+  t.addEventListener('click',function(){
+   tabs.forEach(function(x){x.classList.remove('on')});
+   document.querySelectorAll('.hpane').forEach(function(p){p.classList.remove('on')});
+   t.classList.add('on');
+   document.getElementById('p-'+t.getAttribute('data-t')).classList.add('on');
+  });
+ });
+})();
+</script>
+<script>(function(){try{var ref=(new URLSearchParams(location.search).get('ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40);if(!ref)return;document.querySelectorAll('a[href^="/signup"],a[href^="/login"],a[href^="/sellers"],a[href^="/resellers"],a[href^="/manager"],a[href^="/subscribe"],a[href^="/stuck-deal"]').forEach(function(a){var u=a.getAttribute('href');a.setAttribute('href',u+(u.indexOf('?')>-1?'&':'?')+'ref='+encodeURIComponent(ref));});}catch(e){}})();</script>
 </body>
 </html>
