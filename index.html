@@ -223,7 +223,33 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 .htab.on{background:var(--ind);border-color:var(--ind);color:#fff}
 .hpane{display:none}
 .hpane.on{display:block}
-@media(min-width:881px){.hpane{min-height:520px}}
+@media(min-width:881px){.hpane{min-height:650px}
+
+/* rep card: verdict treatment */
+.rk.hard{background:#b91c1c;border-color:#b91c1c;color:#fff;letter-spacing:.4px}
+.fdis{display:flex;border:1px solid var(--line2);border-radius:9px;overflow:hidden;margin:2px 0 13px}
+.fdis>div{flex:1;padding:8px 11px}
+.fdis .k{font-size:9.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--mut2);margin-bottom:2px}
+.fdis .v{font-size:13px;font-weight:800;letter-spacing:-.2px}
+.fdis .you{background:#fafafa;color:var(--mut)}
+.fdis .you .v{color:var(--mut2);text-decoration:line-through}
+.fdis .us{background:#fffbeb;border-left:1px solid #fde68a}
+.fdis .us .k{color:#b45309;opacity:.8}
+.fdis .us .v{color:#b45309}
+.verdict{background:#fef2f2;border:1px solid #fecaca;border-left:3px solid #dc2626;border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:13px}
+.verdict .vh{font-size:14px;font-weight:900;color:#991b1b;letter-spacing:-.2px;line-height:1.3;margin-bottom:5px}
+.verdict p{font-size:12.5px;color:#7f1d1d;line-height:1.45;margin:0}
+.rowlab{font-size:9.5px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--mut2);margin:14px 0 2px;border-top:1px solid var(--line2);padding-top:12px}
+.wrow{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line2)}
+.wrow.last{border-bottom:none}
+.wrow .dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.wrow .ti{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.25}
+.wrow .su{font-size:11.5px;color:var(--mut);line-height:1.35;margin-top:2px}
+.doit{background:var(--navy);border-radius:10px;padding:13px 15px;margin-top:14px}
+.doit .nl{font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#fca5a5;margin-bottom:6px}
+.doit p{font-size:12.5px;color:#e5e7eb;line-height:1.5;margin:0}
+.doit b{color:#fff;font-weight:800}
+}
 
 /* problem split */
 .psplit{display:flex;margin-top:40px;align-items:stretch}
@@ -336,26 +362,32 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   <div class="card-d">
    <div class="cd-hd">
     <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI</div>
-    <span class="rk">RISK <b>38</b></span>
+    <span class="rk hard">NOT A COMMIT</span>
    </div>
    <div class="cd-bd">
     <div class="dhead">
      <div><div class="dnm">Brightwell Logistics</div><div class="dmt">Proposal / Commercial &middot; 12 days to quarter end</div></div>
      <div class="damt">$75K</div>
     </div>
-    <div class="meter"><span class="fill" style="width:38%"></span><span class="pin" style="left:38%"></span></div>
-    <div class="mlegend"><span>Healthy</span><span>At risk</span></div>
 
-    <div class="rows">
-     <div class="r"><span class="d" style="background:#ef4444"></span><b>Single-threaded</b><span class="e">1 contact, no exec</span></div>
-     <div class="r"><span class="d" style="background:#ef4444"></span><b>No economic buyer</b><span class="e">never on a call</span></div>
-     <div class="r"><span class="d" style="background:#f59e0b"></span><b>Gone quiet</b><span class="e">11 days, nothing booked</span></div>
+    <div class="fdis">
+     <div class="you"><div class="k">You called it</div><div class="v">Commit</div></div>
+     <div class="us"><div class="k">Hedge AI calls it</div><div class="v">Upside &middot; risk 7.8</div></div>
     </div>
 
-    <div class="next">
-     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>Next move</div>
-     <p>Have your champion book 15 minutes with the VP of Operations. Goal: order form to legal within 7 days.</p>
-     <a class="btn p" href="/signup">Email &amp; talk track</a>
+    <div class="verdict">
+     <div class="vh">You are committing $75K that nobody has agreed to buy.</div>
+     <p>No one who can sign has ever been on a call, and your champion hasn't talked to you in 11 days. There are 12 days left in the quarter.</p>
+    </div>
+
+    <div class="rowlab">Why it is not a commit</div>
+    <div class="wrow"><span class="dot" style="background:#ef4444"></span><div><div class="ti">Single-threaded with a single contact with a decent title</div><div class="su">A good title is not a buying committee. If they go quiet, your deal goes with them.</div></div></div>
+    <div class="wrow"><span class="dot" style="background:#ef4444"></span><div><div class="ti">The economic buyer has never been on a call</div><div class="su">You are pitching someone who cannot say yes</div></div></div>
+    <div class="wrow last"><span class="dot" style="background:#f59e0b"></span><div><div class="ti">11 days silent, nothing booked</div><div class="su">You are not on their calendar, so you are not in their plan</div></div></div>
+
+    <div class="doit">
+     <div class="nl">Do this today</div>
+     <p>Stop sending pricing. Get your champion to put the VP of Operations on a call this week. <b>If it is not booked by Friday, move it to Upside and take it off your commit number.</b></p>
     </div>
    </div>
   </div>
@@ -773,4 +805,5 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 <script>(function(){try{var ref=(new URLSearchParams(location.search).get('ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40);if(!ref)return;document.querySelectorAll('a[href^="/signup"],a[href^="/login"],a[href^="/sellers"],a[href^="/resellers"],a[href^="/manager"],a[href^="/subscribe"],a[href^="/stuck-deal"]').forEach(function(a){var u=a.getAttribute('href');a.setAttribute('href',u+(u.indexOf('?')>-1?'&':'?')+'ref='+encodeURIComponent(ref));});}catch(e){}})();</script>
 </body>
 </html>
+
 
