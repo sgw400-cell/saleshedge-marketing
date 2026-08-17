@@ -138,6 +138,23 @@ nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px so
 .mir .mmove .mml{font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#4f46e5;margin-bottom:2px}
 .mir .mmove .mmt{font-size:12px;color:#1f2440;line-height:1.5}
 @media(max-width:640px){.mir .mstats{flex-direction:column}}
+/* what-you-get upgraded minis */
+.wg-deal{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:11px;padding-bottom:10px;border-bottom:1px solid var(--line2)}
+.wg-acct{font-size:12.5px;font-weight:700;color:#111827}
+.wg-acct span{color:#9ca3af;font-weight:500}
+.wg-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.wg-pill i{width:7px;height:7px;border-radius:50%;background:#ef4444;display:inline-block}
+.wg-na{background:#eef2ff;border:1px solid #dfe3ff;border-left:3px solid var(--ind);border-radius:0 8px 8px 0;padding:8px 12px;margin-bottom:10px}
+.wg-nal{font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--ind);margin-bottom:2px}
+.wg-nat{font-size:12px;color:#1f2440;line-height:1.5}
+.wg-subj{display:flex;align-items:baseline;gap:7px;font-size:11.5px;color:#374151;background:#f8f9fb;border:1px solid var(--line2);border-radius:8px;padding:7px 10px;margin-bottom:12px}
+.wg-subj .sk{font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#9ca3af;flex-shrink:0}
+.wg-subj b{color:#111827;font-weight:700}
+.wg-meter{margin:12px 0 2px}
+.wg-track{display:flex;height:9px;border-radius:999px;background:#eef0f4;overflow:hidden}
+.wg-track i{display:block;height:100%}
+.wg-scale{display:flex;justify-content:space-between;font-size:10px;color:#9ca3af;margin-top:5px;font-weight:600}
+
 
 
 /* slim how-it-works */
@@ -308,6 +325,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
    <div class="cl">Hedge AI flags the deal-killers before they cost you the quarter.</div>
    <div class="mini">
     <div class="mlab">Top risk factors</div>
+    <div class="wg-deal"><span class="wg-acct">Meridian Health <span>&middot; $85K &middot; Business Case</span></span><span class="wg-pill"><i></i>8.1 High</span></div>
     <div class="mrow"><span class="dot" style="background:#ef4444"></span><div><div class="mt">Single-threaded</div><div class="ms">Only 1 contact engaged</div></div></div>
     <div class="mrow"><span class="dot" style="background:#ef4444"></span><div><div class="mt">No economic buyer</div><div class="ms">Budget owner not involved</div></div></div>
     <div class="mrow" style="margin-bottom:0"><span class="dot" style="background:#f59e0b"></span><div><div class="mt">No confirmed next step</div><div class="ms">Activity gone quiet</div></div></div>
@@ -320,7 +338,8 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
    <div class="cl">A ready-to-send email and a talk track for the call, every time.</div>
    <div class="mini">
     <div class="mlab">AI recommended next move</div>
-    <p style="font-size:12.5px;color:#374151;line-height:1.5;margin-bottom:13px">Open with the cost of waiting, then offer a 15-minute alignment call with the VP of Operations to confirm priority and budget.</p>
+    <div class="wg-na"><div class="wg-nal">&#10148; Next action</div><div class="wg-nat">Open with the cost of waiting, then offer a 15-minute alignment call with the VP of Operations to confirm priority and budget.</div></div>
+    <div class="wg-subj"><span class="sk">Email &middot; Subject</span><b>Securing your Sept 1 compliance date</b></div>
     <div class="miniact"><span class="b1">Copy email</span><span class="b2">Talk track</span></div>
    </div>
   </div>
@@ -332,6 +351,10 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
    <div class="mini">
     <div class="atrow"><span class="an"><span class="sw" style="background:#10b981"></span>Committed</span><span class="av" style="color:#111827">$480K</span></div>
     <div class="atrow"><span class="an"><span class="sw" style="background:#4f46e5"></span>Hedge AI forecast</span><span class="av" style="color:#4f46e5">$610K</span></div>
+    <div class="wg-meter">
+     <div class="wg-track"><i style="width:64%;background:#10b981"></i><i style="width:17.3%;background:#4f46e5"></i></div>
+     <div class="wg-scale"><span>$0</span><span>Quota $750K</span></div>
+    </div>
     <div class="attot"><span class="k">Gap to your $750K quota</span><span class="v" style="color:#b91c1c">&minus;$140K</span></div>
    </div>
   </div>
