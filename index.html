@@ -359,18 +359,18 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 .nh-center{text-align:center;max-width:660px;margin:0 auto 24px}
 
 /* hero */
-.nh-hero{padding:34px 0 44px;background:linear-gradient(180deg,#fff 0%,#f8f9fc 100%)}
+.nh-hero{padding:34px 0 44px;background:var(--navy)}
 .nh-hgrid{display:grid;grid-template-columns:430px 1fr;gap:48px;align-items:center}
-.nh-hero h1{font-size:41px;font-weight:900;letter-spacing:-.025em;line-height:1.12;color:var(--ink)}
-.nh-hero h1 .gr{color:var(--ind)}
-.nh-lead{font-size:16.5px;color:#4b5563;line-height:1.6;margin:20px 0 26px;font-weight:500}
+.nh-hero h1{font-size:41px;font-weight:900;letter-spacing:-.025em;line-height:1.12;color:#fff}
+.nh-hero h1 .gr{color:var(--ind-l)}
+.nh-lead{font-size:16.5px;color:#c2c8d6;line-height:1.6;margin:20px 0 26px;font-weight:500}
 .nh-ctas{display:flex;gap:12px;flex-wrap:wrap}
 .nh-trust{display:flex;gap:20px;margin-top:24px;flex-wrap:wrap}
-.nh-trust .t{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--mut)}
+.nh-trust .t{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#aeb5c6}
 .nh-trust .ic{width:24px;height:24px;border-radius:8px;background:#eef2ff;display:flex;align-items:center;justify-content:center;flex:none}
 
 /* product shot window */
-.nh-shot{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 34px rgba(17,24,39,.08);overflow:hidden}
+.nh-shot{background:#fff;border:1px solid rgba(255,255,255,.08);border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.42);overflow:hidden}
 .nh-shot .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #f3f4f6;background:#fafbfc}
 .nh-shot .dot{width:9px;height:9px;border-radius:50%}
 .nh-shot .ttl{margin-left:8px;font-size:11.5px;font-weight:700;color:var(--mut2)}
@@ -482,13 +482,12 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   <div>
     <h1>Know if you'll hit the number.<br><span class="gr">Know what to do if you won't.</span></h1>
     <p class="nh-lead">SalesHedge inspects every deal, validates buyer evidence, challenges the forecast, and builds the highest-probability path to your target.</p>
-    <div class="nh-ctas">
-      <a class="btn p lg" href="/signup">See SalesHedge in action</a>
-      <a class="btn g lg" href="/signup">Try it free</a>
+    <div class="nh-ctas" style="align-items:center">
+      <a class="btn p lg" href="/signup">Try it for free</a>
+      <span style="font-size:13.5px;font-weight:600;color:#aeb5c6">No credit card. No CRM required.</span>
     </div>
     <div class="nh-trust">
       <span class="t"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4f46e5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Free forever up to 5 deals</span>
-      <span class="t"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#4f46e5" stroke-width="2"/><path d="M3 10h18" stroke="#4f46e5" stroke-width="2"/></svg></span>No credit card required</span>
       <span class="t"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#4f46e5" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#4f46e5" stroke-width="2" stroke-linecap="round"/></svg></span>Setup in 2 minutes</span>
     </div>
   </div>
