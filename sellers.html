@@ -7,7 +7,7 @@
 <script defer src="/ingest/static/array.js" onload="posthog.init('phc_uCpWmXxDddMyQK3uknbvhemGsL9c4TnN2i9f8hpRTczL',{api_host:'/ingest',ui_host:'https://us.posthog.com',persistence:'localStorage+cookie'})"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SalesHedge for Sellers | Always know your next move.</title>
+<title>AI Deal Risk Analysis for Sales Reps | SalesHedge</title>
 <meta name="description" content="AI pipeline coaching for sellers. SalesHedge scores every deal against 20+ risk patterns and hands you the exact play, email, and talk track to advance it. Free to start.">
 <link rel="canonical" href="https://saleshedge.ai/sellers">
 <meta property="og:type" content="website">
@@ -27,8 +27,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
- --ind:#4f46e5; --ind-d:#4338ca; --ind-l:#a5b4fc;
- --navy:#0b1120; --navy2:#0e1426; --navy3:#131a2e; --foot:#080d18;
+ --ind:#6366f1; --ind-d:#4338ca; --ind-l:#a5b4fc;
+ --navy:#0B0F19; --navy2:#0e1426; --navy3:#131a2e; --foot:#080d18;
  --grn:#10b981; --grn-d:#059669; --amb:#f59e0b; --red:#ef4444;
  --ink:#111827; --mut:#6b7280; --mut2:#9ca3af;
  --panel:#f6f7f9; --line:#e6e8ec; --line2:#eef0f3;
@@ -57,7 +57,7 @@ nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px so
 .brand{display:flex;align-items:center;gap:13px}
 .brand .nm{font-size:23px;font-weight:800;color:#fff;letter-spacing:-.3px}
 .brand .sub{font-size:10px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:#8b93a7;margin-top:3px}
-.brand .nm span{color:var(--ind-l)}
+.brand .nm span{color:#6366f1}
 .brand .sub{font-size:8px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:#8b93a7;margin-top:2px}
 .navr{display:flex;align-items:center;gap:20px}
 .navr a.lk{font-size:13px;font-weight:600;color:#c2c8d6}
@@ -113,7 +113,7 @@ nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px so
 .mir .mpriv{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:#4c1d95;background:#fff;border:1px solid #ddd6fe;border-radius:999px;padding:5px 12px}
 .mir .mprov{font-size:11.5px;color:#9ca3af}
 .mir .mprov b{color:#6b7280;font-weight:600}
-.mir .mhero{background:linear-gradient(135deg,#312e81,#4f46e5);border-radius:14px;padding:20px 22px;color:#fff;margin-bottom:12px;box-shadow:0 8px 22px rgba(79,70,229,.22)}
+.mir .mhero{background:linear-gradient(135deg,#312e81,#6366f1);border-radius:14px;padding:20px 22px;color:#fff;margin-bottom:12px;box-shadow:0 8px 22px rgba(99,102,241,.22)}
 .mir .mhero .mey{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#c7d2fe;margin-bottom:6px}
 .mir .mhero .mh{font-size:21px;font-weight:900;letter-spacing:-.4px;margin-bottom:7px}
 .mir .mhero .mb{font-size:12.5px;line-height:1.55;color:#e0e7ff}
@@ -134,8 +134,8 @@ nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px so
 .mir .mbar .mvv{width:38px;text-align:right;font-size:11.5px;font-weight:800}
 .mir .mchip{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;background:#fee7e7;color:#b91c1c}
 .mir .mtie{font-size:12px;color:#6b7280;margin-top:8px}
-.mir .mmove{margin-top:11px;background:#eef2ff;border:1px solid #dfe3ff;border-left:3px solid #4f46e5;border-radius:0 9px 9px 0;padding:9px 13px}
-.mir .mmove .mml{font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#4f46e5;margin-bottom:2px}
+.mir .mmove{margin-top:11px;background:#eef2ff;border:1px solid #dfe3ff;border-left:3px solid #6366f1;border-radius:0 9px 9px 0;padding:9px 13px}
+.mir .mmove .mml{font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#6366f1;margin-bottom:2px}
 .mir .mmove .mmt{font-size:12px;color:#1f2440;line-height:1.5}
 @media(max-width:640px){.mir .mstats{flex-direction:column}}
 /* what-you-get upgraded minis */
@@ -252,8 +252,8 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 <body>
 <nav><div class="wrap navin">
  <a class="brand" href="/">
-  <svg class="dia" width="40" height="40" viewBox="0 0 48 48"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#hg)"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-  <div><div class="nm">SalesHedge<span>.ai</span></div><div class="sub" style="font-size:10.5px;letter-spacing:1.1px">Deal and forecast intel that <b style="color:#a5b4fc;font-weight:800">learns</b></div></div>
+  <svg class="dia" width="40" height="40" viewBox="0 0 48 48"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#hg)"/><g transform="translate(13,14)"><path d="M2 5.1L5.9 10L2 14.9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><path d="M8.6 3.8L13.6 10L8.6 16.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".78"/><path d="M15.2 2L21.6 10L15.2 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+  <div><div class="nm">SalesHedge<span>.ai</span></div><div class="sub" style="font-size:10.5px;letter-spacing:1.1px">Deal + Forecast Intel That <b style="color:#6366f1;font-weight:800">Learns</b></div></div>
  </a>
  <div class="navr">
   <a class="lk" href="/sellers.html">Sellers</a>
@@ -284,7 +284,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
  <div class="hr">
   <div class="card-d">
    <div class="cd-hd">
-    <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/><g transform="translate(13,14)"><path d="M2 2L8 10L2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M9 2L15 10L9 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M16 2L22 10L16 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI <span class="s">&middot; Deal review &middot; Meridian $140K</span></div>
+    <div class="l"><svg class="dia" width="18" height="18" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#6366f1"/><g transform="translate(13,14)"><path d="M2 5.1L5.9 10L2 14.9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><path d="M8.6 3.8L13.6 10L8.6 16.2" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".78"/><path d="M15.2 2L21.6 10L15.2 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>Hedge AI <span class="s">&middot; Deal review &middot; Meridian $140K</span></div>
     <span class="rk" style="background:#fef2f2;border-color:#fecaca;color:#ef4444">RISK 74</span>
    </div>
    <div class="cd-bd">
@@ -292,7 +292,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
     <div class="rf"><span class="dot" style="background:#ef4444"></span><div><div class="ti">Eleven days of silence and you called it "on track"</div><div class="su">Your champion stopped replying after pricing. The deal is stalling and your close date says otherwise.</div></div></div>
     <div class="rf"><span class="dot" style="background:#f59e0b"></span><div><div class="ti">Your next step is not a next step</div><div class="su">"Follow up next week" is a note to yourself. Nothing is booked on the buyer's calendar.</div></div></div>
     <div class="next">
-     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#4f46e5"/></svg>Hedge AI &middot; the straight talk</div>
+     <div class="nl"><svg width="12" height="12" viewBox="0 0 48 48"><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="#6366f1"/></svg>Hedge AI &middot; the straight talk</div>
      <p>Stop polishing the proposal. This deal has one problem: no economic buyer. Get your champion to book 15 minutes with the VP of Ops this week, or move it out of Commit. Here are the words to use.</p>
      <a class="btn p" href="#">Show me the words</a>
     </div>
@@ -320,7 +320,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
  <div class="feat">
 
   <div class="col">
-   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="#4f46e5" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="#6366f1" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
    <h3>Monday, 8:02 AM</h3>
    <div class="cl">No staring at the pipeline. Hedge AI has already ranked what needs you and why.</div>
    <div class="mini">
@@ -333,7 +333,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   </div>
 
   <div class="col">
-   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="13" rx="2" stroke="#4f46e5" stroke-width="1.6"/><path d="M3 8l9 5 9-5" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="13" rx="2" stroke="#6366f1" stroke-width="1.6"/><path d="M3 8l9 5 9-5" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
    <h3>The deal going quiet</h3>
    <div class="cl">Not a check-in. The exact email and talk track that give the buyer a reason to move.</div>
    <div class="mini">
@@ -345,14 +345,14 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   </div>
 
   <div class="col">
-   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h16M8 19v-6M12 19v-9M16 19v-4" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h16M8 19v-6M12 19v-9M16 19v-4" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
    <h3>The forecast call</h3>
    <div class="cl">Walk in with a number the data can defend, and know the gap before your manager does.</div>
    <div class="mini">
     <div class="atrow"><span class="an"><span class="sw" style="background:#10b981"></span>Committed</span><span class="av" style="color:#111827">$480K</span></div>
-    <div class="atrow"><span class="an"><span class="sw" style="background:#4f46e5"></span>Hedge AI forecast</span><span class="av" style="color:#4f46e5">$610K</span></div>
+    <div class="atrow"><span class="an"><span class="sw" style="background:#6366f1"></span>Hedge AI forecast</span><span class="av" style="color:#6366f1">$610K</span></div>
     <div class="wg-meter">
-     <div class="wg-track"><i style="width:64%;background:#10b981"></i><i style="width:17.3%;background:#4f46e5"></i></div>
+     <div class="wg-track"><i style="width:64%;background:#10b981"></i><i style="width:17.3%;background:#6366f1"></i></div>
      <div class="wg-scale"><span>$0</span><span>Quota $750K</span></div>
     </div>
     <div class="attot"><span class="k">Gap to your $750K quota</span><span class="v" style="color:#b91c1c">&minus;$140K</span></div>
@@ -389,7 +389,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   </div>
   <div class="mstats">
    <div class="mstat"><div class="mv" style="color:#059669">1.9x</div><div class="ml">Your close rate with the economic buyer locked and a compelling event on file</div></div>
-   <div class="mstat"><div class="mv" style="color:#4f46e5">8 days</div><div class="ml">Average touch cadence on your won deals. Losses averaged 20 days</div></div>
+   <div class="mstat"><div class="mv" style="color:#6366f1">8 days</div><div class="ml">Average touch cadence on your won deals. Losses averaged 20 days</div></div>
    <div class="mstat"><div class="mv" style="color:#d97706">$319K</div><div class="ml">Open pipeline in the $50K&ndash;$100K bracket, where you win least (20%)</div></div>
   </div>
   <div class="mtell">
@@ -409,7 +409,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
  <div class="cffeat">
 
   <div class="cfcol">
-   <div class="cfic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="7" height="7" rx="1.5" stroke="#4f46e5" stroke-width="1.6"/><rect x="14" y="4" width="7" height="7" rx="1.5" stroke="#10b981" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#f59e0b" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#8b5cf6" stroke-width="1.6"/></svg></div>
+   <div class="cfic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="7" height="7" rx="1.5" stroke="#6366f1" stroke-width="1.6"/><rect x="14" y="4" width="7" height="7" rx="1.5" stroke="#10b981" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#f59e0b" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#8b5cf6" stroke-width="1.6"/></svg></div>
    <h3>One view, every partner</h3>
    <div class="cfcl">Every partner deal ranked by risk, so you work the right one first.</div>
    <div class="cfmini">
@@ -421,22 +421,22 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   </div>
 
   <div class="cfcol">
-   <div class="cfic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="#4f46e5" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div class="cfic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="#6366f1" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
    <h3>Solution-aware coaching</h3>
    <div class="cfcl">A Palo Alto deal moves differently than a RingCentral deal. Hedge AI knows.</div>
    <div class="cfmini">
     <div class="cfmlab">Coaching, tuned per line</div>
-    <p style="font-size:12.5px;color:#374151;line-height:1.5;margin:0 0 11px"><b style="color:#0b1120">RingCentral.</b> Past its typical cycle for its size. Compress the next step and confirm the compelling event before it stalls.</p><p style="font-size:12.5px;color:#374151;line-height:1.5;margin:0"><b style="color:#0b1120">CrowdStrike.</b> Strong technical win, but single-threaded. Multi-thread to the economic buyer before it hits procurement.</p>
+    <p style="font-size:12.5px;color:#374151;line-height:1.5;margin:0 0 11px"><b style="color:#0B0F19">RingCentral.</b> Past its typical cycle for its size. Compress the next step and confirm the compelling event before it stalls.</p><p style="font-size:12.5px;color:#374151;line-height:1.5;margin:0"><b style="color:#0B0F19">CrowdStrike.</b> Strong technical win, but single-threaded. Multi-thread to the economic buyer before it hits procurement.</p>
    </div>
   </div>
 
   <div class="cfcol">
-   <div class="cfic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 14l4-4 3 3 5-5" stroke="#4f46e5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8h4v4" stroke="#4f46e5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div class="cfic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 14l4-4 3 3 5-5" stroke="#6366f1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8h4v4" stroke="#6366f1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
    <h3>Hedge AI Cross-Sell Generator</h3>
    <div class="cfcl">Hedge AI pulls adjacent tech that typically gets sold together to ensure you aren't leaving money on the table.</div>
    <div class="cfmini">
     <div class="cfmlab">Attach opportunities</div>
-    <div class="cfatrow"><span class="cfan"><span class="cfsw" style="background:#4f46e5"></span>Identity Protection</span><span class="cfav">+$70K</span></div>
+    <div class="cfatrow"><span class="cfan"><span class="cfsw" style="background:#6366f1"></span>Identity Protection</span><span class="cfav">+$70K</span></div>
     <div class="cfatrow"><span class="cfan"><span class="cfsw" style="background:#10b981"></span>Email Security</span><span class="cfav">+$45K</span></div><div class="cfatrow"><span class="cfan"><span class="cfsw" style="background:#f59e0b"></span>Managed Detection</span><span class="cfav">+$40K</span></div>
     <div class="cfattot"><span class="cfk">New potential deal size</span><span class="cfv">$250K</span></div>
    </div>
@@ -454,10 +454,10 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
  <div class="shfoot-grid">
   <div class="shfoot-brand">
    <div class="shfoot-logo">
-    <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="shfoot_g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#shfoot_g)"/><g transform="translate(13,14)" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2L8 10L2 18" opacity=".5"/><path d="M9 2L15 10L9 18" opacity=".75"/><path d="M16 2L22 10L16 18" opacity="1"/></g></svg>
+    <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="shfoot_g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#shfoot_g)"/><g transform="translate(13,14)" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.1L5.9 10L2 14.9" opacity=".55"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".78"/><path d="M15.2 2L21.6 10L15.2 18" opacity="1"/></g></svg>
     <span class="shfoot-wm">SalesHedge<span class="dot">.ai</span></span>
    </div>
-   <p class="shfoot-tag"><b>Evolving</b> deal and sales forecast intel<br>that <b>learns</b> based on your habits</p>
+   <p class="shfoot-tag"><b>Evolving</b> deal + forecast intel<br>that <b>learns</b> based on your habits</p>
    <p class="shfoot-pos">Decades of real sales judgment packaged into an AI model that coaches go-to-market teams and revenue leaders on every deal and forecast.</p>
    <div class="shfoot-social">
     <span class="shfoot-h">Follow</span>
@@ -497,10 +497,10 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 .shfoot-brand{flex:0 1 330px;max-width:330px}
 .shfoot-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .shfoot-wm{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.2px}
-.shfoot-wm .dot{color:#a5b4fc}
+.shfoot-wm .dot{color:#6366f1}
 .shfoot-pos{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;max-width:312px;margin:0}
 .shfoot-tag{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.6);line-height:1.7;margin:0 0 10px}
-.shfoot-tag b{color:#a5b4fc;font-weight:800}
+.shfoot-tag b{color:#6366f1;font-weight:800}
 .shfoot-social{margin-top:20px}
 .shfoot-soc{display:flex;gap:10px;margin-top:9px}
 .shfoot-soc a{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;transition:background .15s}
@@ -516,7 +516,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 @media(max-width:720px){.shfoot-grid{gap:32px}.shfoot-cols{gap:40px}}
 </style>
 
-<style>.ac li:before{background:var(--c,#4f46e5)}</style>
+<style>.ac li:before{background:var(--c,#6366f1)}</style>
 <script>(function(){try{var ref=(new URLSearchParams(location.search).get('ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40);if(ref){try{localStorage.setItem('shk_ref',ref)}catch(e){}try{var t=location.pathname==='/'?'homepage':location.pathname.replace(/^\//,'').replace(/\.html$/,'');var src=(new URLSearchParams(location.search).get('src')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);navigator.sendBeacon('https://vyrfktotclcmeqvusgnw.supabase.co/functions/v1/ref-click',JSON.stringify({code:ref,target:t,src:src}))}catch(e){}}if(!ref)return;document.querySelectorAll('a[href^="/signup"],a[href^="/login"],a[href^="/sellers"],a[href^="/resellers"],a[href^="/manager"]').forEach(function(a){var u=a.getAttribute('href');a.setAttribute('href',u+(u.indexOf('?')>-1?'&':'?')+'ref='+encodeURIComponent(ref));});}catch(e){}})();</script>
 </body>
 </html>
