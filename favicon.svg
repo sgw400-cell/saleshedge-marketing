@@ -7,8 +7,8 @@
   </defs>
   <rect x="8" y="8" width="32" height="32" rx="6" transform="rotate(45 24 24)" fill="url(#shg)"/>
   <g transform="translate(13,14)" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <path d="M2 2L8 10L2 18" opacity="0.55"/>
-    <path d="M9 2L15 10L9 18" opacity="0.8"/>
-    <path d="M16 2L22 10L16 18"/>
+    <path d="M2 5.1L5.9 10L2 14.9" opacity="0.55"/>
+    <path d="M8.6 3.8L13.6 10L8.6 16.2" opacity="0.8"/>
+    <path d="M15.2 2L21.6 10L15.2 18"/>
   </g>
 </svg>
