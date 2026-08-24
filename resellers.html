@@ -117,6 +117,19 @@ nav{background:var(--navy);position:sticky;top:0;z-index:20;border-bottom:1px so
 .step .n b{width:26px;height:26px;border-radius:7px;background:var(--ind);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
 .step .n .h{font-size:15px;font-weight:800}
 .step p{font-size:13.5px;color:var(--mut);line-height:1.55;padding-left:36px}
+.plans{display:flex;margin-top:40px;align-items:stretch}
+.plans>.pl{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column}
+.plans>.pl+.pl{margin-left:18px}
+.pl .nm{font-size:12.5px;font-weight:800;color:var(--ind);letter-spacing:.4px;text-transform:uppercase;margin-bottom:12px}
+.pl .pr{font-size:30px;font-weight:900;letter-spacing:-1.2px;color:var(--ink);line-height:1}
+.pl .pr small{font-size:13px;font-weight:700;color:var(--mut2);letter-spacing:0}
+.pl .st{font-size:13px;color:#374151;font-weight:600;margin-top:12px;line-height:1.45}
+.pl .tm{font-size:12.5px;color:var(--mut);margin-top:5px}
+.pl.hi{border-color:#c7d2fe;box-shadow:0 10px 26px rgba(99,102,241,.10)}
+.ent-line{margin-top:20px;background:var(--navy);border-radius:14px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ent-line .el-t{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.ent-line .el-s{font-size:13px;color:#a9b2c7;margin-top:4px;line-height:1.5;max-width:640px}
+.ent-line .el-p{font-size:15px;font-weight:800;color:var(--ind-l);white-space:nowrap}
 
 /* feature row: claim + artifact */
 .feat{display:flex;margin-top:44px;align-items:stretch}
@@ -168,9 +181,9 @@ footer .fl a{font-size:13px;color:rgba(255,255,255,.4)}
 footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 
 @media(max-width:880px){
- .hgrid,.steps,.feat,.aud{flex-direction:column}
+ .hgrid,.steps,.feat,.aud,.plans{flex-direction:column}
  .hl{padding-right:0;margin-bottom:34px}
- .steps>.step+.step,.feat>.col+.col,.aud>.ac+.ac{margin-left:0;margin-top:22px}
+ .steps>.step+.step,.feat>.col+.col,.aud>.ac+.ac,.plans>.pl+.pl{margin-left:0;margin-top:18px}
  .hl h1{font-size:36px}
 }
 @media(max-width:560px){.navr a.lk{display:none}.navr{gap:0}.brand .sub{display:none}.navin{height:58px}.brand .dia{width:30px;height:30px}.brand .nm{font-size:18px}.navin .btn{white-space:nowrap;padding:9px 15px;font-size:13px}}
@@ -205,7 +218,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 .stc .src{font-size:10.5px;color:#9ca3af;margin-top:8px}
 @media(max-width:880px){.wsgrid,.gate,.stat{grid-template-columns:1fr}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do we have to replace our CRM?", "acceptedAnswer": {"@type": "Answer", "text": "No. SalesHedge works alongside it, and there is a live Salesforce integration. It also holds deals on its own if a rep will not live in a CRM, so you are not blocked either way. We are not trying to become your system of record."}}, {"@type": "Question", "name": "How is this different from Crossbeam or a PRM?", "acceptedAnswer": {"@type": "Answer", "text": "Those map the ecosystem: who overlaps with whom, and where an introduction exists. They stop at the introduction. SalesHedge starts after it and judges execution on the deal in front of you. The two are complementary and we deliberately do not try to be the shared surface."}}, {"@type": "Question", "name": "How is this different from Clari or Gong?", "acceptedAnswer": {"@type": "Answer", "text": "Both are excellent and both are built for a direct CRO with one product and one sales motion. Neither has a concept of a book spread across a dozen vendor lines, or a buying committee where the vendor's own rep is a participant. That is the entire difference."}}, {"@type": "Question", "name": "Our contact data is thin. Will it still be useful?", "acceptedAnswer": {"@type": "Answer", "text": "Thin data is treated as a risk signal rather than a blank field. A deal with one contact and no economic buyer scores worse, not neutral, and the attach engine refuses to open on it. The coaching works from deal one, without needing hundreds of closed deals to calibrate first."}}, {"@type": "Question", "name": "Do you do quoting, CPQ or ticketing?", "acceptedAnswer": {"@type": "Answer", "text": "No, and we will not. Those are solved and they are not where deals are won or lost. If you need them, keep the tool you have and let SalesHedge inject the intelligence into your CRM."}}, {"@type": "Question", "name": "How long before it is useful?", "acceptedAnswer": {"@type": "Answer", "text": "Add a deal and analyse it. The scoring is IP-driven rather than trained on your history, so it works on the first deal you enter instead of after a quarter of data collection."}}, {"@type": "Question", "name": "What does it actually cost?", "acceptedAnswer": {"@type": "Answer", "text": "Plans are org-based, not per seat. Team is $499 a month for up to 10 users, Growth is $999 for up to 25, and Enterprise is $2,499 for up to 100. The Partner Pack is added on top. Starter is free for 5 active deals."}}, {"@type": "Question", "name": "Is our data used to train anything?", "acceptedAnswer": {"@type": "Answer", "text": "Your deals are isolated to your organisation and are never exposed to another customer. Any cross-customer learning is anonymised, aggregated coaching patterns only, never your records, and never your customer names."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do we have to replace our CRM?", "acceptedAnswer": {"@type": "Answer", "text": "No. SalesHedge works alongside it, and there is a live Salesforce integration. It also holds deals on its own if a rep will not live in a CRM, so you are not blocked either way. We are not trying to become your system of record."}}, {"@type": "Question", "name": "How is this different from Crossbeam or a PRM?", "acceptedAnswer": {"@type": "Answer", "text": "Those map the ecosystem: who overlaps with whom, and where an introduction exists. They stop at the introduction. SalesHedge starts after it and judges execution on the deal in front of you. The two are complementary and we deliberately do not try to be the shared surface."}}, {"@type": "Question", "name": "How is this different from Clari or Gong?", "acceptedAnswer": {"@type": "Answer", "text": "Both are excellent and both are built for a direct CRO with one product and one sales motion. Neither has a concept of a book spread across a dozen vendor lines, or a buying committee where the vendor's own rep is a participant. That is the entire difference."}}, {"@type": "Question", "name": "Our contact data is thin. Will it still be useful?", "acceptedAnswer": {"@type": "Answer", "text": "Thin data is treated as a risk signal rather than a blank field. A deal with one contact and no economic buyer scores worse, not neutral, and the attach engine refuses to open on it. The coaching works from deal one, without needing hundreds of closed deals to calibrate first."}}, {"@type": "Question", "name": "Do you do quoting, CPQ or ticketing?", "acceptedAnswer": {"@type": "Answer", "text": "No, and we will not. Those are solved and they are not where deals are won or lost. If you need them, keep the tool you have and let SalesHedge inject the intelligence into your CRM."}}, {"@type": "Question", "name": "How long before it is useful?", "acceptedAnswer": {"@type": "Answer", "text": "Add a deal and analyse it. The scoring is IP-driven rather than trained on your history, so it works on the first deal you enter instead of after a quarter of data collection."}}, {"@type": "Question", "name": "What does it actually cost?", "acceptedAnswer": {"@type": "Answer", "text": "Plans are priced per organization with a user cap, not per individual seat. Starter is free for 1 user and 5 active deals. Pro Seller is $79 a month for 1 user and 50 active deals, month-to-month. Team is $499 a month for up to 25 users and Growth is $1,499 for up to 50, both on a 12-month commitment. Enterprise Intelligence is custom priced."}}, {"@type": "Question", "name": "Is our data used to train anything?", "acceptedAnswer": {"@type": "Answer", "text": "Your deals are isolated to your organisation and are never exposed to another customer. Any cross-customer learning is anonymised, aggregated coaching patterns only, never your records, and never your customer names."}}]}</script>
 </head>
 <body>
 <nav><div class="wrap navin">
@@ -349,16 +362,23 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 
 <!-- PRICING -->
 <section class="sec"><div class="wrap">
- <div class="ey">Partner Pack</div>
+ <div class="ey">Pricing</div>
  <h2>Pay for your size, not a separate tier.</h2>
- <p class="sub">The Partner Pack adds multi-vendor pipeline, the Attach Engine and vendor-aware coaching to any paid plan, so a solo reseller and a 50-rep VAR each pay for their size.</p>
- <div class="steps" style="margin-top:24px">
-  <div class="step"><div class="n"><b>on Pro Seller</b><span class="h">+$59<small>/mo</small></span></div></div>
-  <div class="step"><div class="n"><b>on Team</b><span class="h">+$399<small>/mo</small></span></div></div>
-  <div class="step"><div class="n"><b>on Growth</b><span class="h">+$799<small>/mo</small></span></div></div>
-  <div class="step"><div class="n"><b>on Enterprise</b><span class="h">+$1,199<small>/mo</small></span></div></div>
+ <p class="sub">Plans are priced per organization with a user cap, not per individual seat. Most reseller teams land on Team or Growth.</p>
+ <div class="plans">
+  <div class="pl"><div class="nm">Starter</div><div class="pr">$0</div><div class="st">1 user, up to 5 active deals</div><div class="tm">Free forever</div></div>
+  <div class="pl"><div class="nm">Pro Seller</div><div class="pr">$79<small>/mo</small></div><div class="st">1 user, up to 50 active deals</div><div class="tm">Month-to-month, no commitment</div></div>
+  <div class="pl hi"><div class="nm">Team</div><div class="pr">$499<small>/mo</small></div><div class="st">Up to 25 users</div><div class="tm">12-month commitment</div></div>
+  <div class="pl"><div class="nm">Growth</div><div class="pr">$1,499<small>/mo</small></div><div class="st">Up to 50 users</div><div class="tm">12-month commitment</div></div>
  </div>
- <p class="sub" style="margin-top:20px">Plans are org-based, not per seat. Most reseller teams land on Team or Growth. <a href="/subscribe" style="color:var(--ind);font-weight:700;text-decoration:none">See full pricing</a></p>
+ <div class="ent-line">
+  <div>
+   <div class="el-t">Enterprise Intelligence</div>
+   <div class="el-s">Typically 25 to 100+ users on a 12-month commitment, with CRM integrations, SSO, priority support and dedicated onboarding.</div>
+  </div>
+  <div class="el-p">Custom pricing</div>
+ </div>
+ <p class="sub" style="margin-top:22px">Multi-vendor partner coaching runs through the Channel Partners module on Growth. <a href="/subscribe" style="color:var(--ind);font-weight:700;text-decoration:none">See full pricing</a></p>
 </div></section>
 
 <!-- FAQ -->
@@ -372,7 +392,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
   <div class="q"><h3>Our contact data is thin. Will it still be useful?</h3><p>Thin data is treated as a risk signal rather than a blank field. A deal with one contact and no economic buyer scores worse, not neutral, and the attach engine refuses to open on it. The coaching works from deal one, without needing hundreds of closed deals to calibrate first.</p></div>
   <div class="q"><h3>Do you do quoting, CPQ or ticketing?</h3><p>No, and we will not. Those are solved and they are not where deals are won or lost. If you need them, keep the tool you have and let SalesHedge inject the intelligence into your CRM.</p></div>
   <div class="q"><h3>How long before it is useful?</h3><p>Add a deal and analyse it. The scoring is IP-driven rather than trained on your history, so it works on the first deal you enter instead of after a quarter of data collection.</p></div>
-  <div class="q"><h3>What does it actually cost?</h3><p>Plans are org-based, not per seat. Team is $499 a month for up to 10 users, Growth is $999 for up to 25, and Enterprise is $2,499 for up to 100. The Partner Pack is added on top. Starter is free for 5 active deals.</p></div>
+  <div class="q"><h3>What does it actually cost?</h3><p>Plans are priced per organization with a user cap, not per individual seat. Starter is free for 1 user and 5 active deals. Pro Seller is $79 a month for 1 user and 50 active deals, month-to-month. Team is $499 a month for up to 25 users and Growth is $1,499 for up to 50, both on a 12-month commitment. Enterprise Intelligence is custom priced.</p></div>
   <div class="q"><h3>Is our data used to train anything?</h3><p>Your deals are isolated to your organisation and are never exposed to another customer. Any cross-customer learning is anonymised, aggregated coaching patterns only, never your records, and never your customer names.</p></div>
  </div>
 </div></section>
