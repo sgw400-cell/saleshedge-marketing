@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trial dashboard on your data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1D3A; --blue:#1246E3; --lblue:#E8F0FF; --white:#fff;
+    --t1:#111827; --t2:#4B5563; --t3:#6B7280;
+    --bd:#E5E7EB; --bg:#F8FAFC;
+    --ok:#16A34A; --dng:#EF4444; --warn:#F59E0B; --info:#3B82F6;
+    --c3:#6B7C93; --c4:#C9D2E1;
+    --bInfo:#EEF2FF; --bOk:#ECFDF5; --bWarn:#FFFBEB; --bDng:#FEF2F2;
+    --grid:#EEF1F5; --track:#F1F5F9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--t1);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 22px 40px}
+
+  /* top bar */
+  .top{background:var(--navy);color:#fff;padding:12px 22px}
+  .top .inner{max-width:1320px;margin:0 auto;width:100%;display:flex;align-items:center;gap:14px}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo .mark{width:38px;height:38px;display:block;flex-shrink:0}
+  .logo .name{font-weight:800;font-size:17px;letter-spacing:-.2px}
+  .logo .name b{color:#6366F1;font-weight:800}
+  .logo .tag{font-size:8.5px;letter-spacing:1.4px;color:#9fb3d1;font-weight:700;margin-top:1px}
+  .logo .tag i{color:#6366F1;font-style:normal}
+  .navtabs{display:flex;gap:2px;margin-left:8px}
+  .navtabs span{font-size:12.5px;color:#9fb3d1;padding:6px 12px;border-radius:7px;font-weight:600}
+  .navtabs span.on{background:rgba(255,255,255,.12);color:#fff}
+  .top .sp{flex:1}
+  .pill-trial{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.4px;
+    color:#cfe0ff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:5px 11px;border-radius:20px}
+  .tbtn{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);color:#dbe6f7;
+    padding:8px 13px;border-radius:9px;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .tbtn.primary{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:800}
+
+  /* honesty banner */
+  .trial{background:var(--bOk);border-bottom:1px solid #cdebd8;padding:9px 22px}
+  .trial .inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:10px;font-size:12.5px;color:#166534;font-weight:600}
+  .trial .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);flex-shrink:0}
+
+
+  .sect-label{font-size:11px;font-weight:800;letter-spacing:1.3px;color:var(--t3);margin:24px 0 10px;display:flex;align-items:center}
+
+  /* AI indicator */
+  .ai-tag{position:absolute;top:15px;right:15px;display:inline-flex;align-items:center;gap:5px;background:var(--bInfo);
+    color:var(--blue);font-size:9px;font-weight:800;letter-spacing:.6px;padding:4px 9px 4px 8px;border-radius:20px;z-index:5;text-transform:uppercase}
+  .ai-inline{display:inline-flex;align-items:center;gap:5px;background:var(--bInfo);color:var(--blue);font-size:9px;
+    font-weight:800;letter-spacing:.6px;padding:4px 9px 4px 8px;border-radius:20px;text-transform:uppercase;margin-left:8px}
+  .chev{width:13px;height:11px;flex-shrink:0;display:block}
+
+  /* KPI row */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  .kpi{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:15px 14px;position:relative}
+  .kpi .lab{font-size:10px;font-weight:800;letter-spacing:.7px;color:var(--t3);text-transform:uppercase}
+  .kpi .val{font-size:25px;font-weight:800;letter-spacing:-.8px;margin:7px 0 3px}
+  .kpi .sub{font-size:11px;color:var(--t3);font-weight:500}
+  .kpi .val.green{color:var(--ok)} .kpi .val.navy{color:var(--navy)} .kpi .val.blue{color:var(--blue)} .kpi .val.dng{color:var(--dng)}
+  .kpi .aik{position:absolute;top:11px;right:11px;display:inline-flex;align-items:center;background:var(--bInfo);color:var(--blue);padding:3px 6px;border-radius:10px}
+  .kpi .aik .chev{width:12px;height:10px}
+  .kpi.lead{background:linear-gradient(135deg,#f4f7ff,#eaf0ff);border-color:#c7d6ff}
+  .kpi.lead .aik{background:#fff;box-shadow:0 1px 3px rgba(11,29,58,.10)}
+
+  /* What Hedge sees strip */
+  .seen{margin-top:14px;background:#fff;border:1px solid #c7d6ff;border-radius:14px;padding:14px 18px;
+    display:flex;align-items:center;gap:0}
+  .seen .badge{display:flex;align-items:center;gap:11px;padding-right:20px;flex-shrink:0}
+  .seen .badge .sq{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--navy));
+    display:flex;align-items:center;justify-content:center;color:#fff}
+  .seen .badge .st{font-size:13.5px;font-weight:800;letter-spacing:-.2px}
+  .seen .badge .ss{font-size:10.5px;color:var(--t3);font-weight:600}
+  .seen .it{display:flex;align-items:flex-start;gap:9px;padding:0 20px;border-left:1px solid var(--grid);flex:1}
+  .seen .num{width:20px;height:20px;border-radius:50%;background:var(--navy);color:#fff;font-size:10.5px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .seen .tx{font-size:12px;font-weight:600;color:var(--t2);line-height:1.35}
+  .seen .tx b{color:var(--t1);font-weight:800}
+
+  /* shell: main + rail */
+  .shell{display:grid;grid-template-columns:1fr 292px;gap:18px;align-items:start;margin-top:16px}
+  .rail{position:sticky;top:16px;background:linear-gradient(165deg,#1a4fe8,#0B1D3A);border-radius:16px;padding:20px 18px;color:#fff}
+  .rail h3{margin:0 0 3px;font-size:17px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+  .rail .rsub{font-size:11px;color:#b9cdf2;font-weight:600;margin-bottom:16px;padding-right:56px}
+  .ritem{display:flex;gap:11px;padding:11px 0;border-top:1px solid rgba(255,255,255,.12)}
+  .ritem:first-of-type{border-top:0}
+  .ritem .ri{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.13);display:flex;
+    align-items:center;justify-content:center;flex-shrink:0}
+  .ritem .rt{font-size:12.5px;font-weight:800;letter-spacing:-.1px}
+  .ritem .rd{font-size:11px;color:#c3d5f5;font-weight:500;margin-top:2px;line-height:1.35}
+  .railcta{display:block;width:100%;margin-top:16px;background:#fff;color:var(--blue);border:0;border-radius:11px;
+    padding:13px;font-size:13.5px;font-weight:800;cursor:pointer;font-family:inherit}
+  .railnote{text-align:center;font-size:10.5px;color:#b9cdf2;font-weight:600;margin-top:11px}
+
+  .rail{position:relative}
+  .railmark{position:absolute;top:18px;right:16px;width:46px;height:38px;opacity:.95}
+  .rail h3{padding-right:56px}
+  .railbrand{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:13px;padding-top:12px;
+    border-top:1px solid rgba(255,255,255,.14);font-size:11px;font-weight:700;color:#cfe0ff}
+  .railbrand .chev{width:15px;height:12px}
+  .railbrand b{font-weight:800;color:#fff}
+
+  /* cards */
+  .card{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:18px;position:relative;
+    display:flex;flex-direction:column}
+  .card h3{margin:0 0 2px;font-size:15px;font-weight:800;letter-spacing:-.2px}
+  .card .cap{font-size:11.5px;color:var(--t3);font-weight:600;margin-bottom:14px}
+  .maingrid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:stretch}
+  .sp4{grid-column:span 4} .sp3{grid-column:span 3} .sp2{grid-column:span 2}
+
+  /* waterfall */
+  .wf{display:flex;align-items:flex-end;gap:12px;flex:1;min-height:200px;padding:38px 4px 34px;position:relative}
+  .wf::before{content:"";position:absolute;left:4px;right:4px;bottom:34px;border-top:1px solid var(--grid)}
+  .wfcol{flex:1;height:100%;position:relative}
+  .wfseg{position:absolute;left:13%;right:13%;border-radius:6px 6px 0 0}
+  .wfval{position:absolute;top:-19px;left:-14%;right:-14%;text-align:center;font-size:12px;font-weight:800;color:var(--t1);white-space:nowrap}
+  .wfrun{position:absolute;top:-33px;left:-14%;right:-14%;text-align:center;font-size:9px;font-weight:700;color:#9aa6b8;white-space:nowrap}
+  .wflab{position:absolute;bottom:-30px;left:-12%;right:-12%;text-align:center;font-size:10px;color:var(--t3);font-weight:700;white-space:nowrap}
+  .wfnote{font-size:11.5px;color:var(--t3);font-weight:500;margin-top:auto;border-top:1px solid var(--grid);padding-top:12px}
+  .wfnote b{color:#b45309;font-weight:800}
+
+  /* deals at risk */
+  .impact .d{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-top:1px solid var(--grid)}
+  .impact .d:first-of-type{border-top:0}
+  .impact .rk{width:20px;height:20px;border-radius:6px;background:var(--bInfo);color:var(--blue);font-weight:800;font-size:10.5px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .impact .nm{font-weight:700;font-size:12.5px}
+  .impact .ds{font-size:10.5px;color:var(--t3);margin-top:1px}
+  .impact .rr{margin-left:auto;text-align:right;white-space:nowrap}
+  .impact .amt{font-weight:800;font-size:12.5px}
+  .impact .tot{margin-top:auto;padding-top:13px;border-top:1px solid var(--grid);display:flex;font-size:12px;font-weight:700;color:var(--t2)}
+  .impact .tot b{margin-left:auto;color:var(--dng)}
+  .pill{display:inline-block;font-size:9.5px;font-weight:800;padding:3px 8px;border-radius:20px}
+  .pill.ok{background:var(--bOk);color:var(--ok)} .pill.warn{background:var(--bWarn);color:#b45309} .pill.dng{background:var(--bDng);color:var(--dng)}
+
+  /* donut */
+  .dnwrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;flex:1}
+  .dnwrap .leg{width:100%}
+  .dnsvg{position:relative;width:104px;height:104px;flex-shrink:0}
+  .dnsvg svg{width:104px;height:104px}
+  .dnsvg .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .dnsvg .ctr .cv{font-size:14px;font-weight:800;letter-spacing:-.3px}
+  .dnsvg .ctr .cl2{font-size:8px;color:var(--t3);font-weight:800;letter-spacing:.5px}
+  .leg{display:flex;flex-direction:column;gap:7px;flex:1;min-width:0}
+  .leg .li{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--t2);font-weight:600;white-space:nowrap}
+  .leg .sw{width:9px;height:9px;border-radius:3px;flex-shrink:0}
+  .leg .lp{margin-left:auto;font-weight:800;color:var(--t1);padding-left:10px}
+  .leg .lq{color:var(--t3);font-weight:700;padding-left:7px;font-size:10px}
+
+  /* The Basics table must never exceed its card */
+  .basics table{table-layout:fixed;width:100%}
+  .basics th,.basics td{padding-left:4px;padding-right:4px}
+  .basics td{overflow:hidden;text-overflow:ellipsis}
+  .basics th:first-child,.basics td:first-child{width:37%}
+  .basics th{white-space:normal;line-height:1.15;font-size:8px;letter-spacing:.2px}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse}
+  th{font-size:9.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--t3);font-weight:800;text-align:left;padding:0 8px 9px}
+  td{padding:10px 8px;border-top:1px solid var(--grid);font-size:12.5px}
+  td.r,th.r{text-align:right}
+  .repname{font-weight:700;white-space:nowrap}
+  .grade{font-weight:800;font-size:13px}
+  .grade.a{color:var(--ok)} .grade.d{color:var(--dng)}
+  .bartrack{height:7px;background:var(--track);border-radius:20px;overflow:hidden;min-width:56px}
+  .bartrack i{display:block;height:100%;background:var(--ok);border-radius:20px}
+  .muteCell{color:#9aa6b8;font-style:italic;font-size:11px}
+
+  /* signal chips */
+  .sigchips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sig{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:12px 13px}
+  .sig .n{font-size:20px;font-weight:800;letter-spacing:-.5px}
+  .sig .l{font-size:10.5px;color:var(--t3);font-weight:600;margin-top:1px}
+  .sig .n.dng{color:var(--dng)} .sig .n.warn{color:#b45309}
+
+  /* premium intelligence grid */
+  .premhead{display:flex;align-items:baseline;gap:9px;margin:26px 0 12px}
+  .premhead h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.3px}
+  .premhead span{font-size:11.5px;color:var(--t3);font-weight:600}
+  .premgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .prem{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:18px;position:relative;overflow:hidden;min-height:158px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .prem .skel{position:absolute;inset:0;padding:16px;filter:blur(3px);opacity:.30;pointer-events:none}
+  .prem .skel i{display:block;height:9px;background:var(--c4);border-radius:4px;margin-bottom:8px}
+  .prem .skel .bars{display:flex;align-items:flex-end;gap:8px;height:64px;margin-top:12px}
+  .prem .skel .bars u{flex:1;background:var(--c4);border-radius:4px 4px 0 0}
+  .prem .fg{position:relative;z-index:2;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.93));
+    padding:8px 6px;border-radius:12px;width:100%}
+  .prem .lk{width:34px;height:34px;border-radius:10px;background:#fff;border:1px solid var(--bd);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 8px;box-shadow:0 3px 10px rgba(11,29,58,.08)}
+  .prem .pt{font-size:13.5px;font-weight:800;letter-spacing:-.2px}
+  .prem .pd{font-size:11px;color:var(--t2);font-weight:500;margin-top:4px;line-height:1.4;max-width:210px;margin-left:auto;margin-right:auto}
+  .prem .pa{font-size:10px;font-weight:800;color:var(--blue);letter-spacing:.4px;margin-top:9px}
+
+  /* win-rate worksheet */
+  .wsheet{margin-top:26px;background:#fff;border:1px solid var(--bd);border-radius:16px;overflow:hidden;
+    display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch}
+  .wsleft{display:flex;flex-direction:column;justify-content:center;padding:20px 0}
+  .wshead{padding:0 20px}
+  .wshead h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.3px}
+  .wshead p{margin:4px 0 0;font-size:12px;color:var(--t3);font-weight:600}
+  .wsbody{margin-top:16px}
+  .wsin{padding:4px 20px 20px}
+  .wsfield{margin-bottom:14px}
+  .wsfield label{display:block;font-size:10.5px;font-weight:800;letter-spacing:.5px;color:var(--t3);text-transform:uppercase;margin-bottom:5px}
+  .wsfield .hint{font-size:10.5px;color:#9aa6b8;font-weight:600;margin-top:4px}
+  .wsfield input[type=text]{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:10px;
+    padding:11px 13px;font-size:15px;font-weight:800;color:var(--t1);font-family:inherit;letter-spacing:-.3px}
+  .wsfield input[type=text]:focus{outline:0;border-color:var(--blue);background:#fff}
+  .wsdelta{background:#f4f7ff;border:1px solid #c7d6ff;border-radius:12px;padding:13px 14px}
+  .wsdelta .drow{display:flex;align-items:baseline;gap:8px}
+  .wsdelta .dv{font-size:28px;font-weight:800;color:var(--blue);letter-spacing:-1px}
+  .wsdelta .du{font-size:13px;font-weight:800;color:var(--blue)}
+  .wsdelta input[type=range]{width:100%;margin-top:9px;accent-color:var(--blue)}
+  .wsdelta .dscale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--t3);font-weight:700;margin-top:3px}
+  .wsout{background:linear-gradient(165deg,#0f3fd0,#0B1D3A);color:#fff;padding:30px 26px;display:flex;flex-direction:column;justify-content:center;position:relative}
+  .wsmark{position:absolute;top:-14px;right:-18px;width:230px;height:auto;opacity:.14;pointer-events:none;z-index:0}
+  .wsout > *:not(.wsmark){position:relative;z-index:1}
+  .wsbrand{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;padding-top:16px;
+    border-top:1px solid rgba(255,255,255,.14);font-size:13px;font-weight:700;color:#cfe0ff}
+  .wsbrand .chev{width:18px;height:15px}
+  .wsbrand b{font-weight:800;color:#fff}
+  .wsout .ol{font-size:12.5px;font-weight:800;letter-spacing:.8px;color:#b9cdf2;text-transform:uppercase}
+  .wsbig{font-size:56px;font-weight:800;letter-spacing:-2.2px;margin:8px 0 4px;line-height:1.02}
+  .wssub{font-size:15px;color:#cfe0ff;font-weight:700}
+  .wsgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+  .wsg .gv{font-size:27px;font-weight:800;letter-spacing:-.8px}
+  .wsg .gl{font-size:12.5px;color:#b9cdf2;font-weight:700;margin-top:3px;line-height:1.3}
+  .wsnote{font-size:13px;color:#b9cdf2;font-weight:500;margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);line-height:1.45}
+
+  /* wish list */
+  .wishcard{margin-top:16px;background:#fff;border:1px dashed #c7d6ff;border-radius:16px;padding:17px 20px;
+    display:flex;align-items:center;gap:18px}
+  .wishcard .wico{width:38px;height:38px;border-radius:11px;background:var(--bInfo);display:flex;align-items:center;
+    justify-content:center;flex-shrink:0;color:var(--blue);font-size:17px}
+  .wishcard h4{margin:0;font-size:14px;font-weight:800;letter-spacing:-.2px}
+  .wishcard p{margin:3px 0 0;font-size:11.5px;color:var(--t3);font-weight:500}
+  .wishcard .wfield{margin-left:auto;display:flex;gap:9px;align-items:center;flex-shrink:0}
+  .wishcard .winput{width:250px;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px 13px;font-size:12px;color:#9aa6b8}
+  .wishcard .wbtn{background:var(--navy);color:#fff;border:0;border-radius:10px;padding:10px 15px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit}
+
+  .disc{margin-top:16px;background:#fff;border:1px solid var(--bd);border-radius:12px;padding:12px 16px;
+    display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--t3);font-weight:600}
+
+  .foot{margin-top:16px;background:linear-gradient(120deg,var(--navy),var(--blue));border-radius:16px;
+    padding:22px 24px;color:#fff;display:flex;align-items:center;gap:20px}
+  .foot .ft{font-size:19px;font-weight:800;letter-spacing:-.3px}
+  .foot .fp{font-size:12.5px;color:#cfe0ff;margin-top:4px;max-width:600px}
+  .foot .fb{margin-left:auto;display:flex;gap:10px;flex-shrink:0}
+  .foot .fb button{padding:11px 18px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;
+    border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-family:inherit}
+  .foot .fb button.p{background:#fff;color:var(--blue);border-color:#fff}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="inner">
+  <div class="logo">
+    <svg class="mark" viewBox="0 0 48 48" role="img" aria-label="SalesHedge">
+      <defs>
+        <linearGradient id="shGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/>
+        </linearGradient>
+      </defs>
+      <rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#shGrad)"/>
+      <g transform="translate(13,14)" fill="none" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 5.1L5.9 10L2 14.9" opacity=".55"/>
+        <path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".78"/>
+        <path d="M15.2 2L21.6 10L15.2 18"/>
+      </g>
+    </svg>
+    <div>
+      <div class="name">SalesHedge<b>.ai</b></div>
+      <div class="tag">DEAL + FORECAST INTEL THAT <i>LEARNS</i></div>
+    </div>
+  </div>
+  <span class="pill-trial">SALES LEADER TRIAL PREVIEW</span>
+  <div class="sp"></div>
+  <button class="tbtn">End trial &amp; delete data</button>
+  <button class="tbtn primary">Get the Growth Plan</button>
+</div></div>
+
+<div class="trial"><div class="inner">
+  <span class="dot"></span>
+  Trial preview from your uploaded pipeline CSV · Acme Corp · 47 opportunities scored just now by the same engine your team would use. Nothing on this page is sample data.
+</div></div>
+
+<div class="wrap">
+
+  <div class="sect-label">THE NUMBER
+    <span class="ai-inline">
+      <svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Scored by Hedge AI
+    </span>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi lead">
+      <span class="aik"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="lab">Hedge Forecast</div><div class="val blue">$9.4M</div><div class="sub">AI-weighted projection</div>
+    </div>
+    <div class="kpi"><div class="lab">Rep Commit</div><div class="val navy">$3.1M</div><div class="sub">what your reps forecast</div></div>
+    <div class="kpi">
+      <span class="aik"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="lab">Hedge-Real Commit</div><div class="val green">$2.2M</div><div class="sub">what the evidence supports</div>
+    </div>
+    <div class="kpi">
+      <span class="aik"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="lab">Commit At Risk</div><div class="val dng">$0.9M</div><div class="sub">29% of rep commit</div>
+    </div>
+    <div class="kpi"><div class="lab">Open Pipeline</div><div class="val">$12.8M</div><div class="sub">all open deals</div></div>
+    <div class="kpi"><div class="lab">Closed Won</div><div class="val green">$4.9M</div><div class="sub">booked this period</div></div>
+  </div>
+
+  <div class="seen">
+    <div class="badge">
+      <div class="sq">
+        <svg width="19" height="16" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="st">What Hedge sees in your pipeline</div>
+        <div class="ss">Computed from your CSV</div>
+      </div>
+    </div>
+    <div class="it"><span class="num">1</span><div class="tx">Your at-risk commit is concentrated in <b>2 reps</b>, Tom Ford and Marco Diaz</div></div>
+    <div class="it"><span class="num">2</span><div class="tx"><b>11 commit deals look fragile</b>, carrying $0.9M of exposure</div></div>
+    <div class="it"><span class="num">3</span><div class="tx">Close-date slippage is <b>rising in Proposal stage</b>, 6 deals already past date</div></div>
+  </div>
+
+  <div class="shell">
+    <div class="main">
+
+      <div class="maingrid">
+        <div class="card sp4 ">
+          <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
+          <h3>The path to your number</h3>
+          <div class="cap">How $4.9M already booked builds to a $9.4M forecast, and where the gap sits</div>
+          <div class="wf">
+            <div class="wfcol"><div class="wfseg" style="bottom:0;height:49%;background:var(--ok)"><span class="wfval">$4.9M</span></div><div class="wflab">Closed won</div></div>
+            <div class="wfcol"><div class="wfseg" style="bottom:49%;height:22%;background:var(--navy)"><span class="wfrun">runs to $7.1M</span><span class="wfval">+$2.2M</span></div><div class="wflab">Commit, real</div></div>
+            <div class="wfcol"><div class="wfseg" style="bottom:71%;height:9%;background:var(--warn)"><span class="wfrun">runs to $8.0M</span><span class="wfval">+$0.9M</span></div><div class="wflab">Commit, at risk</div></div>
+            <div class="wfcol"><div class="wfseg" style="bottom:80%;height:14%;background:var(--blue)"><span class="wfrun">runs to $9.4M</span><span class="wfval">+$1.4M</span></div><div class="wflab">Upside</div></div>
+            <div class="wfcol"><div class="wfseg" style="bottom:0;height:94%;background:linear-gradient(180deg,var(--blue),var(--navy))"><span class="wfval">$9.4M</span></div><div class="wflab">Hedge forecast</div></div>
+          </div>
+          <div class="wfnote">The <b>$0.9M at-risk block</b> is commit the evidence does not yet support. Close those gaps and it moves into the real column. Your $12.8M of open pipeline sits behind this, most of it too early to count this period.</div>
+        </div>
+
+        <div class="card sp2  impact">
+          <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
+          <h3>Your biggest deals at risk</h3>
+          <div class="cap">Open deals ranked by dollars on the line</div>
+          <div class="d"><div class="rk">1</div><div><div class="nm">Brightwell Logistics</div><div class="ds">Marco Diaz · no EB, dark 41 days</div></div><div class="rr"><div class="amt">$410K</div><span class="pill dng">High</span></div></div>
+          <div class="d"><div class="rk">2</div><div><div class="nm">Nordham Health</div><div class="ds">Amy Nguyen · single-threaded, date slipped</div></div><div class="rr"><div class="amt">$320K</div><span class="pill dng">High</span></div></div>
+          <div class="d"><div class="rk">3</div><div><div class="nm">Sterling Retail</div><div class="ds">Tom Ford · no next step set</div></div><div class="rr"><div class="amt">$180K</div><span class="pill dng">High</span></div></div>
+          <div class="d"><div class="rk">4</div><div><div class="nm">Vantage Foods</div><div class="ds">Jordan Kerns · close date in the past</div></div><div class="rr"><div class="amt">$150K</div><span class="pill warn">Medium</span></div></div>
+          <div class="d"><div class="rk">5</div><div><div class="nm">Kepler Dynamics</div><div class="ds">Tom Ford · stalled 38 days in stage</div></div><div class="rr"><div class="amt">$140K</div><span class="pill warn">Medium</span></div></div>
+          <div class="tot">Open pipeline at elevated risk <b>$1.20M</b></div>
+        </div>
+
+        <div class="card sp2 ">
+          <h3>Stage distribution</h3>
+          <div class="cap">Your $12.8M of open pipeline</div>
+          <div class="dnwrap">
+            <div class="dnsvg">
+              <svg viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--navy)" stroke-width="6.5" stroke-dasharray="24 76" stroke-dashoffset="25"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--blue)" stroke-width="6.5" stroke-dasharray="18 82" stroke-dashoffset="1"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--c3)" stroke-width="6.5" stroke-dasharray="25 75" stroke-dashoffset="83"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--c4)" stroke-width="6.5" stroke-dasharray="33 67" stroke-dashoffset="58"/>
+              </svg>
+              <div class="ctr"><div class="cv">$12.8M</div><div class="cl2">OPEN</div></div>
+            </div>
+            <div class="leg">
+              <div class="li"><span class="sw" style="background:var(--navy)"></span>Proposal / Commit<span class="lp">$3.1M</span><span class="lq">24%</span></div>
+              <div class="li"><span class="sw" style="background:var(--blue)"></span>Business Case<span class="lp">$2.3M</span><span class="lq">18%</span></div>
+              <div class="li"><span class="sw" style="background:var(--c3)"></span>Solution Align<span class="lp">$3.2M</span><span class="lq">25%</span></div>
+              <div class="li"><span class="sw" style="background:var(--c4)"></span>Discovery / early<span class="lp">$4.2M</span><span class="lq">33%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sp2 ">
+          <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
+          <h3>Forecast mix</h3>
+          <div class="cap">What makes up the $9.4M</div>
+          <div class="dnwrap">
+            <div class="dnsvg">
+              <svg viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--ok)" stroke-width="6.5" stroke-dasharray="52 48" stroke-dashoffset="25"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--navy)" stroke-width="6.5" stroke-dasharray="23 77" stroke-dashoffset="73"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--warn)" stroke-width="6.5" stroke-dasharray="10 90" stroke-dashoffset="50"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--blue)" stroke-width="6.5" stroke-dasharray="15 85" stroke-dashoffset="40"/>
+              </svg>
+              <div class="ctr"><div class="cv">$9.4M</div><div class="cl2">FORECAST</div></div>
+            </div>
+            <div class="leg">
+              <div class="li"><span class="sw" style="background:var(--ok)"></span>Closed won<span class="lp">$4.9M</span><span class="lq">52%</span></div>
+              <div class="li"><span class="sw" style="background:var(--navy)"></span>Commit, real<span class="lp">$2.2M</span><span class="lq">23%</span></div>
+              <div class="li"><span class="sw" style="background:var(--warn)"></span>Commit, at risk<span class="lp">$0.9M</span><span class="lq">10%</span></div>
+              <div class="li"><span class="sw" style="background:var(--blue)"></span>Upside<span class="lp">$1.4M</span><span class="lq">15%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sp2 ">
+          <h3>Top reps by commit</h3>
+          <div class="cap">Share of rep commit</div>
+          <table>
+            <tr><td class="repname" style="border-top:0">Sara Vitale</td><td class="r" style="border-top:0">$1.06M</td><td style="border-top:0;width:70px"><div class="bartrack"><i style="width:100%"></i></div></td></tr>
+            <tr><td class="repname">Nina Alvarez</td><td class="r">$760K</td><td><div class="bartrack"><i style="width:72%"></i></div></td></tr>
+            <tr><td class="repname">Amy Nguyen</td><td class="r">$460K</td><td><div class="bartrack"><i style="width:43%"></i></div></td></tr>
+            <tr><td class="repname">Jordan Kerns</td><td class="r">$360K</td><td><div class="bartrack"><i style="width:34%"></i></div></td></tr>
+            <tr><td class="repname">Tom Ford</td><td class="r">$260K</td><td><div class="bartrack"><i style="width:25%;background:var(--dng)"></i></div></td></tr>
+            <tr><td class="repname">Marco Diaz</td><td class="r">$200K</td><td><div class="bartrack"><i style="width:19%;background:var(--dng)"></i></div></td></tr>
+          </table>
+        </div>
+
+        <div class="card sp4 ">
+          <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
+          <h3>Deal engagement by rep</h3>
+          <div class="cap">Commit against what the evidence supports</div>
+          <table>
+            <tr><th>Rep</th><th class="r">Deals</th><th class="r">Open</th><th class="r">Commit</th><th class="r">Hedge-real</th><th class="r">At risk</th><th class="r">No next step</th></tr>
+            <tr><td class="repname">Sara Vitale</td><td class="r">11</td><td class="r">$3.40M</td><td class="r">$1.06M</td><td class="r" style="color:var(--ok);font-weight:800">$840K</td><td class="r">$220K</td><td class="r">2</td></tr>
+            <tr><td class="repname">Nina Alvarez</td><td class="r">9</td><td class="r">$2.10M</td><td class="r">$760K</td><td class="r" style="color:var(--ok);font-weight:800">$620K</td><td class="r">$140K</td><td class="r">1</td></tr>
+            <tr><td class="repname">Amy Nguyen</td><td class="r">8</td><td class="r">$1.90M</td><td class="r">$460K</td><td class="r" style="color:var(--ok);font-weight:800">$300K</td><td class="r">$160K</td><td class="r">2</td></tr>
+            <tr><td class="repname">Jordan Kerns</td><td class="r">7</td><td class="r">$1.60M</td><td class="r">$360K</td><td class="r" style="color:var(--ok);font-weight:800">$240K</td><td class="r">$120K</td><td class="r">2</td></tr>
+            <tr><td class="repname">Tom Ford</td><td class="r">6</td><td class="r">$1.90M</td><td class="r">$260K</td><td class="r" style="color:var(--dng);font-weight:800">$130K</td><td class="r" style="color:var(--dng)">$130K</td><td class="r">2</td></tr>
+            <tr><td class="repname">Marco Diaz</td><td class="r">6</td><td class="r">$1.90M</td><td class="r">$200K</td><td class="r" style="color:var(--dng);font-weight:800">$70K</td><td class="r" style="color:var(--dng)">$130K</td><td class="r">2</td></tr>
+          </table>
+        </div>
+
+        <div class="card basics sp2 ">
+          <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
+          <h3>The Basics</h3>
+          <div class="cap">Are your managers driving the fundamentals?</div>
+          <table>
+            <tr><th>Manager</th><th class="r">Score</th><th class="r">EB</th><th class="r">Dark</th><th class="r">Grade</th></tr>
+            <tr><td class="repname">Marcus Bell</td><td class="r">78%</td><td class="r">66%</td><td class="r">6%</td><td class="r"><span class="grade a">A</span></td></tr>
+            <tr><td class="repname">Dana Reyes</td><td class="r">41%</td><td class="r">30%</td><td class="r">28%</td><td class="r"><span class="grade d">D</span></td></tr>
+          </table>
+          <div style="font-size:11px;color:var(--t3);margin-top:12px;font-weight:500;line-height:1.45">The SalesHedge score rates the risk factors your file carries (economic buyer, next steps, activity recency). Your file has no compelling-event or contact-seniority column, so those factors are left out rather than guessed.</div>
+          <div style="margin-top:14px;padding-top:13px;border-top:1px solid var(--grid)">
+            <div class="sigchips">
+              <div class="sig"><div class="n warn">20</div><div class="l">Stuck 30+ days</div></div>
+              <div class="sig"><div class="n dng">6</div><div class="l">Dark 14+ days</div></div>
+              <div class="sig"><div class="n dng">11</div><div class="l">No next step</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- unlock rail -->
+    <aside class="rail">
+      <svg class="railmark" viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Unlock the Growth Plan</h3>
+      <div class="rsub">Everything the engine writes for you</div>
+
+      <div class="ritem">
+        <div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="2" y="11" width="3.4" height="7" rx="1" fill="#fff" opacity=".75"/><rect x="8.3" y="6" width="3.4" height="12" rx="1" fill="#fff"/><rect x="14.6" y="2" width="3.4" height="16" rx="1" fill="#fff" opacity=".55"/></svg></div>
+        <div><div class="rt">Today's Top 3</div><div class="rd">The engine picks your three highest-leverage moves every morning.</div></div>
+      </div>
+      <div class="ritem">
+        <div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2.6L18.2 16.6H1.8L10 2.6Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 8v3.4" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><circle cx="10" cy="14" r="1" fill="#fff"/></svg></div>
+        <div><div class="rt">Where your number is at risk</div><div class="rd">Names the exact deals, reps, and patterns in plain language.</div></div>
+      </div>
+      <div class="ritem">
+        <div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M17 11.5c0 2.5-2.4 4.5-5.4 4.5a7 7 0 0 1-1.9-.25L5.6 17.4l1-3A4.2 4.2 0 0 1 4.6 11c0-2.5 2.4-4.5 5.4-4.5"  stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14.4" cy="5.6" r="2.4" fill="#fff"/></svg></div>
+        <div><div class="rt">Ask the Hedge</div><div class="rd">Ask a plain question about any deal, rep, or the whole forecast.</div></div>
+      </div>
+      <div class="ritem">
+        <div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 17.5V3.2" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><path d="M5 3.6h9.6l-2 3.2 2 3.2H5" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <div><div class="rt">Red-flag playbook</div><div class="rd">20 proven patterns firing on your real deals, each with the response.</div></div>
+      </div>
+      <div class="ritem">
+        <div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="3.5" y="2.5" width="13" height="15" rx="2" stroke="#fff" stroke-width="1.8"/><path d="M6.8 7h6.4M6.8 10.5h6.4M6.8 14h3.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div><div class="rt">Board narrative</div><div class="rd">The board-ready story behind your quarter, written in one click.</div></div>
+      </div>
+      <div class="ritem">
+        <div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6.4" r="3.2" stroke="#fff" stroke-width="1.8"/><path d="M3.6 17c0-3.4 2.9-5.6 6.4-5.6s6.4 2.2 6.4 5.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div><div class="rt">Rep coaching priorities</div><div class="rd">Turns risk into a named plan per rep, in your coaching voice.</div></div>
+      </div>
+
+      <button class="railcta">Get the Growth Plan</button>
+      <div class="railnote">See plans and pricing on the subscribe page</div>
+      <div class="railbrand"><svg class="chev" viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Provided by <b>SalesHedge.ai</b></span></div>
+    </aside>
+  </div>
+
+  <div class="premhead">
+    <h2>Premium intelligence</h2><span>builds as your history grows, included in the Growth Plan</span>
+  </div>
+  <div class="premgrid">
+    <div class="prem">
+      <div class="skel"><i style="width:52%"></i><i style="width:80%"></i><div class="bars"><u style="height:45%"></u><u style="height:70%"></u><u style="height:38%"></u><u style="height:88%"></u><u style="height:60%"></u></div></div>
+      <div class="fg">
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="pt">Forecast trend over time</div>
+        <div class="pd">Fills in next week, once the Hedge has a second snapshot to compare.</div>
+        <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
+      </div>
+    </div>
+    <div class="prem">
+      <div class="skel"><i style="width:44%"></i><i style="width:72%"></i><div class="bars"><u style="height:30%"></u><u style="height:55%"></u><u style="height:80%"></u><u style="height:48%"></u><u style="height:66%"></u></div></div>
+      <div class="fg">
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="pt">Forecast trust by team</div>
+        <div class="pd">Compares the Hedge call against the manager call and what actually closed.</div>
+        <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
+      </div>
+    </div>
+    <div class="prem">
+      <div class="skel"><i style="width:60%"></i><i style="width:85%"></i><div class="bars"><u style="height:70%"></u><u style="height:42%"></u><u style="height:58%"></u><u style="height:80%"></u><u style="height:36%"></u></div></div>
+      <div class="fg">
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="pt">How close your forecast lands</div>
+        <div class="pd">Grades each past forecast against actuals, so accuracy stops being a guess.</div>
+        <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
+      </div>
+    </div>
+    <div class="prem">
+      <div class="skel"><i style="width:48%"></i><i style="width:76%"></i><i style="width:64%"></i><i style="width:82%"></i><i style="width:58%"></i></div>
+      <div class="fg">
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="pt">Hedge Predicts</div>
+        <div class="pd">Learns your slip patterns and flags which commit deals go before they do.</div>
+        <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
+      </div>
+    </div>
+    <div class="prem">
+      <div class="skel"><i style="width:55%"></i><i style="width:88%"></i><div class="bars"><u style="height:62%"></u><u style="height:40%"></u><u style="height:75%"></u><u style="height:52%"></u><u style="height:35%"></u></div></div>
+      <div class="fg">
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="pt">Risk movement week over week</div>
+        <div class="pd">Shows which deals and reps are getting riskier, not just where they stand today.</div>
+        <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
+      </div>
+    </div>
+    <div class="prem">
+      <div class="skel"><i style="width:66%"></i><i style="width:50%"></i><i style="width:80%"></i><i style="width:60%"></i><i style="width:74%"></i></div>
+      <div class="fg">
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="pt">Your real deal velocity</div>
+        <div class="pd">Builds baselines from your own closed deals instead of a generic benchmark.</div>
+        <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wsheet">
+    <div class="wsleft">
+      <div class="wshead">
+        <h2>What would a small lift in win rate be worth?</h2>
+        <p>Your numbers, your assumption. Change any field and the math updates.</p>
+      </div>
+      <div class="wsbody">
+      <div class="wsin">
+        <div class="wsfield">
+          <label>Annual pipeline your team works</label>
+          <input type="text" id="wPipe" value="$10,000,000">
+          <div class="hint">Enter your annual working pipeline for this year.</div>
+        </div>
+        <div class="wsfield">
+          <label>Your current win rate</label>
+          <input type="text" id="wWin" value="23%">
+          <div class="hint">Your file has open deals only, so we cannot calculate this. Enter your own figure.</div>
+        </div>
+        <div class="wsfield" style="margin-bottom:0">
+          <label>Win rate improvement you think is achievable</label>
+          <div class="wsdelta">
+            <div class="drow"><span class="dv" id="wDeltaV">2.0</span><span class="du">percentage points</span></div>
+            <input type="range" id="wDelta" min="0.5" max="10" step="0.5" value="2">
+            <div class="dscale"><span>0.5</span><span>5.0</span><span>10.0</span></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="wsout">
+        <svg class="wsmark" viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="ol">Incremental annual revenue</div>
+        <div class="wsbig" id="wInc">$200K</div>
+        <div class="wssub" id="wSub">Moving your win rate from 23% to 25%</div>
+
+        <div class="wsgrid">
+          <div class="wsg"><div class="gv" id="wNew">$2.50M</div><div class="gl">Won revenue at the new rate</div></div>
+          <div class="wsg"><div class="gv">$17,988</div><div class="gl">Growth Plan, per year</div></div>
+          <div class="wsg"><div class="gv" id="wMult">11x</div><div class="gl">Annual Return on Investment prior to compounding coaching effect</div></div>
+        </div>
+
+        <div class="wsnote">This information is based solely on data you enter and is not a guarantee, just a directional ROI summary.</div>
+
+        <div class="wsbrand"><svg class="chev" viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Provided by <b>SalesHedge.ai</b></span></div>
+      </div>
+  </div>
+
+  <div class="wishcard">
+    <div class="wico">&#9733;</div>
+    <div>
+      <h4>Not seeing what you need?</h4>
+      <p>Tell us what is missing and we will build it. Trial feedback goes straight to the product team.</p>
+    </div>
+    <div class="wfield">
+      <div class="winput">I wish this showed...</div>
+      <button class="wbtn">Add to wish list</button>
+    </div>
+  </div>
+
+  <div class="disc">
+    <span>&#9432;</span>
+    This trial preview is computed from the fields in your uploaded CSV only. Your file is scored in memory and never stored, and it never mixes with another company's data.
+  </div>
+
+  <div class="foot">
+    <div>
+      <div class="ft">This is your real pipeline. $0.9M of your commit is not supported by the evidence.</div>
+      <div class="fp">Get the Growth Plan to keep this live, watch the locked sections fill in week over week, and coach the gaps before they cost you the quarter.</div>
+    </div>
+    <div class="fb">
+      <button class="p">Get the Growth Plan</button>
+      <button>Email me this reality check</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var COST = 1499 * 12;
+  var pipe=document.getElementById('wPipe'), win=document.getElementById('wWin'), d=document.getElementById('wDelta');
+
+  function num(el){ var n=parseFloat(String(el.value).replace(/[^0-9.]/g,'')); return isNaN(n)?0:n; }
+  function commas(n){ return n.toLocaleString('en-US',{maximumFractionDigits:0}); }
+  function money(n){
+    if(n>=1e6) return '$'+(n/1e6).toFixed(2)+'M';
+    if(n>=1e3) return '$'+Math.round(n/1e3)+'K';
+    return '$'+Math.round(n);
+  }
+  function fmtPipe(){ var v=num(pipe); pipe.value = v>0 ? '$'+commas(v) : ''; }
+  function fmtWin(){ var v=num(win); win.value = v>0 ? (Math.round(v*10)/10)+'%' : ''; }
+
+  function calc(){
+    var P=num(pipe), W=num(win), D=parseFloat(d.value);
+    var inc = P*(D/100), newWon = P*((W+D)/100);
+    document.getElementById('wDeltaV').textContent = D.toFixed(1);
+    document.getElementById('wInc').textContent = money(inc);
+    document.getElementById('wSub').textContent = 'Moving your win rate from '+(Math.round(W*10)/10)+'% to '+(Math.round((W+D)*10)/10)+'%';
+    document.getElementById('wNew').textContent = money(newWon);
+    document.getElementById('wMult').textContent = inc>0 ? Math.round(inc/COST)+'x' : '0x';
+  }
+
+  // recalculate as they type, reformat once they leave the field
+  [pipe,win].forEach(function(el){ el.addEventListener('input',calc); });
+  pipe.addEventListener('blur',function(){ fmtPipe(); calc(); });
+  win.addEventListener('blur',function(){ fmtWin(); calc(); });
+  [pipe,win].forEach(function(el){
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'){ el.blur(); } });
+  });
+  d.addEventListener('input',calc);
+  calc();
+})();
+</script>
+</body>
+</html>
