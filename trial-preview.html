@@ -245,6 +245,21 @@
   .wishcard .winput{width:250px;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px 13px;font-size:12px;color:#9aa6b8}
   .wishcard .wbtn{background:var(--navy);color:#fff;border:0;border-radius:10px;padding:10px 15px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit}
 
+
+  /* trial gate + honesty states, added when the page was bound to /api/public/analyze */
+  .gatecard{max-width:560px;margin:60px auto;background:#fff;border:1px solid var(--bd);border-radius:16px;padding:26px 28px;text-align:center}
+  .gatecard h2{margin:0 0 6px;font-size:19px;font-weight:800;letter-spacing:-.3px}
+  .gatecard p{margin:0 0 18px;font-size:13px;color:var(--t2);font-weight:500;line-height:1.5}
+  .gatecard input[type=email]{width:100%;padding:12px 13px;border:1px solid var(--bd);border-radius:10px;font-family:inherit;font-size:14px;margin-bottom:10px}
+  .gatecard input[type=file]{width:100%;font-family:inherit;font-size:12.5px;margin-bottom:14px}
+  .gatecard button{width:100%;background:var(--blue);color:#fff;border:0;border-radius:11px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
+  .gatecard button:disabled{opacity:.5;cursor:default}
+  .gateerr{margin-top:12px;font-size:12.5px;color:var(--dng);font-weight:700}
+  .gatenote{margin-top:14px;font-size:11px;color:var(--t3);font-weight:600;line-height:1.5}
+  .smallnote{background:var(--bWarn);border-bottom:1px solid #f3e0b5;padding:9px 22px;font-size:12.5px;color:#8a6d1f;font-weight:600}
+  .smallnote .inner{max-width:1320px;margin:0 auto}
+  .absent{color:#9aa6b8;font-style:italic;font-weight:600}
+
   .disc{margin-top:16px;background:#fff;border:1px solid var(--bd);border-radius:12px;padding:12px 16px;
     display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--t3);font-weight:600}
 
@@ -286,10 +301,11 @@
   <button class="tbtn primary">Get the Growth Plan</button>
 </div></div>
 
-<div class="trial"><div class="inner">
-  <span class="dot"></span>
-  Trial preview from your uploaded pipeline CSV · Acme Corp · 47 opportunities scored just now by the same engine your team would use. Nothing on this page is sample data.
+<div class="trial" id="banner" hidden><div class="inner">
+  <span class="dot"></span><span id="bannerText"></span>
 </div></div>
+
+<div id="gate"></div>
 
 <div class="wrap">
 
@@ -300,38 +316,9 @@
     </span>
   </div>
 
-  <div class="kpis">
-    <div class="kpi lead">
-      <span class="aik"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div class="lab">Hedge Forecast</div><div class="val blue">$9.4M</div><div class="sub">AI-weighted projection</div>
-    </div>
-    <div class="kpi"><div class="lab">Rep Commit</div><div class="val navy">$3.1M</div><div class="sub">what your reps forecast</div></div>
-    <div class="kpi">
-      <span class="aik"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div class="lab">Hedge-Real Commit</div><div class="val green">$2.2M</div><div class="sub">what the evidence supports</div>
-    </div>
-    <div class="kpi">
-      <span class="aik"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div class="lab">Commit At Risk</div><div class="val dng">$0.9M</div><div class="sub">29% of rep commit</div>
-    </div>
-    <div class="kpi"><div class="lab">Open Pipeline</div><div class="val">$12.8M</div><div class="sub">all open deals</div></div>
-    <div class="kpi"><div class="lab">Closed Won</div><div class="val green">$4.9M</div><div class="sub">booked this period</div></div>
-  </div>
+  <div class="kpis" id="kpis"></div>
 
-  <div class="seen">
-    <div class="badge">
-      <div class="sq">
-        <svg width="19" height="16" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div>
-        <div class="st">What Hedge sees in your pipeline</div>
-        <div class="ss">Computed from your CSV</div>
-      </div>
-    </div>
-    <div class="it"><span class="num">1</span><div class="tx">Your at-risk commit is concentrated in <b>2 reps</b>, Tom Ford and Marco Diaz</div></div>
-    <div class="it"><span class="num">2</span><div class="tx"><b>11 commit deals look fragile</b>, carrying $0.9M of exposure</div></div>
-    <div class="it"><span class="num">3</span><div class="tx">Close-date slippage is <b>rising in Proposal stage</b>, 6 deals already past date</div></div>
-  </div>
+  <div class="seen" id="seen" hidden></div>
 
   <div class="shell">
     <div class="main">
@@ -340,119 +327,51 @@
         <div class="card sp4 ">
           <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
           <h3>The path to your number</h3>
-          <div class="cap">How $4.9M already booked builds to a $9.4M forecast, and where the gap sits</div>
-          <div class="wf">
-            <div class="wfcol"><div class="wfseg" style="bottom:0;height:49%;background:var(--ok)"><span class="wfval">$4.9M</span></div><div class="wflab">Closed won</div></div>
-            <div class="wfcol"><div class="wfseg" style="bottom:49%;height:22%;background:var(--navy)"><span class="wfrun">runs to $7.1M</span><span class="wfval">+$2.2M</span></div><div class="wflab">Commit, real</div></div>
-            <div class="wfcol"><div class="wfseg" style="bottom:71%;height:9%;background:var(--warn)"><span class="wfrun">runs to $8.0M</span><span class="wfval">+$0.9M</span></div><div class="wflab">Commit, at risk</div></div>
-            <div class="wfcol"><div class="wfseg" style="bottom:80%;height:14%;background:var(--blue)"><span class="wfrun">runs to $9.4M</span><span class="wfval">+$1.4M</span></div><div class="wflab">Upside</div></div>
-            <div class="wfcol"><div class="wfseg" style="bottom:0;height:94%;background:linear-gradient(180deg,var(--blue),var(--navy))"><span class="wfval">$9.4M</span></div><div class="wflab">Hedge forecast</div></div>
-          </div>
-          <div class="wfnote">The <b>$0.9M at-risk block</b> is commit the evidence does not yet support. Close those gaps and it moves into the real column. Your $12.8M of open pipeline sits behind this, most of it too early to count this period.</div>
+          <div class="cap" id="wfCap"></div>
+          <div class="wf" id="wf"></div>
+          <div class="wfnote" id="wfnote"></div>
         </div>
 
         <div class="card sp2  impact">
           <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
           <h3>Your biggest deals at risk</h3>
           <div class="cap">Open deals ranked by dollars on the line</div>
-          <div class="d"><div class="rk">1</div><div><div class="nm">Brightwell Logistics</div><div class="ds">Marco Diaz · no EB, dark 41 days</div></div><div class="rr"><div class="amt">$410K</div><span class="pill dng">High</span></div></div>
-          <div class="d"><div class="rk">2</div><div><div class="nm">Nordham Health</div><div class="ds">Amy Nguyen · single-threaded, date slipped</div></div><div class="rr"><div class="amt">$320K</div><span class="pill dng">High</span></div></div>
-          <div class="d"><div class="rk">3</div><div><div class="nm">Sterling Retail</div><div class="ds">Tom Ford · no next step set</div></div><div class="rr"><div class="amt">$180K</div><span class="pill dng">High</span></div></div>
-          <div class="d"><div class="rk">4</div><div><div class="nm">Vantage Foods</div><div class="ds">Jordan Kerns · close date in the past</div></div><div class="rr"><div class="amt">$150K</div><span class="pill warn">Medium</span></div></div>
-          <div class="d"><div class="rk">5</div><div><div class="nm">Kepler Dynamics</div><div class="ds">Tom Ford · stalled 38 days in stage</div></div><div class="rr"><div class="amt">$140K</div><span class="pill warn">Medium</span></div></div>
-          <div class="tot">Open pipeline at elevated risk <b>$1.20M</b></div>
+          <div id="atRisk"></div>
         </div>
 
         <div class="card sp2 ">
           <h3>Stage distribution</h3>
-          <div class="cap">Your $12.8M of open pipeline</div>
-          <div class="dnwrap">
-            <div class="dnsvg">
-              <svg viewBox="0 0 42 42">
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--navy)" stroke-width="6.5" stroke-dasharray="24 76" stroke-dashoffset="25"/>
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--blue)" stroke-width="6.5" stroke-dasharray="18 82" stroke-dashoffset="1"/>
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--c3)" stroke-width="6.5" stroke-dasharray="25 75" stroke-dashoffset="83"/>
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--c4)" stroke-width="6.5" stroke-dasharray="33 67" stroke-dashoffset="58"/>
-              </svg>
-              <div class="ctr"><div class="cv">$12.8M</div><div class="cl2">OPEN</div></div>
-            </div>
-            <div class="leg">
-              <div class="li"><span class="sw" style="background:var(--navy)"></span>Proposal / Commit<span class="lp">$3.1M</span><span class="lq">24%</span></div>
-              <div class="li"><span class="sw" style="background:var(--blue)"></span>Business Case<span class="lp">$2.3M</span><span class="lq">18%</span></div>
-              <div class="li"><span class="sw" style="background:var(--c3)"></span>Solution Align<span class="lp">$3.2M</span><span class="lq">25%</span></div>
-              <div class="li"><span class="sw" style="background:var(--c4)"></span>Discovery / early<span class="lp">$4.2M</span><span class="lq">33%</span></div>
-            </div>
-          </div>
+          <div class="cap">Your open pipeline</div>
+          <div class="dnwrap" id="stageMix"></div>
         </div>
 
         <div class="card sp2 ">
           <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
           <h3>Forecast mix</h3>
-          <div class="cap">What makes up the $9.4M</div>
-          <div class="dnwrap">
-            <div class="dnsvg">
-              <svg viewBox="0 0 42 42">
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--ok)" stroke-width="6.5" stroke-dasharray="52 48" stroke-dashoffset="25"/>
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--navy)" stroke-width="6.5" stroke-dasharray="23 77" stroke-dashoffset="73"/>
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--warn)" stroke-width="6.5" stroke-dasharray="10 90" stroke-dashoffset="50"/>
-                <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--blue)" stroke-width="6.5" stroke-dasharray="15 85" stroke-dashoffset="40"/>
-              </svg>
-              <div class="ctr"><div class="cv">$9.4M</div><div class="cl2">FORECAST</div></div>
-            </div>
-            <div class="leg">
-              <div class="li"><span class="sw" style="background:var(--ok)"></span>Closed won<span class="lp">$4.9M</span><span class="lq">52%</span></div>
-              <div class="li"><span class="sw" style="background:var(--navy)"></span>Commit, real<span class="lp">$2.2M</span><span class="lq">23%</span></div>
-              <div class="li"><span class="sw" style="background:var(--warn)"></span>Commit, at risk<span class="lp">$0.9M</span><span class="lq">10%</span></div>
-              <div class="li"><span class="sw" style="background:var(--blue)"></span>Upside<span class="lp">$1.4M</span><span class="lq">15%</span></div>
-            </div>
-          </div>
+          <div class="cap">What makes up your forecast</div>
+          <div class="dnwrap" id="forecastMix"></div>
         </div>
 
         <div class="card sp2 ">
           <h3>Top reps by commit</h3>
           <div class="cap">Share of rep commit</div>
-          <table>
-            <tr><td class="repname" style="border-top:0">Sara Vitale</td><td class="r" style="border-top:0">$1.06M</td><td style="border-top:0;width:70px"><div class="bartrack"><i style="width:100%"></i></div></td></tr>
-            <tr><td class="repname">Nina Alvarez</td><td class="r">$760K</td><td><div class="bartrack"><i style="width:72%"></i></div></td></tr>
-            <tr><td class="repname">Amy Nguyen</td><td class="r">$460K</td><td><div class="bartrack"><i style="width:43%"></i></div></td></tr>
-            <tr><td class="repname">Jordan Kerns</td><td class="r">$360K</td><td><div class="bartrack"><i style="width:34%"></i></div></td></tr>
-            <tr><td class="repname">Tom Ford</td><td class="r">$260K</td><td><div class="bartrack"><i style="width:25%;background:var(--dng)"></i></div></td></tr>
-            <tr><td class="repname">Marco Diaz</td><td class="r">$200K</td><td><div class="bartrack"><i style="width:19%;background:var(--dng)"></i></div></td></tr>
-          </table>
+          <table id="topReps"></table>
         </div>
 
         <div class="card sp4 ">
           <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
           <h3>Deal engagement by rep</h3>
           <div class="cap">Commit against what the evidence supports</div>
-          <table>
-            <tr><th>Rep</th><th class="r">Deals</th><th class="r">Open</th><th class="r">Commit</th><th class="r">Hedge-real</th><th class="r">At risk</th><th class="r">No next step</th></tr>
-            <tr><td class="repname">Sara Vitale</td><td class="r">11</td><td class="r">$3.40M</td><td class="r">$1.06M</td><td class="r" style="color:var(--ok);font-weight:800">$840K</td><td class="r">$220K</td><td class="r">2</td></tr>
-            <tr><td class="repname">Nina Alvarez</td><td class="r">9</td><td class="r">$2.10M</td><td class="r">$760K</td><td class="r" style="color:var(--ok);font-weight:800">$620K</td><td class="r">$140K</td><td class="r">1</td></tr>
-            <tr><td class="repname">Amy Nguyen</td><td class="r">8</td><td class="r">$1.90M</td><td class="r">$460K</td><td class="r" style="color:var(--ok);font-weight:800">$300K</td><td class="r">$160K</td><td class="r">2</td></tr>
-            <tr><td class="repname">Jordan Kerns</td><td class="r">7</td><td class="r">$1.60M</td><td class="r">$360K</td><td class="r" style="color:var(--ok);font-weight:800">$240K</td><td class="r">$120K</td><td class="r">2</td></tr>
-            <tr><td class="repname">Tom Ford</td><td class="r">6</td><td class="r">$1.90M</td><td class="r">$260K</td><td class="r" style="color:var(--dng);font-weight:800">$130K</td><td class="r" style="color:var(--dng)">$130K</td><td class="r">2</td></tr>
-            <tr><td class="repname">Marco Diaz</td><td class="r">6</td><td class="r">$1.90M</td><td class="r">$200K</td><td class="r" style="color:var(--dng);font-weight:800">$70K</td><td class="r" style="color:var(--dng)">$130K</td><td class="r">2</td></tr>
-          </table>
+          <table id="repTable"></table>
         </div>
 
         <div class="card basics sp2 ">
           <span class="ai-tag"><svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hedge AI</span>
           <h3>The Basics</h3>
           <div class="cap">Are your managers driving the fundamentals?</div>
-          <table>
-            <tr><th>Manager</th><th class="r">Score</th><th class="r">EB</th><th class="r">Dark</th><th class="r">Grade</th></tr>
-            <tr><td class="repname">Marcus Bell</td><td class="r">78%</td><td class="r">66%</td><td class="r">6%</td><td class="r"><span class="grade a">A</span></td></tr>
-            <tr><td class="repname">Dana Reyes</td><td class="r">41%</td><td class="r">30%</td><td class="r">28%</td><td class="r"><span class="grade d">D</span></td></tr>
-          </table>
-          <div style="font-size:11px;color:var(--t3);margin-top:12px;font-weight:500;line-height:1.45">The SalesHedge score rates the risk factors your file carries (economic buyer, next steps, activity recency). Your file has no compelling-event or contact-seniority column, so those factors are left out rather than guessed.</div>
-          <div style="margin-top:14px;padding-top:13px;border-top:1px solid var(--grid)">
-            <div class="sigchips">
-              <div class="sig"><div class="n warn">20</div><div class="l">Stuck 30+ days</div></div>
-              <div class="sig"><div class="n dng">6</div><div class="l">Dark 14+ days</div></div>
-              <div class="sig"><div class="n dng">11</div><div class="l">No next step</div></div>
-            </div>
-          </div>
+          <table id="basics"></table>
+          <div id="basicsNote" style="font-size:11px;color:var(--t3);margin-top:12px;font-weight:500;line-height:1.45"></div>
+          <div id="signals" style="margin-top:14px"></div>
         </div>
       </div>
 
@@ -622,7 +541,7 @@
 
   <div class="foot">
     <div>
-      <div class="ft">This is your real pipeline. $0.9M of your commit is not supported by the evidence.</div>
+      <div class="ft" id="footLine"></div>
       <div class="fp">Get the Growth Plan to keep this live, watch the locked sections fill in week over week, and coach the gaps before they cost you the quarter.</div>
     </div>
     <div class="fb">
@@ -669,5 +588,244 @@
   calc();
 })();
 </script>
+<script>
+(function(){
+  var API = '/api/public/analyze';
+  var $ = function(id){ return document.getElementById(id); };
+  var wrap = document.querySelector('.wrap');
+
+  // ---------- formatting ----------
+  function money(n){
+    if(n==null) return '-';
+    var a=Math.abs(n);
+    if(a>=1e6) return '$'+(n/1e6).toFixed(1)+'M';
+    if(a>=1e3) return '$'+Math.round(n/1e3)+'K';
+    return '$'+Math.round(n);
+  }
+  function esc(v){ return String(v==null?'':v).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  // A value the file cannot support is shown as absent, never as a number.
+  function absent(t){ return '<span class="absent">'+esc(t||'not in your file')+'</span>'; }
+
+  // ---------- CSV ----------
+  function parseCSV(text){
+    var rows=[], row=[], cur='', q=false;
+    text = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+    for(var i=0;i<text.length;i++){
+      var c=text[i];
+      if(q){
+        if(c==='"'){ if(text[i+1]==='"'){cur+='"';i++;} else q=false; }
+        else cur+=c;
+      } else if(c==='"') q=true;
+      else if(c===','){ row.push(cur); cur=''; }
+      else if(c==='\n'){ row.push(cur); rows.push(row); row=[]; cur=''; }
+      else cur+=c;
+    }
+    if(cur.length||row.length){ row.push(cur); rows.push(row); }
+    return rows.filter(function(r){ return r.some(function(x){ return String(x).trim()!==''; }); });
+  }
+  // Header aliases. Anything unmatched is simply not mapped, and the server then
+  // reports that column absent rather than inventing a value for it.
+  var ALIAS = {
+    account_name:['account','account name','account_name','company','customer','opportunity','opportunity name','name','deal name'],
+    deal_amount:['amount','deal amount','deal_amount','value','deal size','acv','tcv','revenue','opportunity amount'],
+    current_stage:['stage','current stage','current_stage','sales stage','deal stage'],
+    forecast_category:['forecast','forecast category','forecast_category','category','commit category'],
+    rep:['rep','owner','sales rep','account executive','ae','owner name','deal owner','rep name'],
+    manager:['manager','sales manager','manager name','reports to','team lead'],
+    expected_close_date:['close date','expected close date','expected_close_date','close','closing date','expected close'],
+    economic_buyer_access:['economic buyer','economic_buyer_access','eb','eb engaged','economic buyer engaged','decision maker'],
+    next_step:['next step','next steps','next_step','nextstep'],
+    last_activity_days:['last activity','last activity days','last_activity_days','days since activity','days since last activity'],
+    days_in_stage:['days in stage','days_in_stage','stage age','age in stage'],
+    status:['status','deal status','won lost','state'],
+  };
+  function mapHeaders(hdr){
+    var map={};
+    hdr.forEach(function(h,i){
+      var k=String(h).trim().toLowerCase().replace(/[_\s]+/g,' ');
+      for(var field in ALIAS){ if(ALIAS[field].indexOf(k)>-1){ map[field]=i; return; } }
+    });
+    return map;
+  }
+  function toDeals(text){
+    var rows=parseCSV(text);
+    if(rows.length<2) return [];
+    var map=mapHeaders(rows[0]), out=[];
+    for(var r=1;r<rows.length;r++){
+      var o={}, any=false;
+      for(var f in map){ var v=rows[r][map[f]]; if(v!=null&&String(v).trim()!==''){ o[f]=String(v).trim(); any=true; } }
+      if(any) out.push(o);
+    }
+    return out;
+  }
+
+  // ---------- renderers ----------
+  var CHEV='<svg class="chev" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var AIK='<span class="aik">'+CHEV+'</span>';
+
+  function kpis(d){
+    var k=d.kpis, c=[];
+    c.push('<div class="kpi lead">'+AIK+'<div class="lab">Hedge Forecast</div><div class="val blue">'+money(k.forecast)+'</div><div class="sub">AI-weighted projection</div></div>');
+    c.push('<div class="kpi"><div class="lab">Rep Commit</div><div class="val navy">'+(d.coverage.forecastCategory?money(k.repCommit):absent('no forecast column'))+'</div><div class="sub">what your reps forecast</div></div>');
+    c.push('<div class="kpi">'+AIK+'<div class="lab">Hedge-Real Commit</div><div class="val green">'+(d.coverage.forecastCategory?money(k.hedgeRealCommit):absent(''))+'</div><div class="sub">what the evidence supports</div></div>');
+    c.push('<div class="kpi">'+AIK+'<div class="lab">Commit At Risk</div><div class="val dng">'+(d.coverage.forecastCategory?money(k.commitAtRisk):absent(''))+'</div><div class="sub">'+(d.coverage.forecastCategory?k.commitAtRiskPct+'% of rep commit':'&nbsp;')+'</div></div>');
+    c.push('<div class="kpi"><div class="lab">Open Pipeline</div><div class="val">'+money(k.openPipeline)+'</div><div class="sub">all open deals</div></div>');
+    c.push('<div class="kpi"><div class="lab">Closed Won</div><div class="val green">'+money(k.closedWon)+'</div><div class="sub">'+(d.coverage.status?'booked in this file':'no status column')+'</div></div>');
+    $('kpis').innerHTML=c.join('');
+  }
+
+  function seen(d){
+    var el=$('seen');
+    if(!d.seen.length){ el.hidden=true; return; }
+    el.hidden=false;
+    el.innerHTML='<div class="badge"><div class="sq"><svg width="19" height="16" viewBox="0 0 24 20" fill="none"><path d="M2 5.1L5.9 10L2 14.9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="st">What Hedge sees in your pipeline</div><div class="ss">Computed from your CSV</div></div></div>'
+      + d.seen.map(function(t,i){ return '<div class="it"><span class="num">'+(i+1)+'</span><div class="tx">'+esc(t)+'</div></div>'; }).join('');
+  }
+
+  function waterfall(d){
+    var w=d.waterfall, total=d.kpis.forecast;
+    if(!w.length||!total){ $('wf').innerHTML=''; $('wfCap').textContent='Not enough in your file to build this.'; $('wfnote').innerHTML=''; return; }
+    var COL={'Closed won':'var(--ok)','Commit, real':'var(--navy)','Commit, at risk':'var(--warn)','Upside':'var(--blue)'};
+    var cols=w.map(function(seg){
+      var bottom=((seg.runningTo-seg.value)/total)*94, h=(seg.value/total)*94;
+      return '<div class="wfcol"><div class="wfseg" style="bottom:'+bottom.toFixed(1)+'%;height:'+Math.max(h,2).toFixed(1)+'%;background:'+(COL[seg.label]||'var(--c3)')+'">'
+        +(bottom>0?'<span class="wfrun">runs to '+money(seg.runningTo)+'</span>':'')
+        +'<span class="wfval">'+(bottom>0?'+':'')+money(seg.value)+'</span></div><div class="wflab">'+esc(seg.label)+'</div></div>';
+    });
+    cols.push('<div class="wfcol"><div class="wfseg" style="bottom:0;height:94%;background:linear-gradient(180deg,var(--blue),var(--navy))"><span class="wfval">'+money(total)+'</span></div><div class="wflab">Hedge forecast</div></div>');
+    $('wf').innerHTML=cols.join('');
+    $('wfCap').textContent='How '+money(d.kpis.closedWon)+' already booked builds to a '+money(total)+' forecast, and where the gap sits';
+    $('wfnote').innerHTML = d.kpis.commitAtRisk>0
+      ? 'The <b>'+money(d.kpis.commitAtRisk)+' at-risk block</b> is commit the evidence does not yet support. Close those gaps and it moves into the real column. Your '+money(d.kpis.openPipeline)+' of open pipeline sits behind this.'
+      : 'Your commit is fully supported by the evidence in this file. '+money(d.kpis.openPipeline)+' of open pipeline sits behind this forecast.';
+  }
+
+  function atRisk(d){
+    var a=d.atRisk;
+    if(!a.deals.length){ $('atRisk').innerHTML='<p style="font-size:12px;color:var(--t3);font-weight:600">No open deal in this file crosses the risk threshold.</p>'; return; }
+    $('atRisk').innerHTML = a.deals.map(function(x,i){
+      return '<div class="d"><div class="rk">'+(i+1)+'</div><div><div class="nm">'+esc(x.account)+'</div><div class="ds">'
+        +(x.rep?esc(x.rep)+' · ':'')+esc(x.reason)+'</div></div><div class="rr"><div class="amt">'+money(x.amount)
+        +'</div><span class="pill '+(x.band==='High'?'dng':'warn')+'">'+esc(x.band)+'</span></div></div>';
+    }).join('') + '<div class="tot">Open pipeline at elevated risk <b>'+money(a.total)+'</b></div>';
+  }
+
+  function donut(el, items, centreVal, centreLab, colours){
+    if(!items.length){ el.innerHTML='<p style="font-size:12px;color:var(--t3);font-weight:600">Not in your file.</p>'; return; }
+    var off=25, segs=items.map(function(x,i){
+      var dash=x.pct+' '+(100-x.pct), s='<circle cx="21" cy="21" r="15.9" fill="none" stroke="'+colours[i%colours.length]
+        +'" stroke-width="6.5" stroke-dasharray="'+dash+'" stroke-dashoffset="'+off+'"/>';
+      off = (off - x.pct + 100) % 100; return s;
+    }).join('');
+    el.innerHTML='<div class="dnsvg"><svg viewBox="0 0 42 42">'+segs+'</svg><div class="ctr"><div class="cv">'+centreVal+'</div><div class="cl2">'+centreLab+'</div></div></div>'
+      +'<div class="leg">'+items.map(function(x,i){
+        return '<div class="li"><span class="sw" style="background:'+colours[i%colours.length]+'"></span>'+esc(x.label)
+          +'<span class="lp">'+money(x.amount)+'</span><span class="lq">'+x.pct+'%</span></div>'; }).join('')+'</div>';
+  }
+
+  function topReps(d){
+    if(!d.coverage.rep){ $('topReps').innerHTML='<tr><td class="muteCell">Your file has no rep or owner column, so this is left out rather than guessed.</td></tr>'; return; }
+    $('topReps').innerHTML = d.topReps.map(function(r,i){
+      var b=i===0?' style="border-top:0"':'';
+      return '<tr><td class="repname"'+b+'>'+esc(r.name)+'</td><td class="r"'+b+'>'+money(r.commit)+'</td><td'+b+' style="width:70px"><div class="bartrack"><i style="width:'+r.barPct+'%'+(r.atRiskHeavy?';background:var(--dng)':'')+'"></i></div></td></tr>';
+    }).join('');
+  }
+
+  function repTable(d){
+    if(!d.coverage.rep){ $('repTable').innerHTML='<tr><td class="muteCell">Your file has no rep or owner column, so this is left out rather than guessed.</td></tr>'; return; }
+    var head='<tr><th>Rep</th><th class="r">Deals</th><th class="r">Open</th><th class="r">Commit</th><th class="r">Hedge-real</th><th class="r">At risk</th><th class="r">No next step</th></tr>';
+    $('repTable').innerHTML = head + d.repTable.map(function(r){
+      var heavy = r.commit>0 && r.atRisk/r.commit>0.4;
+      return '<tr><td class="repname">'+esc(r.name)+'</td><td class="r">'+r.deals+'</td><td class="r">'+money(r.open)
+        +'</td><td class="r">'+money(r.commit)+'</td><td class="r" style="color:var('+(heavy?'--dng':'--ok')+');font-weight:800">'+money(r.hedgeReal)
+        +'</td><td class="r"'+(heavy?' style="color:var(--dng)"':'')+'>'+money(r.atRisk)+'</td><td class="r">'
+        +(r.noNextStep==null?absent('-'):r.noNextStep)+'</td></tr>';
+    }).join('');
+  }
+
+  function basics(d){
+    var b=d.basics;
+    if(!b.available){ $('basics').innerHTML='<tr><td class="muteCell">'+esc(b.note)+'</td></tr>'; $('basicsNote').innerHTML=''; }
+    else {
+      $('basics').innerHTML='<tr><th>Manager</th><th class="r">Score</th><th class="r">EB</th><th class="r">Dark</th><th class="r">Grade</th></tr>'
+        + b.rows.map(function(r){
+          if(r.suppressed) return '<tr><td class="repname">'+esc(r.manager)+'</td><td class="r" colspan="4"><span class="absent">'+r.deals+' deals, too few to grade</span></td></tr>';
+          return '<tr><td class="repname">'+esc(r.manager)+'</td><td class="r">'+r.score+'%</td><td class="r">'
+            +(r.eb==null?absent('-'):r.eb+'%')+'</td><td class="r">'+(r.dark==null?absent('-'):r.dark+'%')
+            +'</td><td class="r"><span class="grade '+(r.grade==='A'||r.grade==='B'?'a':'d')+'">'+r.grade+'</span></td></tr>';
+        }).join('');
+      $('basicsNote').textContent=b.note;
+    }
+    var s=d.signals, chips=[];
+    if(s.stuck30!=null) chips.push(['warn',s.stuck30,'Stuck 30+ days']);
+    if(s.dark14!=null) chips.push(['dng',s.dark14,'Dark 14+ days']);
+    if(s.noNextStep!=null) chips.push(['dng',s.noNextStep,'No next step']);
+    if(s.overdue!=null) chips.push(['warn',s.overdue,'Past close date']);
+    $('signals').innerHTML = chips.length
+      ? '<div style="padding-top:13px;border-top:1px solid var(--grid)"><div class="sigchips">'
+        + chips.slice(0,3).map(function(c){ return '<div class="sig"><div class="n '+c[0]+'">'+c[1]+'</div><div class="l">'+c[2]+'</div></div>'; }).join('')
+        + '</div></div>' : '';
+  }
+
+  function render(d){
+    $('gate').innerHTML=''; wrap.hidden=false;
+    var b=$('banner'); b.hidden=false;
+    $('bannerText').textContent = 'Trial preview from your uploaded pipeline CSV'
+      + (d.company?' · '+d.company:'') + ' · ' + d.dealCount + ' opportunit'+(d.dealCount===1?'y':'ies')
+      + ' scored just now by the same engine your team would use. Every figure below is computed from your file.';
+    if(d.smallSample){ var sn=$('smallSample'); if(sn){ sn.hidden=false; sn.innerHTML='<div class="inner">'+esc(d.smallSampleNote)+'</div>'; } }
+    kpis(d); seen(d); waterfall(d); atRisk(d);
+    donut($('stageMix'), d.stageMix, money(d.kpis.openPipeline), 'OPEN', ['var(--navy)','var(--blue)','var(--c3)','var(--c4)','#8B5CF6','#3B82F6']);
+    donut($('forecastMix'), d.forecastMix, money(d.kpis.forecast), 'FORECAST', ['var(--ok)','var(--navy)','var(--warn)','var(--blue)']);
+    topReps(d); repTable(d); basics(d);
+    $('footLine').textContent = d.kpis.commitAtRisk>0
+      ? 'This is your real pipeline. '+money(d.kpis.commitAtRisk)+' of your commit is not supported by the evidence.'
+      : 'This is your real pipeline, scored against the same engine your team would use.';
+    try{ sessionStorage.setItem('sh_trial_result', JSON.stringify(d)); }catch(e){}
+  }
+
+  // ---------- gate: shown when there is no analysed file yet ----------
+  function gate(msg){
+    wrap.hidden=true; $('banner').hidden=true;
+    $('gate').innerHTML='<div class="gatecard"><h2>See this on your own pipeline</h2>'
+      +'<p>Upload a CSV export of your open opportunities. It is scored in memory, never stored, and never mixed with another company\'s data.</p>'
+      +'<input type="email" id="gEmail" placeholder="Work email" autocomplete="email">'
+      +'<input type="file" id="gFile" accept=".csv,text/csv">'
+      +'<button id="gGo">Score my pipeline</button>'
+      +'<div class="gateerr" id="gErr">'+(msg?esc(msg):'')+'</div>'
+      +'<div class="gatenote">Nothing on this page is filled in until your file is scored. There is no sample pipeline behind this screen.</div></div>';
+    $('gGo').addEventListener('click', function(){
+      var em=$('gEmail').value.trim(), f=$('gFile').files[0], err=$('gErr');
+      err.textContent='';
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){ err.textContent='Enter a valid work email.'; return; }
+      if(!f){ err.textContent='Choose a CSV export of your pipeline.'; return; }
+      var rd=new FileReader();
+      rd.onload=function(){
+        var deals=toDeals(String(rd.result));
+        if(!deals.length){ err.textContent='We could not read any rows from that file. Check it is a CSV with a header row.'; return; }
+        $('gGo').disabled=true; $('gGo').textContent='Scoring '+deals.length+' deals...';
+        fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({email:em, deals:deals, company:(em.split('@')[1]||'').split('.')[0]})})
+          .then(function(r){ return r.json(); })
+          .then(function(j){
+            $('gGo').disabled=false; $('gGo').textContent='Score my pipeline';
+            if(j && j.ok) render(j);
+            else err.textContent = (j && (j.message||j.error)) || 'Something went wrong scoring that file.';
+          })
+          .catch(function(){ $('gGo').disabled=false; $('gGo').textContent='Score my pipeline';
+            err.textContent='Could not reach the scoring service. Try again in a moment.'; });
+      };
+      rd.readAsText(f);
+    });
+  }
+
+  // ---------- boot ----------
+  var stored=null;
+  try{ stored=JSON.parse(sessionStorage.getItem('sh_trial_result')||'null'); }catch(e){}
+  if(stored && stored.ok) render(stored); else gate('');
+})();
+</script>
+
 </body>
 </html>
