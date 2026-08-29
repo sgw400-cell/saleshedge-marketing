@@ -4,6 +4,8 @@
 <title>SalesHedge for Revenue Leaders &middot; Live Demo</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+button.tbtn,button.bw{border:0;cursor:pointer;font:inherit}
+
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#F8FAFC;color:#111827;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5}
@@ -301,15 +303,15 @@ button,input,textarea{font-family:inherit}
  </div>
  <div class="topcta">
   <a class="tbtn o" href="/contact.html">See a walkthrough</a>
-  <a class="tbtn p" href="/subscribe">Start free</a>
+  <button class="tbtn p ikGo" type="button">Run it on your pipeline &rarr;</button>
  </div>
 </div></div>
 
-<div class="notice">You are looking at a sample org. Every number below is illustrative. Start free to run this on your own pipeline.</div>
+<div class="notice">You are looking at a sample org. Every number below is illustrative. Run it on your pipeline to see this on your real deals.</div>
 
 <div class="runbar"><div class="runin">
   <div class="runL"><div class="rico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1246E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></div><div><b>This is a sample org. Want to see YOUR numbers?</b><span>Upload a pipeline export and this whole dashboard re-runs on your real deals in seconds. No credit card.</span></div></div>
-  <button class="runbtn" id="ikOpen" type="button">Run it on your pipeline &rarr;</button>
+  <button class="runbtn ikGo" id="ikOpen" type="button">Run it on your pipeline &rarr;</button>
 </div></div>
 
 <div class="wrap">
@@ -461,7 +463,7 @@ button,input,textarea{font-family:inherit}
    <p>Bring your team's deals into SalesHedge and get a forecast reality check like this one, on your real numbers, in minutes.</p>
   </div>
   <div class="btns">
-   <a class="bw" href="/subscribe">Start free</a>
+   <button class="bw ikGo" type="button">Run it on your pipeline &rarr;</button>
    <a class="bo" href="/contact.html">See a walkthrough</a>
   </div>
  </div>
@@ -598,7 +600,6 @@ pick(0);
   var REGISTER='https://vyrfktotclcmeqvusgnw.supabase.co/functions/v1/trial-register';
   var FREE=['gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','ymail.com','hotmail.com','hotmail.co.uk','outlook.com','live.com','msn.com','aol.com','icloud.com','me.com','mac.com','proton.me','protonmail.com','gmx.com','gmx.net','mail.com','zoho.com','yandex.com','yandex.ru','pm.me','hey.com','fastmail.com','tutanota.com','mailinator.com','guerrillamail.com','10minutemail.com','trashmail.com','yopmail.com'];
   var ov=document.getElementById('ikOv');
-  var openB=document.getElementById('ikOpen');
   var closeB=document.getElementById('ikClose');
   var tabCsv=document.getElementById('tabCsv'), tabPaste=document.getElementById('tabPaste');
   var paneCsv=document.getElementById('paneCsv'), panePaste=document.getElementById('panePaste');
@@ -655,7 +656,9 @@ pick(0);
   regEm.addEventListener('keydown', function(e){ if(e.key==='Enter'){ regGo.click(); }});
 
   // banner CTA: gate first, then upload
-  openB.addEventListener('click', function(){ if(registered) open(); else regOpen(); });
+  Array.prototype.forEach.call(document.querySelectorAll('.ikGo'), function(b){
+    b.addEventListener('click', function(){ if(registered) open(); else regOpen(); });
+  });
 
   function setTab(csv){
     tabCsv.classList.toggle('on', csv); tabPaste.classList.toggle('on', !csv);
