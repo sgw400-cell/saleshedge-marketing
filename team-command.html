@@ -631,6 +631,21 @@ button,input,textarea{font-family:inherit}
         <div class="rg-hint">We use it to open your trial and send your reality check. Nothing else.</div>
       </div>
       <div class="rg-fld">
+        <label for="regTi">Your title</label>
+        <input id="regTi" type="text" placeholder="VP Sales" autocomplete="organization-title" list="regTiList">
+        <datalist id="regTiList">
+          <option value="Sales Rep"></option>
+          <option value="Account Executive"></option>
+          <option value="Sales Manager"></option>
+          <option value="Director of Sales"></option>
+          <option value="VP Sales"></option>
+          <option value="CRO"></option>
+          <option value="CEO or Founder"></option>
+          <option value="Sales Operations"></option>
+          <option value="Channel or Partner Manager"></option>
+        </datalist>
+      </div>
+      <div class="rg-fld">
         <label for="regCo">Company</label>
         <input id="regCo" type="text" placeholder="Acme Corp" autocomplete="organization">
       </div>
@@ -689,7 +704,7 @@ button,input,textarea{font-family:inherit}
 (function(){
   // ---- open demo (bait). Trial gate sits in front of the pipeline upload, not the demo. ----
   var access=null; try{ access=JSON.parse(localStorage.getItem('sh_trial')||'null'); }catch(e){}
-  var registered = !!(access && access.target==='revenue-command');
+  var registered = !!(access && access.target==='team-command');
 
   var ANALYZE='/api/public/analyze';
   var REGISTER='https://vyrfktotclcmeqvusgnw.supabase.co/functions/v1/trial-register';
@@ -726,7 +741,8 @@ button,input,textarea{font-family:inherit}
   var regOv=document.getElementById('regOv');
   var regCloseB=document.getElementById('regClose');
   var regFld=document.getElementById('regEmailFld');
-  var regEm=document.getElementById('regEm'), regFn=document.getElementById('regFn'), regCo=document.getElementById('regCo');
+  var regEm=document.getElementById('regEm'), regFn=document.getElementById('regFn'), regCo=document.getElementById('regCo')
+  var regTi=document.getElementById('regTi');
   var regGo=document.getElementById('regGo');
   function regOpen(){ regOv.classList.add('on'); document.body.style.overflow='hidden'; setTimeout(function(){regEm.focus();},50); }
   function regClose(){ regOv.classList.remove('on'); document.body.style.overflow=''; }
@@ -738,13 +754,13 @@ button,input,textarea{font-family:inherit}
     var dom=validBiz(regEm.value);
     if(!dom){ regFld.classList.add('err'); regEm.focus(); return; }
     var email=regEm.value.trim().toLowerCase();
-    access={email:email,domain:dom,target:'revenue-command',ts:Date.now()};
+    access={email:email,domain:dom,target:'team-command',ts:Date.now()};
     registered=true;
     try{ localStorage.setItem('sh_trial', JSON.stringify(access)); }catch(e){}
     try{
       var ref=null; try{ ref=localStorage.getItem('shk_ref'); }catch(e){}
       fetch(REGISTER,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,domain:dom,target:'revenue-command',name:(regFn.value||'').trim(),company:(regCo.value||'').trim(),ref:ref}),keepalive:true}).catch(function(){});
+        body:JSON.stringify({email:email,domain:dom,target:'team-command',name:(regFn.value||'').trim(),title:(regTi&&regTi.value||'').trim(),company:(regCo.value||'').trim(),ref:ref}),keepalive:true}).catch(function(){});
     }catch(e){}
     regClose(); open();
   });
