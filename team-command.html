@@ -381,6 +381,38 @@ button,input,textarea{font-family:inherit}
 .nstep.none{color:#EF4444;font-weight:700}
 .overdue{color:#EF4444;font-weight:700}
 @media(max-width:900px){.fcs{grid-template-columns:repeat(2,1fr)}}
+.upsell{display:grid;grid-template-columns:300px 1fr;gap:22px;margin-top:26px;align-items:start}
+.upsellmain{min-width:0}
+.rail{position:relative;background:linear-gradient(165deg,#1a4fe8,#0B1D3A);border-radius:16px;padding:20px 18px;color:#fff}
+.rail h3{margin:0 0 3px;font-size:17px;font-weight:800;letter-spacing:-.3px;line-height:1.25;padding-right:56px;color:#fff}
+.rail .rsub{font-size:11px;color:#b9cdf2;font-weight:600;margin-bottom:16px;padding-right:56px}
+.railmark{position:absolute;top:18px;right:16px;width:46px;height:38px;opacity:.95}
+.ritem{display:flex;gap:11px;padding:11px 0;border-top:1px solid rgba(255,255,255,.12)}
+.ritem:first-of-type{border-top:0}
+.ritem .ri{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ritem .rt{font-size:12.5px;font-weight:800;letter-spacing:-.1px}
+.ritem .rd{font-size:11px;color:#c3d5f5;font-weight:500;margin-top:2px;line-height:1.35}
+.railcta{display:block;width:100%;margin-top:16px;background:#fff;color:#1246E3;border:0;border-radius:11px;padding:13px;font-size:13.5px;font-weight:800;cursor:pointer;font-family:inherit}
+.railnote{text-align:center;font-size:10.5px;color:#b9cdf2;font-weight:600;margin-top:11px}
+.railbrand{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:13px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;font-weight:700;color:#cfe0ff}
+.railbrand .chev{width:15px;height:12px}
+.railbrand b{font-weight:800;color:#fff}
+.premhead{display:flex;align-items:baseline;gap:9px;margin:0 0 12px}
+.premhead h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.3px;color:#0B1D3A}
+.premhead span{font-size:11.5px;color:#6B7280;font-weight:600}
+.premgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.prem{background:#fff;border:1px solid #E5E9F0;border-radius:16px;padding:18px;position:relative;overflow:hidden;min-height:158px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.prem .skel{position:absolute;inset:0;padding:16px;filter:blur(3px);opacity:.30;pointer-events:none}
+.prem .skel i{display:block;height:9px;background:#C9D2E1;border-radius:4px;margin-bottom:8px}
+.prem .skel .bars{display:flex;align-items:flex-end;gap:8px;height:64px;margin-top:12px}
+.prem .skel .bars u{flex:1;background:#C9D2E1;border-radius:4px 4px 0 0}
+.prem .fg{position:relative;z-index:2;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.93));padding:8px 6px;border-radius:12px;width:100%}
+.prem .lk{width:34px;height:34px;border-radius:10px;background:#fff;border:1px solid #E5E9F0;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;box-shadow:0 3px 10px rgba(11,29,58,.08)}
+.prem .pt{font-size:13.5px;font-weight:800;letter-spacing:-.2px;color:#111827}
+.prem .pd{font-size:11px;color:#4B5563;font-weight:500;margin-top:4px;line-height:1.4;max-width:210px;margin-left:auto;margin-right:auto}
+.prem .pa{font-size:10px;font-weight:800;color:#1246E3;letter-spacing:.4px;margin-top:9px}
+@media(max-width:1080px){.upsell{grid-template-columns:1fr}.premgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.premgrid{grid-template-columns:1fr}}
 /* ---- Team Command overrides ---- */
 .riskrow{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1080px){.riskrow{grid-template-columns:repeat(2,1fr)}}
@@ -506,6 +538,36 @@ button,input,textarea{font-family:inherit}
   </div>
  </div>
 </div>
+
+
+ <div class="upsell">
+  <aside class="rail">
+   <svg class="railmark" viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <h3>Unlock the Growth Plan</h3>
+   <div class="rsub">Everything the engine runs for you and your reps</div>
+      <div class="ritem"><div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="2" y="11" width="3.4" height="7" rx="1" fill="#fff" opacity=".7"/><rect x="8.3" y="6" width="3.4" height="12" rx="1" fill="#fff"/><rect x="14.6" y="2" width="3.4" height="16" rx="1" fill="#fff" opacity=".85"/></svg></div><div><div class="rt">Today's Top 3, per rep</div><div class="rd">The three highest-leverage moves on each rep's book, picked every morning.</div></div></div>
+      <div class="ritem"><div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2.6L18.2 16.6H1.8L10 2.6Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 8v3.4" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><circle cx="10" cy="14" r="1" fill="#fff"/></svg></div><div><div class="rt">Deal review on every deal</div><div class="rd">Risk score, the reason behind it, and the required action, on all of them, not the top five.</div></div></div>
+      <div class="ritem"><div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="4.5" width="15" height="11" rx="2" stroke="#fff" stroke-width="1.7"/><path d="M3.5 6l6.5 5 6.5-5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="rt">Email drafts and talk tracks</div><div class="rd">The message that gets the buyer meeting, written in your coaching voice.</div></div></div>
+      <div class="ritem"><div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M17 11.5c0 2.5-2.4 4.5-5.4 4.5a7 7 0 0 1-1.9-.25L5.6 17.4l1-3A4.2 4.2 0 0 1 4 11c0-2.5 2.9-4.5 6.5-4.5S17 9 17 11.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div><div class="rt">Ask the Hedge</div><div class="rd">A plain question about any rep, any deal, or the whole team forecast.</div></div></div>
+      <div class="ritem"><div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 17.5V3.2" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><path d="M5 4h9l-2 3 2 3H5" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div><div class="rt">Red-flag playbook</div><div class="rd">20 proven patterns firing on your real deals, each with the response to run.</div></div></div>
+      <div class="ritem"><div class="ri"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6.4" r="3.2" stroke="#fff" stroke-width="1.8"/><path d="M3.6 17c0-3.4 2.9-5.6 6.4-5.6s6.4 2.2 6.4 5.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><div class="rt">Coaching that follows the rep</div><div class="rd">Every 1:1 picks up where the last one ended, with what changed in between.</div></div></div>
+   <button class="railcta ikGo" type="button">Run it on your pipeline &rarr;</button>
+   <div class="railnote">See plans and pricing on the subscribe page</div>
+   <div class="railbrand"><svg class="chev" viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M8.6 3.8L13.6 10L8.6 16.2" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/><path d="M15.2 2L21.6 10L15.2 18" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Provided by <b>SalesHedge.ai</b></span></div>
+  </aside>
+
+  <div class="upsellmain">
+   <div class="premhead"><h2>Premium intelligence</h2><span>builds as your history grows, included in the Growth Plan</span></div>
+   <div class="premgrid">
+    <div class="prem"><div class="skel"><i style="width:52%"></i><i style="width:80%"></i><div class="bars"><u style="height:45%"></u><u style="height:70%"></u><u style="height:38%"></u><u style="height:88%"></u><u style="height:60%"></u></div></div><div class="fg"><div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="pt">Rep trend over time</div><div class="pd">Fills in next week, once the Hedge has a second snapshot of each rep to compare.</div><div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div></div></div>
+    <div class="prem"><div class="skel"><i style="width:44%"></i><i style="width:72%"></i><div class="bars"><u style="height:30%"></u><u style="height:55%"></u><u style="height:80%"></u><u style="height:48%"></u><u style="height:66%"></u></div></div><div class="fg"><div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="pt">Forecast trust by rep</div><div class="pd">Grades each rep on how close their call has landed to what they actually closed.</div><div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div></div></div>
+    <div class="prem"><div class="skel"><i style="width:60%"></i><i style="width:68%"></i><div class="bars"><u style="height:62%"></u><u style="height:40%"></u><u style="height:74%"></u><u style="height:52%"></u><u style="height:84%"></u></div></div><div class="fg"><div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="pt">Hygiene movement week over week</div><div class="pd">Shows which habits are improving and which rep is sliding, not just where they stand today.</div><div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div></div></div>
+    <div class="prem"><div class="skel"><i style="width:48%"></i><i style="width:84%"></i><div class="bars"><u style="height:35%"></u><u style="height:58%"></u><u style="height:70%"></u><u style="height:44%"></u><u style="height:90%"></u></div></div><div class="fg"><div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="pt">Coaching that compounds</div><div class="pd">Every win and loss sharpens the next plan, so the 1:1 stops starting from scratch.</div><div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div></div></div>
+    <div class="prem"><div class="skel"><i style="width:56%"></i><i style="width:64%"></i><div class="bars"><u style="height:50%"></u><u style="height:72%"></u><u style="height:36%"></u><u style="height:64%"></u><u style="height:80%"></u></div></div><div class="fg"><div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="pt">Your real deal velocity</div><div class="pd">Builds stage baselines from your own closed deals instead of a generic benchmark.</div><div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div></div></div>
+    <div class="prem"><div class="skel"><i style="width:42%"></i><i style="width:76%"></i><div class="bars"><u style="height:68%"></u><u style="height:44%"></u><u style="height:82%"></u><u style="height:56%"></u><u style="height:38%"></u></div></div><div class="fg"><div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="pt">Hedge Predicts on rep behaviour</div><div class="pd">Learns which rep slips and flags the commit calls before they move.</div><div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div></div></div>
+   </div>
+  </div>
+ </div>
 
  <div class="bcta">
   <div>
