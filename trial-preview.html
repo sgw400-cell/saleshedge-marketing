@@ -9,11 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --navy:#0B1D3A; --blue:#1246E3; --lblue:#E8F0FF; --white:#fff;
+  :root{ --indigo:#6366F1;
+    --navy:#0B1D3A; --lblue:#E8F0FF; --white:#fff;
     --t1:#111827; --t2:#4B5563; --t3:#6B7280;
     --bd:#E5E7EB; --bg:#F8FAFC;
-    --ok:#16A34A; --dng:#EF4444; --warn:#F59E0B; --info:#3B82F6;
+    --ok:#16A34A; --dng:#EF4444; --warn:#F59E0B; --info:#6366F1;
     --c3:#6B7C93; --c4:#C9D2E1;
     --bInfo:#EEF2FF; --bOk:#ECFDF5; --bWarn:#FFFBEB; --bDng:#FEF2F2;
     --grid:#EEF1F5; --track:#F1F5F9;
@@ -41,7 +41,7 @@
     color:#cfe0ff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:5px 11px;border-radius:20px}
   .tbtn{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);color:#dbe6f7;
     padding:8px 13px;border-radius:9px;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
-  .tbtn.primary{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:800}
+  .tbtn.primary{background:var(--indigo);border-color:var(--indigo);color:#fff;font-weight:800}
 
   /* honesty banner */
   .trial{background:var(--bOk);border-bottom:1px solid #cdebd8;padding:9px 22px}
@@ -53,8 +53,8 @@
 
   /* AI indicator */
   .ai-tag{position:absolute;top:15px;right:15px;display:inline-flex;align-items:center;gap:5px;background:var(--bInfo);
-    color:var(--blue);font-size:9px;font-weight:800;letter-spacing:.6px;padding:4px 9px 4px 8px;border-radius:20px;z-index:5;text-transform:uppercase}
-  .ai-inline{display:inline-flex;align-items:center;gap:5px;background:var(--bInfo);color:var(--blue);font-size:9px;
+    color:var(--indigo);font-size:9px;font-weight:800;letter-spacing:.6px;padding:4px 9px 4px 8px;border-radius:20px;z-index:5;text-transform:uppercase}
+  .ai-inline{display:inline-flex;align-items:center;gap:5px;background:var(--bInfo);color:var(--indigo);font-size:9px;
     font-weight:800;letter-spacing:.6px;padding:4px 9px 4px 8px;border-radius:20px;text-transform:uppercase;margin-left:8px}
   .chev{width:13px;height:11px;flex-shrink:0;display:block}
 
@@ -64,8 +64,8 @@
   .kpi .lab{font-size:10px;font-weight:800;letter-spacing:.7px;color:var(--t3);text-transform:uppercase}
   .kpi .val{font-size:25px;font-weight:800;letter-spacing:-.8px;margin:7px 0 3px}
   .kpi .sub{font-size:11px;color:var(--t3);font-weight:500}
-  .kpi .val.green{color:var(--ok)} .kpi .val.navy{color:var(--navy)} .kpi .val.blue{color:var(--blue)} .kpi .val.dng{color:var(--dng)}
-  .kpi .aik{position:absolute;top:11px;right:11px;display:inline-flex;align-items:center;background:var(--bInfo);color:var(--blue);padding:3px 6px;border-radius:10px}
+  .kpi .val.green{color:var(--ok)} .kpi .val.navy{color:var(--navy)} .kpi .val.blue{color:var(--indigo)} .kpi .val.dng{color:var(--dng)}
+  .kpi .aik{position:absolute;top:11px;right:11px;display:inline-flex;align-items:center;background:var(--bInfo);color:var(--indigo);padding:3px 6px;border-radius:10px}
   .kpi .aik .chev{width:12px;height:10px}
   .kpi.lead{background:linear-gradient(135deg,#f4f7ff,#eaf0ff);border-color:#c7d6ff}
   .kpi.lead .aik{background:#fff;box-shadow:0 1px 3px rgba(11,29,58,.10)}
@@ -74,7 +74,7 @@
   .seen{margin-top:14px;background:#fff;border:1px solid #c7d6ff;border-radius:14px;padding:14px 18px;
     display:flex;align-items:center;gap:0}
   .seen .badge{display:flex;align-items:center;gap:11px;padding-right:20px;flex-shrink:0}
-  .seen .badge .sq{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--navy));
+  .seen .badge .sq{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--indigo),var(--navy));
     display:flex;align-items:center;justify-content:center;color:#fff}
   .seen .badge .st{font-size:13.5px;font-weight:800;letter-spacing:-.2px}
   .seen .badge .ss{font-size:10.5px;color:var(--t3);font-weight:600}
@@ -95,7 +95,7 @@
     align-items:center;justify-content:center;flex-shrink:0}
   .ritem .rt{font-size:12.5px;font-weight:800;letter-spacing:-.1px}
   .ritem .rd{font-size:11px;color:#c3d5f5;font-weight:500;margin-top:2px;line-height:1.35}
-  .railcta{display:block;width:100%;margin-top:16px;background:#fff;color:var(--blue);border:0;border-radius:11px;
+  .railcta{display:block;width:100%;margin-top:16px;background:#fff;color:var(--indigo);border:0;border-radius:11px;
     padding:13px;font-size:13.5px;font-weight:800;cursor:pointer;font-family:inherit}
   .railnote{text-align:center;font-size:10.5px;color:#b9cdf2;font-weight:600;margin-top:11px}
 
@@ -129,7 +129,7 @@
   /* deals at risk */
   .impact .d{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-top:1px solid var(--grid)}
   .impact .d:first-of-type{border-top:0}
-  .impact .rk{width:20px;height:20px;border-radius:6px;background:var(--bInfo);color:var(--blue);font-weight:800;font-size:10.5px;
+  .impact .rk{width:20px;height:20px;border-radius:6px;background:var(--bInfo);color:var(--indigo);font-weight:800;font-size:10.5px;
     display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
   .impact .nm{font-weight:700;font-size:12.5px}
   .impact .ds{font-size:10.5px;color:var(--t3);margin-top:1px}
@@ -197,7 +197,7 @@
     display:flex;align-items:center;justify-content:center;margin:0 auto 8px;box-shadow:0 3px 10px rgba(11,29,58,.08)}
   .prem .pt{font-size:13.5px;font-weight:800;letter-spacing:-.2px}
   .prem .pd{font-size:11px;color:var(--t2);font-weight:500;margin-top:4px;line-height:1.4;max-width:210px;margin-left:auto;margin-right:auto}
-  .prem .pa{font-size:10px;font-weight:800;color:var(--blue);letter-spacing:.4px;margin-top:9px}
+  .prem .pa{font-size:10px;font-weight:800;color:var(--indigo);letter-spacing:.4px;margin-top:9px}
 
   /* win-rate worksheet */
   .wsheet{margin-top:26px;background:#fff;border:1px solid var(--bd);border-radius:16px;overflow:hidden;
@@ -213,12 +213,12 @@
   .wsfield .hint{font-size:10.5px;color:#9aa6b8;font-weight:600;margin-top:4px}
   .wsfield input[type=text]{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:10px;
     padding:11px 13px;font-size:15px;font-weight:800;color:var(--t1);font-family:inherit;letter-spacing:-.3px}
-  .wsfield input[type=text]:focus{outline:0;border-color:var(--blue);background:#fff}
+  .wsfield input[type=text]:focus{outline:0;border-color:var(--indigo);background:#fff}
   .wsdelta{background:#f4f7ff;border:1px solid #c7d6ff;border-radius:12px;padding:13px 14px}
   .wsdelta .drow{display:flex;align-items:baseline;gap:8px}
-  .wsdelta .dv{font-size:28px;font-weight:800;color:var(--blue);letter-spacing:-1px}
-  .wsdelta .du{font-size:13px;font-weight:800;color:var(--blue)}
-  .wsdelta input[type=range]{width:100%;margin-top:9px;accent-color:var(--blue)}
+  .wsdelta .dv{font-size:28px;font-weight:800;color:var(--indigo);letter-spacing:-1px}
+  .wsdelta .du{font-size:13px;font-weight:800;color:var(--indigo)}
+  .wsdelta input[type=range]{width:100%;margin-top:9px;accent-color:var(--indigo)}
   .wsdelta .dscale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--t3);font-weight:700;margin-top:3px}
   .wsout{background:linear-gradient(165deg,#0f3fd0,#0B1D3A);color:#fff;padding:30px 26px;display:flex;flex-direction:column;justify-content:center;position:relative}
   .wsmark{position:absolute;top:-14px;right:-18px;width:230px;height:auto;opacity:.14;pointer-events:none;z-index:0}
@@ -239,7 +239,7 @@
   .wishcard{margin-top:16px;background:#fff;border:1px dashed #c7d6ff;border-radius:16px;padding:17px 20px;
     display:flex;align-items:center;gap:18px}
   .wishcard .wico{width:38px;height:38px;border-radius:11px;background:var(--bInfo);display:flex;align-items:center;
-    justify-content:center;flex-shrink:0;color:var(--blue);font-size:17px}
+    justify-content:center;flex-shrink:0;color:var(--indigo);font-size:17px}
   .wishcard h4{margin:0;font-size:14px;font-weight:800;letter-spacing:-.2px}
   .wishcard p{margin:3px 0 0;font-size:11.5px;color:var(--t3);font-weight:500}
   .wishcard .wfield{margin-left:auto;display:flex;gap:9px;align-items:center;flex-shrink:0}
@@ -253,7 +253,7 @@
   .gatecard p{margin:0 0 18px;font-size:13px;color:var(--t2);font-weight:500;line-height:1.5}
   .gatecard input[type=email]{width:100%;padding:12px 13px;border:1px solid var(--bd);border-radius:10px;font-family:inherit;font-size:14px;margin-bottom:10px}
   .gatecard input[type=file]{width:100%;font-family:inherit;font-size:12.5px;margin-bottom:14px}
-  .gatecard button{width:100%;background:var(--blue);color:#fff;border:0;border-radius:11px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
+  .gatecard button{width:100%;background:var(--indigo);color:#fff;border:0;border-radius:11px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
   .gatecard button:disabled{opacity:.5;cursor:default}
   .gateerr{margin-top:12px;font-size:12.5px;color:var(--dng);font-weight:700}
   .gatenote{margin-top:14px;font-size:11px;color:var(--t3);font-weight:600;line-height:1.5}
@@ -264,14 +264,14 @@
   .disc{margin-top:16px;background:#fff;border:1px solid var(--bd);border-radius:12px;padding:12px 16px;
     display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--t3);font-weight:600}
 
-  .foot{margin-top:16px;background:linear-gradient(120deg,var(--navy),var(--blue));border-radius:16px;
+  .foot{margin-top:16px;background:linear-gradient(120deg,var(--navy),var(--indigo));border-radius:16px;
     padding:22px 24px;color:#fff;display:flex;align-items:center;gap:20px}
   .foot .ft{font-size:19px;font-weight:800;letter-spacing:-.3px}
   .foot .fp{font-size:12.5px;color:#cfe0ff;margin-top:4px;max-width:600px}
   .foot .fb{margin-left:auto;display:flex;gap:10px;flex-shrink:0}
   .foot .fb button{padding:11px 18px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;
     border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-family:inherit}
-  .foot .fb button.p{background:#fff;color:var(--blue);border-color:#fff}
+  .foot .fb button.p{background:#fff;color:var(--indigo);border-color:#fff}
 </style>
 </head>
 <body>
@@ -422,7 +422,7 @@
     <div class="prem">
       <div class="skel"><i style="width:52%"></i><i style="width:80%"></i><div class="bars"><u style="height:45%"></u><u style="height:70%"></u><u style="height:38%"></u><u style="height:88%"></u><u style="height:60%"></u></div></div>
       <div class="fg">
-        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#6366F1" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div class="pt">Forecast trend over time</div>
         <div class="pd">Fills in next week, once the Hedge has a second snapshot to compare.</div>
         <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
@@ -431,7 +431,7 @@
     <div class="prem">
       <div class="skel"><i style="width:44%"></i><i style="width:72%"></i><div class="bars"><u style="height:30%"></u><u style="height:55%"></u><u style="height:80%"></u><u style="height:48%"></u><u style="height:66%"></u></div></div>
       <div class="fg">
-        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#6366F1" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div class="pt">Forecast trust by team</div>
         <div class="pd">Compares the Hedge call against the manager call and what actually closed.</div>
         <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
@@ -440,7 +440,7 @@
     <div class="prem">
       <div class="skel"><i style="width:60%"></i><i style="width:85%"></i><div class="bars"><u style="height:70%"></u><u style="height:42%"></u><u style="height:58%"></u><u style="height:80%"></u><u style="height:36%"></u></div></div>
       <div class="fg">
-        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#6366F1" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div class="pt">How close your forecast lands</div>
         <div class="pd">Grades each past forecast against actuals, so accuracy stops being a guess.</div>
         <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
@@ -449,7 +449,7 @@
     <div class="prem">
       <div class="skel"><i style="width:48%"></i><i style="width:76%"></i><i style="width:64%"></i><i style="width:82%"></i><i style="width:58%"></i></div>
       <div class="fg">
-        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#6366F1" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div class="pt">Hedge Predicts</div>
         <div class="pd">Learns your slip patterns and flags which commit deals go before they do.</div>
         <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
@@ -458,7 +458,7 @@
     <div class="prem">
       <div class="skel"><i style="width:55%"></i><i style="width:88%"></i><div class="bars"><u style="height:62%"></u><u style="height:40%"></u><u style="height:75%"></u><u style="height:52%"></u><u style="height:35%"></u></div></div>
       <div class="fg">
-        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#6366F1" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div class="pt">Risk movement week over week</div>
         <div class="pd">Shows which deals and reps are getting riskier, not just where they stand today.</div>
         <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
@@ -467,7 +467,7 @@
     <div class="prem">
       <div class="skel"><i style="width:66%"></i><i style="width:50%"></i><i style="width:80%"></i><i style="width:60%"></i><i style="width:74%"></i></div>
       <div class="fg">
-        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#1246E3" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#1246E3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="lk"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#6366F1" stroke-width="1.8"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div class="pt">Your real deal velocity</div>
         <div class="pd">Builds baselines from your own closed deals instead of a generic benchmark.</div>
         <div class="pa">BUILDS WITH HISTORY &#183; IN THE GROWTH PLAN</div>
@@ -687,14 +687,14 @@
   function waterfall(d){
     var w=d.waterfall, total=d.kpis.forecast;
     if(!w.length||!total){ $('wf').innerHTML=''; $('wfCap').textContent='Not enough in your file to build this.'; $('wfnote').innerHTML=''; return; }
-    var COL={'Closed won':'var(--ok)','Commit, real':'var(--navy)','Commit, at risk':'var(--warn)','Upside':'var(--blue)'};
+    var COL={'Closed won':'var(--ok)','Commit, real':'var(--navy)','Commit, at risk':'var(--warn)','Upside':'var(--indigo)'};
     var cols=w.map(function(seg){
       var bottom=((seg.runningTo-seg.value)/total)*94, h=(seg.value/total)*94;
       return '<div class="wfcol"><div class="wfseg" style="bottom:'+bottom.toFixed(1)+'%;height:'+Math.max(h,2).toFixed(1)+'%;background:'+(COL[seg.label]||'var(--c3)')+'">'
         +(bottom>0?'<span class="wfrun">runs to '+money(seg.runningTo)+'</span>':'')
         +'<span class="wfval">'+(bottom>0?'+':'')+money(seg.value)+'</span></div><div class="wflab">'+esc(seg.label)+'</div></div>';
     });
-    cols.push('<div class="wfcol"><div class="wfseg" style="bottom:0;height:94%;background:linear-gradient(180deg,var(--blue),var(--navy))"><span class="wfval">'+money(total)+'</span></div><div class="wflab">Hedge forecast</div></div>');
+    cols.push('<div class="wfcol"><div class="wfseg" style="bottom:0;height:94%;background:linear-gradient(180deg,var(--indigo),var(--navy))"><span class="wfval">'+money(total)+'</span></div><div class="wflab">Hedge forecast</div></div>');
     $('wf').innerHTML=cols.join('');
     $('wfCap').textContent='How '+money(d.kpis.closedWon)+' already booked builds to a '+money(total)+' forecast, and where the gap sits';
     $('wfnote').innerHTML = d.kpis.commitAtRisk>0
@@ -777,8 +777,8 @@
       + ' scored just now by the same engine your team would use. Every figure below is computed from your file.';
     if(d.smallSample){ var sn=$('smallSample'); if(sn){ sn.hidden=false; sn.innerHTML='<div class="inner">'+esc(d.smallSampleNote)+'</div>'; } }
     kpis(d); seen(d); waterfall(d); atRisk(d);
-    donut($('stageMix'), d.stageMix, money(d.kpis.openPipeline), 'OPEN', ['var(--navy)','var(--blue)','var(--c3)','var(--c4)','#8B5CF6','#3B82F6']);
-    donut($('forecastMix'), d.forecastMix, money(d.kpis.forecast), 'FORECAST', ['var(--ok)','var(--navy)','var(--warn)','var(--blue)']);
+    donut($('stageMix'), d.stageMix, money(d.kpis.openPipeline), 'OPEN', ['var(--navy)','var(--indigo)','var(--c3)','var(--c4)','#8B5CF6','#4338CA']);
+    donut($('forecastMix'), d.forecastMix, money(d.kpis.forecast), 'FORECAST', ['var(--ok)','var(--navy)','var(--warn)','var(--indigo)']);
     topReps(d); repTable(d); basics(d);
     $('footLine').textContent = d.kpis.commitAtRisk>0
       ? 'This is your real pipeline. '+money(d.kpis.commitAtRisk)+' of your commit is not supported by the evidence.'
