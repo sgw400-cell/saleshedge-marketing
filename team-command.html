@@ -306,6 +306,81 @@ button,input,textarea{font-family:inherit}
 .thn{font-size:11.5px;font-weight:500;color:#6B7280;line-height:1.45}
 .thv{margin-left:auto;font-size:15px;font-weight:800;letter-spacing:-.3px;font-variant-numeric:tabular-nums;padding-left:12px;white-space:nowrap}
 @media(max-width:820px){.thgrid{grid-template-columns:1fr}.thgrid .thr:nth-child(2){border-top:1px solid #EEF1F5}}
+.fcs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.fcs-card{background:#fff;border:1px solid #E5E9F0;border-radius:12px;padding:13px 15px}
+.fcs-t{font-size:10.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#6B7280;display:flex;align-items:center;gap:5px}
+.fcs-v{font-size:23px;font-weight:800;letter-spacing:-.8px;margin-top:5px;font-variant-numeric:tabular-nums}
+.fcs-s{font-size:11px;font-weight:600;color:#6B7280;margin-top:3px}
+.fcs-in{font-size:23px;font-weight:800;letter-spacing:-.8px;margin-top:5px;width:100%;border:0;border-bottom:1.5px dashed #C9D2E1;background:transparent;color:#1246E3;font-family:inherit;padding:0 0 2px;outline:none}
+.fcs-in:focus{border-bottom-color:#1246E3}
+.fcsub{display:flex;gap:6px;margin-bottom:14px}
+.fcsb{border:1px solid #E5E9F0;background:#fff;color:#4B5563;font:inherit;font-size:12.5px;font-weight:700;padding:8px 15px;border-radius:8px;cursor:pointer}
+.fcsb.on{background:#0B1D3A;border-color:#0B1D3A;color:#fff}
+.fchead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.fch-t{font-size:13.5px;font-weight:800;color:#111827}
+.fch-s{font-size:11.5px;color:#6B7280;font-weight:500;margin-top:2px}
+.fclegend{display:flex;gap:14px;flex-wrap:wrap}
+.fclegend .k{font-size:11px;color:#6B7280;font-weight:600;display:inline-flex;align-items:center;gap:5px}
+.trend{font-size:9px;line-height:1}
+.trend.up{color:#16A34A}.trend.down{color:#EF4444}
+.rollcard{background:#fff;border:1px solid #E5E9F0;border-radius:12px;overflow:hidden}
+.rolltbl{width:100%;min-width:860px;border-collapse:collapse}
+.rolltbl th{font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#6B7280;padding:11px 12px;text-align:right;background:#F8FAFC;border-bottom:1px solid #EEF1F5;white-space:nowrap}
+.rolltbl th.l{text-align:left}
+.rolltbl td{padding:11px 12px;font-size:13px;text-align:right;border-bottom:1px solid #F3F5F9;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rolltbl td.l{text-align:left}
+.rolltbl tr:last-child td{border-bottom:0}
+.mgrrow{cursor:pointer;background:#FBFCFE}
+.mgrrow:hover{background:#F4F7FD}
+.mgrrow td{font-weight:800;color:#111827}
+.nmcell{display:flex;align-items:center;gap:9px}
+.chev{display:inline-block;transition:transform .15s;color:#1246E3;font-size:10px}
+.mgrrow.open .chev{transform:rotate(90deg)}
+.mavatar{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#0B1D3A,#1246E3);color:#fff;font-size:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ravatar{width:24px;height:24px;border-radius:7px;background:#EEF1F5;color:#4B5563;font-size:9.5px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.mgrchip{display:inline-flex;align-items:center;gap:4px;margin-left:2px;font-size:10px;font-weight:800;color:#1246E3;background:#E8F0FF;border-radius:20px;padding:2px 8px;letter-spacing:.2px}
+.reprow{cursor:pointer}
+.reprow:hover{background:#F8FAFC}
+.reprow td.l{padding-left:34px}
+.reprow .rnm{font-weight:700;color:#111827}
+.totrow td{background:#0B1D3A;color:#fff;font-weight:800;border-bottom:0}
+.rolltbl tbody tr.totrow td{color:#fff}
+.cov.low{color:#EF4444;font-weight:800}
+.cov.ok{color:#16A34A;font-weight:800}
+.fct2wrap{background:#fff;border:1px solid #E5E9F0;border-radius:12px;overflow:hidden}
+.fct2head{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid #EEF1F5;flex-wrap:wrap}
+.fct2head .t{font-size:13px;font-weight:800;color:#111827}
+.fsel,.fclear{font:inherit;font-size:12px;font-weight:600;border:1px solid #E5E9F0;border-radius:7px;padding:6px 9px;background:#fff;color:#4B5563;cursor:pointer}
+.fchint{margin-left:auto;font-size:11px;color:#9AA1B6;font-weight:500}
+.fct2{width:100%;min-width:940px;border-collapse:collapse}
+.fct2 th{font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#6B7280;padding:10px 12px;text-align:left;background:#F8FAFC;border-bottom:1px solid #EEF1F5;white-space:nowrap}
+.fct2 th.r{text-align:right}.fct2 th.c{text-align:center}
+.fct2 td{padding:9px 12px;font-size:12.5px;border-bottom:1px solid #F3F5F9;vertical-align:middle}
+.fct2 td.r{text-align:right}.fct2 td.c{text-align:center}
+.fct2 tr:last-child td{border-bottom:0}
+.acct{font-weight:700;color:#111827}
+.acct .sub{display:block;font-size:10.5px;color:#9AA1B6;font-weight:500;margin-top:1px}
+.ed-in{font:inherit;font-size:12.5px;font-weight:700;border:1px solid transparent;border-radius:6px;padding:4px 6px;background:#F8FAFC;text-align:right;width:86px;font-variant-numeric:tabular-nums;color:#111827}
+.ed-in:focus{border-color:#1246E3;background:#fff;outline:none}
+.ed-dt{width:106px;text-align:left}
+.cat-sel{font:inherit;font-size:11px;font-weight:800;border-radius:6px;padding:4px 7px;border:1px solid transparent;cursor:pointer;text-transform:uppercase;letter-spacing:.3px}
+.cat-sel.cm{background:#E8F0FF;color:#1246E3}
+.cat-sel.up{background:#FEF3C7;color:#92400E}
+.cat-sel.pl{background:#F1F5F9;color:#4B5563}
+.pchip{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:2px 8px;background:#F1F5F9;color:#4B5563}
+.pchip.warn{background:#FEF3C7;color:#92400E}
+.pchip.bad{background:#FEE2E2;color:#B91C1C}
+.evd{display:inline-flex;gap:3px}
+.evd i{width:7px;height:7px;border-radius:2px;background:#E5E9F0;display:block}
+.evd i.on{background:#16A34A}
+.evd i.on.a{background:#F59E0B}
+.evd i.on.r{background:#EF4444}
+.hp{font-weight:800;font-variant-numeric:tabular-nums}
+.hp.g{color:#16A34A}.hp.a{color:#b45309}.hp.r{color:#EF4444}
+.nstep{font-size:12px;color:#4B5563}
+.nstep.none{color:#EF4444;font-weight:700}
+.overdue{color:#EF4444;font-weight:700}
+@media(max-width:900px){.fcs{grid-template-columns:repeat(2,1fr)}}
 /* ---- Team Command overrides ---- */
 .riskrow{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1080px){.riskrow{grid-template-columns:repeat(2,1fr)}}
@@ -353,13 +428,13 @@ button,input,textarea{font-family:inherit}
 
  <div class="pathgrid">
   <div>
-  <div class="seclab" style="margin-top:0">This Week's Coaching Plan <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="crocard panel"><p class="psub">Your 1:1 agenda, ranked by where your time changes the outcome most. Every item is a habit you can fix in one conversation, not a deal you have to rescue alone.</p><div class="mv"><span class="mvn">1</span><div><div class="t">Jordan Kerns &middot; pressure-test the happy ears</div><div class="s">Brightwell ($410K) has had no activity in 18 days and he still calls it Commit. <b>Move:</b> if he cannot name the economic buyer on the spot, it comes out of Commit this week.</div></div></div><div class="mv"><span class="mvn">2</span><div><div class="t">Rachel Okoro &middot; build next-step discipline</div><div class="s">Half her open deals have no dated next step and Cascade ($190K) is single-threaded. She is selling reactively. <b>Move:</b> every deal leaves the 1:1 with a dated next step, and a second contact goes into Cascade.</div></div></div><div class="mv"><span class="mvn">3</span><div><div class="t">Nina Alvarez &middot; coach qualification, not effort</div><div class="s">An economic buyer is named on only 2 of her 8 open deals. She is busy running demos for people who cannot sign. <b>Move:</b> earn the buyer meeting before the demo, and open new pipeline now.</div></div></div><div class="mvnote">Marcus Bell is your model: 100% next-step coverage, 3 of 5 deals with a named buyer, nothing overdue. Use his cadence as the standard in the room.</div></div>
+  <div class="seclab" style="margin-top:0">This Week's Coaching Plan <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="crocard panel"><p class="psub">Your 1:1 agenda, ranked by where your time changes the outcome most. Every item is a habit you can fix in one conversation, not a deal you have to rescue alone.</p><div class="mv"><span class="mvn">1</span><div><div class="t">Jordan Kerns &middot; pressure-test the happy ears</div><div class="s">Brightwell ($410K) has had no activity in 18 days and he still calls it Commit. <b>Move:</b> if he cannot name the economic buyer on the spot, it comes out of Commit this week.</div></div></div><div class="mv"><span class="mvn">2</span><div><div class="t">Rachel Okoro &middot; build next-step discipline</div><div class="s">Four of her seven open deals have no dated next step and Cascade ($190K) is single-threaded. She is selling reactively. <b>Move:</b> every deal leaves the 1:1 with a dated next step, and a second contact goes into Cascade.</div></div></div><div class="mv"><span class="mvn">3</span><div><div class="t">Nina Alvarez &middot; coach qualification, not effort</div><div class="s">An economic buyer is named on only 2 of her 7 open deals. She is busy running demos for people who cannot sign. <b>Move:</b> earn the buyer meeting before the demo, and open new pipeline now.</div></div></div><div class="mvnote">Marcus Bell is your model: a next step on all 5 of his deals, 4 of 5 with a named buyer, nothing overdue. Use his cadence as the standard in the room.</div></div>
   <div class="seclab" style="margin-top:18px">Team Health <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div>
   <div class="crocard panel">
    <p class="psub">The eight numbers that decide whether the call holds. Anything amber or red is a habit, not a deal, and every one of them is on the coaching plan above.</p>
    <div class="thgrid">
-    <div class="thr"><span class="thi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.2 12.3l2.6 2.6 5-5.4"/></svg></span><span class="thl">Commit<span class="thn">rep-called, before evidence</span></span><span class="thv" style="color:#16A34A">$2.55M</span></div>
-    <div class="thr"><span class="thi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.2 12.3l2.6 2.6 5-5.4"/></svg></span><span class="thl">Upside<span class="thn">the rest of the open book</span></span><span class="thv" style="color:#16A34A">$0.26M</span></div>
+    <div class="thr"><span class="thi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.2 12.3l2.6 2.6 5-5.4"/></svg></span><span class="thl">Commit<span class="thn">open, rep-called, before evidence</span></span><span class="thv" style="color:#16A34A">$1.13M</span></div>
+    <div class="thr"><span class="thi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.2 12.3l2.6 2.6 5-5.4"/></svg></span><span class="thl">Upside<span class="thn">plus $0.87M of earlier-stage pipeline</span></span><span class="thv" style="color:#16A34A">$0.81M</span></div>
     <div class="thr"><span class="thi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4v5.2"/><circle cx="12" cy="16.4" r="1" fill="#EF4444" stroke="none"/></svg></span><span class="thl">Dormant deals<span class="thn">no buyer activity in 14 days or more</span></span><span class="thv" style="color:#EF4444">6</span></div>
     <div class="thr"><span class="thi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4v5.2"/><circle cx="12" cy="16.4" r="1" fill="#EF4444" stroke="none"/></svg></span><span class="thl">No economic buyer<span class="thn">of 30 open deals</span></span><span class="thv" style="color:#EF4444">18</span></div>
     <div class="thr"><span class="thi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4v5.2"/><circle cx="12" cy="16.4" r="1" fill="#EF4444" stroke="none"/></svg></span><span class="thl">No next step<span class="thn">nobody can say what happens next</span></span><span class="thv" style="color:#EF4444">12</span></div>
@@ -371,7 +446,7 @@ button,input,textarea{font-family:inherit}
   </div>
   <div>
   <div class="seclab" style="margin-top:0">Hedge Predicts <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div>
-  <div class="crocard aipanel"><div><button class="aibtn primary" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.4-7.5 10-4.3-1.6-7.5-5.4-7.5-10v-6l7.5-3z"/><path d="M8.8 11.8l2.2 2.2 4.2-4.4"/></svg>Three calls you are not making</button><div class="cro-bub" style="margin-bottom:8px"><b>91% &middot; Brightwell slips out of the quarter.</b> Jordan still has it in Commit. Eighteen days of silence after a proposal is a decision, not a delay.</div><div class="cro-bub" style="margin-bottom:8px"><b>84% &middot; Rachel misses by roughly $120K.</b> Not for lack of pipeline. Three of her six deals have no next step, and two have already slipped a close date once.</div><div class="cro-bub"><b>76% &middot; Nina's gap is top of funnel, not execution.</b> Her coverage looks fine on paper, but only a quarter of it has a buyer attached. Treat it as unqualified until it does.</div></div></div>
+  <div class="crocard aipanel"><div><button class="aibtn primary" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.4-7.5 10-4.3-1.6-7.5-5.4-7.5-10v-6l7.5-3z"/><path d="M8.8 11.8l2.2 2.2 4.2-4.4"/></svg>Three calls you are not making</button><div class="cro-bub" style="margin-bottom:8px"><b>91% &middot; Brightwell slips out of the quarter.</b> Jordan still has it in Commit. Eighteen days of silence after a proposal is a decision, not a delay.</div><div class="cro-bub" style="margin-bottom:8px"><b>84% &middot; Rachel misses by roughly $120K.</b> Not for lack of pipeline. Four of her seven deals have no next step, and two have already slipped a close date once.</div><div class="cro-bub"><b>76% &middot; Nina's gap is top of funnel, not execution.</b> Her coverage looks fine on paper, but only a quarter of it has a buyer attached. Treat it as unqualified until it does.</div></div></div>
   <div class="seclab">What Changed Since Last Week <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div>
   <div class="crocard panel"><p class="psub">Movement the model tracked across your team, so the 1:1 starts where you left it.</p><div class="wkrow"><span class="ardot" style="background:#EF4444"></span><div><div class="wkt">Brightwell went quiet</div><div class="wkb">Last activity was 11 days at your last review. It is 18 now, and the close date has not moved.</div></div></div><div class="wkrow"><span class="ardot" style="background:#EF4444"></span><div><div class="wkt">Hedge call dropped $140K</div><div class="wkb">$2.24M to $2.10M. Two of Nina's deals lost their close date and one of Rachel's slipped a second time.</div></div></div><div class="wkrow"><span class="ardot" style="background:#16A34A"></span><div><div class="wkt">Marcus closed Vantage Rail</div><div class="wkb">$180K, on the date he called it, with the buyer running the last two steps. That is the cadence to name in the room.</div></div></div><div class="wkrow"><span class="ardot" style="background:#F59E0B"></span><div><div class="wkt">Team hygiene slipped 4 points</div><div class="wkb">72 to 68. Next-step coverage fell from 21 of 30 to 18 of 30. Nothing broke, the habit just stopped.</div></div></div></div>
   </div>
@@ -380,15 +455,57 @@ button,input,textarea{font-family:inherit}
  </div>
 
  <div id="paneHygiene" style="display:none">
- <div class="seclab">Team Hygiene Scorecard</div><div class="crocard" style="padding:6px 14px 4px"><div class="tblscroll"><table class="crotbl"><thead><tr><th>Rep</th><th class="r">Open</th><th class="r">Next step</th><th class="r">Econ buyer</th><th class="r">Last activity</th><th class="r">Overdue</th><th class="r">Hygiene <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></th></tr></thead><tbody><tr><td><b>Nina Alvarez</b><span class="acctsub">Selling to users, not buyers</span></td><td class="r tnum">8</td><td class="r warn">3 of 8</td><td class="r warn">2 of 8</td><td class="r">5d</td><td class="r warn">3</td><td class="r"><span class="trust r">D</span></td></tr><tr><td><b>Rachel Okoro</b><span class="acctsub">Reactive, no next-step cadence</span></td><td class="r tnum">6</td><td class="r warn">3 of 6</td><td class="r warn">2 of 6</td><td class="r">9d</td><td class="r warn">2</td><td class="r"><span class="trust r">D</span></td></tr><tr><td><b>Jordan Kerns</b><span class="acctsub">Happy ears on his top deal</span></td><td class="r tnum">7</td><td class="r warn">4 of 7</td><td class="r warn">3 of 7</td><td class="r warn">18d</td><td class="r">1</td><td class="r"><span class="trust a">C</span></td></tr><tr><td><b>Tom Ford</b><span class="acctsub">Seller-driven, buyer passive</span></td><td class="r tnum">4</td><td class="r">3 of 4</td><td class="r">2 of 4</td><td class="r">6d</td><td class="r">1</td><td class="r"><span class="trust a">C</span></td></tr><tr><td><b>Marcus Bell</b><span class="acctsub">Clean pipeline, model this</span></td><td class="r tnum">5</td><td class="r">5 of 5</td><td class="r">3 of 5</td><td class="r">2d</td><td class="r">0</td><td class="r"><span class="trust g">A</span></td></tr></tbody></table></div></div><p class="orgnote">Hygiene blends next-step coverage, economic-buyer identification, activity recency and overdue close dates across each rep's open book. It is a habit score, not a performance score. Bell is your standard. Alvarez and Okoro are two 1:1s away from a C.</p>
- <div class="seclab" style="margin-top:18px">What Is Dirty Across the Team <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="riskrow"><div class="crocard rk"><div class="v tnum">12</div><div class="l">Open deals with no next step</div></div><div class="crocard rk"><div class="v tnum">18</div><div class="l">Deals with no economic buyer named</div></div><div class="crocard rk"><div class="v tnum">6</div><div class="l">Gone dark 14 days or more</div></div><div class="crocard rk"><div class="v tnum">7</div><div class="l">Past their close date, not updated</div></div><div class="crocard rk"><div class="v tnum">9</div><div class="l">Seller-driven next steps</div></div><div class="crocard rk"><div class="v tnum">4</div><div class="l">Close dates moved twice or more</div></div><div class="crocard rk"><div class="v tnum">2</div><div class="l">Reps below 2.5x coverage</div></div><div class="crocard rk"><div class="v tnum">5</div><div class="l">Single-threaded deals over $100K</div></div></div><p class="orgnote">Thirty open deals across five reps. Twelve of them cannot tell you what happens next, and eighteen cannot tell you who signs. That is not a pipeline problem, it is a habit problem, and it is the cheapest thing on this page to fix.</p>
+ <div class="seclab">Team Hygiene Scorecard</div><div class="crocard" style="padding:6px 14px 4px"><div class="tblscroll"><table class="crotbl"><thead><tr><th>Rep</th><th class="r">Open</th><th class="r">Next step</th><th class="r">Econ buyer</th><th class="r">Last activity</th><th class="r">Overdue</th><th class="r">Hygiene <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></th></tr></thead><tbody id="hygBody"></tbody></table></div></div><p class="orgnote">Hygiene blends next-step coverage, economic-buyer identification, activity recency and overdue close dates across each rep's open book. It is a habit score, not a performance score. Bell is your standard. Kerns, Okoro and Alvarez all sit at D, and every one of those grades is a habit you can fix in a 1:1.</p>
+ <div class="seclab" style="margin-top:18px">What Is Dirty Across the Team <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="riskrow"><div class="crocard rk"><div class="v tnum" id="hNs">12</div><div class="l">Open deals with no next step</div></div><div class="crocard rk"><div class="v tnum" id="hEb">18</div><div class="l">Deals with no economic buyer named</div></div><div class="crocard rk"><div class="v tnum" id="hDark">6</div><div class="l">Gone dark 14 days or more</div></div><div class="crocard rk"><div class="v tnum" id="hOd">7</div><div class="l">Past their close date, not updated</div></div><div class="crocard rk"><div class="v tnum" id="hPush">11</div><div class="l">Deals that slipped a close date</div></div><div class="crocard rk"><div class="v tnum">4</div><div class="l">Close dates moved twice or more</div></div><div class="crocard rk"><div class="v tnum">2</div><div class="l">Reps below 2.5x coverage</div></div><div class="crocard rk"><div class="v tnum">5</div><div class="l">Single-threaded deals over $100K</div></div></div><p class="orgnote">Thirty open deals across five reps. Twelve of them cannot tell you what happens next, and eighteen cannot tell you who signs. That is not a pipeline problem, it is a habit problem, and it is the cheapest thing on this page to fix.</p>
  </div>
 
- <div id="paneForecast" style="display:none">
- <div class="seclab">Forecast Call Sheet &middot; Q3 FY26</div><div class="crocard" style="padding:6px 14px 4px"><div class="tblscroll"><table class="crotbl"><thead><tr><th>Rep</th><th class="r">Rep commit</th><th class="r">Hedge call <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></th><th class="r">Closed won</th><th class="r">Attainment</th><th class="r">Coverage</th><th class="r">Forecast risk <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></th></tr></thead><tbody><tr><td><b>Marcus Bell</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$620K</td><td class="r tnum">$585K</td><td class="r tnum">$410K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:85%"></i></span>85%</span></td><td class="r"><span style="color:#16A34A;font-weight:700">3.5x</span></td><td class="r"><span class="riskbadge g">LOW</span></td></tr><tr><td><b>Jordan Kerns</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$700K</td><td class="r tnum">$520K</td><td class="r tnum">$330K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:69%"></i></span>69%</span></td><td class="r"><span style="color:#EF4444;font-weight:700">1.9x</span></td><td class="r"><span class="riskbadge r">HIGH</span></td></tr><tr><td><b>Tom Ford</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$430K</td><td class="r tnum">$385K</td><td class="r tnum">$290K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:60%"></i></span>60%</span></td><td class="r"><span style="color:#EF4444;font-weight:700">2.2x</span></td><td class="r"><span class="riskbadge a">MEDIUM</span></td></tr><tr><td><b>Rachel Okoro</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$460K</td><td class="r tnum">$360K</td><td class="r tnum">$210K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:44%"></i></span>44%</span></td><td class="r"><span style="color:#16A34A;font-weight:700">3.0x</span></td><td class="r"><span class="riskbadge r">HIGH</span></td></tr><tr><td><b>Nina Alvarez</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$340K</td><td class="r tnum">$235K</td><td class="r tnum">$180K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:38%"></i></span>38%</span></td><td class="r"><span style="color:#16A34A;font-weight:700">3.5x</span></td><td class="r"><span class="riskbadge r">HIGH</span></td></tr><tr class="trtotal"><td><b>Team</b></td><td class="r tnum">$2.55M</td><td class="r tnum">$2.10M</td><td class="r tnum">$1.42M</td><td class="r">59%</td><td class="r">2.9x</td><td class="r"><span class="riskbadge a">AT RISK</span></td></tr></tbody></table></div></div><p class="orgnote">Your reps are calling <b>$2.55M</b>. The evidence supports <b>$2.10M</b>. The $450K difference is not spread evenly: two thirds of it sits with Kerns and Okoro, and both gaps trace to the same two missing habits.</p>
- <div class="seclab" style="margin-top:18px">Path to Your Number <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="crocard panel"><p class="psub">Quota $2.40M. Hedge call $2.10M. Three moves close the $0.30M, and all three are already on your coaching plan.</p><div class="mv"><span class="mvn">1</span><div><div class="t">Save Brightwell &middot; +$0.18M</div><div class="s">Get Jordan in front of the economic buyer this week. Recover 44% of a $410K deal that is currently a coin flip.</div></div></div><div class="mv"><span class="mvn">2</span><div><div class="t">Convert Cascade &middot; +$0.09M</div><div class="s">Multi-thread Rachel's $190K into finance before the redline. It has a champion, it has no second contact.</div></div></div><div class="mv"><span class="mvn">3</span><div><div class="t">Close Orion Freight &middot; +$0.06M</div><div class="s">Tom's $130K is buyer-passive, not dead. Hand them the next step and let their response tell you the truth.</div></div></div><div class="mvtotal"><span style="font-size:12.5px;color:#4B5563;font-weight:600">Fix the behavior and the number follows.</span><span style="font-size:15px;font-weight:800;letter-spacing:-.3px">Path to quota <span class="tnum">$2.43M</span> <span style="color:#6B7280;font-weight:600;font-size:12.5px">vs $2.40M target</span></span></div></div>
- <div class="seclab" style="margin-top:18px">Open Pipeline by Stage</div><div class="crocard panel"><div class="ptiles"><div class="pt"><div class="hlab">Open pipeline</div><div class="pv tnum">$2.81M</div><div class="pd" style="color:#16A34A">2.9x coverage</div></div><div class="pt"><div class="hlab">Commit</div><div class="pv tnum">$2.55M</div><div class="pd" style="color:#EF4444">$0.45M unsupported</div></div><div class="pt"><div class="hlab">Avg deal age</div><div class="pv tnum">58d</div><div class="pd" style="color:#b45309">9d over baseline</div></div><div class="pt"><div class="hlab">Slipped once or more</div><div class="pv tnum">11</div><div class="pd" style="color:#6B7280">of 30 open deals</div></div></div><div style="margin-top:14px"><div class="sthead"><span>Stage</span><span>Open</span></div><div class="strow"><span class="stname">Discovery</span><span class="sttrack"><i class="stfill" style="width:100%"></i></span><span class="stval tnum">$0.82M</span></div><div class="strow"><span class="stname">Solution Alignment</span><span class="sttrack"><i class="stfill" style="width:74%"></i></span><span class="stval tnum">$0.61M</span></div><div class="strow"><span class="stname">Demo / Validation</span><span class="sttrack"><i class="stfill" style="width:66%"></i></span><span class="stval tnum">$0.54M</span></div><div class="strow"><span class="stname">Business Case</span><span class="sttrack"><i class="stfill" style="width:50%"></i></span><span class="stval tnum">$0.41M</span></div><div class="strow"><span class="stname">Proposal / Commercial</span><span class="sttrack"><i class="stfill" style="width:38%"></i></span><span class="stval tnum">$0.31M</span></div><div class="strow"><span class="stname">Legal / Procurement</span><span class="sttrack"><i class="stfill" style="width:15%"></i></span><span class="stval tnum">$0.12M</span></div></div><p style="font-size:11.5px;color:#6B7280;line-height:1.55;margin-top:14px;font-weight:500">Nearly half the open book is still in Discovery or Solution Alignment with 34 days left. That is next quarter's pipeline, not this one, and treating it as coverage for Q3 is how the gap stays hidden.</p></div>
+<div id="paneForecast" style="display:none">
+ <div class="seclab">The Call &middot; Q3 FY26</div>
+ <div class="fcs" id="fcNums"></div>
+
+ <div class="fcsub">
+  <button class="fcsb on" type="button" data-fcv="rollup">Forecast Call</button>
+  <button class="fcsb" type="button" data-fcv="pipeline">Full Pipeline</button>
  </div>
+
+ <div id="fcRollup">
+  <div class="fchead">
+   <div>
+    <div class="fch-t">Forecast Call &middot; Manager roll-up</div>
+    <div class="fch-s">Click the manager row to open the reps. Click a rep to open their pipeline. All figures for Q3 FY26.</div>
+   </div>
+   <div class="fclegend">
+    <span class="k"><span class="trend up">&#9650;</span> Commit up vs 7 days ago</span>
+    <span class="k"><span class="trend down">&#9660;</span> Commit down vs 7 days ago</span>
+   </div>
+  </div>
+  <div class="rollcard"><div style="overflow-x:auto"><table class="rolltbl">
+   <thead><tr><th class="l">Manager</th><th>Booked</th><th>Commit</th><th>Upside</th><th>Closeable Pipeline</th><th>Total Open</th><th>Coverage</th><th>Historical win rate</th></tr></thead>
+   <tbody id="rollBody"></tbody>
+  </table></div></div>
+  <p class="orgnote">Coverage is total open against the quota still to find. A rep under 2.5x cannot close the gap from the deals they already have, however well they sell them.</p>
+ </div>
+
+ <div id="fcPipe" style="display:none">
+  <div class="fct2wrap">
+   <div class="fct2head">
+    <span class="t" id="fcPipeTitle">Forecast Call Pipeline</span>
+    <select class="fsel" id="fcFilter">
+     <option value="all">All deals</option>
+     <option value="commit">Commit only</option>
+     <option value="atrisk">At risk</option>
+     <option value="pushed">Pushed</option>
+    </select>
+    <button class="fclear" id="fcClear" type="button" style="display:none">Back to all reps</button>
+    <span class="fchint">Amount, call and close date edit in place. Every change re-runs the roll-up above.</span>
+   </div>
+   <div style="overflow-x:auto"><table class="fct2">
+    <thead><tr><th>Account</th><th>Rep</th><th class="r">Amount</th><th class="c">Call</th><th>Close date</th><th class="c">Pushes</th><th class="c">Evidence</th><th class="c">Hedge prob</th><th>Next step</th></tr></thead>
+    <tbody id="pipeBody"></tbody>
+   </table></div>
+  </div>
+ </div>
+</div>
 
  <div class="bcta">
   <div>
@@ -419,7 +536,7 @@ button,input,textarea{font-family:inherit}
 <script>
 (function(){
   var ANS=[
-   "<b>Nina Alvarez.</b> D-grade hygiene, an economic buyer on only 2 of her 8 open deals, and three deals already past their close date. She is busy but selling to people who cannot sign. Rachel Okoro is close behind for the opposite reason: reactive, with no next step on half her pipeline.",
+   "<b>Nina Alvarez.</b> D-grade hygiene, an economic buyer on only 2 of her 7 open deals, and two deals already past their close date. She is busy but selling to people who cannot sign. Rachel Okoro is close behind for the opposite reason: reactive, with no next step on half her pipeline.",
    "<b>Jordan Kerns.</b> Brightwell ($410K) has been dark for 18 days and he still calls it Commit. Your strongest rep by pipeline is carrying your single biggest risk. Pressure-test it in your next 1:1 and make him name the economic buyer.",
    "<b>Next steps and economic buyers.</b> Twelve of thirty open deals have no next step and eighteen have no buyer identified. Fix those two habits across the team and your forecast tightens without adding a single deal. Marcus Bell already runs clean, so use him as the model.",
    "<b>Call $2.10M, not $2.55M, and say why.</b> The $450K gap is two thirds Kerns and Okoro. Commit Brightwell only if Jordan can name the buyer on the call. Then walk the three moves: save Brightwell, multi-thread Cascade, hand Orion back to the buyer. That is $2.43M against a $2.40M number."
@@ -690,4 +807,190 @@ button,input,textarea{font-family:inherit}
 })();
 </script>
 
+<script>
+(function(){
+  var DEALS = [{"rep": "Marcus Bell", "acct": "Vantage Rail", "amt": 160000, "cat": "commit", "close": "Sep 12", "ns": true, "eb": true, "act": 2, "push": 0, "stage": "Proposal / Commercial", "hp": 0.65}, {"rep": "Marcus Bell", "acct": "Northgate Utilities", "amt": 120000, "cat": "commit", "close": "Sep 24", "ns": true, "eb": true, "act": 3, "push": 0, "stage": "Business Case", "hp": 0.6}, {"rep": "Marcus Bell", "acct": "Kestrel Biotech", "amt": 80000, "cat": "upside", "close": "Sep 29", "ns": true, "eb": false, "act": 4, "push": 0, "stage": "Demo / Validation", "hp": 0.3}, {"rep": "Marcus Bell", "acct": "Larkspur Apparel", "amt": 50000, "cat": "upside", "close": "Sep 30", "ns": true, "eb": true, "act": 5, "push": 0, "stage": "Solution Alignment", "hp": 0.25}, {"rep": "Marcus Bell", "acct": "Oakhurst Credit Union", "amt": 100000, "cat": "pipeline", "close": "Oct 15", "ns": true, "eb": true, "act": 6, "push": 0, "stage": "Discovery", "hp": 0.12}, {"rep": "Jordan Kerns", "acct": "Brightwell Logistics", "amt": 410000, "cat": "commit", "close": "Sep 18", "ns": false, "eb": false, "act": 18, "push": 2, "stage": "Proposal / Commercial", "hp": 0.18}, {"rep": "Jordan Kerns", "acct": "Everline Telecom", "amt": 110000, "cat": "upside", "close": "Sep 26", "ns": true, "eb": true, "act": 4, "push": 0, "stage": "Business Case", "hp": 0.4}, {"rep": "Jordan Kerns", "acct": "Fairmount Steel", "amt": 80000, "cat": "upside", "close": "Sep 30", "ns": true, "eb": false, "act": 9, "push": 1, "stage": "Demo / Validation", "hp": 0.2}, {"rep": "Jordan Kerns", "acct": "Glasshouse Retail", "amt": 90000, "cat": "pipeline", "close": "Oct 8", "ns": true, "eb": false, "act": 7, "push": 0, "stage": "Discovery", "hp": 0.12}, {"rep": "Jordan Kerns", "acct": "Hollowell Pharma", "amt": 60000, "cat": "pipeline", "close": "Aug 19", "ns": false, "eb": false, "act": 15, "push": 0, "stage": "Discovery", "hp": 0.08}, {"rep": "Tom Ford", "acct": "Orion Freight", "amt": 130000, "cat": "commit", "close": "Sep 22", "ns": true, "eb": true, "act": 21, "push": 1, "stage": "Proposal / Commercial", "hp": 0.3}, {"rep": "Tom Ford", "acct": "Redfern Rail", "amt": 30000, "cat": "commit", "close": "Sep 29", "ns": true, "eb": false, "act": 6, "push": 0, "stage": "Business Case", "hp": 0.4}, {"rep": "Tom Ford", "acct": "Stonebridge Aviation", "amt": 90000, "cat": "upside", "close": "Aug 27", "ns": false, "eb": false, "act": 8, "push": 1, "stage": "Demo / Validation", "hp": 0.15}, {"rep": "Tom Ford", "acct": "Thornbury Energy", "amt": 60000, "cat": "upside", "close": "Oct 3", "ns": true, "eb": true, "act": 5, "push": 0, "stage": "Demo / Validation", "hp": 0.35}, {"rep": "Tom Ford", "acct": "Uplands Agriculture", "amt": 110000, "cat": "pipeline", "close": "Oct 14", "ns": true, "eb": true, "act": 6, "push": 0, "stage": "Discovery", "hp": 0.1}, {"rep": "Tom Ford", "acct": "Verity Payments", "amt": 80000, "cat": "pipeline", "close": "Aug 15", "ns": false, "eb": false, "act": 12, "push": 0, "stage": "Discovery", "hp": 0.06}, {"rep": "Rachel Okoro", "acct": "Windermere Textiles", "amt": 100000, "cat": "commit", "close": "Sep 19", "ns": true, "eb": true, "act": 5, "push": 0, "stage": "Business Case", "hp": 0.5}, {"rep": "Rachel Okoro", "acct": "Ashford Semiconductor", "amt": 70000, "cat": "commit", "close": "Sep 30", "ns": false, "eb": false, "act": 11, "push": 1, "stage": "Proposal / Commercial", "hp": 0.2}, {"rep": "Rachel Okoro", "acct": "Cascade Systems", "amt": 190000, "cat": "upside", "close": "Sep 25", "ns": false, "eb": false, "act": 9, "push": 1, "stage": "Business Case", "hp": 0.18}, {"rep": "Rachel Okoro", "acct": "Blackwater Marine", "amt": 90000, "cat": "pipeline", "close": "Oct 10", "ns": true, "eb": false, "act": 7, "push": 1, "stage": "Discovery", "hp": 0.12}, {"rep": "Rachel Okoro", "acct": "Carbury Packaging", "amt": 70000, "cat": "pipeline", "close": "Aug 21", "ns": false, "eb": false, "act": 13, "push": 0, "stage": "Discovery", "hp": 0.08}, {"rep": "Rachel Okoro", "acct": "Dunmore Cement", "amt": 60000, "cat": "pipeline", "close": "Oct 24", "ns": true, "eb": true, "act": 4, "push": 0, "stage": "Solution Alignment", "hp": 0.15}, {"rep": "Rachel Okoro", "acct": "Elmridge Grocers", "amt": 60000, "cat": "pipeline", "close": "Aug 7", "ns": false, "eb": false, "act": 16, "push": 0, "stage": "Discovery", "hp": 0.06}, {"rep": "Nina Alvarez", "acct": "Foxglove Cosmetics", "amt": 70000, "cat": "commit", "close": "Sep 23", "ns": true, "eb": true, "act": 3, "push": 0, "stage": "Proposal / Commercial", "hp": 0.45}, {"rep": "Nina Alvarez", "acct": "Grimsby Ports", "amt": 40000, "cat": "commit", "close": "Aug 25", "ns": false, "eb": false, "act": 12, "push": 2, "stage": "Business Case", "hp": 0.15}, {"rep": "Nina Alvarez", "acct": "Hartwell Devices", "amt": 80000, "cat": "upside", "close": "Oct 1", "ns": false, "eb": false, "act": 5, "push": 1, "stage": "Demo / Validation", "hp": 0.15}, {"rep": "Nina Alvarez", "acct": "Ironbark Construction", "amt": 70000, "cat": "upside", "close": "Oct 6", "ns": true, "eb": false, "act": 6, "push": 0, "stage": "Solution Alignment", "hp": 0.18}, {"rep": "Nina Alvarez", "acct": "Jessup Freight", "amt": 60000, "cat": "pipeline", "close": "Oct 13", "ns": false, "eb": false, "act": 15, "push": 1, "stage": "Discovery", "hp": 0.08}, {"rep": "Nina Alvarez", "acct": "Kilburn Analytics", "amt": 50000, "cat": "pipeline", "close": "Oct 20", "ns": true, "eb": true, "act": 4, "push": 0, "stage": "Discovery", "hp": 0.1}, {"rep": "Nina Alvarez", "acct": "Lockridge Defense", "amt": 40000, "cat": "pipeline", "close": "Aug 12", "ns": false, "eb": false, "act": 19, "push": 1, "stage": "Discovery", "hp": 0.05}];
+  var REPS = [{"name": "Marcus Bell", "booked": 410000, "quota": 480000, "win": 41, "d7": 40000}, {"name": "Jordan Kerns", "booked": 330000, "quota": 480000, "win": 34, "d7": -60000}, {"name": "Tom Ford", "booked": 290000, "quota": 480000, "win": 29, "d7": 20000}, {"name": "Rachel Okoro", "booked": 210000, "quota": 480000, "win": 26, "d7": -40000}, {"name": "Nina Alvarez", "booked": 180000, "quota": 480000, "win": 22, "d7": -25000}];
+  var QUOTA_TEAM = 2400000, MGR = 'Dana Reyes', TEAM = 'Enterprise West';
+  var mgrCall = null;            // the manager's own number, once they type one
+  var openMgr = true, repFilter = null, catFilter = 'all';
+
+  function money(n){
+    var a = Math.abs(n);
+    if (a >= 1000000) return (n<0?'-':'') + '$' + (a/1000000).toFixed(2) + 'M';
+    if (a >= 1000) return (n<0?'-':'') + '$' + Math.round(a/1000) + 'K';
+    return (n<0?'-':'') + '$' + Math.round(a);
+  }
+  function initials(s){ return s.split(' ').map(function(x){return x[0]}).join('').slice(0,2).toUpperCase(); }
+  function ev(d){ var n=0; if(d.eb)n++; if(d.ns)n++; if(d.act<=14)n++; if(!d.push)n++; return n; }
+  function overdue(d){ return d.close.indexOf('Aug') === 0; }
+  function repRow(name){
+    var mine = DEALS.filter(function(d){ return d.rep===name; });
+    var r = REPS.filter(function(x){ return x.name===name; })[0];
+    var s = { name:name, booked:r.booked, quota:r.quota, win:r.win, d7:r.d7, commit:0, upside:0, pipe:0, open:0, w:0, n:mine.length };
+    mine.forEach(function(d){
+      s.open += d.amt; s.w += d.amt * d.hp;
+      if (d.cat==='commit') s.commit += d.amt; else if (d.cat==='upside') s.upside += d.amt; else s.pipe += d.amt;
+    });
+    s.hedge = s.booked + s.w;
+    var rem = Math.max(0, s.quota - s.booked);
+    s.cov = rem ? s.open / rem : 0;
+    return s;
+  }
+  function team(){
+    var t = { booked:0, commit:0, upside:0, pipe:0, open:0, w:0 };
+    REPS.forEach(function(r){ var s = repRow(r.name);
+      t.booked+=s.booked; t.commit+=s.commit; t.upside+=s.upside; t.pipe+=s.pipe; t.open+=s.open; t.w+=s.w; });
+    t.hedge = t.booked + t.w;
+    t.call = t.booked + t.commit;
+    var rem = Math.max(0, QUOTA_TEAM - t.booked);
+    t.cov = rem ? t.open / rem : 0;
+    return t;
+  }
+
+  function renderNums(){
+    var t = team();
+    var call = mgrCall == null ? t.call : mgrCall;
+    var gap = QUOTA_TEAM - call;
+    var dis = t.call - t.hedge;
+    document.getElementById('fcNums').innerHTML =
+      '<div class="fcs-card"><div class="fcs-t">Hedge Forecast <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="fcs-v" style="color:#1246E3">' + money(t.hedge) + '</div><div class="fcs-s">Every open deal at its Hedge probability, plus booked</div></div>'
+    + '<div class="fcs-card"><div class="fcs-t">Team Forecast</div><div class="fcs-v">' + money(t.call) + '</div><div class="fcs-s">The reps\' own call: Commit plus booked</div></div>'
+    + '<div class="fcs-card"><div class="fcs-t">Manager Forecast</div><input class="fcs-in" id="mgrCall" value="' + money(call) + '" aria-label="Your forecast call"><div class="fcs-s">Your call. Type a number and press Enter.</div></div>'
+    + '<div class="fcs-card"><div class="fcs-t">Gap to Target</div><div class="fcs-v" style="color:' + (gap>0?'#EF4444':'#16A34A') + '">' + (gap>0?'-':'+') + money(Math.abs(gap)).replace('-','') + '</div><div class="fcs-s">On your call, against a ' + money(QUOTA_TEAM) + ' quota. On the evidence it is ' + money(t.hedge - QUOTA_TEAM) + '.</div></div>'
+    + '<div class="fcs-card"><div class="fcs-t">Disagreement <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="fcs-v" style="color:' + (dis>0?'#b45309':'#16A34A') + '">' + money(Math.abs(dis)) + '</div><div class="fcs-s">' + (dis>0?'Team call above the evidence':'Team call inside the evidence') + '</div></div>';
+    var inp = document.getElementById('mgrCall');
+    inp.addEventListener('focus', function(){ this.value = call; this.select(); });
+    inp.addEventListener('keydown', function(e){ if(e.key==='Enter'){ this.blur(); } });
+    inp.addEventListener('blur', function(){
+      var v = parseFloat(String(this.value).replace(/[^0-9.]/g,''));
+      if (!isNaN(v) && v > 0) { mgrCall = v < 10000 ? v * 1000000 : v; } else { mgrCall = null; }
+      renderAll();
+    });
+  }
+
+  function arrow(v){ return v>0 ? '<span class="trend up">&#9650;</span>' : v<0 ? '<span class="trend down">&#9660;</span>' : ''; }
+  function covCls(c){ return c < 2.5 ? 'cov low' : 'cov ok'; }
+
+  function renderRollup(){
+    var t = team(), html = '';
+    html += '<tr class="mgrrow' + (openMgr?' open':'') + '" data-mgr="1">'
+      + '<td class="l"><div class="nmcell"><span class="chev">&#9654;</span><span class="mavatar">' + initials(MGR) + '</span><span>' + MGR + '</span>'
+      + '<span class="mgrchip">' + REPS.length + ' reps</span></div></td>'
+      + '<td>' + money(t.booked) + '</td><td>' + money(t.commit) + '</td><td>' + money(t.upside) + '</td>'
+      + '<td>' + money(t.pipe) + '</td><td>' + money(t.open) + '</td>'
+      + '<td class="' + covCls(t.cov) + '">' + t.cov.toFixed(1) + 'x</td><td>31%</td></tr>';
+    if (openMgr) {
+      REPS.forEach(function(r){
+        var s = repRow(r.name);
+        html += '<tr class="reprow" data-rep="' + r.name + '">'
+          + '<td class="l"><div class="nmcell"><span class="ravatar">' + initials(r.name) + '</span><span class="rnm">' + r.name + '</span>'
+          + '<span style="font-size:11px;color:#9AA1B6;font-weight:600">' + s.n + ' open</span></div></td>'
+          + '<td>' + money(s.booked) + '</td>'
+          + '<td>' + money(s.commit) + ' ' + arrow(s.d7) + '</td>'
+          + '<td>' + money(s.upside) + '</td><td>' + money(s.pipe) + '</td><td>' + money(s.open) + '</td>'
+          + '<td class="' + covCls(s.cov) + '">' + s.cov.toFixed(1) + 'x</td><td>' + s.win + '%</td></tr>';
+      });
+    }
+    html += '<tr class="totrow"><td class="l">' + TEAM + ' total</td><td>' + money(t.booked) + '</td><td>' + money(t.commit) + '</td>'
+      + '<td>' + money(t.upside) + '</td><td>' + money(t.pipe) + '</td><td>' + money(t.open) + '</td>'
+      + '<td>' + t.cov.toFixed(1) + 'x</td><td>31%</td></tr>';
+    var tb = document.getElementById('rollBody');
+    tb.innerHTML = html;
+    tb.querySelector('.mgrrow').addEventListener('click', function(){ openMgr = !openMgr; renderRollup(); });
+    Array.prototype.forEach.call(tb.querySelectorAll('.reprow'), function(tr){
+      tr.addEventListener('click', function(){ repFilter = tr.getAttribute('data-rep'); setView('pipeline'); });
+    });
+  }
+
+  function renderPipe(){
+    var rows = DEALS.filter(function(d){
+      if (repFilter && d.rep !== repFilter) return false;
+      if (catFilter === 'commit') return d.cat === 'commit';
+      if (catFilter === 'atrisk') return d.hp < 0.35 || d.act >= 14 || !d.eb;
+      if (catFilter === 'pushed') return d.push >= 1;
+      return true;
+    });
+    document.getElementById('fcPipeTitle').textContent = repFilter ? repFilter + ' \u00b7 pipeline' : 'Forecast Call Pipeline';
+    document.getElementById('fcClear').style.display = repFilter ? '' : 'none';
+    var html = rows.map(function(d, i){
+      var idx = DEALS.indexOf(d);
+      var e = ev(d), hpc = d.hp >= 0.5 ? 'g' : d.hp >= 0.3 ? 'a' : 'r';
+      var pc = d.push >= 2 ? 'bad' : d.push === 1 ? 'warn' : '';
+      var bars = ''; for (var k = 0; k < 4; k++) bars += '<i class="' + (k < e ? 'on ' + (e >= 3 ? '' : e === 2 ? 'a' : 'r') : '') + '"></i>';
+      return '<tr>'
+        + '<td class="acct">' + d.acct + '<span class="sub">' + d.stage + (d.act >= 14 ? ' \u00b7 dark ' + d.act + 'd' : '') + '</span></td>'
+        + '<td><span class="ravatar" style="width:22px;height:22px;font-size:9px">' + initials(d.rep) + '</span></td>'
+        + '<td class="r"><input class="ed-in" data-i="' + idx + '" data-f="amt" value="' + money(d.amt) + '"></td>'
+        + '<td class="c"><select class="cat-sel ' + (d.cat==='commit'?'cm':d.cat==='upside'?'up':'pl') + '" data-i="' + idx + '" data-f="cat">'
+        + ['commit','upside','pipeline'].map(function(c){ return '<option value="' + c + '"' + (c===d.cat?' selected':'') + '>' + c + '</option>'; }).join('')
+        + '</select></td>'
+        + '<td><input class="ed-in ed-dt' + (overdue(d)?' overdue':'') + '" data-i="' + idx + '" data-f="close" value="' + d.close + (overdue(d) ? ' \u26a0' : '') + '"></td>'
+        + '<td class="c"><span class="pchip ' + pc + '">' + d.push + '</span></td>'
+        + '<td class="c"><span class="evd">' + bars + '</span></td>'
+        + '<td class="c"><span class="hp ' + hpc + '">' + Math.round(d.hp * 100) + '%</span></td>'
+        + '<td><span class="nstep' + (d.ns ? '' : ' none') + '">' + (d.ns ? 'Dated, buyer-owned' : 'None set') + '</span></td>'
+        + '</tr>';
+    }).join('');
+    document.getElementById('pipeBody').innerHTML = html || '<tr><td colspan="9" style="padding:22px;text-align:center;color:#9AA1B6">No deals match this filter.</td></tr>';
+    Array.prototype.forEach.call(document.querySelectorAll('#pipeBody .ed-in'), function(inp){
+      inp.addEventListener('focus', function(){ var d = DEALS[+this.dataset.i]; if (this.dataset.f === 'amt') this.value = d.amt; else this.value = d.close; this.select(); });
+      inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') this.blur(); });
+      inp.addEventListener('blur', function(){
+        var d = DEALS[+this.dataset.i];
+        if (this.dataset.f === 'amt') { var v = parseFloat(String(this.value).replace(/[^0-9.]/g,'')); if (!isNaN(v) && v > 0) d.amt = v < 10000 ? v * 1000 : v; }
+        else { var s = String(this.value).replace(/[^A-Za-z0-9 ]/g,'').trim(); if (s) d.close = s; }
+        renderAll();
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#pipeBody .cat-sel'), function(sel){
+      sel.addEventListener('change', function(){ DEALS[+this.dataset.i].cat = this.value; renderAll(); });
+    });
+  }
+
+  function setView(v){
+    Array.prototype.forEach.call(document.querySelectorAll('.fcsb'), function(b){ b.classList.toggle('on', b.dataset.fcv === v); });
+    document.getElementById('fcRollup').style.display = v === 'rollup' ? '' : 'none';
+    document.getElementById('fcPipe').style.display = v === 'pipeline' ? '' : 'none';
+    if (v === 'pipeline') renderPipe();
+  }
+  function renderAll(){ renderNums(); renderRollup(); if (document.getElementById('fcPipe').style.display !== 'none') renderPipe(); renderHygiene(); }
+
+  // The hygiene tab reads the same array, so an edit in the pipeline moves both.
+  function renderHygiene(){
+    var tb = document.getElementById('hygBody'); if (!tb) return;
+    var html = REPS.map(function(r){
+      var mine = DEALS.filter(function(d){ return d.rep === r.name; });
+      var ns = mine.filter(function(d){ return d.ns; }).length, eb = mine.filter(function(d){ return d.eb; }).length;
+      var act = mine.reduce(function(m, d){ return Math.max(m, d.act); }, 0);
+      var od = mine.filter(overdue).length;
+      var score = mine.length ? (ns / mine.length * 40 + eb / mine.length * 40 + (1 - od / mine.length) * 20) : 0;
+      var g = score >= 85 ? ['A','g'] : score >= 70 ? ['B','g'] : score >= 55 ? ['C','a'] : ['D','r'];
+      var w = function(cond, txt){ return '<td class="r' + (cond ? ' warn' : '') + '">' + txt + '</td>'; };
+      return '<tr><td><b>' + r.name + '</b></td><td class="r tnum">' + mine.length + '</td>'
+        + w(ns / mine.length < 0.8, ns + ' of ' + mine.length)
+        + w(eb / mine.length < 0.6, eb + ' of ' + mine.length)
+        + w(act >= 14, act + 'd')
+        + w(od > 0, od)
+        + '<td class="r"><span class="trust ' + g[1] + '">' + g[0] + '</span></td></tr>';
+    }).join('');
+    tb.innerHTML = html;
+    var all = DEALS.length;
+    var set = function(id, v){ var el = document.getElementById(id); if (el) el.textContent = v; };
+    set('hNs', DEALS.filter(function(d){ return !d.ns; }).length);
+    set('hEb', DEALS.filter(function(d){ return !d.eb; }).length);
+    set('hDark', DEALS.filter(function(d){ return d.act >= 14; }).length);
+    set('hOd', DEALS.filter(overdue).length);
+    set('hPush', DEALS.filter(function(d){ return d.push >= 1; }).length);
+    set('hOpen', all);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.fcsb'), function(b){
+    b.addEventListener('click', function(){ if (b.dataset.fcv === 'rollup') repFilter = null; setView(b.dataset.fcv); });
+  });
+  document.getElementById('fcFilter').addEventListener('change', function(){ catFilter = this.value; renderPipe(); });
+  document.getElementById('fcClear').addEventListener('click', function(){ repFilter = null; renderPipe(); });
+  renderAll();
+})();
+</script>
 </body></html>
