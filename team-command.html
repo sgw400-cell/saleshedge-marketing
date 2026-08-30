@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SalesHedge for Sales Managers &middot; Team Command Live Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+button.tbtn,button.bw{border:0;cursor:pointer;font:inherit}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#F8FAFC;color:#111827;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5}
+p{margin:0}h1,h2,h3{margin:0}
+button,input,textarea{font-family:inherit}
+.tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.wrap{max-width:1360px;margin:0 auto;padding:0 32px}
+
+/* ---------- marketing chrome ---------- */
+.top{background:#0B1D3A;color:#fff}
+.topin{max-width:1360px;margin:0 auto;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .wm{display:flex;flex-direction:column;justify-content:center;line-height:1.05}
+.brand .nm{font-size:17px;font-weight:800;letter-spacing:-.3px}
+.brand .nm span{color:#6366F1}
+.brand .tag{font-size:8px;font-weight:700;letter-spacing:1.25px;color:#8b93a7;margin-top:3px;white-space:nowrap}
+.brand .tag span{color:#6366F1;font-weight:800}
+.demopill{display:inline-flex;align-items:center;gap:6px;background:rgba(18,70,227,.22);border:1px solid rgba(18,70,227,.55);color:#c3d4ff;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase}
+.topcta{display:flex;gap:10px;align-items:center}
+.tbtn{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none}
+.tbtn.p{background:#1246E3;color:#fff}
+.tbtn.o{background:transparent;color:#dfe3f0;border:1px solid rgba(255,255,255,.28)}
+.notice{background:#fef9ec;border-bottom:1px solid #f6e6be;color:#8a6d1f;font-size:12.5px;font-weight:600;text-align:center;padding:8px 22px}
+.runbar{background:#0B1D3A;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.runin{max-width:1360px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.runL{display:flex;align-items:center;gap:12px}
+.runL .rico{width:38px;height:38px;border-radius:10px;background:#E8F0FF;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.runL b{font-size:14px;font-weight:800;letter-spacing:-.2px}
+.runL span{display:block;font-size:12px;color:#6B7280;margin-top:2px;font-weight:500}
+.runbtn{display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:8px;background:#1246E3;color:#fff;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;font-family:inherit}
+.runbtn:hover{background:#0e39b8}
+
+/* ---------- CRO dashboard system ---------- */
+.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:26px 0 0}
+.page-head h1{font-size:22px;font-weight:800;letter-spacing:-.5px;color:#111827}
+.page-head .date{font-size:13px;color:#6B7280;margin-top:3px}
+.page-head .date b{color:#111827;font-weight:600}
+.mtabs{display:flex;gap:4px;border-bottom:1px solid #E5E7EB;margin:18px 0 0}
+.mtab{padding:10px 16px;font-size:13.5px;font-weight:700;color:#6B7280;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px}
+.mtab.on{color:#1246E3;border-bottom-color:#1246E3}
+.seclab{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#0B1D3A;margin:22px 2px 10px}
+.cardlab{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#0B1D3A}
+.crocard{background:#fff;border:1px solid #E5E7EB;border-radius:14px}
+.crobtn{background:#1246E3;color:#fff;border:none;font-size:12px;font-weight:700;padding:8px 13px;border-radius:8px;cursor:pointer}
+.panel{padding:20px 22px}
+.phead{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+.psub{font-size:12px;color:#6B7280;font-weight:500;margin:4px 0 10px}
+.wlegend{display:flex;gap:18px;margin-top:8px;justify-content:center}
+.lg{display:flex;align-items:center;gap:7px;font-size:11px;color:#4B5563;font-weight:600}
+.lg i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.perseg{display:inline-flex;background:#F1F5F9;border-radius:8px;padding:2px}
+.perseg button{padding:6px 12px;border-radius:6px;border:none;cursor:pointer;font-family:inherit;font-size:12px;font-weight:600;background:transparent;color:#6B7280}
+.perseg button.on{background:#fff;color:#0B1D3A}
+.mvnote{font-size:10px;color:#6B7280;margin-top:8px}
+
+/* hero strips */
+.hero{display:grid;grid-template-columns:1.05fr 1fr 1.05fr 1fr 1fr;padding:20px 6px;margin-bottom:14px}
+.hcell{display:flex;gap:14px;align-items:flex-start;padding:2px 22px;border-left:1px solid #EEF1F5}
+.hcell:first-child{border-left:none}
+.icircle{width:44px;height:44px;border-radius:12px;background:#E8F0FF;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.icircle.sm{width:40px;height:40px}
+.hlab{font-size:11.5px;color:#6B7280;font-weight:600;margin-bottom:4px}
+.hbig{font-size:27px;font-weight:800;letter-spacing:-.8px;line-height:1.05;color:#0B1D3A}
+.hbig.red{color:#EF4444}
+.hsub{font-size:11px;margin-top:5px;font-weight:600;color:#6B7280}
+.hsub.red{color:#EF4444}.hsub.green{color:#16A34A}.hsub.amber{color:#b45309}
+.hero2{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;padding:16px 6px;margin-bottom:22px}
+.h2c{display:flex;gap:14px;align-items:center;padding:2px 22px;border-left:1px solid #EEF1F5}
+.h2c:first-child{border-left:none}
+.h2v{font-size:19px;font-weight:800;letter-spacing:-.4px;color:#0B1D3A}
+
+/* grids */
+.pathgrid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-bottom:16px}
+.midgrid{display:grid;grid-template-columns:1fr 1.35fr .78fr;gap:16px;margin-bottom:16px}
+.pipegrid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin-bottom:16px}
+.botgrid{display:grid;grid-template-columns:2.35fr 1fr;gap:16px;margin-top:22px;align-items:stretch}
+
+/* numbered moves */
+.mv{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid #EEF1F5}
+.mv:last-of-type{border-bottom:none}
+.mv:hover{background:#F8FAFC}
+.mvn{width:22px;height:22px;border-radius:50%;background:#0B1D3A;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.mv .t{font-size:13px;font-weight:700;color:#111827}
+.mv .s{font-size:11.5px;color:#6B7280;margin-top:2px;font-weight:500}
+.mv .rt{margin-left:auto;text-align:right;flex-shrink:0}
+.mv .amt{font-size:13.5px;font-weight:800;color:#16A34A}
+.mv .amt.red{color:#EF4444}
+.mv .due{font-size:11px;color:#6B7280;font-weight:600;margin-top:2px}
+.mvtotal{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #E5E7EB;margin-top:4px;padding-top:13px}
+.mvtotal .k{font-size:12.5px;font-weight:700;color:#4B5563}
+.mvtotal .v{font-size:16px;font-weight:800;color:#16A34A}
+
+/* briefing rows */
+.brf{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid #EEF1F5}
+.brf:last-of-type{border-bottom:none}
+.bicon{width:34px;height:34px;border-radius:9px;background:#E8F0FF;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brf p{font-size:12.5px;color:#4B5563;line-height:1.55;font-weight:500}
+.brf p b{color:#111827}
+
+/* accuracy stack */
+.accstack{display:flex;flex-direction:column;padding:6px 20px}
+.acb{padding:13px 0;border-bottom:1px solid #EEF1F5}
+.acb:last-child{border-bottom:none}
+.acb .k{font-size:11.5px;color:#6B7280;font-weight:600;margin-bottom:5px}
+.acb .v{font-size:22px;font-weight:800;letter-spacing:-.5px;line-height:1.1;color:#0B1D3A}
+.acb .bar{height:6px;border-radius:4px;background:#F1F5F9;margin-top:8px;overflow:hidden}
+.acb .bar i{display:block;height:100%;border-radius:4px}
+.acb .n{font-size:10.5px;color:#6B7280;margin-top:6px;font-weight:500}
+
+/* pipeline tiles + stage bars */
+.ptiles{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #EEF1F5;padding-bottom:16px;margin-bottom:16px}
+.pt{padding:0 18px;border-left:1px solid #EEF1F5}
+.pt:first-child{padding-left:2px;border-left:none}
+.pv{font-size:23px;font-weight:800;letter-spacing:-.6px;color:#0B1D3A}
+.pd{font-size:11px;font-weight:700;margin-top:4px}
+.pcols{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
+.ptitle{font-size:12.5px;font-weight:700;color:#111827;margin-bottom:12px}
+.sthead{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#6B7280;margin-bottom:8px}
+.strow{display:flex;align-items:center;gap:9px;margin-bottom:8px;border-radius:4px}
+.strow:hover{background:#F8FAFC}
+.stname{font-size:10.5px;color:#4B5563;width:118px;font-weight:600;flex-shrink:0;line-height:1.2}
+.sttrack{flex:1;background:#F1F5F9;border-radius:4px;height:12px;overflow:hidden}
+.stfill{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#16325f,#0B1D3A)}
+.stval{font-size:10.5px;font-weight:700;color:#4B5563;width:46px;text-align:right;flex-shrink:0}
+.stwin{font-size:10.5px;font-weight:700;width:40px;text-align:right;flex-shrink:0}
+
+/* tables */
+.crotbl{width:100%;border-collapse:collapse}
+.crotbl th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#6B7280;font-weight:700;padding:9px 10px;border-bottom:1px solid #E5E7EB}
+.crotbl td{font-size:12.5px;padding:12px 10px;border-bottom:1px solid #EEF1F5;color:#111827}
+.crotbl tr:last-child td{border-bottom:none}
+.crotbl td.r,.crotbl th.r{text-align:right}
+.crotbl tr:hover td{background:#F8FAFC}
+.trtotal td{border-top:2px solid #E5E7EB;font-weight:800;color:#0B1D3A}
+.cropill{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.cropill.g{background:#ECFDF5;color:#15803d}.cropill.a{background:#FFFBEB;color:#b45309}.cropill.r{background:#FEF2F2;color:#b91c1c}
+.bar-cell{display:flex;align-items:center;gap:9px;justify-content:flex-end}
+.minibar{height:6px;border-radius:3px;background:#F1F5F9;width:86px;overflow:hidden}
+.minibar>i{display:block;height:100%;border-radius:3px;background:#0B1D3A}
+.trust{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-size:11px;font-weight:800;border:2px solid}
+.trust.g{color:#15803d;border-color:#86efac;background:#ECFDF5}
+.trust.a{color:#b45309;border-color:#fcd34d;background:#FFFBEB}
+.trust.r{color:#b91c1c;border-color:#fca5a5;background:#FEF2F2}
+.teamcell{color:#6B7280;font-weight:600;white-space:nowrap}
+.acctsub{display:block;font-size:11px;color:#6B7280;font-weight:500;margin-top:1px}
+
+/* risk monitor */
+.riskrow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.rk{padding:12px 13px}
+.rk .v{font-size:21px;font-weight:800;color:#0B1D3A;letter-spacing:-.4px}
+.rk .l{font-size:10px;color:#6B7280;font-weight:600;line-height:1.3;margin-top:7px;min-height:26px}
+.atrisk{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ar{padding:14px 15px}
+.ar .h{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:800;color:#111827;line-height:1.3;margin-bottom:6px}
+.ardot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.ar p{font-size:11px;color:#6B7280;line-height:1.5;font-weight:500}
+.riskbadge{font-size:11px;font-weight:800;letter-spacing:.4px;padding:5px 12px;border-radius:8px}
+.riskbadge.g{color:#15803d;background:#ECFDF5;border:1px solid #a7f3d0}
+.riskbadge.a{color:#b45309;background:#FFFBEB;border:1px solid #fde68a}
+.riskbadge.r{color:#b91c1c;background:#FEF2F2;border:1px solid #fecaca}
+
+/* AI panel + ask */
+.aipanel{padding:18px 20px;display:flex;flex-direction:column}
+.aibtn{display:flex;align-items:center;gap:10px;width:100%;padding:13px 15px;border:1px solid #E5E7EB;border-radius:10px;background:#fff;font-size:13px;font-weight:700;color:#111827;margin-bottom:10px;cursor:pointer;text-align:left;font-family:inherit}
+.aibtn.primary{background:linear-gradient(100deg,#0B1D3A,#123069);color:#fff;border-color:#0B1D3A}
+.askhd{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:#111827;margin:12px 0 8px}
+.qchips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.qchip{border:1px solid #E5E7EB;background:#F8FAFC;border-radius:20px;padding:6px 12px;font-size:11.5px;font-weight:600;color:#4B5563;cursor:pointer}
+.qchip.on{background:#E8F0FF;border-color:#1246E3;color:#1246E3}
+.cro-bub{border-radius:10px;padding:9px 12px;font-size:12.5px;line-height:1.5;background:#F1F5F9;color:#111827}
+.cro-bub b{font-weight:800;color:#0B1D3A}
+.askbar{display:flex;gap:8px;margin-top:auto;padding-top:12px}
+.askin{flex:1;font-size:12px;color:#111827;padding:12px 13px;border:1.5px solid #E5E7EB;border-radius:10px;background:#F8FAFC;outline:none;font-family:inherit}
+.askin::placeholder{color:#6B7280}
+.asksend{width:44px;border-radius:10px;background:#1246E3;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:none;cursor:pointer}
+
+/* board narrative */
+.board-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.bchip{font-size:12px;color:#4B5563;background:#F8FAFC;border:1px solid #E5E7EB;padding:5px 10px;border-radius:8px}
+.bchip b{color:#111827;font-weight:700}
+.board-text{font-size:13.5px;line-height:1.65;color:#4B5563}
+.board-text b{color:#111827;font-weight:700}
+
+/* bottom CTA */
+.bcta{background:linear-gradient(100deg,#0B1D3A,#123069);border-radius:14px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:26px 0 40px}
+.bcta h2{font-size:20px;font-weight:800;letter-spacing:-.4px;color:#fff;margin:0 0 6px}
+.bcta p{font-size:13.5px;color:#6B7280;margin:0;max-width:460px;font-weight:500}
+.bcta .btns{display:flex;gap:10px}
+.bw{display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:9px;background:#1246E3;color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.bo{display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:9px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);font-size:14px;font-weight:700;text-decoration:none}
+
+/* ---------- Hedge AI markers ---------- */
+.aimark{display:inline-flex;align-items:center;gap:4px;font-size:8.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#1246E3;background:#E8F0FF;border-radius:20px;padding:2px 7px 2px 5px;vertical-align:middle;white-space:nowrap;line-height:1.5;position:relative;top:-1px}
+.aimark.solo{padding:1px 3px;gap:0;background:transparent;top:0}
+.aihint{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#6B7280;font-weight:500;padding:11px 2px 0}
+.aihint b{color:#1246E3;font-weight:800}
+
+/* ---------- biggest deal of the period ---------- */
+.bigdeal{background:linear-gradient(100deg,#0B1D3A,#1246E3);border-radius:14px;padding:20px 24px;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;margin-bottom:22px;color:#fff}
+.bd-ico{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bd-ey{font-size:10px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:5px}
+.bd-name{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;line-height:1.25}
+.bd-pill{font-size:9.5px;font-weight:800;letter-spacing:.5px;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.bd-pill.g{background:#ECFDF5;color:#15803d}
+.bd-pill.a{background:#FFFBEB;color:#b45309}
+.bd-pill.r{background:#FEF2F2;color:#b91c1c}
+.bd-meta{font-size:11.5px;color:rgba(255,255,255,.7);font-weight:600;margin-top:5px}
+.bd-note{font-size:12.5px;color:rgba(255,255,255,.92);line-height:1.55;font-weight:500;margin-top:9px;max-width:660px}
+.bd-rt{text-align:right;flex-shrink:0}
+.bd-amt{font-size:30px;font-weight:800;letter-spacing:-1px;line-height:1}
+.bd-sub{font-size:11px;font-weight:600;margin-top:7px;max-width:240px;line-height:1.45;margin-left:auto}
+.bd-sub.ok{color:#A7F3D0}
+.bd-sub.risk{color:#FCA5A5}
+.bigdeal .aimark{background:rgba(255,255,255,.18);color:#fff}
+.bigdeal .aimark svg path{stroke:#fff}
+
+/* ---------- botgrid fill ---------- */
+.botleft{display:flex;flex-direction:column}
+.bfill{flex:1;display:flex;flex-direction:column}
+.bfill .brfwrap{display:flex;flex-direction:column;justify-content:space-between;flex:1}
+.midgrid2{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin:22px 0 0}
+.midgrid2>.panel{display:flex;flex-direction:column}
+#pdCred{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+#pdCred .strow{margin-bottom:0}
+.perseg button{transition:background .15s ease,color .15s ease}
+.perseg button:hover{color:#111827}
+.orgnote{font-size:11.5px;color:#6B7280;line-height:1.55;font-weight:500;margin:12px 2px 0}
+
+@media(max-width:1100px){
+.hero{grid-template-columns:1fr 1fr}.hero2{grid-template-columns:1fr 1fr}
+.pathgrid,.midgrid,.pipegrid,.botgrid,.pcols,.midgrid2{grid-template-columns:1fr}
+.bigdeal{grid-template-columns:1fr;gap:14px}.bd-rt{text-align:left}.bd-sub{margin-left:0}
+.riskrow{grid-template-columns:repeat(3,1fr)}.atrisk{grid-template-columns:1fr 1fr}
+.tblscroll{overflow-x:auto}.tblscroll table{min-width:760px}
+}
+@media(max-width:620px){.hero,.hero2{grid-template-columns:1fr}.hcell,.h2c{border-left:none}.wrap,.topin,.runin{padding-left:18px;padding-right:18px}}
+/* ---------- trial gate modals (unchanged behaviour, CRO tokens) ---------- */
+.ik-ov{position:fixed;inset:0;background:rgba(6,9,20,.7);display:none;align-items:flex-start;justify-content:center;padding:40px 20px;z-index:80;overflow:auto}
+.ik-ov.on{display:flex}
+.ik-modal{max-width:720px;width:100%;background:#fff;border-radius:16px;box-shadow:0 30px 70px rgba(2,6,23,.6);overflow:hidden;color:#111827}
+.ik-head{padding:20px 26px 15px;border-bottom:1px solid #E5E7EB;position:relative}
+.ik-head .ik-ey{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#1246E3;margin-bottom:6px}
+.ik-head h2{font-size:20px;font-weight:800;letter-spacing:-.4px;margin:0;color:#0B1D3A}
+.ik-head p{font-size:13px;color:#4B5563;margin:5px 0 0;line-height:1.55}
+.ik-x{position:absolute;top:16px;right:18px;width:30px;height:30px;border:none;background:#F1F5F9;border-radius:8px;font-size:16px;color:#6B7280;cursor:pointer;line-height:1}
+.ik-body{padding:18px 26px 24px}
+.ik-tabs{display:flex;gap:4px;background:#F1F5F9;border-radius:10px;padding:4px;margin-bottom:16px;width:max-content}
+.ik-tabs button{border:none;background:transparent;font:inherit;font-size:12.5px;font-weight:700;color:#6B7280;padding:8px 16px;border-radius:7px;cursor:pointer}
+.ik-tabs button.on{background:#fff;color:#1246E3;box-shadow:0 1px 3px rgba(15,23,42,.1)}
+.ik-drop{border:1.5px dashed #CBD5E1;border-radius:12px;background:#F8FAFC;padding:28px 22px;text-align:center;cursor:pointer;display:block}
+.ik-drop .di{width:46px;height:46px;border-radius:12px;background:#E8F0FF;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px}
+.ik-drop b{display:block;font-size:15px;font-weight:800;color:#0B1D3A}
+.ik-drop span{display:block;font-size:12.5px;color:#6B7280;margin-top:4px}
+.ik-drop .br{display:inline-flex;align-items:center;height:38px;padding:0 18px;border-radius:8px;background:#1246E3;color:#fff;font-size:13px;font-weight:700;margin-top:14px}
+.ik-paste{width:100%;min-height:150px;border:1.5px solid #E5E7EB;border-radius:10px;padding:12px;font:inherit;font-size:12.5px;resize:vertical;background:#F8FAFC}
+.ik-filerow{display:flex;align-items:center;gap:10px;background:#ECFDF5;border:1px solid #a7f3d0;border-radius:10px;padding:10px 13px;margin:16px 0}
+.ik-filerow .fi{color:#16A34A;font-size:16px}
+.ik-filerow b{font-size:13px;font-weight:700}
+.ik-filerow span{font-size:12px;color:#6B7280;margin-left:auto}
+.ik-maptitle{font-size:12.5px;font-weight:800;margin:2px 0 2px;color:#111827}
+.ik-mapsub{font-size:11.5px;color:#6B7280;margin:0 0 12px}
+.ik-map{display:flex;flex-direction:column;gap:8px}
+.ik-mrow{display:grid;grid-template-columns:1fr 22px 1fr;gap:10px;align-items:center}
+.ik-col{background:#F8FAFC;border:1px solid #E5E7EB;border-radius:8px;padding:8px 11px;font-size:12.5px}
+.ik-col .yh{font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#6B7280;display:block}
+.ik-col .yv{font-weight:700;color:#0B1D3A}
+.ik-arr{text-align:center;color:#6B7280;font-weight:800}
+.ik-field{display:flex;align-items:center;justify-content:space-between;background:#E8F0FF;border:1px solid #1246E3;border-radius:8px;padding:8px 11px;font-size:12.5px;font-weight:700;color:#1246E3}
+.ik-field .ck{color:#16A34A}
+.ik-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;flex-wrap:wrap}
+.ik-foot .nt{font-size:11.5px;color:#6B7280;max-width:330px;line-height:1.5}
+.ik-run{display:inline-flex;align-items:center;height:46px;padding:0 24px;border-radius:10px;background:#1246E3;color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:inherit}
+.ik-run:hover{background:#0e39b8}
+.ik-run[disabled]{opacity:.6;cursor:default}
+.ik-msg{display:none;padding:16px 18px;border-radius:10px;background:#E8F0FF;border:1px solid #bfd3ff;color:#123069;font-size:13px;line-height:1.55;margin-top:16px}
+.ik-msg.on{display:block}
+.rg-fld{margin-bottom:13px}
+.rg-fld label{display:block;font-size:12px;font-weight:700;color:#4B5563;margin-bottom:6px}
+.rg-fld input{width:100%;height:44px;border:1.5px solid #E5E7EB;border-radius:10px;padding:0 13px;font:inherit;font-size:14px;color:#0B1D3A;background:#F8FAFC;outline:none}
+.rg-fld input:focus{border-color:#1246E3;background:#fff}
+.rg-fld.err input{border-color:#EF4444;background:#FEF2F2}
+.rg-err{display:none;font-size:12px;font-weight:600;color:#EF4444;margin-top:6px}
+.rg-fld.err .rg-err{display:block}
+.rg-hint{font-size:11.5px;color:#6B7280;margin-top:6px}
+.rg-nocc{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#16A34A}
+
+.wkrow{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-top:1px solid #EEF1F5}
+.wkrow:first-of-type{border-top:0}
+.wkrow .ardot{margin-top:6px;flex-shrink:0}
+.wkt{font-size:12.5px;font-weight:800;color:#111827}
+.wkb{font-size:12px;color:#4B5563;font-weight:500;line-height:1.55;margin-top:2px}
+/* ---- Team Command overrides ---- */
+.riskrow{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1080px){.riskrow{grid-template-columns:repeat(2,1fr)}}
+#paneCoach .atrisk{grid-template-columns:1fr 1fr}
+@media(max-width:820px){#paneCoach .atrisk{grid-template-columns:1fr}}
+.pathgrid{align-items:start}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="topin">
+ <div class="brand">
+  <svg width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="8.5" y="8.5" width="31" height="31" rx="6" transform="rotate(45 24 24)" fill="url(#lg)"/><g transform="translate(13,14)" fill="none" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.1L5.9 10L2 14.9" opacity=".55"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".78"/><path d="M15.2 2L21.6 10L15.2 18"/></g></svg>
+  <div class="wm"><div class="nm">SalesHedge<span>.ai</span></div><div class="tag">DEAL + FORECAST INTEL THAT <span>LEARNS</span></div></div>
+  <span class="demopill">Live demo &middot; sample team</span>
+ </div>
+ <div class="topcta">
+  <a class="tbtn o" href="/contact.html">See a walkthrough</a>
+  <button class="tbtn p ikGo" type="button">Run it on your pipeline &rarr;</button>
+ </div>
+</div></div>
+
+<div class="notice">You are looking at a sample team. Every number below is illustrative. Run it on your pipeline to see this on your real deals.</div>
+
+<div class="runbar"><div class="runin">
+  <div class="runL"><div class="rico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1246E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></div><div><b>This is a sample team. Want to see YOUR numbers?</b><span>Upload a pipeline export and this whole cockpit re-runs on your real reps in seconds. No credit card.</span></div></div>
+  <button class="runbtn ikGo" id="ikOpen" type="button">Run it on your pipeline &rarr;</button>
+</div></div>
+
+<div class="wrap">
+
+ <div class="page-head">
+  <div>
+   <h1>Team Command</h1>
+   <div class="date">Enterprise West &middot; Dana Reyes &middot; Q3 FY26 &middot; <b>5 reps</b>, 30 open deals &middot; updated 8 min ago</div>
+  </div>
+ </div>
+ <div class="mtabs">
+  <button class="mtab on" type="button" data-tab="coach">Coach</button>
+  <button class="mtab" type="button" data-tab="hygiene">Team Hygiene</button>
+  <button class="mtab" type="button" data-tab="forecast">Forecast Call</button>
+ </div>
+ <div class="aihint"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg> Anything carrying the <b>Hedge AI</b> mark is produced by our model. Everything else is your own pipeline, shown back to you.</div>
+
+ <div id="paneCoach">
+ <div class="seclab">Your Quarter</div>
+ <div class="crocard hero"><div class="hcell"><div class="icircle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></div><div><div class="hlab">Hedge AI Team Forecast <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></div><div class="hbig tnum">$2.10M</div><div class="hsub red">$0.30M under quota</div></div></div><div class="hcell"><div class="icircle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#0B1D3A"/></svg></div><div><div class="hlab">Team Quota</div><div class="hbig tnum">$2.40M</div><div class="hsub">5 reps &middot; $480K each</div></div></div><div class="hcell"><div class="icircle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4.5A1.5 1.5 0 0 0 3 7.5 3.5 3.5 0 0 0 6.5 11H7M17 6h2.5A1.5 1.5 0 0 1 21 7.5 3.5 3.5 0 0 1 17.5 11H17"/></svg></div><div><div class="hlab">Rep Commit</div><div class="hbig tnum">$2.55M</div><div class="hsub red">$0.45M above what the evidence supports</div></div></div><div class="hcell"><div class="icircle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.4-7.5 10-4.3-1.6-7.5-5.4-7.5-10v-6l7.5-3z"/><path d="M8.8 11.8l2.2 2.2 4.2-4.4"/></svg></div><div><div class="hlab">Closed Won (QTD)</div><div class="hbig tnum">$1.42M</div><div class="hsub green">59% of quota closed</div></div></div><div class="hcell"><div class="icircle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg></div><div><div class="hlab">Gap to Quota</div><div class="hbig tnum red">-$0.30M</div><div class="hsub">13% of quota</div></div></div></div>
+
+ <div class="crocard hero2"><div class="h2c"><div class="icircle sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c0-6 4-9 9-9h5"/><path d="M14 6l4 4-4 4"/><circle cx="4" cy="19" r="1.6" fill="#0B1D3A" stroke="none"/></svg></div><div><div class="hlab">Path to close the gap <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></div><div class="h2v tnum" style="font-size:14.5px">$0.33M in three moves</div></div></div><div class="h2c"><div class="icircle sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5a8.5 8.5 0 1 1 15 0"/><path d="M12 13l3.5-4.5"/><circle cx="12" cy="13.5" r="1.4" fill="#0B1D3A" stroke="none"/></svg></div><div><div class="hlab">Hit Probability <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></div><div class="h2v tnum">54%</div><div class="hsub amber" style="margin-top:3px">At-risk quarter</div></div></div><div class="h2c"><div class="icircle sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 10h17M8 2.8V6M16 2.8V6"/></svg></div><div><div class="hlab">Days left in quarter</div><div class="h2v tnum">34</div><div class="hsub" style="margin-top:3px">Through Sep 30</div></div></div><div class="h2c"><div class="icircle sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.6" r="3.4"/><path d="M4.6 19.4c0-3.8 3.3-6.2 7.4-6.2s7.4 2.4 7.4 6.2"/></svg></div><div><div class="hlab">Team hygiene score <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></div><div class="h2v tnum">68 / 100</div><div class="hsub amber" style="margin-top:3px">Habits, not deals, are the problem</div></div></div></div>
+
+ <div class="bigdeal"><div class="bd-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5"/><circle cx="12" cy="16.6" r="1.05" fill="#fff" stroke="none"/><path d="M10.3 3.9 2.6 17.4A2 2 0 0 0 4.3 20.4h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div><div class="bd-mid"><div class="bd-ey">Deal that decides your quarter &middot; Q3 FY26</div><div class="bd-name">Brightwell Logistics <span class="bd-pill r">AT RISK</span></div><div class="bd-meta">Jordan Kerns &middot; Proposal / Commercial &middot; forecast Commit &middot; closes Sep 18</div><div class="bd-note"><span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span> 17% of your quota rides on this one deal. No logged activity in 18 days and no economic buyer named, yet it is still in Commit.</div></div><div class="bd-rt"><div class="bd-amt tnum">$410K</div><div class="bd-sub risk">Your strongest rep is carrying your largest hidden risk.</div></div></div>
+
+ <div class="pathgrid">
+  <div>
+  <div class="seclab">This Week's Coaching Plan <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="crocard panel"><p class="psub">Your 1:1 agenda, ranked by where your time changes the outcome most. Every item is a habit you can fix in one conversation, not a deal you have to rescue alone.</p><div class="mv"><span class="mvn">1</span><div><div class="t">Jordan Kerns &middot; pressure-test the happy ears</div><div class="s">Brightwell ($410K) has had no activity in 18 days and he still calls it Commit. <b>Move:</b> if he cannot name the economic buyer on the spot, it comes out of Commit this week.</div></div></div><div class="mv"><span class="mvn">2</span><div><div class="t">Rachel Okoro &middot; build next-step discipline</div><div class="s">Half her open deals have no dated next step and Cascade ($190K) is single-threaded. She is selling reactively. <b>Move:</b> every deal leaves the 1:1 with a dated next step, and a second contact goes into Cascade.</div></div></div><div class="mv"><span class="mvn">3</span><div><div class="t">Nina Alvarez &middot; coach qualification, not effort</div><div class="s">An economic buyer is named on only 2 of her 8 open deals. She is busy running demos for people who cannot sign. <b>Move:</b> earn the buyer meeting before the demo, and open new pipeline now.</div></div></div><div class="mvnote">Marcus Bell is your model: 100% next-step coverage, 3 of 5 deals with a named buyer, nothing overdue. Use his cadence as the standard in the room.</div></div>
+  <div class="seclab" style="margin-top:18px">Coachable Moments <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="atrisk"><div class="crocard ar"><div class="h"><span class="ardot" style="background:#EF4444"></span>Happy ears &middot; Jordan Kerns</div><p><b style="color:#111827">Brightwell $410K</b>. 18 days dark, champion unresponsive, still forecast Commit. Confidence is hiding the biggest risk on your team. Coach him to prove the next step exists and name the buyer.</p></div><div class="crocard ar"><div class="h"><span class="ardot" style="background:#F59E0B"></span>Reactive selling &middot; Rachel Okoro</div><p><b style="color:#111827">3 of 6 deals</b> have no next step. She answers inbound and follows up, but she is not driving. That is how deals quietly go dark. Set a dated next step on every deal before it leaves the 1:1.</p></div><div class="crocard ar"><div class="h"><span class="ardot" style="background:#EF4444"></span>No power &middot; Nina Alvarez</div><p><b style="color:#111827">2 of 8 deals</b> have an economic buyer. Effort is high, qualification is missing. Earn the economic-buyer meeting before the demo, not after.</p></div><div class="crocard ar"><div class="h"><span class="ardot" style="background:#F59E0B"></span>Single-threaded &middot; Tom Ford</div><p><b style="color:#111827">Orion Freight $130K</b>. He drives every next step himself on 3 of 4 deals and the buyer has not asked for anything in three weeks. Hand the next step to the buyer and watch what happens.</p></div></div>
+  </div>
+  <div>
+  <div class="crocard aipanel"><div class="cardlab" style="margin-bottom:12px">Hedge Predicts <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div><button class="aibtn primary" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.4-7.5 10-4.3-1.6-7.5-5.4-7.5-10v-6l7.5-3z"/><path d="M8.8 11.8l2.2 2.2 4.2-4.4"/></svg>Three calls you are not making</button><div class="cro-bub" style="margin-bottom:8px"><b>91% &middot; Brightwell slips out of the quarter.</b> Jordan still has it in Commit. Eighteen days of silence after a proposal is a decision, not a delay.</div><div class="cro-bub" style="margin-bottom:8px"><b>84% &middot; Rachel misses by roughly $120K.</b> Not for lack of pipeline. Three of her six deals have no next step, and two have already slipped a close date once.</div><div class="cro-bub"><b>76% &middot; Nina's gap is top of funnel, not execution.</b> Her coverage looks fine on paper, but only a quarter of it has a buyer attached. Treat it as unqualified until it does.</div></div></div>
+  <div class="crocard panel" style="margin-top:16px"><div class="cardlab" style="margin-bottom:4px">What Changed Since Last Week <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><p class="psub">Movement the model tracked across your team, so the 1:1 starts where you left it.</p><div class="wkrow"><span class="ardot" style="background:#EF4444"></span><div><div class="wkt">Brightwell went quiet</div><div class="wkb">Last activity was 11 days at your last review. It is 18 now, and the close date has not moved.</div></div></div><div class="wkrow"><span class="ardot" style="background:#EF4444"></span><div><div class="wkt">Hedge call dropped $140K</div><div class="wkb">$2.24M to $2.10M. Two of Nina's deals lost their close date and one of Rachel's slipped a second time.</div></div></div><div class="wkrow"><span class="ardot" style="background:#16A34A"></span><div><div class="wkt">Marcus closed Vantage Rail</div><div class="wkb">$180K, on the date he called it, with the buyer running the last two steps. That is the cadence to name in the room.</div></div></div><div class="wkrow"><span class="ardot" style="background:#F59E0B"></span><div><div class="wkt">Team hygiene slipped 4 points</div><div class="wkb">72 to 68. Next-step coverage fell from 21 of 30 to 18 of 30. Nothing broke, the habit just stopped.</div></div></div></div>
+  </div>
+ </div>
+ <div class="askbar"><div class="askin"><div class="askhd"><svg width="15" height="15" viewBox="0 0 48 48"><rect x="10" y="10" width="28" height="28" rx="6" transform="rotate(45 24 24)" fill="#1246E3"/></svg>Ask the Hedge <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></div><div class="qchips"><span class="qchip on" data-a="0">Who needs the most coaching right now?</span><span class="qchip" data-a="1">Which rep is happy-earing the forecast?</span><span class="qchip" data-a="2">Where is my pipeline dirtiest?</span><span class="qchip" data-a="3">What do I say in Monday's forecast call?</span></div><div class="answer" id="ans"></div></div></div>
+ </div>
+
+ <div id="paneHygiene" style="display:none">
+ <div class="seclab">Team Hygiene Scorecard</div><div class="crocard" style="padding:6px 14px 4px"><div class="tblscroll"><table class="crotbl"><thead><tr><th>Rep</th><th class="r">Open</th><th class="r">Next step</th><th class="r">Econ buyer</th><th class="r">Last activity</th><th class="r">Overdue</th><th class="r">Hygiene <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></th></tr></thead><tbody><tr><td><b>Nina Alvarez</b><span class="acctsub">Selling to users, not buyers</span></td><td class="r tnum">8</td><td class="r warn">3 of 8</td><td class="r warn">2 of 8</td><td class="r">5d</td><td class="r warn">3</td><td class="r"><span class="trust r">D</span></td></tr><tr><td><b>Rachel Okoro</b><span class="acctsub">Reactive, no next-step cadence</span></td><td class="r tnum">6</td><td class="r warn">3 of 6</td><td class="r warn">2 of 6</td><td class="r">9d</td><td class="r warn">2</td><td class="r"><span class="trust r">D</span></td></tr><tr><td><b>Jordan Kerns</b><span class="acctsub">Happy ears on his top deal</span></td><td class="r tnum">7</td><td class="r warn">4 of 7</td><td class="r warn">3 of 7</td><td class="r warn">18d</td><td class="r">1</td><td class="r"><span class="trust a">C</span></td></tr><tr><td><b>Tom Ford</b><span class="acctsub">Seller-driven, buyer passive</span></td><td class="r tnum">4</td><td class="r">3 of 4</td><td class="r">2 of 4</td><td class="r">6d</td><td class="r">1</td><td class="r"><span class="trust a">C</span></td></tr><tr><td><b>Marcus Bell</b><span class="acctsub">Clean pipeline, model this</span></td><td class="r tnum">5</td><td class="r">5 of 5</td><td class="r">3 of 5</td><td class="r">2d</td><td class="r">0</td><td class="r"><span class="trust g">A</span></td></tr></tbody></table></div></div><p class="orgnote">Hygiene blends next-step coverage, economic-buyer identification, activity recency and overdue close dates across each rep's open book. It is a habit score, not a performance score. Bell is your standard. Alvarez and Okoro are two 1:1s away from a C.</p>
+ <div class="seclab" style="margin-top:18px">What Is Dirty Across the Team <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="riskrow"><div class="crocard rk"><div class="v tnum">12</div><div class="l">Open deals with no next step</div></div><div class="crocard rk"><div class="v tnum">18</div><div class="l">Deals with no economic buyer named</div></div><div class="crocard rk"><div class="v tnum">6</div><div class="l">Gone dark 14 days or more</div></div><div class="crocard rk"><div class="v tnum">7</div><div class="l">Past their close date, not updated</div></div><div class="crocard rk"><div class="v tnum">9</div><div class="l">Seller-driven next steps</div></div><div class="crocard rk"><div class="v tnum">4</div><div class="l">Close dates moved twice or more</div></div><div class="crocard rk"><div class="v tnum">2</div><div class="l">Reps below 2.5x coverage</div></div><div class="crocard rk"><div class="v tnum">5</div><div class="l">Single-threaded deals over $100K</div></div></div><p class="orgnote">Thirty open deals across five reps. Twelve of them cannot tell you what happens next, and eighteen cannot tell you who signs. That is not a pipeline problem, it is a habit problem, and it is the cheapest thing on this page to fix.</p>
+ </div>
+
+ <div id="paneForecast" style="display:none">
+ <div class="seclab">Forecast Call Sheet &middot; Q3 FY26</div><div class="crocard" style="padding:6px 14px 4px"><div class="tblscroll"><table class="crotbl"><thead><tr><th>Rep</th><th class="r">Rep commit</th><th class="r">Hedge call <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></th><th class="r">Closed won</th><th class="r">Attainment</th><th class="r">Coverage</th><th class="r">Forecast risk <span class="aimark solo" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg></span></th></tr></thead><tbody><tr><td><b>Marcus Bell</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$620K</td><td class="r tnum">$585K</td><td class="r tnum">$410K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:85%"></i></span>85%</span></td><td class="r"><span style="color:#16A34A;font-weight:700">3.5x</span></td><td class="r"><span class="riskbadge g">LOW</span></td></tr><tr><td><b>Jordan Kerns</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$700K</td><td class="r tnum">$520K</td><td class="r tnum">$330K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:69%"></i></span>69%</span></td><td class="r"><span style="color:#EF4444;font-weight:700">1.9x</span></td><td class="r"><span class="riskbadge r">HIGH</span></td></tr><tr><td><b>Tom Ford</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$430K</td><td class="r tnum">$385K</td><td class="r tnum">$290K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:60%"></i></span>60%</span></td><td class="r"><span style="color:#EF4444;font-weight:700">2.2x</span></td><td class="r"><span class="riskbadge a">MEDIUM</span></td></tr><tr><td><b>Rachel Okoro</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$460K</td><td class="r tnum">$360K</td><td class="r tnum">$210K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:44%"></i></span>44%</span></td><td class="r"><span style="color:#16A34A;font-weight:700">3.0x</span></td><td class="r"><span class="riskbadge r">HIGH</span></td></tr><tr><td><b>Nina Alvarez</b><span class="acctsub">quota $480K</span></td><td class="r tnum">$340K</td><td class="r tnum">$235K</td><td class="r tnum">$180K</td><td class="r"><span class="bar-cell"><span class="minibar"><i style="width:38%"></i></span>38%</span></td><td class="r"><span style="color:#16A34A;font-weight:700">3.5x</span></td><td class="r"><span class="riskbadge r">HIGH</span></td></tr><tr class="trtotal"><td><b>Team</b></td><td class="r tnum">$2.55M</td><td class="r tnum">$2.10M</td><td class="r tnum">$1.42M</td><td class="r">59%</td><td class="r">2.9x</td><td class="r"><span class="riskbadge a">AT RISK</span></td></tr></tbody></table></div></div><p class="orgnote">Your reps are calling <b>$2.55M</b>. The evidence supports <b>$2.10M</b>. The $450K difference is not spread evenly: two thirds of it sits with Kerns and Okoro, and both gaps trace to the same two missing habits.</p>
+ <div class="seclab" style="margin-top:18px">Path to Your Number <span class="aimark" title="Produced by the SalesHedge AI model, not read from your CRM"><svg width="11" height="10" viewBox="0 0 24 20" fill="none" stroke="#1246E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.1L5.9 10L2 14.9" opacity=".4"/><path d="M8.6 3.8L13.6 10L8.6 16.2" opacity=".7"/><path d="M15.2 2L21.6 10L15.2 18"/></svg>Hedge AI</span></div><div class="crocard panel"><p class="psub">Quota $2.40M. Hedge call $2.10M. Three moves close the $0.30M, and all three are already on your coaching plan.</p><div class="mv"><span class="mvn">1</span><div><div class="t">Save Brightwell &middot; +$0.18M</div><div class="s">Get Jordan in front of the economic buyer this week. Recover 44% of a $410K deal that is currently a coin flip.</div></div></div><div class="mv"><span class="mvn">2</span><div><div class="t">Convert Cascade &middot; +$0.09M</div><div class="s">Multi-thread Rachel's $190K into finance before the redline. It has a champion, it has no second contact.</div></div></div><div class="mv"><span class="mvn">3</span><div><div class="t">Close Orion Freight &middot; +$0.06M</div><div class="s">Tom's $130K is buyer-passive, not dead. Hand them the next step and let their response tell you the truth.</div></div></div><div class="mvtotal"><span style="font-size:12.5px;color:#4B5563;font-weight:600">Fix the behavior and the number follows.</span><span style="font-size:15px;font-weight:800;letter-spacing:-.3px">Path to quota <span class="tnum">$2.43M</span> <span style="color:#6B7280;font-weight:600;font-size:12.5px">vs $2.40M target</span></span></div></div>
+ <div class="seclab" style="margin-top:18px">Open Pipeline by Stage</div><div class="crocard panel"><div class="ptiles"><div class="pt"><div class="hlab">Open pipeline</div><div class="pv tnum">$2.81M</div><div class="pd" style="color:#16A34A">2.9x coverage</div></div><div class="pt"><div class="hlab">Commit</div><div class="pv tnum">$2.55M</div><div class="pd" style="color:#EF4444">$0.45M unsupported</div></div><div class="pt"><div class="hlab">Avg deal age</div><div class="pv tnum">58d</div><div class="pd" style="color:#b45309">9d over baseline</div></div><div class="pt"><div class="hlab">Slipped once or more</div><div class="pv tnum">11</div><div class="pd" style="color:#6B7280">of 30 open deals</div></div></div><div style="margin-top:14px"><div class="sthead"><span>Stage</span><span>Open</span></div><div class="strow"><span class="stname">Discovery</span><span class="sttrack"><i class="stfill" style="width:100%"></i></span><span class="stval tnum">$0.82M</span></div><div class="strow"><span class="stname">Solution Alignment</span><span class="sttrack"><i class="stfill" style="width:74%"></i></span><span class="stval tnum">$0.61M</span></div><div class="strow"><span class="stname">Demo / Validation</span><span class="sttrack"><i class="stfill" style="width:66%"></i></span><span class="stval tnum">$0.54M</span></div><div class="strow"><span class="stname">Business Case</span><span class="sttrack"><i class="stfill" style="width:50%"></i></span><span class="stval tnum">$0.41M</span></div><div class="strow"><span class="stname">Proposal / Commercial</span><span class="sttrack"><i class="stfill" style="width:38%"></i></span><span class="stval tnum">$0.31M</span></div><div class="strow"><span class="stname">Legal / Procurement</span><span class="sttrack"><i class="stfill" style="width:15%"></i></span><span class="stval tnum">$0.12M</span></div></div><p style="font-size:11.5px;color:#6B7280;line-height:1.55;margin-top:14px;font-weight:500">Nearly half the open book is still in Discovery or Solution Alignment with 34 days left. That is next quarter's pipeline, not this one, and treating it as coverage for Q3 is how the gap stays hidden.</p></div>
+ </div>
+
+ <div class="bcta">
+  <div>
+   <h2>Coach your team on evidence, not gut.</h2>
+   <p>Bring your reps' deals into SalesHedge and get a coaching plan, a hygiene scorecard and the exact 1:1 moves, on your real team, in minutes.</p>
+  </div>
+  <div class="btns">
+   <button class="bw ikGo" type="button">Run it on your pipeline &rarr;</button>
+   <a class="bo" href="/contact.html">See a walkthrough</a>
+  </div>
+ </div>
+</div>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.mtab');
+  var panes={coach:document.getElementById('paneCoach'),hygiene:document.getElementById('paneHygiene'),forecast:document.getElementById('paneForecast')};
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var k=t.getAttribute('data-tab');
+      tabs.forEach(function(x){x.classList.toggle('on',x===t)});
+      Object.keys(panes).forEach(function(n){ panes[n].style.display=(n===k)?'':'none'; });
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var ANS=[
+   "<b>Nina Alvarez.</b> D-grade hygiene, an economic buyer on only 2 of her 8 open deals, and three deals already past their close date. She is busy but selling to people who cannot sign. Rachel Okoro is close behind for the opposite reason: reactive, with no next step on half her pipeline.",
+   "<b>Jordan Kerns.</b> Brightwell ($410K) has been dark for 18 days and he still calls it Commit. Your strongest rep by pipeline is carrying your single biggest risk. Pressure-test it in your next 1:1 and make him name the economic buyer.",
+   "<b>Next steps and economic buyers.</b> Twelve of thirty open deals have no next step and eighteen have no buyer identified. Fix those two habits across the team and your forecast tightens without adding a single deal. Marcus Bell already runs clean, so use him as the model.",
+   "<b>Call $2.10M, not $2.55M, and say why.</b> The $450K gap is two thirds Kerns and Okoro. Commit Brightwell only if Jordan can name the buyer on the call. Then walk the three moves: save Brightwell, multi-thread Cascade, hand Orion back to the buyer. That is $2.43M against a $2.40M number."
+  ];
+  var chips=document.querySelectorAll('.qchip'), ans=document.getElementById('ans');
+  function pick(i){ chips.forEach(function(c){ c.classList.toggle('on', +c.dataset.a===i) }); ans.innerHTML=ANS[i]; }
+  chips.forEach(function(c){ c.addEventListener('click', function(){ pick(+c.dataset.a) }) });
+  pick(0);
+})();
+</script>
+<script>(function(){try{var q=new URLSearchParams(location.search);var ref=(q.get('ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40);if(!ref){try{ref=(localStorage.getItem('shk_ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40)}catch(e){}}if(ref){try{localStorage.setItem('shk_ref',ref)}catch(e){}try{navigator.sendBeacon('https://vyrfktotclcmeqvusgnw.supabase.co/functions/v1/ref-click',JSON.stringify({code:ref,target:'team-command',src:(q.get('src')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30)}))}catch(e){}document.querySelectorAll('a[href^="/subscribe"],a[href^="/signup"],a[href^="/login"]').forEach(function(a){var u=a.getAttribute('href');a.setAttribute('href',u+(u.indexOf('?')>-1?'&':'?')+'ref='+encodeURIComponent(ref));});}}catch(e){}})();</script>
+
+<div class="ik-ov" id="regOv">
+  <div class="ik-modal" role="dialog" aria-modal="true" aria-label="Register for your trial">
+    <div class="ik-head">
+      <button class="ik-x" id="regClose" aria-label="Close">&times;</button>
+      <div class="ik-ey">Free trial &middot; your data</div>
+      <h2>Register to run it on your pipeline</h2>
+      <p>Your work email unlocks the live trial. We score your real deals with the same engine and re-render this dashboard on your numbers. Business email only, no credit card.</p>
+    </div>
+    <div class="ik-body">
+      <div class="rg-fld">
+        <label for="regFn">First name</label>
+        <input id="regFn" type="text" placeholder="Jordan" autocomplete="given-name">
+      </div>
+      <div class="rg-fld" id="regEmailFld">
+        <label for="regEm">Work email</label>
+        <input id="regEm" type="email" placeholder="you@yourcompany.com" autocomplete="email">
+        <div class="rg-err">Please use your work email. Free and personal addresses (gmail, yahoo, outlook, etc.) are not eligible for the trial.</div>
+        <div class="rg-hint">We use it to open your trial and send your reality check. Nothing else.</div>
+      </div>
+      <div class="rg-fld">
+        <label for="regCo">Company</label>
+        <input id="regCo" type="text" placeholder="Acme Corp" autocomplete="organization">
+      </div>
+      <div class="ik-foot">
+        <div class="rg-nocc">&#128274; No credit card needed for trial</div>
+        <button class="ik-run" id="regGo" type="button">Start my trial &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ik-ov" id="ikOv">
+  <div class="ik-modal" role="dialog" aria-modal="true" aria-label="Run it on your pipeline">
+    <div class="ik-head">
+      <button class="ik-x" id="ikClose" aria-label="Close">&times;</button>
+      <div class="ik-ey">Live trial &middot; your data</div>
+      <h2>Run it on your pipeline</h2>
+      <p>Drop a pipeline export from your CRM. We score it with the same engine and re-render this dashboard on your real deals. Up to 100 deals in the trial.</p>
+    </div>
+    <div class="ik-body">
+      <div class="ik-tabs"><button class="on" id="tabCsv" type="button">Upload CSV</button><button id="tabPaste" type="button">Paste rows</button></div>
+
+      <div id="paneCsv">
+        <label class="ik-drop" id="ikDrop">
+          <span class="di">&#128196;</span>
+          <b>Drop your CSV here or browse</b>
+          <span>Account, amount, stage, close date, next step, rep, and more. Headers in row one.</span>
+          <span class="br">Choose file</span>
+          <input type="file" id="ikFile" accept=".csv,text/csv" style="display:none">
+        </label>
+      </div>
+
+      <div id="panePaste" style="display:none">
+        <textarea class="ik-paste" id="ikText" placeholder="Paste rows from your CRM export, including a header row."></textarea>
+      </div>
+
+      <div class="ik-filerow" id="ikFileRow" style="display:none"><span class="fi">&#128196;</span><b id="ikFileName">pipeline.csv</b><span id="ikRows">0 rows detected</span></div>
+
+      <div id="ikMap" style="display:none">
+        <p class="ik-maptitle">Confirm your columns</p>
+        <p class="ik-mapsub">We matched your headers to SalesHedge fields. Adjust any that look off.</p>
+        <div class="ik-map" id="ikMapRows"></div>
+      </div>
+
+      <div class="ik-msg" id="ikMsg"></div>
+
+      <div class="ik-foot">
+        <div class="nt">Your file is used to run this analysis and is not shared. Work email required, already verified.</div>
+        <button class="ik-run" id="ikRun" type="button" disabled>Analyze my pipeline &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---- open demo (bait). Trial gate sits in front of the pipeline upload, not the demo. ----
+  var access=null; try{ access=JSON.parse(localStorage.getItem('sh_trial')||'null'); }catch(e){}
+  var registered = !!(access && access.target==='revenue-command');
+
+  var ANALYZE='/api/public/analyze';
+  var REGISTER='https://vyrfktotclcmeqvusgnw.supabase.co/functions/v1/trial-register';
+  var FREE=['gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','ymail.com','hotmail.com','hotmail.co.uk','outlook.com','live.com','msn.com','aol.com','icloud.com','me.com','mac.com','proton.me','protonmail.com','gmx.com','gmx.net','mail.com','zoho.com','yandex.com','yandex.ru','pm.me','hey.com','fastmail.com','tutanota.com','mailinator.com','guerrillamail.com','10minutemail.com','trashmail.com','yopmail.com'];
+  var ov=document.getElementById('ikOv');
+  var closeB=document.getElementById('ikClose');
+  var tabCsv=document.getElementById('tabCsv'), tabPaste=document.getElementById('tabPaste');
+  var paneCsv=document.getElementById('paneCsv'), panePaste=document.getElementById('panePaste');
+  var drop=document.getElementById('ikDrop'), file=document.getElementById('ikFile'), text=document.getElementById('ikText');
+  var fileRow=document.getElementById('ikFileRow'), fileName=document.getElementById('ikFileName'), rowsEl=document.getElementById('ikRows');
+  var mapWrap=document.getElementById('ikMap'), mapRows=document.getElementById('ikMapRows');
+  var runB=document.getElementById('ikRun'), msg=document.getElementById('ikMsg');
+
+  var FIELDS=[
+    {key:'account_name',label:'Account name',syn:['account','account name','customer','company','name','opportunity']},
+    {key:'deal_amount',label:'Deal amount',syn:['amount','deal amount','value','acv','arr','tcv']},
+    {key:'current_stage',label:'Current stage',syn:['stage','current stage','sales stage']},
+    {key:'expected_close_date',label:'Expected close',syn:['close date','expected close','close','forecast close']},
+    {key:'next_step',label:'Next step',syn:['next step','next steps','action']},
+    {key:'rep',label:'Rep',syn:['rep','owner','owner / rep','sales rep','ae','account executive']},
+    {key:'economic_buyer_access',label:'Economic buyer',syn:['economic buyer','eb','buyer access','power']},
+    {key:'last_activity_days',label:'Last activity',syn:['last activity','days since activity','last activity days','inactivity']}
+  ];
+
+  var parsed=null; // {headers:[], rows:[[...]], map:{fieldKey:headerIndex}}
+
+  function open(){ ov.classList.add('on'); document.body.style.overflow='hidden'; }
+  function close(){ ov.classList.remove('on'); document.body.style.overflow=''; }
+  closeB.addEventListener('click', close);
+  ov.addEventListener('click', function(e){ if(e.target===ov) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ if(ov.classList.contains('on')) close(); if(regOv.classList.contains('on')) regClose(); } });
+
+  // ---- register step (the gate) ----
+  var regOv=document.getElementById('regOv');
+  var regCloseB=document.getElementById('regClose');
+  var regFld=document.getElementById('regEmailFld');
+  var regEm=document.getElementById('regEm'), regFn=document.getElementById('regFn'), regCo=document.getElementById('regCo');
+  var regGo=document.getElementById('regGo');
+  function regOpen(){ regOv.classList.add('on'); document.body.style.overflow='hidden'; setTimeout(function(){regEm.focus();},50); }
+  function regClose(){ regOv.classList.remove('on'); document.body.style.overflow=''; }
+  regCloseB.addEventListener('click', regClose);
+  regOv.addEventListener('click', function(e){ if(e.target===regOv) regClose(); });
+  regEm.addEventListener('input', function(){ regFld.classList.remove('err'); });
+  function validBiz(v){ v=(v||'').trim().toLowerCase(); var m=v.match(/^[^\s@]+@([^\s@]+\.[^\s@]+)$/); if(!m) return false; var d=m[1]; if(FREE.indexOf(d)>-1) return false; return d; }
+  regGo.addEventListener('click', function(){
+    var dom=validBiz(regEm.value);
+    if(!dom){ regFld.classList.add('err'); regEm.focus(); return; }
+    var email=regEm.value.trim().toLowerCase();
+    access={email:email,domain:dom,target:'revenue-command',ts:Date.now()};
+    registered=true;
+    try{ localStorage.setItem('sh_trial', JSON.stringify(access)); }catch(e){}
+    try{
+      var ref=null; try{ ref=localStorage.getItem('shk_ref'); }catch(e){}
+      fetch(REGISTER,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:email,domain:dom,target:'revenue-command',name:(regFn.value||'').trim(),company:(regCo.value||'').trim(),ref:ref}),keepalive:true}).catch(function(){});
+    }catch(e){}
+    regClose(); open();
+  });
+  regEm.addEventListener('keydown', function(e){ if(e.key==='Enter'){ regGo.click(); }});
+
+  // banner CTA: gate first, then upload
+  Array.prototype.forEach.call(document.querySelectorAll('.ikGo'), function(b){
+    b.addEventListener('click', function(){ if(registered) open(); else regOpen(); });
+  });
+
+  function setTab(csv){
+    tabCsv.classList.toggle('on', csv); tabPaste.classList.toggle('on', !csv);
+    paneCsv.style.display=csv?'':'none'; panePaste.style.display=csv?'none':'';
+  }
+  tabCsv.addEventListener('click', function(){ setTab(true); });
+  tabPaste.addEventListener('click', function(){ setTab(false); });
+
+  // very small CSV parser (handles quoted fields with commas)
+  function parseCSV(t){
+    var rows=[], row=[], cur='', q=false, i, c;
+    t=t.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+    for(i=0;i<t.length;i++){ c=t[i];
+      if(q){ if(c==='"'){ if(t[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=c; }
+      else { if(c==='"') q=true; else if(c===','){ row.push(cur); cur=''; }
+        else if(c==='\n'){ row.push(cur); rows.push(row); row=[]; cur=''; } else cur+=c; }
+    }
+    if(cur.length||row.length){ row.push(cur); rows.push(row); }
+    return rows.filter(function(r){ return r.some(function(x){ return (x||'').trim()!==''; }); });
+  }
+
+  function automap(headers){
+    var map={};
+    FIELDS.forEach(function(f){
+      var idx=-1;
+      headers.forEach(function(h,hi){
+        var hv=(h||'').trim().toLowerCase();
+        if(idx<0 && (hv===f.key || f.syn.indexOf(hv)>-1)) idx=hi;
+      });
+      if(idx>-1) map[f.key]=idx;
+    });
+    return map;
+  }
+
+  function renderMap(headers, map){
+    mapRows.innerHTML='';
+    FIELDS.forEach(function(f){
+      var hi=map[f.key];
+      var yourCol = hi>-1 && headers[hi]!=null ? headers[hi] : 'Not found';
+      var ck = hi>-1 ? '<span class="ck">&#10003;</span>' : '<span style="color:#f59e0b;font-weight:800">skip</span>';
+      var row=document.createElement('div'); row.className='ik-mrow';
+      row.innerHTML='<div class="ik-col"><span class="yh">Your column</span><span class="yv">'+esc(yourCol)+'</span></div>'+
+                    '<div class="ik-arr">&rarr;</div>'+
+                    '<div class="ik-field">'+esc(f.label)+' '+ck+'</div>';
+      mapRows.appendChild(row);
+    });
+  }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  function ingest(t, name){
+    var rows=parseCSV(t);
+    if(rows.length<2){ showMsg('That did not look like a table with a header row and at least one deal. Check the file and try again.'); return; }
+    var headers=rows[0]; var data=rows.slice(1);
+    var map=automap(headers);
+    parsed={headers:headers, rows:data, map:map};
+    fileName.textContent=name||'pasted rows';
+    rowsEl.textContent=data.length+' rows detected';
+    fileRow.style.display='flex'; mapWrap.style.display='block';
+    renderMap(headers, map);
+    runB.disabled=false; msg.classList.remove('on');
+  }
+
+  drop.addEventListener('click', function(){ file.click(); });
+  file.addEventListener('change', function(){
+    var f=file.files[0]; if(!f) return;
+    var r=new FileReader();
+    r.onload=function(){ ingest(r.result, f.name); };
+    r.readAsText(f);
+  });
+  text.addEventListener('input', function(){
+    if(text.value.trim().length>20){ ingest(text.value, 'pasted rows'); }
+  });
+
+  function showMsg(html){ msg.innerHTML=html; msg.classList.add('on'); }
+
+  function toDeals(){
+    var out=[]; var m=parsed.map;
+    parsed.rows.slice(0,100).forEach(function(r){
+      var d={};
+      FIELDS.forEach(function(f){ if(m[f.key]>-1 && m[f.key]!=null){ d[f.key]=(r[m[f.key]]||'').trim(); } });
+      out.push(d);
+    });
+    return out;
+  }
+
+  runB.addEventListener('click', function(){
+    if(!parsed) return;
+    runB.disabled=true; runB.textContent='Analyzing...';
+    var deals=toDeals();
+    var email = access && access.email ? access.email : '';
+    fetch(ANALYZE,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email, website:(access&&access.domain)||'', deals:deals})})
+    .then(function(res){ return res.ok?res.json():Promise.reject(res.status); })
+    .then(function(data){
+      if(data && (data.aggregates || data.perDeal)){
+        renderAggregates(data); close();
+      } else {
+        pending(deals.length);
+      }
+    })
+    .catch(function(){ pending(deals.length); })
+    .then(function(){ runB.disabled=false; runB.innerHTML='Analyze my pipeline &rarr;'; });
+  });
+
+  function pending(n){
+    showMsg('<b>Got it, '+n+' deals received.</b><br>Your team analysis is being enabled and will render on this dashboard shortly. We have your work email, so we will also send your reality check the moment it is ready.');
+  }
+
+  // Phase 4: fill this in against the /api/public/analyze multi-deal contract
+  function renderAggregates(data){
+    // hook point: update KPI row, forecast reality bars, The Basics, scoreboard, highest-risk from data.aggregates
+  }
+})();
+</script>
+
+</body></html>
