@@ -50,14 +50,8 @@
   .btn.o:hover{border-color:#6366f1;color:#6366f1}
 
   .hero{padding:64px 0 76px;background:linear-gradient(180deg,#fff 0%,#f8f9fc 100%)}
-  .hgrid{display:grid;grid-template-columns:440px 1fr;gap:50px;align-items:center}
-  .kick{color:#6366f1;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
   h1{font-size:42px;font-weight:900;letter-spacing:-.025em;line-height:1.1}
   h1 .ind{color:#6366f1}
-  .hsub{font-size:16.5px;color:#4b5563;line-height:1.6;margin:20px 0 26px;font-weight:500}
-  .hctas{display:flex;gap:12px;flex-wrap:wrap}
-  .chips{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap}
-  .chp{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#6b7280}
   .chp .ic{width:26px;height:26px;border-radius:8px;background:#eef2ff;display:flex;align-items:center;justify-content:center;flex:none}
 
   .shot{background:#fff;border:1px solid #e6e8ec;border-radius:10px;box-shadow:0 12px 34px rgba(17,24,39,.08);overflow:hidden}
@@ -123,6 +117,23 @@
 .as-why b{color:var(--acd)}
 .as-foot{grid-column:1 / -1;margin-top:22px;padding-top:18px;border-top:1px solid var(--hair);font-size:14.5px;color:var(--t2);line-height:1.65}
 .as-foot b{color:var(--ink)}
+.v2 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.v2 .hero{background:var(--dark,#0B0F19);padding:46px 0 56px;color:#fff}
+.v2 .herogrid{display:grid;grid-template-columns:0.84fr 1.16fr;gap:40px;align-items:center}
+.v2 .eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6366F1;margin:0 0 11px}
+.v2 h1{font-size:42px;line-height:1.07;font-weight:900;letter-spacing:-1.4px;margin:0;color:#fff}
+.v2 h1 .hi{color:#A5B4FC}
+.v2 .sub{font-size:16px;line-height:1.6;color:#B9C2D4;margin:16px 0 0;max-width:44ch}
+.v2 .btnrow{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.v2 .btn{display:inline-flex;align-items:center;gap:9px;background:#6366F1;color:#fff;font-size:15px;font-weight:800;padding:13px 22px;border-radius:11px;text-decoration:none}
+.v2 .btn.o{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.v2 .ticks{margin-top:13px;display:flex;gap:18px;flex-wrap:wrap}
+.v2 .ticks div{font-size:12.5px;color:#9AA4BA;font-weight:600;display:flex;align-items:center;gap:7px}
+.v2 .ticks span{color:#6366F1;font-weight:900}
+/* The nav sits outside .v2, so at 1040 it left the logo 70px inboard of the
+   headline. Widened here rather than restructuring the markup. */
+.wrap.navin{max-width:1180px}
+@media(max-width:900px){.v2 .herogrid{grid-template-columns:1fr}.v2 h1{font-size:32px}}
 @media(max-width:900px){.as-card{grid-template-columns:1fr;gap:26px;padding:22px 20px}.as h2.as-h{font-size:29px}.as-plot{height:330px}.as-pin{font-size:11px;padding:5px 8px}}
 @media(max-width:960px){}
 @media(max-width:560px){}
@@ -315,9 +326,6 @@
   .center-h{margin:0 auto 24px}
   .ssub{margin-top:10px}
   .split,.split.rev{gap:38px}
-  .hgrid{gap:40px}
-  .hsub{margin:16px 0 20px}
-  .chips{margin-top:20px}
   .q3{gap:16px}
   .feat2{margin-top:18px}
   .cta{padding:34px 38px}
@@ -342,25 +350,22 @@
 </div></nav>
 
 <!-- HERO -->
-<header class="hero"><div class="wrap hgrid">
-  <div>
-    <div class="kick">SalesHedge for Sales Managers</div>
-    <h1>Your CRM reports the pipeline.<br><span class="ind">SalesHedge tells you where to intervene.</span></h1>
-    <p class="hsub">Back your team forecast with actual evidence, see who needs coaching, where deals are stuck, and know the exact path to your number.</p>
-    <div class="hctas">
-      <a class="btn p" href="/team-command.html">Try it for free</a>
-      <a class="btn o" href="/contact.html">Talk to us about your team</a>
+<div class="v2"><section class="hero"><div class="wrap"><div class="herogrid">
+    <div>
+      <p class="eyebrow">SalesHedge for sales managers</p>
+      <h1>Your CRM reports the pipeline. <span class="hi">SalesHedge tells you where to intervene.</span></h1>
+      <p class="sub">Back your team forecast with actual evidence, see who needs coaching, where deals are stuck, and know the exact path to the number.</p>
+      <div class="btnrow">
+        <a class="btn" href="/team-command.html">Try it for free</a>
+        <a class="btn o" href="/contact.html">Talk to us about your team</a>
+      </div>
+      <div class="ticks">
+        <div><span>&#10003;</span>No credit card</div>
+        <div><span>&#10003;</span>Set up in 60 seconds</div>
+        <div><span>&#10003;</span>Cancel anytime</div>
+      </div>
     </div>
-    <div class="chips">
-      <div class="chp"><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#6366f1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Forecast inspection</div>
-      <div class="chp"><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#6366f1" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="#6366f1" stroke-width="2"/></svg></span>Coaching priorities</div>
-      <div class="chp"><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.8v5.4c0 4.3-2.9 7.4-7 8.8-4.1-1.4-7-4.5-7-8.8V5.8z" stroke="#6366f1" stroke-width="2" stroke-linejoin="round"/></svg></span>Deal viability</div>
-      <div class="chp"><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#6366f1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Path to the number</div>
-    </div>
-  </div>
-
-  <!-- coded manager forecast desk (same component family as homepage hero) -->
-  <div class="shot">
+    <div class="shot">
     <div class="bar"><span class="dot" style="background:#fca5a5"></span><span class="dot" style="background:#fcd34d"></span><span class="dot" style="background:#86efac"></span><span class="ttl">SalesHedge &middot; Manager Dashboard</span></div>
     <div class="sbody">
       <div class="sleft">
@@ -390,7 +395,7 @@
       </div>
     </div>
   </div>
-</div></header>
+</div></div></section></div>
 
 <!-- MANAGER OPERATING SYSTEM -->
 <section class="blk"><div class="wrap">

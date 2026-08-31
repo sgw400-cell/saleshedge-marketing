@@ -197,6 +197,23 @@ footer .fl{display:flex;gap:20px;justify-content:center;margin-bottom:12px}
 footer .fl a{font-size:13px;color:rgba(255,255,255,.4)}
 footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 
+.v2 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.v2 .hero{background:var(--dark,#0B0F19);padding:46px 0 56px;color:#fff}
+.v2 .herogrid{display:grid;grid-template-columns:0.84fr 1.16fr;gap:40px;align-items:center}
+.v2 .eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6366F1;margin:0 0 11px}
+.v2 h1{font-size:42px;line-height:1.07;font-weight:900;letter-spacing:-1.4px;margin:0;color:#fff}
+.v2 h1 .hi{color:#A5B4FC}
+.v2 .sub{font-size:16px;line-height:1.6;color:#B9C2D4;margin:16px 0 0;max-width:44ch}
+.v2 .btnrow{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.v2 .btn{display:inline-flex;align-items:center;gap:9px;background:#6366F1;color:#fff;font-size:15px;font-weight:800;padding:13px 22px;border-radius:11px;text-decoration:none}
+.v2 .btn.o{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.v2 .ticks{margin-top:13px;display:flex;gap:18px;flex-wrap:wrap}
+.v2 .ticks div{font-size:12.5px;color:#9AA4BA;font-weight:600;display:flex;align-items:center;gap:7px}
+.v2 .ticks span{color:#6366F1;font-weight:900}
+/* The nav sits outside .v2, so at 1040 it left the logo 70px inboard of the
+   headline. Widened here rather than restructuring the markup. */
+.wrap.navin{max-width:1180px}
+@media(max-width:900px){.v2 .herogrid{grid-template-columns:1fr}.v2 h1,.v2 .hero h1{font-size:32px}}
 @media(max-width:900px){
  .hgrid,.pains,.two,.donuts,.fgrid{flex-direction:column}
  .hl{padding-right:0;margin-bottom:32px}
@@ -224,7 +241,7 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
     color:#6366F1;margin:0 0 11px}.v2 .hero .eyebrow{color:#A5B4FC}.v2 h2{margin:0;font-size:34px;font-weight:800;letter-spacing:-1px;line-height:1.15}.v2 h2 .hi{color:#6366F1}.v2 .cta h2 .hi{color:#A5B4FC}.v2 .lede{margin:11px 0 0;font-size:15.5px;color:var(--t2);font-weight:500;max-width:640px}.v2 /* ============ NAV (placeholder: live nav is transplanted at push) ============ */
   .nav{background:#0B0F19}.v2 .nav .inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:26px}.v2 .logo{display:flex;align-items:center;gap:10px}.v2 .logo .mark{width:36px;height:36px;display:block;flex-shrink:0}.v2 .logo .name{font-weight:800;font-size:18px;letter-spacing:-.3px;color:#fff;line-height:1.1}.v2 .logo .name b{color:#6366F1;font-weight:800}.v2 .logo .tag{font-size:8.5px;letter-spacing:1.3px;color:#64748b;font-weight:700;margin-top:2px}.v2 .logo .tag i{color:#6366F1;font-style:normal}.v2 .nav .sp{flex:1}.v2 .nav a.lnk{font-size:14px;color:#cbd5e1;font-weight:600;text-decoration:none}.v2 .nav .cta{background:var(--indigo);color:#fff;font-size:14px;font-weight:700;padding:9px 16px;
     border-radius:9px;text-decoration:none}.v2 /* ============ HERO ============ */
-  .hero{padding:46px 0 56px;background:#0B0F19}.v2 .herogrid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:40px;align-items:center}.v2 .hero h1{margin:0;font-size:40px;line-height:1.13;letter-spacing:-1.3px;font-weight:800;color:#fff}.v2 .hero h1 .hi{color:#A5B4FC}.v2 .hero p.sub{margin:18px 0 0;font-size:15.5px;color:#c2c8d6;font-weight:500;max-width:430px}.v2 .hero .btnrow{margin-top:26px}.v2 .btn{display:inline-flex;align-items:center;gap:9px;background:var(--indigo);color:#fff;font-size:15px;
+  .hero{padding:46px 0 56px;background:#0B0F19}.v2 .herogrid{display:grid;grid-template-columns:0.84fr 1.16fr;gap:40px;align-items:center}.v2 .hero h1{margin:0;font-size:42px;line-height:1.07;letter-spacing:-1.4px;font-weight:900;color:#fff}.v2 .hero h1 .hi{color:#A5B4FC}.v2 .hero p.sub{margin:18px 0 0;font-size:15.5px;color:#c2c8d6;font-weight:500;max-width:430px}.v2 .hero .btnrow{margin-top:26px}.v2 .btn{display:inline-flex;align-items:center;gap:9px;background:var(--indigo);color:#fff;font-size:15px;
     font-weight:800;padding:13px 22px;border-radius:11px;text-decoration:none}.v2 .hint{margin-top:11px;font-size:12.5px;color:#94a3b8;font-weight:600}.v2 /* ---- exec dashboard panel ---- */
   .panel{color:var(--t1);background:#fff;border:1px solid var(--bd);border-radius:14px;box-shadow:0 18px 44px rgba(11,29,58,.10);
     overflow:hidden}.v2 .pbar{display:flex;align-items:center;gap:9px;padding:9px 13px;border-bottom:1px solid var(--grid);background:#fcfdff}.v2 .pbar .ttl{font-size:11.5px;font-weight:800;color:var(--t1)}.v2 .pbar .chip{font-size:9.5px;font-weight:700;color:var(--t3);border:1px solid var(--bd);border-radius:14px;padding:2px 8px}.v2 .pbar .sp{flex:1}.v2 .pbody{padding:11px;display:flex;flex-direction:column;gap:9px}.v2 .pk{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.v2 .pkc{border:1px solid var(--bd);border-radius:9px;padding:9px 9px 8px}.v2 .pkc .l{font-size:8px;font-weight:800;letter-spacing:.4px;color:var(--t3);text-transform:uppercase;min-height:24px;display:flex;align-items:flex-start}.v2 .pkc .v{font-size:17px;font-weight:800;letter-spacing:-.6px;margin-top:3px}.v2 .pkc .d{font-size:8px;font-weight:700;margin-top:2px;color:var(--t3)}.v2 .pkc .d.up{color:var(--ok)}.v2 .pkc .d.dn{color:var(--dng)}.v2 .prow{display:grid;grid-template-columns:1.55fr 1fr;gap:9px}.v2 .pc{border:1px solid var(--bd);border-radius:9px;padding:10px}.v2 .pc .h{font-size:10px;font-weight:800;color:var(--t1)}.v2 .pc .s{font-size:8px;color:var(--t3);font-weight:600;margin-top:1px}.v2 .pc .lnk{font-size:8px;font-weight:800;color:var(--indigo);float:right}.v2 .miniwf{display:flex;align-items:flex-end;gap:5px;height:74px;margin-top:9px;position:relative}.v2 .miniwf .col{flex:1;position:relative;height:100%}.v2 .miniwf .seg{position:absolute;left:14%;right:14%;border-radius:2px 2px 0 0}.v2 .miniwf .vl{position:absolute;top:-11px;left:-24%;right:-24%;text-align:center;font-size:7.5px;font-weight:800;white-space:nowrap}.v2 .miniwf .xl{position:absolute;bottom:-13px;left:-30%;right:-30%;text-align:center;font-size:6.5px;color:var(--t3);font-weight:700;white-space:nowrap}.v2 .liftbadge{display:inline-block;background:var(--bOk);color:var(--ok);font-size:7.5px;font-weight:800;
@@ -295,17 +312,21 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 <div class="v2">
 <!-- ===================== HERO ===================== -->
 <section class="hero"><div class="wrap"><div class="herogrid">
-  <div>
-    <p class="eyebrow">Executive forecast</p>
-    <h1>Know if you will hit the number. <span class="hi">Know exactly what has to change</span> if you will not.</h1>
-    <p class="sub">SalesHedge is the executive operating system for revenue leadership. Pressure-test your forecast, pinpoint where the gap lives, and walk into the board meeting with a number you can defend.</p>
-    <div class="btnrow">
-      <a class="btn" href="/revenue-command.html">Try it for free &rarr;</a>
-      <div class="hint">No credit card. No CRM required.</div>
+    <div>
+      <p class="eyebrow">Executive forecast</p>
+      <h1>Know if you will hit the number. <span class="hi">Know exactly what has to change</span> if you will not.</h1>
+      <p class="sub">SalesHedge is the executive operating system for revenue leadership. Pressure-test your forecast, pinpoint where the gap lives, and walk into the board meeting with a number you can defend.</p>
+      <div class="btnrow">
+        <a class="btn" href="/revenue-command.html">Try it for free</a>
+        <a class="btn o" href="/contact.html">Talk to us</a>
+      </div>
+      <div class="ticks">
+        <div><span>&#10003;</span>No credit card</div>
+        <div><span>&#10003;</span>Set up in 60 seconds</div>
+        <div><span>&#10003;</span>Cancel anytime</div>
+      </div>
     </div>
-  </div>
-
-  <div class="panel">
+    <div class="panel">
     <div class="pbar">
       <span class="ttl">Executive overview</span>
       <span class="chip">This quarter</span><span class="chip">Q2 FY25</span>
@@ -690,6 +711,9 @@ footer .cp{font-size:11px;color:rgba(255,255,255,.25)}
 .shfoot-col a:hover{color:#fff}
 .shfoot-cp{border-top:1px solid rgba(255,255,255,.07);margin-top:44px;padding-top:20px;font-size:11.5px;color:rgba(255,255,255,.3)}
 @media(max-width:720px){.shfoot-grid{gap:32px}.shfoot-cols{gap:40px}}
+/* This page re-declares .v2 .herogrid after the breakpoint above, which beat the
+   collapse. Restated last so one column actually wins on narrow. */
+@media(max-width:900px){.v2 .herogrid{grid-template-columns:1fr}.v2 h1,.v2 .hero h1{font-size:32px}}
 </style>
 
 <script>(function(){try{var ref=(new URLSearchParams(location.search).get('ref')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,40);if(ref){try{localStorage.setItem('shk_ref',ref)}catch(e){}try{var t=location.pathname==='/'?'homepage':location.pathname.replace(/^\//,'').replace(/\.html$/,'');var src=(new URLSearchParams(location.search).get('src')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);navigator.sendBeacon('https://vyrfktotclcmeqvusgnw.supabase.co/functions/v1/ref-click',JSON.stringify({code:ref,target:t,src:src}))}catch(e){}}if(!ref)return;document.querySelectorAll('a[href^="/signup"],a[href^="/login"],a[href^="/sellers"],a[href^="/resellers"],a[href^="/manager"],a[href^="/revenue-command"]').forEach(function(a){var u=a.getAttribute('href');a.setAttribute('href',u+(u.indexOf('?')>-1?'&':'?')+'ref='+encodeURIComponent(ref));});}catch(e){}})();</script>
