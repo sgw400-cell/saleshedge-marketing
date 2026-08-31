@@ -93,20 +93,39 @@
   section.blk{padding:80px 0}
   .blk.alt{background:#f1f4f9}
 /* ===== COMPOUNDING LEARNING SECTION (namespaced cl-*, no collisions) ===== */
-.cl-grid{display:grid;grid-template-columns:0.82fr 1.6fr 0.62fr;gap:22px;align-items:center}
-.cl-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.cl-stp{text-align:center;position:relative;padding:0 8px}
-.cl-stp::after{content:"";position:absolute;top:22px;right:-10px;width:20px;border-top:2px dotted #c9d2e1}
-.cl-stp:last-child::after{display:none}
-.cl-si{width:44px;height:44px;border-radius:50%;background:#eef2ff;color:#6366f1;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
-.cl-stt{font-size:12px;font-weight:800;letter-spacing:-.1px;color:#111827}
-.cl-sd{font-size:10px;color:#6b7280;font-weight:600;margin-top:4px;line-height:1.35}
-.cl-why{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:15px}
-.cl-wt{font-size:11.5px;font-weight:800;color:#111827;margin-bottom:9px}
-.cl-wi{display:flex;gap:7px;align-items:flex-start;font-size:11.5px;color:#4b5563;font-weight:600;padding:4px 0;text-align:left}
-.cl-wi span{color:#16a34a;font-weight:800}
-@media(max-width:960px){.cl-grid{grid-template-columns:1fr;gap:26px}.cl-why{max-width:380px}}
-@media(max-width:560px){.cl-steps{grid-template-columns:repeat(2,1fr);row-gap:22px}.cl-stp::after{display:none}}
+.as{--ac:#6366F1;--acd:#4338CA;--acl:#A5B4FC;--acs:#EEF2FF;--mist:#C9D2E1;--ink:#111827;--t2:#4B5563;--t3:#6B7280;--bd:#E5E7EB;--hair:#F1F3F7}
+.as *{box-sizing:border-box}
+.as-hd{max-width:720px;margin:0 0 30px}
+.as-eb{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin:0 0 8px}
+.as h2.as-h{font-size:36px;line-height:1.1;letter-spacing:-1.1px;margin:0 0 12px;font-weight:800;color:var(--ink)}
+.as h2.as-h span{color:var(--ac)}
+.as-lede{font-size:16.5px;line-height:1.6;color:var(--t2);margin:0}
+.as-card{display:grid;grid-template-columns:1.35fr 1fr;gap:38px;align-items:start;background:#fff;border:1px solid var(--bd);border-radius:18px;padding:28px 32px 26px}
+.as-cap{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin:0 0 3px}
+.as-sub{font-size:12.5px;line-height:1.5;color:var(--t3);margin:0 0 10px}
+.as-plot{position:relative;height:420px}
+.as-svg{position:absolute;left:0;right:0;top:0;bottom:30px;width:100%;height:calc(100% - 30px)}
+.as-yl{position:absolute;left:0;top:0;bottom:30px;width:1px;background:var(--bd)}
+.as-xl{position:absolute;left:0;right:0;bottom:30px;height:1px;background:var(--bd)}
+.as-x{position:absolute;left:0;right:0;bottom:4px;display:flex}
+.as-x span{flex:1;text-align:center;font-size:11px;font-weight:700;color:var(--t3)}
+.as-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--ac);border:3px solid #fff;box-shadow:0 0 0 2.5px var(--ac);transform:translate(-50%,50%);z-index:3}
+.as-pin{position:absolute;z-index:4;font-size:12px;line-height:1.35;font-weight:700;color:var(--acd);background:#fff;border:1px solid var(--acl);border-radius:9px;padding:6px 10px;box-shadow:0 2px 8px rgba(17,24,39,.06);white-space:nowrap}
+.as-pin b{display:block;font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);margin-bottom:2px}
+.as-flat{position:absolute;font-size:11.5px;font-weight:700;color:#8A94A6;background:#fff;padding:2px 6px}
+.as-s{display:grid;grid-template-columns:32px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.as-s:last-of-type{border-bottom:none}
+.as-s i{width:32px;height:32px;border-radius:10px;background:var(--acs);color:var(--acd);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;font-style:normal}
+.as-s .t{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:3px;letter-spacing:-.2px}
+.as-s .d{font-size:13.5px;color:var(--t2);line-height:1.55}
+.as-s.loop i{background:var(--ac);color:#fff;font-size:15px}
+.as-why{margin-top:16px;background:var(--acs);border-left:3px solid var(--ac);border-radius:0 12px 12px 0;padding:14px 17px;font-size:13.5px;color:#312E81;line-height:1.6}
+.as-why b{color:var(--acd)}
+.as-foot{grid-column:1 / -1;margin-top:22px;padding-top:18px;border-top:1px solid var(--hair);font-size:14.5px;color:var(--t2);line-height:1.65}
+.as-foot b{color:var(--ink)}
+@media(max-width:900px){.as-card{grid-template-columns:1fr;gap:26px;padding:22px 20px}.as h2.as-h{font-size:29px}.as-plot{height:330px}.as-pin{font-size:11px;padding:5px 8px}}
+@media(max-width:960px){}
+@media(max-width:560px){}
   .center-h{text-align:center;max-width:660px;margin:0 auto 46px}
   .eyebrow{color:#6366f1;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
   h2{font-size:32px;font-weight:900;letter-spacing:-.02em;line-height:1.16}
@@ -417,28 +436,37 @@
 </div></section>
 
 <!-- COMPOUNDING LEARNING -->
-<section class="blk alt"><div class="wrap">
-  <div class="cl-grid">
-    <div>
-      <div class="eyebrow">How the model learns</div>
-      <h2><span class="ind">Compounding</span> Learning</h2>
-      <p class="ssub">Our proprietary Adaptive Learning feature learns your team's patterns, where they win and lose, and turns every closed deal into sharper coaching for the rep who needs it.</p>
-    </div>
-    <div class="cl-steps">
-      <div class="cl-stp"><div class="cl-si"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2.5v9M10 11.5L6.6 8.1M10 11.5l3.4-3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13.5v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="cl-stt">Ingest signals</div><div class="cl-sd">Pipeline, activity, emails, meetings, and outcomes.</div></div>
-      <div class="cl-stp"><div class="cl-si"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.2" stroke="currentColor" stroke-width="1.8"/><path d="M7 10.4l2 2 4-4.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="cl-stt">Learn patterns</div><div class="cl-sd">Identifies what drives wins and what predicts losses.</div></div>
-      <div class="cl-stp"><div class="cl-si"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M7 12.5l2.4-3.2 2 2.2 2.6-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="cl-stt">Score and explain</div><div class="cl-sd">Scores every deal with the reasoning behind it.</div></div>
-      <div class="cl-stp"><div class="cl-si"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 15.5L8 9l3.4 3 5.6-7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.6 4.5H17V9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="cl-stt">Improve over time</div><div class="cl-sd">Every win and loss makes the next call sharper.</div></div>
-    </div>
-    <div class="cl-why">
-      <div class="cl-wt">Why it matters</div>
-      <div class="cl-wi"><span>&#10003;</span>Higher forecast accuracy</div>
-      <div class="cl-wi"><span>&#10003;</span>Earlier risk detection</div>
-      <div class="cl-wi"><span>&#10003;</span>Coaching aimed at the right rep</div>
-      <div class="cl-wi"><span>&#10003;</span>Fewer surprises on the forecast call</div>
-    </div>
+<section class="blk alt"><div class="wrap"><div class="as">
+  <div class="as-hd">
+    <p class="as-eb">How the model learns</p>
+    <h2 class="as-h"><span>Compounding</span> Learning</h2>
+    <p class="as-lede">Adaptive Scoring&trade; studies how your team actually wins and loses, then coaches every rep and manager against your patterns. Not a generic model. Yours, and it gets sharper the longer you run it.</p>
   </div>
-</div></section>
+  <div class="as-card">
+    <div>
+      <p class="as-cap">What the model knows about your team</p>
+      <p class="as-sub">More reps live in it, more deals close, more outcomes come back. Each quarter adds more evidence than the one before it.</p>
+      <div class="as-plot">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="as-svg" aria-hidden="true"><defs><linearGradient id="asHg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6366F1" stop-opacity=".30"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></linearGradient></defs><path d="M 2.00 92.48 C 4.29 92.24, 6.57 91.44, 8.86 90.80 C 11.14 90.16, 13.43 89.34, 15.71 88.32 C 18.00 87.30, 20.29 85.56, 22.57 84.00 C 24.86 82.44, 27.14 80.32, 29.43 78.04 C 31.71 75.76, 34.00 72.62, 36.29 69.88 C 38.57 67.14, 40.86 64.20, 43.14 61.04 C 45.43 57.88, 47.71 53.98, 50.00 50.44 C 52.29 46.90, 54.57 43.14, 56.86 39.32 C 59.14 35.50, 61.43 31.22, 63.71 27.44 C 66.00 23.66, 68.29 19.62, 70.57 16.32 C 72.86 13.02, 75.14 9.52, 77.43 7.60 C 79.71 5.68, 82.00 6.00, 84.29 6.00 L 84.29 98 L 2.00 98 Z" fill="url(#asHg)"/><path d="M 2.00 92.48 L 98.00 90.48" fill="none" stroke="#C9D2E1" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M 2.00 92.48 C 4.29 92.24, 6.57 91.44, 8.86 90.80 C 11.14 90.16, 13.43 89.34, 15.71 88.32 C 18.00 87.30, 20.29 85.56, 22.57 84.00 C 24.86 82.44, 27.14 80.32, 29.43 78.04 C 31.71 75.76, 34.00 72.62, 36.29 69.88 C 38.57 67.14, 40.86 64.20, 43.14 61.04 C 45.43 57.88, 47.71 53.98, 50.00 50.44 C 52.29 46.90, 54.57 43.14, 56.86 39.32 C 59.14 35.50, 61.43 31.22, 63.71 27.44 C 66.00 23.66, 68.29 19.62, 70.57 16.32 C 72.86 13.02, 75.14 9.52, 77.43 7.60 C 79.71 5.68, 82.00 6.00, 84.29 6.00" fill="none" stroke="#6366F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+        <span class="as-dot" style="left:2.00%;bottom:calc(27.744px + 7.52%)"></span><span class="as-dot" style="left:43.14%;bottom:calc(18.312px + 38.96%)"></span><span class="as-dot" style="left:84.29%;bottom:calc(1.8px + 94%)"></span>
+        <span class="as-flat" style="left:62%;bottom:calc(27.36px + 8.8%)">A static scorecard, 2 years on</span>
+        <span class="as-pin" style="left:1%;bottom:calc(61.744px + 7.52%)"><b>Quarter 1</b>Onboarding. It is learning you.</span>
+        <span class="as-pin" style="left:26%;bottom:calc(52.312px + 38.96%)"><b>Quarters 3 to 4</b>Your patterns start to bite.</span>
+        <span class="as-pin" style="left:83%;bottom:calc(-58.2px + 94%);transform:translate(-100%,0)"><b>Year 2</b>Coaching compounds.</span>
+        <div class="as-yl"></div><div class="as-xl"></div>
+        <div class="as-x"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q5</span><span>Q6</span><span>Q7</span><span>Q8</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="as-s"><i>1</i><div><div class="t">Reads the whole deal</div><div class="d">Pipeline, activity, next steps, who is on the calls, and how every deal ended. No extra logging from your reps.</div></div></div>
+      <div class="as-s"><i>2</i><div><div class="t">Learns what your winners do</div><div class="d">Which signals actually predicted a close in your business, and which ones your team keeps mistaking for progress.</div></div></div>
+      <div class="as-s"><i>3</i><div><div class="t">Scores and shows its work</div><div class="d">A risk score on every deal, the reasoning behind it, and the specific move that closes the gap.</div></div></div>
+      <div class="as-s loop"><i>&#8635;</i><div><div class="t">Feeds the result back in</div><div class="d">Every close, won or lost, returns to step one. That is the compounding part.</div></div></div>
+      <div class="as-why"><b>Why it bends.</b> Adoption takes a quarter or two. Then more reps are in it, your headcount grows, and every closed deal is another data point. The curve is the growth of the evidence, not a promise about your number.</div>
+    </div>
+    <div class="as-foot">Most forecasting tools are exactly the same on day 700 as they were on day 1. <b>Adaptive Scoring is not.</b> The model scoring your pipeline next year will have read every deal you closed this year, which is the one thing a static scorecard can never do.</div>
+  </div>
+</div></div></section>
 
 <!-- PATH TO THE NUMBER -->
 <section class="blk"><div class="wrap">
